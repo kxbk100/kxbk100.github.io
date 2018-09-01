@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>【构建之法】 第4章 两人合作 | 冯天祥 | Hakuna Matata</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="构建之法">
+    <meta name="description" content="代码风格规范  4个空格的缩进 每个{}独占一行 不要把多个变量定义在一行上 一个类型的成员变量用m_name来命名 Pascal：所有的类型/类/函数名 lowerCamel：变量 注释是为了解释程序做什么（What），为什么这么做（Why），以及要特别注意的地方，只用ASCII字符，不要用中文   代码设计规范  ">
+<meta name="keywords" content="构建之法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【构建之法】 第4章 两人合作">
+<meta property="og:url" content="https://kxbk100.github.io/2017/12/12/【构建之法】-第4章-两人合作/index.html">
+<meta property="og:site_name" content="冯天祥">
+<meta property="og:description" content="代码风格规范  4个空格的缩进 每个{}独占一行 不要把多个变量定义在一行上 一个类型的成员变量用m_name来命名 Pascal：所有的类型/类/函数名 lowerCamel：变量 注释是为了解释程序做什么（What），为什么这么做（Why），以及要特别注意的地方，只用ASCII字符，不要用中文   代码设计规范  函数：只做一件事，并且要做好 单一出口 不要在构造函数中做复杂的操作，简单初始化">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-12-11T17:26:04.411Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【构建之法】 第4章 两人合作">
+<meta name="twitter:description" content="代码风格规范  4个空格的缩进 每个{}独占一行 不要把多个变量定义在一行上 一个类型的成员变量用m_name来命名 Pascal：所有的类型/类/函数名 lowerCamel：变量 注释是为了解释程序做什么（What），为什么这么做（Why），以及要特别注意的地方，只用ASCII字符，不要用中文   代码设计规范  函数：只做一件事，并且要做好 单一出口 不要在构造函数中做复杂的操作，简单初始化">
+    
+        <link rel="alternate" type="application/atom+xml" title="冯天祥" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">冯天祥</h5>
+          <a href="mailto:kxbk100@foxmail.com" title="kxbk100@foxmail.com" class="mail">kxbk100@foxmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                文章
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/kxbk100" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">【构建之法】 第4章 两人合作</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">【构建之法】 第4章 两人合作</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-12-11T16:46:29.000Z" itemprop="datePublished" class="page-time">
+  2017-12-12
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>目录</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#代码风格规范"><span class="post-toc-number">1.</span> <span class="post-toc-text">代码风格规范</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#代码设计规范"><span class="post-toc-number">2.</span> <span class="post-toc-text">代码设计规范</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#代码复审"><span class="post-toc-number">3.</span> <span class="post-toc-text">代码复审</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#代码复审的核查表"><span class="post-toc-number">4.</span> <span class="post-toc-text">代码复审的核查表</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-【构建之法】-第4章-两人合作"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">【构建之法】 第4章 两人合作</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-12-12 00:46:29" datetime="2017-12-11T16:46:29.000Z"  itemprop="datePublished">2017-12-12</time>
+
+            
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="代码风格规范"><a href="#代码风格规范" class="headerlink" title="代码风格规范"></a>代码风格规范</h3><blockquote>
+<ul>
+<li>4个空格的缩进</li>
+<li>每个{}独占一行</li>
+<li>不要把多个变量定义在一行上</li>
+<li>一个类型的成员变量用<code>m_name</code>来命名</li>
+<li><code>Pascal</code>：所有的类型/类/函数名</li>
+<li><code>lowerCamel</code>：变量</li>
+<li>注释是为了解释程序做什么（What），为什么这么做（Why），以及要特别注意的地方，只用ASCII字符，不要用中文</li>
+</ul>
+</blockquote>
+<h3 id="代码设计规范"><a href="#代码设计规范" class="headerlink" title="代码设计规范"></a>代码设计规范</h3><blockquote>
+<ul>
+<li>函数：只做一件事，并且要做好</li>
+<li>单一出口</li>
+<li>不要在构造函数中做复杂的操作，简单初始化所有的数据成员即可</li>
+</ul>
+</blockquote>
+<h3 id="代码复审"><a href="#代码复审" class="headerlink" title="代码复审"></a>代码复审</h3><blockquote>
+<p>看代码是否在代码规范的框架内正确地解决了问题</p>
+<p>长远的问题</p>
+<ul>
+<li>这么修改之后，有没有别的功能会受影响</li>
+<li>项目中还有别的地方需要类似的修改吗</li>
+<li>有没有留下足够的说明，让将来维护代码时不会出现问题</li>
+<li>对于这样的修改，有没有别的成员需要告知</li>
+<li>导致问题的根本原因是什么？我们以后如何能自动避免这样的情况再次出现</li>
+</ul>
+</blockquote>
+<h3 id="代码复审的核查表"><a href="#代码复审的核查表" class="headerlink" title="代码复审的核查表"></a>代码复审的核查表</h3>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-12-11T17:26:04.411Z" itemprop="dateUpdated">2017-12-12 01:26:04</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://kxbk100.github.io">
+            <img src="/img/avatar.jpg" alt="冯天祥">
+            冯天祥
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/构建之法/">构建之法</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://kxbk100.github.io/2017/12/12/【构建之法】-第4章-两人合作/&title=《【构建之法】 第4章 两人合作》 — 冯天祥&pic=https://kxbk100.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://kxbk100.github.io/2017/12/12/【构建之法】-第4章-两人合作/&title=《【构建之法】 第4章 两人合作》 — 冯天祥&source=Hakuna Matata" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://kxbk100.github.io/2017/12/12/【构建之法】-第4章-两人合作/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【构建之法】 第4章 两人合作》 — 冯天祥&url=https://kxbk100.github.io/2017/12/12/【构建之法】-第4章-两人合作/&via=https://kxbk100.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://kxbk100.github.io/2017/12/12/【构建之法】-第4章-两人合作/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/01/14/Axure学习小记/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> 上一篇</div>
+        <h4 class="title">Axure学习小记</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/12/08/【构建之法】-第3章-软件工程师的成长/" id="post-next" class="post-nav-link">
+        <div class="tips">下一篇 <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">【构建之法】 第3章 软件工程师的成长</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>冯天祥 &copy; 2016 - 2018</span>
+            <!-- <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span> -->
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://kxbk100.github.io/2017/12/12/【构建之法】-第4章-两人合作/&title=《【构建之法】 第4章 两人合作》 — 冯天祥&pic=https://kxbk100.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://kxbk100.github.io/2017/12/12/【构建之法】-第4章-两人合作/&title=《【构建之法】 第4章 两人合作》 — 冯天祥&source=Hakuna Matata" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://kxbk100.github.io/2017/12/12/【构建之法】-第4章-两人合作/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【构建之法】 第4章 两人合作》 — 冯天祥&url=https://kxbk100.github.io/2017/12/12/【构建之法】-第4章-两人合作/&via=https://kxbk100.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://kxbk100.github.io/2017/12/12/【构建之法】-第4章-两人合作/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACvklEQVR42u3aQW7jMBAEQP//01lgTznE2u4ZMgkWpZNhyxKLBsRxc16v+Pj4e+Tvf/708znPr/PzDx94eHh4o6G/O94NNB/WMzifxOfpeHtlPDw8vGu855sl1HxpaR/97fTh4eHh/R7ebPGYFdN4eHh4/xNvNgU5YL+E4OHh4X0PL3noP5/fxgr7ePdw1oKHh4fXPZkPRwm3X1/c38PDw8Nb7KrPiuNkWLNCvB4bHh4e3gVeG6q2kcS+GStvIIiyFjw8PLw1L48MkrihDQ7ylqz6F8PDw8O7xtv8r8/Di1lkPAtwVzEuHh4e3pq3f9C3EW07fUmRjYeHh3eWlxS4+fuzx3peNCdF/BdhBB4eHt5RXhvm5ufMJq6NG4pIAg8PD+8CL4lo9xPRbpLNttmKXxIPDw9vwbtSyMbxwanz8fDw8L6Tly8Am6A2mcp2WouJxsPDw1vz8rJ1FvW2u3DPD/dk4oZVOR4eHt4i4Xy+dHuD/FunrlD0RODh4eFd4CWlbVsizyLgfGOs+N+Ah4eHt+a1Je+m7E7Oz+OJIqXGw8PDO8rbxLKbcjxhzxYePDw8vHu8vAWq3ZRqr7Yvnd9ug+Hh4eEd4rVla7vHlFNX2cm7O+Lh4eFd4J0adB4EzCKPvLlhCMPDw8OLeXnhm7dn5cvJJnqIroaHh4d3gTcbbr4xthncJozAw8PDu8drw4LV/MWxb37OPyYXDw8P7wLvXhixGWKbmhxLXPDw8PAC3kd53JiCfEFqFxI8PDy8G7x2SUgG93z7dknYfwsPDw/vBq8NCGaV+ybyaBeGVf6Bh4eHF/M2DVL7ZqxNCDtsvcLDw8P7ZbxZwJFMRx1z4OHh4f0or22oOpCClI0Cq5IaDw8Pr+S1jVCzDoXZJlZbuK9iXDw8PLxtR9OrXQza+KBtO0jaC177lQcPDw/v63f+AKcEu2AlUXImAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
