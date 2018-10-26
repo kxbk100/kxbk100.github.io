@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://kxbk100.github.io/"/>
-  <updated>2018-10-26T17:23:12.649Z</updated>
+  <updated>2018-10-26T17:25:03.493Z</updated>
   <id>https://kxbk100.github.io/</id>
   
   <author>
@@ -21,18 +21,17 @@
     <link href="https://kxbk100.github.io/2018/10/27/%E9%9B%85%E6%80%9D/"/>
     <id>https://kxbk100.github.io/2018/10/27/雅思/</id>
     <published>2018-10-26T17:23:10.000Z</published>
-    <updated>2018-10-26T17:23:12.649Z</updated>
+    <updated>2018-10-26T17:25:03.493Z</updated>
     
-    <content type="html"><![CDATA[<figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/2018/10/27/雅思/写作/10.20/10.20.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure>]]></content>
+    <content type="html"><![CDATA[<h1 id="写作"><a href="#写作" class="headerlink" title="写作"></a>写作</h1><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/2018/10/27/雅思/写作/10.20/10.20.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;figure class=&quot;image-bubble&quot;&gt;
+        &lt;h1 id=&quot;写作&quot;&gt;&lt;a href=&quot;#写作&quot; class=&quot;headerlink&quot; title=&quot;写作&quot;&gt;&lt;/a&gt;写作&lt;/h1&gt;&lt;figure class=&quot;image-bubble&quot;&gt;
                 &lt;div class=&quot;img-lightbox&quot;&gt;
-                    &lt;div class=&quot;overlay&quot;&gt;&lt;/div&gt;
-                   
+
       
     
     </summary>
@@ -73,12 +72,14 @@
     <link href="https://kxbk100.github.io/2018/10/12/%E3%80%8A%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%95%99%E7%A8%8B%E3%80%8B/"/>
     <id>https://kxbk100.github.io/2018/10/12/《计算机操作系统教程》/</id>
     <published>2018-10-11T16:58:04.000Z</published>
-    <updated>2018-10-11T16:58:04.022Z</updated>
+    <updated>2018-10-26T17:24:57.053Z</updated>
     
     <summary type="html">
     
     </summary>
     
+    
+      <category term="后端" scheme="https://kxbk100.github.io/tags/%E5%90%8E%E7%AB%AF/"/>
     
   </entry>
   
