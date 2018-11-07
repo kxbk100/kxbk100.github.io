@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Java学习小记 | 冯天祥 | Hakuna Matata</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="后端">
+    <meta name="description" content="ScannerScanner s = new Scanner(System.in);//  使用hasNextXxx()方法进行验证，再使用nextXxx()来读取//  next()//  next() 不能得到带有空格的字符串import java.util.Scanner;  public class Scann">
+<meta name="keywords" content="后端">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java学习小记">
+<meta property="og:url" content="https://kxbk100.github.io/2017/11/25/test/Java学习小记/index.html">
+<meta property="og:site_name" content="冯天祥">
+<meta property="og:description" content="ScannerScanner s = new Scanner(System.in);//  使用hasNextXxx()方法进行验证，再使用nextXxx()来读取//  next()//  next() 不能得到带有空格的字符串import java.util.Scanner;  public class ScannerDemo &amp;#123;      public static void ma">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-09-02T11:23:48.219Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java学习小记">
+<meta name="twitter:description" content="ScannerScanner s = new Scanner(System.in);//  使用hasNextXxx()方法进行验证，再使用nextXxx()来读取//  next()//  next() 不能得到带有空格的字符串import java.util.Scanner;  public class ScannerDemo &amp;#123;      public static void ma">
+    
+        <link rel="alternate" type="application/atom+xml" title="冯天祥" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">冯天祥</h5>
+          <a href="mailto:kxbk100@foxmail.com" title="kxbk100@foxmail.com" class="mail">kxbk100@foxmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                文章
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/kxbk100" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Java学习小记</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Java学习小记</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-11-25T03:50:20.000Z" itemprop="datePublished" class="page-time">
+  2017-11-25
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>目录</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Scanner"><span class="post-toc-number">1.</span> <span class="post-toc-text">Scanner</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#数组大小用size"><span class="post-toc-number">2.</span> <span class="post-toc-text">数组大小用size()</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#数组访问用get"><span class="post-toc-number">3.</span> <span class="post-toc-text">数组访问用get()</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#数组修改用set"><span class="post-toc-number">4.</span> <span class="post-toc-text">数组修改用set()</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#for的遍历"><span class="post-toc-number">5.</span> <span class="post-toc-text">for的遍历</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#读取文件"><span class="post-toc-number">6.</span> <span class="post-toc-text">读取文件</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#写入文件"><span class="post-toc-number">7.</span> <span class="post-toc-text">写入文件</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#BufferedReader"><span class="post-toc-number">8.</span> <span class="post-toc-text">BufferedReader</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#FileInputStream（从文件读取数据）"><span class="post-toc-number">9.</span> <span class="post-toc-text">FileInputStream（从文件读取数据）</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#FileOutputStream（向文件中写数据）"><span class="post-toc-number">10.</span> <span class="post-toc-text">FileOutputStream（向文件中写数据）</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#读取写入流最后都要close"><span class="post-toc-number">11.</span> <span class="post-toc-text">读取写入流最后都要close();</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#读写一定要用byte"><span class="post-toc-number">12.</span> <span class="post-toc-text">读写一定要用byte</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-test/Java学习小记"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Java学习小记</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-11-25 11:50:20" datetime="2017-11-25T03:50:20.000Z"  itemprop="datePublished">2017-11-25</time>
+
+            
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="Scanner"><a href="#Scanner" class="headerlink" title="Scanner"></a>Scanner</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Scanner s = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line"><span class="comment">//  使用hasNextXxx()方法进行验证，再使用nextXxx()来读取</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//  next()</span></span><br><span class="line"><span class="comment">//  next() 不能得到带有空格的字符串</span></span><br><span class="line"><span class="keyword">import</span> java.util.Scanner; </span><br><span class="line"> </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ScannerDemo</span> </span>&#123;  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;  </span><br><span class="line">        Scanner scan = <span class="keyword">new</span> Scanner(System.in); </span><br><span class="line">        <span class="comment">// 从键盘接收数据  </span></span><br><span class="line">        <span class="comment">//next方式接收字符串</span></span><br><span class="line">        System.out.println(<span class="string">"next方式接收："</span>);</span><br><span class="line">        <span class="comment">// 判断是否还有输入</span></span><br><span class="line">        <span class="keyword">if</span>(scan.hasNext())&#123;   </span><br><span class="line">          String str1 = scan.next();</span><br><span class="line">          System.out.println(<span class="string">"输入的数据为："</span>+str1);  </span><br><span class="line">        &#125;  </span><br><span class="line"> </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//	nextLine()</span></span><br><span class="line"><span class="comment">//  以Enter为结束符，可以获得空白</span></span><br><span class="line"><span class="keyword">import</span> java.util.Scanner; </span><br><span class="line"> </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ScannerDemo</span> </span>&#123;  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;  </span><br><span class="line">        Scanner scan = <span class="keyword">new</span> Scanner(System.in); </span><br><span class="line">        <span class="comment">// 从键盘接收数据  </span></span><br><span class="line">        <span class="comment">//nextLine方式接收字符串</span></span><br><span class="line">        System.out.println(<span class="string">"nextLine方式接收："</span>);</span><br><span class="line">        <span class="comment">// 判断是否还有输入</span></span><br><span class="line">        <span class="keyword">if</span>(scan.hasNextLine())&#123;   </span><br><span class="line">          String str2 = scan.nextLine();</span><br><span class="line">          System.out.println(<span class="string">"输入的数据为："</span>+str2);  </span><br><span class="line">        &#125;  </span><br><span class="line"> </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">scanner.close();</span><br></pre></td></tr></table></figure>
+<h1 id="数组大小用size"><a href="#数组大小用size" class="headerlink" title="数组大小用size()"></a>数组大小用size()</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">students.size();</span><br></pre></td></tr></table></figure>
+<h1 id="数组访问用get"><a href="#数组访问用get" class="headerlink" title="数组访问用get()"></a>数组访问用get()</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">temp = students.get(i);</span><br></pre></td></tr></table></figure>
+<h1 id="数组修改用set"><a href="#数组修改用set" class="headerlink" title="数组修改用set()"></a>数组修改用set()</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">students.set(i, stu);</span><br></pre></td></tr></table></figure>
+<h1 id="for的遍历"><a href="#for的遍历" class="headerlink" title="for的遍历"></a>for的遍历</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//	打印所有学生的信息</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">displayAllStudent</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (students.size() &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">for</span> (Student stu : students) &#123;</span><br><span class="line">            System.out.println(<span class="string">"学号: "</span> + stu.getSno() + <span class="string">"\t姓名: "</span></span><br><span class="line">                    + stu.getSname() + <span class="string">"\t系部: "</span> + stu.getSdept());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">"数据库中无学生记录!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="读取文件"><a href="#读取文件" class="headerlink" title="读取文件"></a>读取文件</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 读取文件获得原始数据</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">getData</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        FileReader in_ = <span class="keyword">new</span> FileReader(<span class="string">"StudentDAO.txt"</span>);</span><br><span class="line">        BufferedReader in = <span class="keyword">new</span> BufferedReader(in_);</span><br><span class="line">        String line;</span><br><span class="line">        String reg1 = <span class="string">"\\s+"</span>;</span><br><span class="line">        String str[] = <span class="keyword">new</span> String[<span class="number">3</span>];</span><br><span class="line">        <span class="keyword">while</span> ((line = in.readLine()) != <span class="keyword">null</span>) &#123;</span><br><span class="line">            Student temp = <span class="keyword">new</span> Student();</span><br><span class="line">            str = line.split(reg1);</span><br><span class="line">            temp.setSno(str[<span class="number">0</span>]);</span><br><span class="line">            temp.setSname(str[<span class="number">1</span>]);</span><br><span class="line">            temp.setSdept(str[<span class="number">2</span>]);</span><br><span class="line">            students.add(temp);</span><br><span class="line">        &#125;</span><br><span class="line">        in.close();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">        System.out.println(e);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="写入文件"><a href="#写入文件" class="headerlink" title="写入文件"></a>写入文件</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//更新数据库,把数据输入文件</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">updateData</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        FileWriter out_ = <span class="keyword">new</span> FileWriter(<span class="string">"StudentDAO.txt"</span>);</span><br><span class="line">        BufferedWriter out = <span class="keyword">new</span> BufferedWriter(out_);</span><br><span class="line">        Student temp = <span class="keyword">new</span> Student();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; students.size(); i++) &#123;</span><br><span class="line">            temp = students.get(i);</span><br><span class="line">            out.write(temp.getSno() + <span class="string">" "</span> + temp.getSname() + <span class="string">" "</span></span><br><span class="line">                    + temp.getSdept() + <span class="string">"\r\n"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        out.close();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">        System.out.println(e);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="BufferedReader"><a href="#BufferedReader" class="headerlink" title="BufferedReader"></a>BufferedReader</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">    <span class="comment">//	从输入流读取一个字符并把该字符作为整数值返回， 当流结束的时候返回 -1</span></span><br><span class="line">    c = (<span class="keyword">char</span>)br.read();</span><br><span class="line">    System.out.println(c);</span><br><span class="line">&#125; <span class="keyword">while</span> (c != <span class="string">'q'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">    str = br.readLine();</span><br><span class="line">    System.out.println(str);</span><br><span class="line">&#125; <span class="keyword">while</span>(!str.equals(<span class="string">"end"</span>));</span><br></pre></td></tr></table></figure>
+<h1 id="FileInputStream（从文件读取数据）"><a href="#FileInputStream（从文件读取数据）" class="headerlink" title="FileInputStream（从文件读取数据）"></a>FileInputStream（从文件读取数据）</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">InputStream f = <span class="keyword">new</span> FileInputStream(<span class="string">"C:/java/hello"</span>);</span><br><span class="line"></span><br><span class="line">File f = <span class="keyword">new</span> File(<span class="string">"C:/java/hello"</span>);</span><br><span class="line">InputStream out = <span class="keyword">new</span> FileInputStream(f);</span><br></pre></td></tr></table></figure>
+<h1 id="FileOutputStream（向文件中写数据）"><a href="#FileOutputStream（向文件中写数据）" class="headerlink" title="FileOutputStream（向文件中写数据）"></a>FileOutputStream（向文件中写数据）</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">OutputStream f = <span class="keyword">new</span> FileOutputStream(<span class="string">"C:/java/hello"</span>)</span><br><span class="line"></span><br><span class="line">File f = <span class="keyword">new</span> File(<span class="string">"C:/java/hello"</span>);</span><br><span class="line">OutputStream f = <span class="keyword">new</span> FileOutputStream(f);</span><br></pre></td></tr></table></figure>
+<h1 id="读取写入流最后都要close"><a href="#读取写入流最后都要close" class="headerlink" title="读取写入流最后都要close();"></a>读取写入流最后都要close();</h1><h1 id="读写一定要用byte"><a href="#读写一定要用byte" class="headerlink" title="读写一定要用byte"></a>读写一定要用byte</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">byte</span> bWrite[] = &#123; <span class="number">11</span>, <span class="number">21</span>, <span class="number">3</span>, <span class="number">40</span>, <span class="number">5</span> &#125;;</span><br><span class="line"><span class="keyword">byte</span> bWrite[] = <span class="string">"zhouzhiwenishandsome"</span>.getBytes();</span><br></pre></td></tr></table></figure>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-09-02T11:23:48.219Z" itemprop="dateUpdated">2018-09-02 19:23:48</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://kxbk100.github.io">
+            <img src="/img/avatar.jpg" alt="冯天祥">
+            冯天祥
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/后端/">后端</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://kxbk100.github.io/2017/11/25/test/Java学习小记/&title=《Java学习小记》 — 冯天祥&pic=https://kxbk100.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://kxbk100.github.io/2017/11/25/test/Java学习小记/&title=《Java学习小记》 — 冯天祥&source=Hakuna Matata" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://kxbk100.github.io/2017/11/25/test/Java学习小记/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Java学习小记》 — 冯天祥&url=https://kxbk100.github.io/2017/11/25/test/Java学习小记/&via=https://kxbk100.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://kxbk100.github.io/2017/11/25/test/Java学习小记/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/11/28/test/Hexo使用心得/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> 上一篇</div>
+        <h4 class="title">Hexo使用心得</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/11/25/test/ThinkPHP学习小记/" id="post-next" class="post-nav-link">
+        <div class="tips">下一篇 <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">ThinkPHP学习小记</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>冯天祥 &copy; 2016 - 2018</span>
+            <!-- <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span> -->
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://kxbk100.github.io/2017/11/25/test/Java学习小记/&title=《Java学习小记》 — 冯天祥&pic=https://kxbk100.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://kxbk100.github.io/2017/11/25/test/Java学习小记/&title=《Java学习小记》 — 冯天祥&source=Hakuna Matata" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://kxbk100.github.io/2017/11/25/test/Java学习小记/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Java学习小记》 — 冯天祥&url=https://kxbk100.github.io/2017/11/25/test/Java学习小记/&via=https://kxbk100.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://kxbk100.github.io/2017/11/25/test/Java学习小记/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACNElEQVR42u3awY7CMAxF0f7/TxdpVkhAuc9u0TS+WSGmQ3JYGMf2tuG1/63n18/vvD7J//rpne2KJUOGjNsy9sNFGK8b154/Rn56RoYMGXMYJMiSjUnI5nuRs8mQIUPGccLX354HehkyZMjoB1xyfT3+gmTIkCHjmEE+jh+aB1lejDvtLi5DhowbMmqNgd+8vry/IUOGjH/P2EuLhEieeqZB9s1/yZAhY2kGGY846zqalvPiIQwZMmQsyugMeKXP8PYnL969+d2QIUPGogz+0fyIPE3spJUbifoyZMi4OSNtItZCcJoC1kY9ZMiQMYGRXl950CSHSwc7gsPJkCFjIQYv/XdqXDz48qKeDBkyJjD6l9h+WpmGbBkyZExj8NDJxyP4hTZtJ6BymwwZMhZi8MQuTel4sYyPenyZbpMhQ8aijE4hrNbUvGJHGTJkzGHwZDF9nl9f04aEDBkyZjJQ+hUW+k+uCxKYDBkylmN0jsvZvHyWNhtkyJAxgZFebvk4RScZTQc1ZMiQsTaDF9HS8FdrUtbGPmTIkDGTkQZB3rBMfweKnQ0ZMmQsxOCJWieB49fUTvooQ4aM9Rh7uDrXTvIFpWmoDBkyJjDSLItcdDtdxbTxKUOGjDkMEmQ7Y6n80HzYQoYMGTMZaRmOF/Rrg63xXVyGDBkyMIOX9TujsVttGxkyZAxg8N5C2h4gSaEMGTJkkPSu09Tkn18cuZAhQ8bSjLMaA2nal4bX2oiGDBkybs54ACFrxgTL9kL6AAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

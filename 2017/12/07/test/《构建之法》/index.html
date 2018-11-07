@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>《构建之法》 | 冯天祥 | Hakuna Matata</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="读书笔记">
+    <meta name="description" content="第2章 个人技术和流程单元测试单元测试回归测试回退操作 效能分析工具先用抽样的方法找到效能瓶颈所在，然后对特定的模块用代码注入的方法进行详细分析 个人开发流程任务清单计划  明确需求和其他相关因素，指明时间成本和依赖关系  开发  分析需求 生成设计文档 设计复审（和同事审核设计文档） 代码规范（为目前的开发定制合适的">
+<meta name="keywords" content="读书笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《构建之法》">
+<meta property="og:url" content="https://kxbk100.github.io/2017/12/07/test/《构建之法》/index.html">
+<meta property="og:site_name" content="冯天祥">
+<meta property="og:description" content="第2章 个人技术和流程单元测试单元测试回归测试回退操作 效能分析工具先用抽样的方法找到效能瓶颈所在，然后对特定的模块用代码注入的方法进行详细分析 个人开发流程任务清单计划  明确需求和其他相关因素，指明时间成本和依赖关系  开发  分析需求 生成设计文档 设计复审（和同事审核设计文档） 代码规范（为目前的开发定制合适的规范） 具体设计 具体编码 代码复审 测试（包括自测，修改代码，提交修改） 记录">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-09-02T11:34:09.377Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《构建之法》">
+<meta name="twitter:description" content="第2章 个人技术和流程单元测试单元测试回归测试回退操作 效能分析工具先用抽样的方法找到效能瓶颈所在，然后对特定的模块用代码注入的方法进行详细分析 个人开发流程任务清单计划  明确需求和其他相关因素，指明时间成本和依赖关系  开发  分析需求 生成设计文档 设计复审（和同事审核设计文档） 代码规范（为目前的开发定制合适的规范） 具体设计 具体编码 代码复审 测试（包括自测，修改代码，提交修改） 记录">
+    
+        <link rel="alternate" type="application/atom+xml" title="冯天祥" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">冯天祥</h5>
+          <a href="mailto:kxbk100@foxmail.com" title="kxbk100@foxmail.com" class="mail">kxbk100@foxmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                文章
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/kxbk100" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">《构建之法》</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">《构建之法》</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-12-07T14:44:01.000Z" itemprop="datePublished" class="page-time">
+  2017-12-07
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>目录</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第2章-个人技术和流程"><span class="post-toc-number">1.</span> <span class="post-toc-text">第2章 个人技术和流程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#单元测试"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">单元测试</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#单元测试-1"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">单元测试</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#回归测试"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">回归测试</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#效能分析工具"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">效能分析工具</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#个人开发流程"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">个人开发流程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#任务清单"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">任务清单</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#软件设计的原则"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">软件设计的原则</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#单一职责原则"><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">单一职责原则</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#开放-封闭原则"><span class="post-toc-number">1.4.2.</span> <span class="post-toc-text">开放-封闭原则</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#程序的健壮性"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">程序的健壮性</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#数据"><span class="post-toc-number">1.5.1.</span> <span class="post-toc-text">数据</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#需求"><span class="post-toc-number">1.5.2.</span> <span class="post-toc-text">需求</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#用户"><span class="post-toc-number">1.5.3.</span> <span class="post-toc-text">用户</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#软件构建"><span class="post-toc-number">1.5.4.</span> <span class="post-toc-text">软件构建</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#实践"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">实践</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#工作的细分"><span class="post-toc-number">1.6.1.</span> <span class="post-toc-text">工作的细分</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#如何保证质量——回归测试"><span class="post-toc-number">1.6.2.</span> <span class="post-toc-text">如何保证质量——回归测试</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第3章-软件工程师的成长"><span class="post-toc-number">2.</span> <span class="post-toc-text">第3章 软件工程师的成长</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#软件工程师的成长"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">软件工程师的成长</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#软件工程师的思维思维误区"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">软件工程师的思维思维误区</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#分析麻痹"><span class="post-toc-number">2.2.1.</span> <span class="post-toc-text">分析麻痹</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#不分主次，想解决所有依赖问题"><span class="post-toc-number">2.2.2.</span> <span class="post-toc-text">不分主次，想解决所有依赖问题</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#过早优化"><span class="post-toc-number">2.2.3.</span> <span class="post-toc-text">过早优化</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#过早扩大化-泛华"><span class="post-toc-number">2.2.4.</span> <span class="post-toc-text">过早扩大化/泛华</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#技能的反面"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">技能的反面</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第4章-两人合作"><span class="post-toc-number">3.</span> <span class="post-toc-text">第4章 两人合作</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#代码风格规范"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">代码风格规范</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#代码设计规范"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">代码设计规范</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#代码复审"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">代码复审</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#代码复审的核查表"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">代码复审的核查表</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-test/《构建之法》"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">《构建之法》</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-12-07 22:44:01" datetime="2017-12-07T14:44:01.000Z"  itemprop="datePublished">2017-12-07</time>
+
+            
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="第2章-个人技术和流程"><a href="#第2章-个人技术和流程" class="headerlink" title="第2章 个人技术和流程"></a>第2章 个人技术和流程</h1><h2 id="单元测试"><a href="#单元测试" class="headerlink" title="单元测试"></a>单元测试</h2><h3 id="单元测试-1"><a href="#单元测试-1" class="headerlink" title="单元测试"></a>单元测试</h3><h3 id="回归测试"><a href="#回归测试" class="headerlink" title="回归测试"></a>回归测试</h3><p>回退操作</p>
+<h2 id="效能分析工具"><a href="#效能分析工具" class="headerlink" title="效能分析工具"></a>效能分析工具</h2><p>先用抽样的方法找到效能瓶颈所在，然后对特定的模块用代码注入的方法进行详细分析</p>
+<h2 id="个人开发流程"><a href="#个人开发流程" class="headerlink" title="个人开发流程"></a>个人开发流程</h2><h3 id="任务清单"><a href="#任务清单" class="headerlink" title="任务清单"></a>任务清单</h3><p>计划</p>
+<ul>
+<li>明确需求和其他相关因素，指明时间成本和依赖关系</li>
+</ul>
+<p>开发</p>
+<ul>
+<li>分析需求</li>
+<li>生成设计文档</li>
+<li>设计复审（和同事审核设计文档）</li>
+<li>代码规范（为目前的开发定制合适的规范）</li>
+<li>具体设计</li>
+<li>具体编码</li>
+<li>代码复审</li>
+<li>测试（包括自测，修改代码，提交修改）</li>
+<li>记录用时</li>
+</ul>
+<p>报告</p>
+<ul>
+<li>测试报告</li>
+<li>计算工作量</li>
+<li>事后总结</li>
+<li>提出过程改进计划</li>
+</ul>
+<h2 id="软件设计的原则"><a href="#软件设计的原则" class="headerlink" title="软件设计的原则"></a>软件设计的原则</h2><h3 id="单一职责原则"><a href="#单一职责原则" class="headerlink" title="单一职责原则"></a>单一职责原则</h3><p>一个模块（类）应该只有一个导致它变化的原因，一个模块应该完全对某个功能负责</p>
+<h3 id="开放-封闭原则"><a href="#开放-封闭原则" class="headerlink" title="开放-封闭原则"></a>开放-封闭原则</h3><ul>
+<li>允许拓展。当应用的需求发生改变时，我们可以对模块进行拓展，从而改变模块的功能</li>
+<li>不允许修改。对模块行为进行拓展时，不必改变模块的本身</li>
+</ul>
+<h2 id="程序的健壮性"><a href="#程序的健壮性" class="headerlink" title="程序的健壮性"></a>程序的健壮性</h2><h3 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h3><p>属性拓展</p>
+<ul>
+<li>超过64位的数字</li>
+</ul>
+<p>数量拓展</p>
+<ul>
+<li>十万条数据</li>
+</ul>
+<p>维度拓展</p>
+<ul>
+<li>多维数组</li>
+</ul>
+<p>其他属性拓展</p>
+<h3 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h3><p>形象的显示数据处理的过程</p>
+<p>维度拓展</p>
+<p>数量拓展</p>
+<p>增量改进</p>
+<h3 id="用户"><a href="#用户" class="headerlink" title="用户"></a>用户</h3><p>让用户更喜欢这个软件</p>
+<ul>
+<li>记住上次的状态</li>
+<li>自动展现上次文档最后编辑的地方</li>
+</ul>
+<p>多用户</p>
+<p>多语言</p>
+<p>安全性</p>
+<h3 id="软件构建"><a href="#软件构建" class="headerlink" title="软件构建"></a>软件构建</h3><p>平台的迁移</p>
+<p>多语言接口</p>
+<p>增量升级部分模块</p>
+<h2 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h2><h3 id="工作的细分"><a href="#工作的细分" class="headerlink" title="工作的细分"></a>工作的细分</h3><p>基本功能<br>拓展功能<br>高级功能</p>
+<h3 id="如何保证质量——回归测试"><a href="#如何保证质量——回归测试" class="headerlink" title="如何保证质量——回归测试"></a>如何保证质量——回归测试</h3><p>保证在加入新功能的过程中，已有的功能可继续工作，我们需要建立起一系列测试文件</p>
+<hr>
+<h1 id="第3章-软件工程师的成长"><a href="#第3章-软件工程师的成长" class="headerlink" title="第3章 软件工程师的成长"></a>第3章 软件工程师的成长</h1><h2 id="软件工程师的成长"><a href="#软件工程师的成长" class="headerlink" title="软件工程师的成长"></a>软件工程师的成长</h2><ul>
+<li>积累软件开发相关的知识，提升技术技能</li>
+<li>积累问题领域的知识和经验</li>
+<li>对通用的软件设计思想和软件工程思想的理解</li>
+<li>提升职业技能</li>
+<li>实际成果</li>
+</ul>
+<h2 id="软件工程师的思维思维误区"><a href="#软件工程师的思维思维误区" class="headerlink" title="软件工程师的思维思维误区"></a>软件工程师的思维思维误区</h2><h3 id="分析麻痹"><a href="#分析麻痹" class="headerlink" title="分析麻痹"></a>分析麻痹</h3><h3 id="不分主次，想解决所有依赖问题"><a href="#不分主次，想解决所有依赖问题" class="headerlink" title="不分主次，想解决所有依赖问题"></a>不分主次，想解决所有依赖问题</h3><h3 id="过早优化"><a href="#过早优化" class="headerlink" title="过早优化"></a>过早优化</h3><h3 id="过早扩大化-泛华"><a href="#过早扩大化-泛华" class="headerlink" title="过早扩大化/泛华"></a>过早扩大化/泛华</h3><p>画扇面——调侃目标和远景</p>
+<h2 id="技能的反面"><a href="#技能的反面" class="headerlink" title="技能的反面"></a>技能的反面</h2><p>通过不断的练习，把低层次的问题解决，变成不用经过大脑的自动操作，然后才有时间和脑力来解决较高层次的问题</p>
+<hr>
+<h1 id="第4章-两人合作"><a href="#第4章-两人合作" class="headerlink" title="第4章 两人合作"></a>第4章 两人合作</h1><h2 id="代码风格规范"><a href="#代码风格规范" class="headerlink" title="代码风格规范"></a>代码风格规范</h2><ul>
+<li>4个空格的缩进</li>
+<li>每个{}独占一行</li>
+<li>不要把多个变量定义在一行上</li>
+<li>一个类型的成员变量用<code>m_name</code>来命名</li>
+<li><code>Pascal</code>：所有的类型/类/函数名</li>
+<li><code>lowerCamel</code>：变量</li>
+<li>注释是为了解释程序做什么（What），为什么这么做（Why），以及要特别注意的地方，只用ASCII字符，不要用中文</li>
+</ul>
+<h2 id="代码设计规范"><a href="#代码设计规范" class="headerlink" title="代码设计规范"></a>代码设计规范</h2><ul>
+<li>函数：只做一件事，并且要做好</li>
+<li>单一出口</li>
+<li>不要在构造函数中做复杂的操作，简单初始化所有的数据成员即可</li>
+</ul>
+<h2 id="代码复审"><a href="#代码复审" class="headerlink" title="代码复审"></a>代码复审</h2><p>看代码是否在代码规范的框架内正确地解决了问题<br>长远的问题</p>
+<ul>
+<li>这么修改之后，有没有别的功能会受影响</li>
+<li>项目中还有别的地方需要类似的修改吗</li>
+<li>有没有留下足够的说明，让将来维护代码时不会出现问题</li>
+<li>对于这样的修改，有没有别的成员需要告知</li>
+<li>导致问题的根本原因是什么？我们以后如何能自动避免这样的情况再次出现</li>
+</ul>
+<h2 id="代码复审的核查表"><a href="#代码复审的核查表" class="headerlink" title="代码复审的核查表"></a>代码复审的核查表</h2>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-09-02T11:34:09.377Z" itemprop="dateUpdated">2018-09-02 19:34:09</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="https://kxbk100.github.io">
+            <img src="/img/avatar.jpg" alt="冯天祥">
+            冯天祥
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/读书笔记/">读书笔记</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://kxbk100.github.io/2017/12/07/test/《构建之法》/&title=《《构建之法》》 — 冯天祥&pic=https://kxbk100.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://kxbk100.github.io/2017/12/07/test/《构建之法》/&title=《《构建之法》》 — 冯天祥&source=Hakuna Matata" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://kxbk100.github.io/2017/12/07/test/《构建之法》/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《《构建之法》》 — 冯天祥&url=https://kxbk100.github.io/2017/12/07/test/《构建之法》/&via=https://kxbk100.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://kxbk100.github.io/2017/12/07/test/《构建之法》/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/01/14/test/Axure使用心得/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> 上一篇</div>
+        <h4 class="title">Axure使用心得</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/11/28/test/Hexo使用心得/" id="post-next" class="post-nav-link">
+        <div class="tips">下一篇 <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Hexo使用心得</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>冯天祥 &copy; 2016 - 2018</span>
+            <!-- <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span> -->
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://kxbk100.github.io/2017/12/07/test/《构建之法》/&title=《《构建之法》》 — 冯天祥&pic=https://kxbk100.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://kxbk100.github.io/2017/12/07/test/《构建之法》/&title=《《构建之法》》 — 冯天祥&source=Hakuna Matata" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://kxbk100.github.io/2017/12/07/test/《构建之法》/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《《构建之法》》 — 冯天祥&url=https://kxbk100.github.io/2017/12/07/test/《构建之法》/&via=https://kxbk100.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://kxbk100.github.io/2017/12/07/test/《构建之法》/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACIUlEQVR42u3aQXaDMAwFwNz/0nTbDeRLgr5ij1d5CbU9LFRZ1ucTj+PXuOv5s1/zVcoDAwPjtYzjclxvq7rdszmTdc+ewcDA2Idx7/LXf3U2z/W6X/aMgYGBcflMHqYnnzEwMDCqjDwE9wIxBgYGRu8Qe53SVStj8xeEgYGxD2Oy8NOfH7nfwMDAeBXjKI5khryUlpfhvuwKAwNjaUYe4BLM5Mlq2oeBgbEPY3IxWQ21vTQ0+gYDA2MDxnPn4+QVJAnil7COgYGxNKNaxUpI82ayaoqJgYGxNiMJc/mbSC4jR+0UZy8XAwNjA0avfJaX+HtJZGFODAyMpRlJ+SxP2qpH0F7wPX0eAwNjY0b+fRKCq4W8vDyHgYGxKiNfvrdYtc2ilyxiYGCszciXqR5ce6X/KgkDA2MHRr583txQvcLsFfhOLwYwMDCWY8xbLiYJX3krz3WOYGBg/GNGkvY19cU5e99jYGDswMgX6IXFPE2s7iEqt2FgYCzEmLdE5G0W1eBb+JeAgYGxGSMvhOUJ3F0vCAMDY2dG0k6RX0P2DrSjSiEGBsaijKM4epeUeUvZ6PyNgYGxKKMa5uYNGfN2jdH1JwYGxmsZ1SCbXBvkx9rbLiQwMDA2YOSBr7fd3vzlszgGBgbGOODmueofBVwMDIxFGfPLyOrZOinGYWBg7MColtKqyVyy0UnbBwYGxtqMat41b+SaNJ+NLjUxMDDex/gBVpLk8xv0ifEAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
