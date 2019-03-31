@@ -14,6 +14,7 @@ tags:
 > 1. JS变量按照存储方式区分为哪些类型，并描述其特点
 > 1. 如何理解JSON
 
+
 ## 变量类型
 JS中有7种内置类型，7种内置类型又分为两大类型
 - 基本类型/值类型：`null`、`undefined`、`boolean`、`number`、`string`、`symbol`
@@ -28,10 +29,10 @@ var b = a;
 a = 200;
 console.log(b); // 100
 ```
-**条件**![](/JavaScript面试视频笔记整理/2019
+**条件**![](../JavaScript面试视频笔记整理/20192019
 
 原始类型存储的都是值，是没有函数可以调用的，比如`undefined.toString()`
-![](/JavaScript面试视频笔记整理/2019-03-31-13-10-27.png)
+![](../JavaScript面试视频笔记整理/20192019-03-31-13-10-27.png)
  `'1'.toString()` 是可以使用的。在这种情况下，`'1'` 已经不是原始类型了，而是被强制转换成了 `String` 类型（大写）也就是引用类型，所以可以调用 `toString` 函数
 
 JS 的`number` 类型是浮点类型的，在使用中会遇到某些 Bug
@@ -100,7 +101,7 @@ console.log(p2) // -> ?
 - 到函数内部修改参数的属性这步，我相信大家都知道，当前 `p1` 的值也被修改了
 - 但是当我们重新为 `person` 分配了一个对象时就出现了分歧，请看下图
 
-![](/JavaScript面试视频笔记整理/2019-03-31-13-11-12.png)
+![](../JavaScript面试视频笔记整理/20192019-03-31-13-11-12.png)
 
 所以最后 `person` 拥有了一个新的地址（指针），也就和 `p1` 没有任何关系了，导致了最终两个变量的值是不相同的
 
@@ -141,7 +142,7 @@ instanceof
 - 转换为数字
 - 转换为字符串
 
-![](/JavaScript面试视频笔记整理/2019-03-31-13-11-24.png)
+![](../JavaScript面试视频笔记整理/20192019-03-31-13-11-24.png)
 
 **组合**
 
@@ -392,8 +393,8 @@ f.printName();
 f.alertName();
 f.toString(); // 要去f.__proto__.__proto__中查找
 ```
-![](/JavaScript面试视频笔记整理/2019-03-31-13-11-50.png)
-![](/JavaScript面试视频笔记整理/2019-03-31-13-12-02.png)
+![](../JavaScript面试视频笔记整理/20192019-03-31-13-11-50.png)
+![](../JavaScript面试视频笔记整理/20192019-03-31-13-12-02.png)
 
 ### instanceof
 - 判断**引用类型**属于哪个**构造函数**的方法
@@ -1187,7 +1188,7 @@ p.className='p1'; // 修改class
 console.log(p.nodeClass)
 console.log(p.nodeType)
 ```
-![](/JavaScript面试视频笔记整理/2019-03-31-13-12-48.png)
+![](../JavaScript面试视频笔记整理/20192019-03-31-13-12-48.png)
 
 ### Attribute
 - 文档直接修改，查看源码即可看到修改
@@ -1211,10 +1212,10 @@ var parent = div1.parentElement;
 
 ### 获取子元素
 在使用childNodes获取子元素时，换行也会算作1个text，计为1个Node
-![](/JavaScript面试视频笔记整理/2019-03-31-13-13-05.png)
-![](/JavaScript面试视频笔记整理/2019-03-31-13-13-12.png)
-![](/JavaScript面试视频笔记整理/2019-03-31-13-13-20.png)
-![](/JavaScript面试视频笔记整理/2019-03-31-13-13-29.png)
+![](../JavaScript面试视频笔记整理/20192019-03-31-13-13-05.png)
+![](../JavaScript面试视频笔记整理/20192019-03-31-13-13-12.png)
+![](../JavaScript面试视频笔记整理/20192019-03-31-13-13-20.png)
+![](../JavaScript面试视频笔记整理/20192019-03-31-13-13-29.png)
 
 ```js
 var div1 = document.getElementById("div1");
@@ -1611,7 +1612,7 @@ Git的基本操作必须很熟练
 | git checkout xxx (branch name) | 切换到一个已有的分支 |
 | git merge xxx | 合并分支 |
 
-![](/JavaScript面试视频笔记整理/2019-03-31-13-14-09.png)
+![](../JavaScript面试视频笔记整理/20192019-03-31-13-14-09.png)
 
 ```
 echo "# test" >> README.md
@@ -1834,7 +1835,7 @@ module.export = {
 2. 初始化环境`npm init`
 3. 自动生成package.json文件
 
-![](/JavaScript面试视频笔记整理/2019-03-31-13-14-28.png)
+![](../JavaScript面试视频笔记整理/20192019-03-31-13-14-28.png)
 
 4. 安装包`npm install webpack --save-dev`，`-dev`表示仅用于开发环境
 5. 安装包`npm install jquery --save`，任何环境都需要
