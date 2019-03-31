@@ -8,12 +8,13 @@ tags:
 ---
 
 # 一、变量类型和计算
----
+
+
 > 1. JS中使用typeof能得到的哪些类型
-> 2. 何时使用`===`何时使用`==`
-> 3. JS中有哪些内置函数
-> 4. JS变量按照存储方式区分为哪些类型，并描述其特点
-> 5. 如何理解JSON
+> 1. 何时使用`===`何时使用`==`
+> 1. JS中有哪些内置函数
+> 1. JS变量按照存储方式区分为哪些类型，并描述其特点
+> 1. 如何理解JSON
 
 ## 变量类型
 JS中有7种内置类型，7种内置类型又分为两大类型
@@ -32,7 +33,7 @@ console.log(b); // 100
 **条件**
 
 原始类型存储的都是值，是没有函数可以调用的，比如`undefined.toString()`
-![img](https://img-blog.csdnimg.cn/20190325104109107.png)
+![](/2019-03-31-13-10-27.png)
  `'1'.toString()` 是可以使用的。在这种情况下，`'1'` 已经不是原始类型了，而是被强制转换成了 `String` 类型（大写）也就是引用类型，所以可以调用 `toString` 函数
 
 JS 的`number` 类型是浮点类型的，在使用中会遇到某些 Bug
@@ -101,7 +102,7 @@ console.log(p2) // -> ?
 - 到函数内部修改参数的属性这步，我相信大家都知道，当前 `p1` 的值也被修改了
 - 但是当我们重新为 `person` 分配了一个对象时就出现了分歧，请看下图
 
-![](https://img-blog.csdnimg.cn/20190315101856131.png)
+![](/2019-03-31-13-11-12.png)
 
 所以最后 `person` 拥有了一个新的地址（指针），也就和 `p1` 没有任何关系了，导致了最终两个变量的值是不相同的
 
@@ -142,7 +143,8 @@ instanceof
 - 转换为数字
 - 转换为字符串
 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/201903251223050.png)
+![](/2019-03-31-13-11-24.png)
+
 **组合**
 
 ### 转Boolean
@@ -289,9 +291,9 @@ JSON.parse('{"a":10,"b":20}') //将字符串变为对象
 # 二、原型与原型链
 ---
 > 1. 如何准确判断一个变量是数组类型
-> 2. 写一个原型链继承的例子
-> 3. 描述new一个对象的过程
-> 4. zepto（或其他框架）源码中如何使用原型链
+> 1. 写一个原型链继承的例子
+> 1. 描述new一个对象的过程
+> 1. zepto（或其他框架）源码中如何使用原型链
 
 ## 构造函数
 - 构造函数首字母大写
@@ -392,8 +394,9 @@ f.printName();
 f.alertName();
 f.toString(); // 要去f.__proto__.__proto__中查找
 ```
-![](https://img-blog.csdnimg.cn/20190304160423516.png)
-![](https://img-blog.csdnimg.cn/20190201192925259.png)
+![](/2019-03-31-13-11-50.png)
+![](/2019-03-31-13-12-02.png)
+
 ### instanceof
 - 判断**引用类型**属于哪个**构造函数**的方法
 - `f instanceof Foo`判断逻辑：`f`的`__proto__`一层一层往上，能否对应到`Foo.prototype`
@@ -489,7 +492,6 @@ div1.html('<p>hello world</p>').on('click', function () {
 - Vue、React不建议现在读
 
 #  三、闭包和作用域
----
 > 1. 说一下变量提升的理解
 > 2. 说明this几种不同的使用场景
 > 3. 创建10个`<a>`标签，点击的时候弹出来对应的序号
@@ -864,7 +866,7 @@ console.log('end');
 // start end 等待图片加载
 ```
 - 事件绑定
-  可执行多次，可以点击再点击，而前2个场景只能执行1次
+可执行多次，可以点击再点击，而前2个场景只能执行1次
 ```js
 // 事件绑定demo
 console.log('start');
@@ -887,7 +889,7 @@ console.log(300)
 ```
 1. 执行第一行，打印100
 2. 执行setTimeout后，传入setTimeout的函数会被暂存起来，不会立即执行
-  **单线程的特点，不能同时干两件事**
+**单线程的特点，不能同时干两件事**
 3. 执行最后一行，打印300
 4. 待所有程序执行完，处于空闲状态时，会立马看有没有暂存起来的任务要执行
 5. 发现暂存起来的setTimeout中的函数无需等待时间，就立即来过来执行
@@ -933,7 +935,6 @@ console.log(5)
 - 事件绑定
 
 # 五、其它（如日期、Math、各种常用API）
----
 > 1. 获取2017-06-10格式的日期
 > 2. 获取随机数，要求是长度一致的字符串格式
 > 3. 写一个能遍历对象和数组的通用forEach函数
@@ -1130,8 +1131,8 @@ forEach(arr, function(key, value) {
 > 1.	DOM是哪种基本的数据结构？
 > 2.	DOM操作常用API有哪些？
 > 3.	DOM节点的attr和property有何区别？
-> 4.	如何检测浏览器的类型？
-> 5.	拆解URL的各个部分
+> 4. 如何检测浏览器的类型？
+> 5. 拆解URL的各个部分
 
 ## 回顾JS基础知识
 特点：表面看来并不能用于工作中开发代码
@@ -1188,7 +1189,8 @@ p.className='p1'; // 修改class
 console.log(p.nodeClass)
 console.log(p.nodeType)
 ```
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20190316124944639.png)
+![](/2019-03-31-13-12-48.png)
+
 ### Attribute
 - 文档直接修改，查看源码即可看到修改
 - 修改的是HTML代码文档内的标签，有关文档内标签的属性
@@ -1211,10 +1213,11 @@ var parent = div1.parentElement;
 
 ### 获取子元素
 在使用childNodes获取子元素时，换行也会算作1个text，计为1个Node
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20190316141610797.png)
-![在这里插入图片描述](https://img-blog.csdnimg.cn/2019031614163253.png)
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20190316141714170.png)
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20190316141727999.png)
+![](/2019-03-31-13-13-05.png)
+![](/2019-03-31-13-13-12.png)
+![](/2019-03-31-13-13-20.png)
+![](/2019-03-31-13-13-29.png)
+
 ```js
 var div1 = document.getElementById("div1");
 var child = div1.childNodes;
@@ -1306,7 +1309,6 @@ location.search; // ?后的参数
 location.hash // #后面是哈希
 ```
 # 七、事件
----
 > 1. 编写一个通用的事件监听函数
 > 2. 描述事件冒泡过程
 > 3. 对于一个无限下拉加载图片的页面，如何给每个图片绑定事件
@@ -1433,7 +1435,7 @@ DOM树形结构 -> 事件冒泡 -> 阻止冒泡 -> 冒泡的应用（代理）
 使用代理
 
 # 八、Ajax & 跨域
----
+
 > 1. 手动编写一个Ajax，不依赖第三方库
 > 2. 跨域的几种实现方式
 
@@ -1454,21 +1456,21 @@ xhr.send(null)
 ```
 ## 状态码说明
 xhr.readyState == 4
-| 状态码 | 状态     | 说明                                     |
-| ------ | -------- | ---------------------------------------- |
-| 0      | 未初始化 | 还没有调用send()方法                     |
-| 1      | 载入     | 已调用send()方法，正在发生请求           |
-| 2      | 载入完成 | send()方法执行完成，已接收到全部相应内容 |
-| 3      | 交互     | 正在解析相应内容                         |
-| 4*     | 完成     | 响应内容解析完成，可以在客户端调用了     |
+| 状态码 | 状态 | 说明 |
+|--|--|--|
+| 0 | 未初始化 | 还没有调用send()方法 |
+| 1 | 载入 | 已调用send()方法，正在发生请求 |
+| 2 | 载入完成 | send()方法执行完成，已接收到全部相应内容 |
+| 3 | 交互 | 正在解析相应内容 |
+| 4* | 完成 | 响应内容解析完成，可以在客户端调用了 |
 
 xhr.status == 200
-| 状态码 | 说明                       |
-| ------ | -------------------------- |
-| 2xx    | 表示成功处理请求，如200    |
-| 3xx    | 需要重定向，浏览器直接跳转 |
-| 4xx    | 客户端请求错误，如404      |
-| 5xx    | 服务端错误                 |
+| 状态码 | 说明 |
+|--|--|
+| 2xx | 表示成功处理请求，如200 |
+| 3xx | 需要重定向，浏览器直接跳转 |
+| 4xx | 客户端请求错误，如404 |
+| 5xx | 服务端错误 |
 
 ## 跨域
 ### 什么是跨域
@@ -1530,8 +1532,7 @@ response.setHeader('Access-Control-Allow-Credentials','true') // 接受宽裕的
 - 服务器端设置http header
 
 # 九、存储
----
-> 1. 请描述下cookie、sessionStorage和localStorage的区别
+---1. 请描述下cookie、sessionStorage和localStorage的区别
 
 ## cookie
 - 本身用于客户端和服务端通讯
@@ -1565,13 +1566,13 @@ sessionStorage.getItem(key);
 
 - 容量
 - 是否会携带到Ajax中
-  cookie会携带，sessionStorage和localStorage不会携带
+cookie会携带，sessionStorage和localStorage不会携带
 - API易用性  
 
 
 # 十、开发环境
 ---
-## 关于开发环境
+##开发环境
 - 面试官放通过开发环境了解面试者的经验
 - 开发环境最能体现工作产出效率
 - 会以聊天的形式为主，而不是出具体的问题
@@ -1597,22 +1598,22 @@ sessionStorage.getItem(key);
 - 搭建Git服务器无需了解太多
 
 Git的基本操作必须很熟练
-| 命令                           | 说明                                       |
-| ------------------------------ | ------------------------------------------ |
-| git status                     | 查看状态                                   |
-| git diff                       | 查看两个文件的不同                         |
-| git checkout xxx (file name)   | 发现自己改错了，需要还原                   |
-| git add .                      | 将所有修改的东西全部囊括进来               |
-| git commit -m "xxx"            | 修改的内容提交到本地仓库，-m代表添加的备注 |
-| git push origin master         | 提交到远程仓库                             |
-| git pull origin master         | 别人修改代码，从远程下载已修改的代码       |
-| git clone                      | 克隆新的项目                               |
-| git branch                     | 查看当前分支                               |
-| git checkout -b xxx            | 新建一个分支                               |
-| git checkout xxx (branch name) | 切换到一个已有的分支                       |
-| git merge xxx                  | 合并分支                                   |
+| 命令 | 说明 |
+|--|--|
+| git status | 查看状态 |
+| git diff | 查看两个文件的不同 |
+| git checkout xxx (file name) | 发现自己改错了，需要还原 |
+| git add . | 将所有修改的东西全部囊括进来 |
+| git commit -m "xxx" | 修改的内容提交到本地仓库，-m代表添加的备注 |
+| git push origin master | 提交到远程仓库 |
+| git pull origin master | 别人修改代码，从远程下载已修改的代码 |
+| git clone | 克隆新的项目 |
+| git branch | 查看当前分支 |
+| git checkout -b xxx | 新建一个分支 |
+| git checkout xxx (branch name) | 切换到一个已有的分支 |
+| git merge xxx | 合并分支 |
 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20190321231209609.png)
+![](/2019-03-31-13-14-09.png)
 
 ```
 echo "# test" >> README.md
@@ -1750,7 +1751,7 @@ main.html
 
 ---
 a.js
-```js
+js
 define(['./util.js'], function (util) {
   return {
     aGetFormateDate: function (date) {
@@ -1761,7 +1762,7 @@ define(['./util.js'], function (util) {
 ```
 
 main.js
-```js
+​```js
 define(['./a.js'], function (a) {
   return {
     printDate: function (date) {
@@ -1825,16 +1826,18 @@ module.export = {
 安装 -> 配置 -> 处理一个简单事例 -> 得到结果
 ### 安装nodeJS
 1. 安装Node.js
-2. 进入文件目录
-3. 初次使用安装http-server `sudo npm install http-server -g`
-4. 使用`http-server -p 8881`生成服务
-  这个服务只能针对静态页面的编辑，nodejs或者php的修改无法使用
+1. 进入文件目录
+2. 初次使用安装http-server `sudo npm install http-server -g`
+3. 使用`http-server -p 8881`生成服务
+这个服务只能针对静态页面的编辑，nodejs或者php的修改无法使用
 
 ### 安装webpack
 1. 进入文件目录
 2. 初始化环境`npm init`
 3. 自动生成package.json文件
-  ![在这里插入图片描述](https://img-blog.csdnimg.cn/2019032212273325.png)
+
+![](/2019-03-31-13-14-28.png)
+
 4. 安装包`npm install webpack --save-dev`，`-dev`表示仅用于开发环境
 5. 安装包`npm install jquery --save`，任何环境都需要
 6. 卸载包`npm uninstall moment --save`
@@ -1939,18 +1942,17 @@ module.exports = {
 - pwd 查看路径
 - rm -rf a
 - vi a.js
-  输入：i
-  保存：esc :w
-  退出：esc :q
-  保存并退出：esc :wq
+输入：i
+保存：esc :w
+退出：esc :q
+保存并退出：esc :wq
 - cat a.js 查看文件
 - cp a.js a1.js 拷贝
 - mv a1.js src/a1.js
 - rm a.js
 
 # 十一、运行环境
----
-> 1. 从输入url到得到html的详细过程
+> 1. 从输入到得到html的详细过程
 > 2. window.load和DOMContentLoaded的区别
 
 ## 页面加载过程
@@ -1973,7 +1975,7 @@ module.exports = {
 3. 将DOM和CSSOM整合形成Render Tree（渲染树）
 4. 根据Render Tree开始渲染和展示
 5. 遇到`<script>`时，会执行并阻塞渲染
-  因为JS会改变DOM结构及内容，所以两者不能同时进行
+因为JS会改变DOM结构及内容，所以两者不能同时进行
 
 - 将CSS放于head中，加载完CSS后浏览器直接知道规则，在渲染body中的元素时，已将CSS考虑进去渲染
 - 将CSS放于body尾部，元素先按照默认加载，然后再根据CSS进行改变，性能较差
@@ -2142,4 +2144,3 @@ document.addEventListener('DOMContentLoaded', function () {
   // jQuery、zepto均使用此方法
 })
 ```
--EOF-
