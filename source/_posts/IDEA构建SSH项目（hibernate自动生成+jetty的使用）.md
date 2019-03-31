@@ -7,13 +7,13 @@ typora-copy-images-to: ../images
 ---
 
 # 1 创建Maven项目
-![image.png](../images/undefined)
+![image.png](../images/8151888-aa8025257050edd9.png)
 
-![image.png](../images/undefined)
+![image.png](../images/8151888-c5728dbc0b4c097e.png)
 
-![image.png](../images/undefined)
+![image.png](../images/8151888-a821b1f399462369.png)
 
-![image.png](../images/undefined)
+![image.png](../images/8151888-ac4d51fa32221391.png)
 
 - GroupId和ArtifactId被统称为“坐标”，是为了保证项目唯一性而提出的，如果你要把你项目弄到maven本地仓库去，你想要找到你的项目就必须根据这两个id去查找。 
 - GroupId=域+公司名称。域又分为org、com、cn等，其中org为非营利组织，com为商业组织。
@@ -24,22 +24,22 @@ typora-copy-images-to: ../images
 # 2 修改目录结构
 ## 默认生成的目录结构
 
-![image.png](../images/undefined)
+![image.png](../images/8151888-bb157b4f75d0c83b.png)
 
 ## 标准的Maven项目结构
 java目录需mark didectory as source root，resources目录需mark directory as resources root
 
-![image.png](../images/undefined)
+![image.png](../images/8151888-70cff1d4098351e0.png)
 
 ## Java源代码结构
 
-![image.png](../images/undefined)
+![image.png](../images/8151888-84e390b8a7f2f683.png)
 
 ## 配置文件
 
-![image.png](../images/undefined)
+![image.png](../images/8151888-7577647e7d007dc6.png)
 
-![image.png](../images/undefined)
+![image.png](../images/8151888-9dd96a819c335500.png)
 
 
 # 3 在pom.xml中添加依赖
@@ -548,37 +548,37 @@ hibernate.generate_statistics=true
 ```
 # 8 hibernate自动创建
 
-![image.png](../images/undefined)
+![image.png](../images/8151888-42da1f5261a02554.png)
 
-![image.png](../images/undefined)
+![image.png](../images/8151888-a5bab3fe8ab64bd3.png)
 
-![image.png](../images/undefined)
+![image.png](../images/8151888-ca99678f8eb5f183.png)
 
-![image.png](../images/undefined)
+![image.png](../images/8151888-f55ea680ea9273c0.png)
 
-![image.png](../images/undefined)
+![image.png](../images/8151888-6af882e1b6161e31.png)
 
 # 9 使用jetty
-![image.png](../images/undefined)
+![image.png](../images/8151888-a6a0796826f6ba8c.png)
 
-![image.png](../images/undefined)
+![image.png](../images/8151888-a248e719afc89b3d.png)
 
 # *如何打开一个别人的项目
 
-![image.png](../images/undefined)
+![image.png](../images/8151888-e8d0aebf32d8998c.png)
 
-![image.png](../images/undefined)
+![image.png](../images/8151888-a57e7efaec80ad61.png)
 
 ## 修改成自己的maven配置
 
-![image.png](../images/undefined)
+![image.png](../images/8151888-92f385a1f1a706ea.png)
 
 ## 一直next，直到finish即可
 
-![image.png](../images/undefined)
+![image.png](../images/8151888-7a27859c324ea6ae.png)
 
-![image.png](../images/undefined)
+![image.png](../images/8151888-2859f2bb470ff29d.png)
 
-![image.png](../images/undefined)
+![image.png](../images/8151888-412fcf26df4748a5.png)
 
 
