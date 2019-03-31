@@ -14,9 +14,9 @@ menu:
   th-list:
     text: 分类
     url: /categories
-  tags:
-    text: 标签
-    url: /tags
+  # tags:
+  #   text: 标签
+  #   url: /tags
   archives:
     text: 归档
     url: /archives
