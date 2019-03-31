@@ -2,8 +2,8 @@
 title: 【JavaScript】第五章 异步和单线程
 date: 2019-03-09 01:51:21
 categories:
-typora-root-url: 【JavaScript】第五章 异步和单线程
-typora-copy-images-to: 【JavaScript】第五章 异步和单线程
+typora-root-url: ..
+typora-copy-images-to: ../images
 ---
 
 > 1. 同步和异步的区别是什么？分别举例

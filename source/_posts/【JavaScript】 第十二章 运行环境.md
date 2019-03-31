@@ -2,8 +2,8 @@
 title: 【JavaScript】 第十二章 运行环境
 date: 2019-03-22 17:46:17
 categories:
-typora-root-url: 【JavaScript】 第十二章 运行环境
-typora-copy-images-to: 【JavaScript】 第十二章 运行环境
+typora-root-url: ..
+typora-copy-images-to: ../images
 ---
 
 > 1. 从输入url到得到html的详细过程

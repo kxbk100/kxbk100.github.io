@@ -2,8 +2,8 @@
 title: 【JavaScript】第二章 变量类型和计算
 date: 2019-02-01 19:27:04
 categories:
-typora-root-url: 【JavaScript】第二章 变量类型和计算
-typora-copy-images-to: 【JavaScript】第二章 变量类型和计算
+typora-root-url: ..
+typora-copy-images-to: ../images
 ---
 
 > 1. JS中使用typeof能得到的哪些类型

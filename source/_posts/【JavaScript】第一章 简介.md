@@ -2,8 +2,8 @@
 title: 【JavaScript】第一章 简介
 date: 2019-01-31 22:57:04
 categories:
-typora-root-url: 【JavaScript】第一章 简介
-typora-copy-images-to: 【JavaScript】第一章 简介
+typora-root-url: ..
+typora-copy-images-to: ../images
 ---
 
 # 1 课程简介

@@ -2,8 +2,8 @@
 title: 【JavaScript】第八章 事件
 date: 2019-03-16 15:41:25
 categories:
-typora-root-url: 【JavaScript】第八章 事件
-typora-copy-images-to: 【JavaScript】第八章 事件
+typora-root-url: ..
+typora-copy-images-to: ../images
 ---
 
 > 1. 编写一个通用的事件监听函数

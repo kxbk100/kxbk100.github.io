@@ -2,8 +2,8 @@
 title: 【JavaScript】第四章 闭包和作用域
 date: 2019-03-06 00:34:15
 categories:
-typora-root-url: 【JavaScript】第四章 闭包和作用域
-typora-copy-images-to: 【JavaScript】第四章 闭包和作用域
+typora-root-url: ..
+typora-copy-images-to: ../images
 ---
 
 > 1. 说一下变量提升的理解

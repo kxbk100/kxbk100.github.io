@@ -2,8 +2,8 @@
 title: IEEE LaTeX模板使用BibTeX
 date: 2019-03-12 18:27:12
 categories:
-typora-root-url: IEEE LaTeX模板使用BibTeX
-typora-copy-images-to: IEEE LaTeX模板使用BibTeX
+typora-root-url: ..
+typora-copy-images-to: ../images
 ---
 
 最近在写IEEE的论文，就为了参考文献不愿意下载那么大的LaxTex，发现了一个在线的LaTeX editor https://www.sharelatex.com/ ， 发现还挺好用的。

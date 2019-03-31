@@ -2,8 +2,8 @@
 title: 【技术之瞳】Web前端开发学习小记及部分答案解析
 date: 2019-03-07 00:30:41
 categories:
-typora-root-url: 【技术之瞳】Web前端开发学习小记及部分答案解析
-typora-copy-images-to: 【技术之瞳】Web前端开发学习小记及部分答案解析
+typora-root-url: ..
+typora-copy-images-to: ../images
 ---
 
 基础技术
@@ -111,9 +111,9 @@ http://www.tashan10.com/zhong-yu-gao-dong-liao-cssshi-xian-san-jiao-xing-tu-biao
 	border-bottom: 40px solid transparent;
 }
 ```
-![](assets/20190307122720117.png)
-![](assets/20190307122739359.png)
-![](assets/20190307122808816.png)
+![](assets/undefined)
+![](assets/undefined)
+![](assets/undefined)
 border-top + border-bottom = 三角形的底
 border-left = 三角形的高
 # JavaScript
