@@ -2,8 +2,8 @@
 title: 【J2EE】第一章 绪论
 date: 2019-03-31 19:11:09
 categories:
-typora-root-url: 【J2EE】第一章 绪论
-typora-copy-images-to: 【J2EE】第一章 绪论
+typora-root-url: ..
+typora-copy-images-to: ../images
 ---
 
-![在这里插入图片描述](assets/20190331191044668.png)
+![在这里插入图片描述](assets/undefined)
