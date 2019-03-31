@@ -50,7 +50,7 @@ Git的基本操作必须很熟练
 | git checkout xxx (branch name) | 切换到一个已有的分支 |
 | git merge xxx | 合并分支 |
 
-![在这里插入图片描述](assets/20190321231209609.png)
+![在这里插入图片描述](assets/undefined)
 
 ```
 echo "# test" >> README.md
@@ -276,7 +276,7 @@ module.export = {
 1. 进入文件目录
 2. 初始化环境`npm init`
 3. 自动生成package.json文件
-![在这里插入图片描述](assets/2019032212273325.png)
+![在这里插入图片描述](assets/undefined)
 4. 安装包`npm install webpack --save-dev`，`-dev`表示仅用于开发环境
 5. 安装包`npm install jquery --save`，任何环境都需要
 6. 卸载包`npm uninstall moment --save`

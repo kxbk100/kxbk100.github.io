@@ -9,7 +9,7 @@ typora-copy-images-to: 【CSS】盒模型
 # 是什么
 ---
 盒模型又称框模型（Box Model）,包含了元素内容（content）、内边距（padding）、边框（border）、外边距（margin）几个要素
-![在这里插入图片描述](assets/20190330162953242.png)
+![在这里插入图片描述](assets/undefined)
 # 目的
 ---
 - 方便计算宽度
@@ -25,7 +25,7 @@ typora-copy-images-to: 【CSS】盒模型
 width = content.width
 height = content.height
 ```
-![在这里插入图片描述](assets/20190330163611690.png)、
+![在这里插入图片描述](assets/undefined)、
 
 **分类边界**
 
@@ -48,7 +48,7 @@ height = content.height
 }
 ```
 .content-box设置为标准模型，它的元素宽度width=100px
-![在这里插入图片描述](assets/20190330172923552.png)
+![在这里插入图片描述](assets/undefined)
 
 ## IE模型
 **是什么**
@@ -58,7 +58,7 @@ width = content.width + 2padding-left + 2border-left
 height = content.height + 2padding-top + 2border-top
 ```
 
-![在这里插入图片描述](assets/20190330165723844.png)
+![在这里插入图片描述](assets/undefined)
 **分类边界**
 
 form表单中的部分元素还是基于IE的怪异盒模型，input中的
@@ -88,7 +88,7 @@ form表单中的部分元素还是基于IE的怪异盒模型，input中的
 }
 ```
 `.border-box`设置为IE模型，它的元素宽度width = content + 2padding + 2border = 70px + 2*10px + 2*5px = 100px
-![在这里插入图片描述](assets/20190330173135288.png)
+![在这里插入图片描述](assets/undefined)
 
 
 
@@ -131,4 +131,4 @@ form表单中的部分元素还是基于IE的怪异盒模型，input中的
 只有普通文档流中块框的垂直外边距才会发生外边距合并，行内框、浮动框或绝对定位之间的外边距不会合并
 
 **顺序**
-![在这里插入图片描述](assets/20190330173751943.png)
+![在这里插入图片描述](assets/undefined)

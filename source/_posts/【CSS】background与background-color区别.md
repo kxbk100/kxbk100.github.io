@@ -48,10 +48,10 @@ typora-copy-images-to: 【CSS】background与background-color区别
 以上代码的目的是，当鼠标停留在a文字上时，用蓝色替换红色背景图片，运行效果如下
 
 使用background，生效
-![在这里插入图片描述](assets/20190330012644708.gif)
+![在这里插入图片描述](assets/undefined)
 
 使用background-color，不生效
-![在这里插入图片描述](assets/20190330013057672.gif)
+![在这里插入图片描述](assets/undefined)
 
 # 结论
 background-color改变的只是背景色，而不是背景图，效果是有的，只是图片把背景色遮住了看不到，所以建议改变背景颜色时，尽可能使用background
