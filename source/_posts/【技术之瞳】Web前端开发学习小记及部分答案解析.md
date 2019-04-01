@@ -111,9 +111,9 @@ http://www.tashan10.com/zhong-yu-gao-dong-liao-cssshi-xian-san-jiao-xing-tu-biao
 	border-bottom: 40px solid transparent;
 }
 ```
-![](../images/20190307122720117.png)
-![](../images/20190307122739359.png)
-![](../images/20190307122808816.png)
+![](images/20190307122720117.png)
+![](images/20190307122739359.png)
+![](images/20190307122808816.png)
 border-top + border-bottom = 三角形的底
 border-left = 三角形的高
 # JavaScript

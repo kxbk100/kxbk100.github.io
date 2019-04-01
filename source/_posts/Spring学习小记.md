@@ -8,11 +8,11 @@ typora-copy-images-to: ../images
 
 
 # IOC
-![](../images/20190401100828899.png)
+![](images/20190401100828899.png)
 
 # AOP
-![](../images/20190401100848877.png)
+![](images/20190401100848877.png)
 # Hibernate
-![](../images/2019040110090972.png)
+![](images/2019040110090972.png)
 # SpringMVC
-![](../images/20190401100927992.png)
+![](images/20190401100927992.png)
