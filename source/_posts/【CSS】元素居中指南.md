@@ -6,7 +6,7 @@ typora-root-url: ..
 typora-copy-images-to: ../images
 ---
 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20190330162209258.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2t4YmsxMDA=,size_16,color_FFFFFF,t_70)
+![在这里插入图片描述](../images/20190330162209258.png)
 # 水平居中
 ---
 ## inline or inline-*元素（比如文字或者链接）
@@ -32,7 +32,7 @@ typora-copy-images-to: ../images
 ## 多个块级元素
 如果有两个或者更多的块级元素需要在被一行里水平居中，那么你最好设置他们不同的 `display` 属性来达到效果了。
 方法一：设置为 `inline-block`
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20190330014310344.png)
+![在这里插入图片描述](../images/20190330014310344.png)
 ```html
 <main class="inline-block-center">
   <div>
@@ -56,7 +56,7 @@ typora-copy-images-to: ../images
 }
 ```
 方法二：设置为 `flexbox` 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20190330014349766.png)
+![在这里插入图片描述](../images/20190330014349766.png)
 ```html
 <main class="flex-center">
   <div>
@@ -77,7 +77,7 @@ typora-copy-images-to: ../images
 }
 ```
 除非你是想让多个块级元素堆积在彼此的顶部，那么 `margin: auto` 还是依然适用的
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20190330014601727.png)
+![在这里插入图片描述](../images/20190330014601727.png)
 ```css
 main div {
    background: black;
@@ -103,7 +103,7 @@ main div:nth-child(3) {
 ### 单行
 - 有时候行内元素或者文字显示为垂直居中，仅仅是因为它们的上下内边距相等
 - 这样的情况下，文字也水平居中
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20190330015122978.png)
+![在这里插入图片描述](../images/20190330015122978.png)
 ```html
 <main>
   <a href="#0">We're</a>
@@ -133,7 +133,7 @@ main a {
 对于多行文本，同样可以使用等值 padding-top 和 padding-bottom 的方式实现垂直居中。如果你在使用过程中发现这种方法没见效，那么你可以通过 CSS 为文本设置一个类似 table-cell 的父级容器，然后使用`vertical-align`属性实现垂直居中
 
 真实table
-![在这里插入图片描述](https://img-blog.csdnimg.cn/2019033002143021.png)
+![在这里插入图片描述](../images/2019033002143021.png)
 ```html
 <table>
   <tr>
