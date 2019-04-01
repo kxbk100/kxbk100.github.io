@@ -3,7 +3,7 @@ title: 【CSS】选择器
 date: 2019-03-31 00:00:16
 categories:
 typora-root-url: ..
-typora-copy-images-to: ../images
+typora-copy-lalal-to: ../lalal
 ---
 
 | 选择器                  | 例子                    | 例子描述                               | CSS |

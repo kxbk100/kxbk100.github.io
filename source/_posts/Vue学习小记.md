@@ -3,7 +3,7 @@ title: Vue学习小记
 date: 2019-03-07 00:31:49
 categories:
 typora-root-url: ..
-typora-copy-images-to: ../images
+typora-copy-lalal-to: ../lalal
 ---
 
 # Vue的安装及语法

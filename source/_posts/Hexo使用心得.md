@@ -3,7 +3,7 @@ title: Hexo使用心得
 date: 2019-04-01 22:06:32
 categories:
 typora-root-url: ..
-typora-copy-images-to: ../images
+typora-copy-lalal-to: ../lalal
 ---
 
 # 新建文章

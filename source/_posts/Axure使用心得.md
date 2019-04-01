@@ -3,7 +3,7 @@ title: Axure使用心得
 date: 2019-04-01 09:59:23
 categories:
 typora-root-url: ..
-typora-copy-images-to: ../images
+typora-copy-lalal-to: ../lalal
 ---
 
 - 按住Ctrl时，可以旋转

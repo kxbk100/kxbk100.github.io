@@ -3,7 +3,7 @@ title: 【JavaScript】第六章 其它（如日期、Math、各种常用API）
 date: 2019-03-11 11:28:10
 categories:
 typora-root-url: ..
-typora-copy-images-to: ../images
+typora-copy-lalal-to: ../lalal
 ---
 
 > 1. 获取2017-06-10格式的日期

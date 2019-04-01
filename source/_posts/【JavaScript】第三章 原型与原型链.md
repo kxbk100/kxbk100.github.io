@@ -3,7 +3,7 @@ title: 【JavaScript】第三章 原型与原型链
 date: 2019-02-01 19:29:46
 categories:
 typora-root-url: ..
-typora-copy-images-to: ../images
+typora-copy-lalal-to: ../lalal
 ---
 
 > 1. 如何准确判断一个变量是数组类型

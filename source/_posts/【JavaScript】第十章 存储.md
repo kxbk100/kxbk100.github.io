@@ -3,7 +3,7 @@ title: 【JavaScript】第十章 存储
 date: 2019-03-16 15:43:36
 categories:
 typora-root-url: ..
-typora-copy-images-to: ../images
+typora-copy-lalal-to: ../lalal
 ---
 
 > 1. 请描述下cookie、sessionStorage和localStorage的区别
