@@ -3,7 +3,7 @@ title: 【JavaScript】整理
 date: 2019-04-01 00:24:16
 categories:
 typora-root-url: ..
-typora-copy-lalal-to: ../lalal
+typora-copy-images-to: ../images
 ---
 
 # 一、变量类型和计算

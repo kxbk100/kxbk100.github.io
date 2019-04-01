@@ -3,7 +3,7 @@ title: 【Safety】简介
 date: 2019-03-30 03:25:37
 categories:
 typora-root-url: ..
-typora-copy-lalal-to: ../lalal
+typora-copy-images-to: ../images
 ---
 
 # XSS

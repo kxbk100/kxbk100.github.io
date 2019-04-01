@@ -3,7 +3,7 @@ title: 【CSS】元素居中指南
 date: 2019-03-30 02:39:45
 categories:
 typora-root-url: ..
-typora-copy-lalal-to: ../lalal
+typora-copy-images-to: ../images
 ---
 
 ![](/images/20190330162209258.png)

@@ -3,7 +3,7 @@ title: 【JavaScript】第十一章 开发环境
 date: 2019-03-23 02:43:38
 categories:
 typora-root-url: ..
-typora-copy-lalal-to: ../lalal
+typora-copy-images-to: ../images
 ---
 
 # 关于开发环境

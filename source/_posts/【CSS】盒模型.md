@@ -3,7 +3,7 @@ title: 【CSS】盒模型
 date: 2019-03-30 17:44:45
 categories:
 typora-root-url: ..
-typora-copy-lalal-to: ../lalal
+typora-copy-images-to: ../images
 ---
 
 # 是什么

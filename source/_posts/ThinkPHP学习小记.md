@@ -3,7 +3,7 @@ title: ThinkPHP学习小记
 date: 2019-04-01 10:06:59
 categories:
 typora-root-url: ..
-typora-copy-lalal-to: ../lalal
+typora-copy-images-to: ../images
 ---
 
 # ID不从1开始

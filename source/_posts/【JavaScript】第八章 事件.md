@@ -3,7 +3,7 @@ title: 【JavaScript】第八章 事件
 date: 2019-03-16 15:41:25
 categories:
 typora-root-url: ..
-typora-copy-lalal-to: ../lalal
+typora-copy-images-to: ../images
 ---
 
 > 1. 编写一个通用的事件监听函数

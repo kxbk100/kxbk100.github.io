@@ -3,7 +3,7 @@ title: 【JavaScript】第七章 JS-Web-API DOM&BOM
 date: 2019-03-16 14:45:50
 categories:
 typora-root-url: ..
-typora-copy-lalal-to: ../lalal
+typora-copy-images-to: ../images
 ---
 
 > 1.	DOM是哪种基本的数据结构？

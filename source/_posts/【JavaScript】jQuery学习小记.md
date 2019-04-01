@@ -3,7 +3,7 @@ title: 【JavaScript】jQuery学习小记
 date: 2019-03-06 20:28:11
 categories:
 typora-root-url: ..
-typora-copy-lalal-to: ../lalal
+typora-copy-images-to: ../images
 ---
 
 # 基本选择器

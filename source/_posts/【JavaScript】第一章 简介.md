@@ -3,7 +3,7 @@ title: 【JavaScript】第一章 简介
 date: 2019-01-31 22:57:04
 categories:
 typora-root-url: ..
-typora-copy-lalal-to: ../lalal
+typora-copy-images-to: ../images
 ---
 
 # 1 课程简介

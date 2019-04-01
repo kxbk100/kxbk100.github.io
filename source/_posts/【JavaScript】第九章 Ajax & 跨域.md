@@ -3,7 +3,7 @@ title: 【JavaScript】第九章 Ajax & 跨域
 date: 2019-03-16 15:42:44
 categories:
 typora-root-url: ..
-typora-copy-lalal-to: ../lalal
+typora-copy-images-to: ../images
 ---
 
 > 1. 手动编写一个Ajax，不依赖第三方库

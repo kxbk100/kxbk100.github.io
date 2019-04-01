@@ -3,7 +3,7 @@ title: 【CSS】Bootstrap学习小记
 date: 2019-03-06 20:29:02
 categories:
 typora-root-url: ..
-typora-copy-lalal-to: ../lalal
+typora-copy-images-to: ../images
 ---
 
 # Bootstrap引入

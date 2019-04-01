@@ -3,7 +3,7 @@ title: Android学习小记
 date: 2019-04-01 09:58:37
 categories:
 typora-root-url: ..
-typora-copy-lalal-to: ../lalal
+typora-copy-images-to: ../images
 ---
 
 # 禁止Android不跟随屏幕密度加载不同文件夹的资源
