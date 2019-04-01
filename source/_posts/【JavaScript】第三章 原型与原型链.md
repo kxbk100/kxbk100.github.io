@@ -123,8 +123,8 @@ f.printName();
 f.alertName();
 f.toString(); // 要去f.__proto__.__proto__中查找
 ```
-![](images/undefined)
-![](images/undefined)
+![](https://img-blog.csdnimg.cn/20190304160423516.png)
+![](https://img-blog.csdnimg.cn/20190201192925259.png)
 # 5 instanceof
 - 用于判断**引用类型**属于哪个**构造函数**的方法
 - `f instanceof Foo`判断逻辑：`f`的`__proto__`一层一层往上，能否对应到`Foo.prototype`
