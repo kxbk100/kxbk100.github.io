@@ -7,6 +7,9 @@ typora-copy-images-to: ../images
 ---
 
 # Scanner
+
+![test](/images/test.png)
+
 ```java
 Scanner s = new Scanner(System.in);
 //  使用hasNextXxx()方法进行验证，再使用nextXxx()来读取

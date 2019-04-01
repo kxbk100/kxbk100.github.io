@@ -2,8 +2,7 @@
 title: IDEA构建SSH项目（hibernate自动生成+jetty的使用）
 date: 2019-03-31 19:12:06
 categories:
-typora-root-url: ..
-typora-copy-images-to: ../images
+typora-copy-images-to: /images
 ---
 
 # 1 创建Maven项目
