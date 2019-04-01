@@ -8,7 +8,7 @@ typora-copy-images-to: ../images
 
 # Scanner
 
-![1](/images/1.jpg)
+![1](../images/1.jpg)
 
 ```java
 Scanner s = new Scanner(System.in);
