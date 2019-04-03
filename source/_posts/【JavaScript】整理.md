@@ -1,12 +1,4 @@
----
-title: 【JavaScript】整理
-date: 2019-04-01 00:24:16
-categories:
-typora-root-url: ..
-typora-copy-images-to: ../images
----
-
-# 一、变量类型和计算
+﻿# 一、变量类型和计算
 ---
 > 1. JS中使用typeof能得到的哪些类型
 > 1. 何时使用`===`何时使用`==`
@@ -100,7 +92,7 @@ console.log(p2) // -> ?
 - 到函数内部修改参数的属性这步，我相信大家都知道，当前 `p1` 的值也被修改了
 - 但是当我们重新为 `person` 分配了一个对象时就出现了分歧，请看下图
 
-![](https://img-blog.csdnimg.cn/20190315101856131.png)
+![](/images/201904040047550.png)
 
 所以最后 `person` 拥有了一个新的地址（指针），也就和 `p1` 没有任何关系了，导致了最终两个变量的值是不相同的
 
@@ -391,8 +383,11 @@ f.printName();
 f.alertName();
 f.toString(); // 要去f.__proto__.__proto__中查找
 ```
-![](https://img-blog.csdnimg.cn/20190304160423516.png)
-![](https://img-blog.csdnimg.cn/20190201192925259.png)
+
+![](/images/20190404004851517.png)
+
+![](/images/20190404004912484.png)
+
 ### instanceof
 - 判断**引用类型**属于哪个**构造函数**的方法
 - `f instanceof Foo`判断逻辑：`f`的`__proto__`一层一层往上，能否对应到`Foo.prototype`
