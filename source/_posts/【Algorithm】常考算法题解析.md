@@ -1,7 +1,7 @@
 ---
 title: 【Algorithm】常考算法题解析
 date: 2019-04-01 20:50:46
-categories:Algorithm
+categories: Algorithm
 typora-root-url: ..
 typora-copy-images-to: ../images
 ---

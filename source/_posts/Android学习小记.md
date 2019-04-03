@@ -1,7 +1,7 @@
 ---
 title: Android学习小记
 date: 2019-04-01 09:58:37
-categories:Back-End
+categories: Back-End
 typora-root-url: ..
 typora-copy-images-to: ../images
 ---

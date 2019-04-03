@@ -1,7 +1,7 @@
 ---
 title: 【JavaScript】第四章 闭包和作用域
 date: 2019-03-06 00:34:15
-categories:JavaScript
+categories: JavaScript
 typora-root-url: ..
 typora-copy-images-to: ../images
 ---

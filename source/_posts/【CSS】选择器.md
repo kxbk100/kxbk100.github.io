@@ -1,7 +1,7 @@
 ---
 title: 【CSS】选择器
 date: 2019-03-31 00:00:16
-categories:CSS
+categories: CSS
 typora-root-url: ..
 typora-copy-images-to: ../images
 ---

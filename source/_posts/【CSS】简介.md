@@ -1,7 +1,7 @@
 ---
 title: 【CSS】简介
 date: 2019-04-01 00:25:41
-categories:CSS
+categories: CSS
 typora-root-url: ..
 typora-copy-images-to: ../images
 ---

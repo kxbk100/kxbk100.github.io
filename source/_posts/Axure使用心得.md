@@ -1,7 +1,7 @@
 ---
 title: Axure使用心得
 date: 2019-04-01 09:59:23
-categories:Career
+categories: Career
 typora-root-url: ..
 typora-copy-images-to: ../images
 ---

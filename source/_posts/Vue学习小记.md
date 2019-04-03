@@ -1,7 +1,7 @@
 ---
 title: Vue学习小记
 date: 2019-03-07 00:31:49
-categories:Framework
+categories: Framework
 typora-root-url: ..
 typora-copy-images-to: ../images
 ---

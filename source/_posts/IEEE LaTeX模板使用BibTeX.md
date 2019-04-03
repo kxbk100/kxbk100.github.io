@@ -1,7 +1,7 @@
 ---
 title: IEEE LaTeX模板使用BibTeX
 date: 2019-03-12 18:27:12
-categories:Career
+categories: Career
 typora-root-url: ..
 typora-copy-images-to: ../images
 ---

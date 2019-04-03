@@ -1,7 +1,7 @@
 ---
 title: 【JavaScript】第一章 简介
 date: 2019-01-31 22:57:04
-categories:JavaScript
+categories: JavaScript
 typora-root-url: ..
 typora-copy-images-to: ../images
 ---

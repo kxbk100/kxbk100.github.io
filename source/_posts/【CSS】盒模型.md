@@ -1,7 +1,7 @@
 ---
 title: 【CSS】盒模型
 date: 2019-03-30 17:44:45
-categories:CSS
+categories: CSS
 typora-root-url: ..
 typora-copy-images-to: ../images
 ---

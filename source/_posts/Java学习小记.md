@@ -1,7 +1,7 @@
 ---
 title: Java学习小记
 date: 2019-04-01 22:07:13
-categories:Back-End
+categories: Back-End
 typora-root-url: ..
 typora-copy-images-to: ../images
 ---
