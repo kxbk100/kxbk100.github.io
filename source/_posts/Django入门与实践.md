@@ -6,4 +6,4 @@ typora-root-url: ..
 typora-copy-images-to: ../images
 ---
 
-![](/images/20190401100548887.png)
+![](/images/undefined)
