@@ -1,7 +1,7 @@
 ---
 title: 【JavaScript】第二章 变量类型和计算
 date: 2019-02-01 19:27:04
-categories:
+categories:JavaScript
 typora-root-url: ..
 typora-copy-images-to: ../images
 ---

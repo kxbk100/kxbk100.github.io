@@ -1,7 +1,7 @@
 ---
 title: 【JavaScript】第十章 存储
 date: 2019-03-16 15:43:36
-categories:
+categories:JavaScript
 typora-root-url: ..
 typora-copy-images-to: ../images
 ---

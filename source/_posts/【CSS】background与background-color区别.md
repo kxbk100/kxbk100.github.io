@@ -1,7 +1,7 @@
 ---
 title: 【CSS】background与background-color区别
 date: 2019-03-30 01:32:35
-categories:
+categories:CSS
 typora-root-url: ..
 typora-copy-images-to: ../images
 ---

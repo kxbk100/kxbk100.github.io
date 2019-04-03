@@ -1,7 +1,7 @@
 ---
 title: Hexo使用心得
 date: 2019-04-01 22:06:32
-categories:
+categories:Career
 typora-root-url: ..
 typora-copy-images-to: ../images
 ---

@@ -87,6 +87,7 @@ def to_md_files(username, total_pages, cookie_file, start=1, stop=None, hexo=Tru
             title = data['data']['title'].strip()
             # md 形式的文章内容
             content = data['data']['markdowncontent']
+            categories = data['data']['categories']
             if content is None:
                 logging.error(
                     '{title} is not written with markdown.'.format(title))
@@ -95,8 +96,8 @@ def to_md_files(username, total_pages, cookie_file, start=1, stop=None, hexo=Tru
             # hexo_str 是用 hexo 写文章时需要在头部加的东西
             hexo_str = ''
             if hexo:
-                hexo_str = '---\ntitle: {title}\ndate: {date}\ncategories:\ntypora-root-url: ..\ntypora-copy-images-to: ../images\n---\n\n'.format(
-                    title=title, date=create)
+                hexo_str = '---\ntitle: {title}\ndate: {date}\ncategories: {categories}\ntypora-root-url: ..\ntypora-copy-images-to: ../images\n---\n\n'.format(
+                    title=title, date=create, categories=categories)
             # Windows 下文件名中的非法字符
             forbidden = ['\\', '/', ':', '*', '?', '"', '<', '>', '|']
             # 如果文章名含有非法字符，那么使用其 id 作为 md 文件名

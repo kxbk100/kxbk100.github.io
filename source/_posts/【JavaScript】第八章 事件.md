@@ -1,7 +1,7 @@
 ---
 title: 【JavaScript】第八章 事件
 date: 2019-03-16 15:41:25
-categories:
+categories:JavaScript
 typora-root-url: ..
 typora-copy-images-to: ../images
 ---

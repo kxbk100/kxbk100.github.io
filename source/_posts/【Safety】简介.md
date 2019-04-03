@@ -1,7 +1,7 @@
 ---
 title: 【Safety】简介
 date: 2019-03-30 03:25:37
-categories:
+categories:Safety
 typora-root-url: ..
 typora-copy-images-to: ../images
 ---

@@ -1,7 +1,7 @@
 ---
 title: 【JavaScript】 第十二章 运行环境
 date: 2019-03-22 17:46:17
-categories:
+categories:JavaScript
 typora-root-url: ..
 typora-copy-images-to: ../images
 ---

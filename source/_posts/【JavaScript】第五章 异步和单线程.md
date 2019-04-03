@@ -1,7 +1,7 @@
 ---
 title: 【JavaScript】第五章 异步和单线程
 date: 2019-03-09 01:51:21
-categories:
+categories:JavaScript
 typora-root-url: ..
 typora-copy-images-to: ../images
 ---

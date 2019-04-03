@@ -1,7 +1,7 @@
 ---
 title: 【CSS】元素居中指南
 date: 2019-03-30 02:39:45
-categories:
+categories:CSS
 typora-root-url: ..
 typora-copy-images-to: ../images
 ---
