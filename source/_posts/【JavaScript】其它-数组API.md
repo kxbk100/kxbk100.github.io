@@ -54,6 +54,10 @@ arrayObj[1] = "这是新值"; // 给数组元素赋予新的值
 ```
 
 ## 数组的拷贝
+**目的**
+
+普通的`var newarr = arr；`只是一个引用，并不是真正的拷贝，真正的拷贝要用如下方法
+
 ```js
 arrayObj.slice(0); // 返回数组的拷贝数组，注意是一个新的数组，不是指向
 arrayObj.concat(); // 返回数组的拷贝数组，注意是一个新的数组，不是指向
@@ -67,6 +71,7 @@ arrayObj.sort(); // 对数组元素排序，原数组改变，返回数组地址
 sort
 - 改变原数组
 - 可对真实数据大小进行排序而不是ACSII码
+
 ```js
 var arr = [1, 4, 2, 3, 5];
 var arr2 = arr.sort(function(a, b) {
@@ -108,209 +113,229 @@ arr.indexOf('30'); // 元素'30'的索引为2
 ```
 
 
-
-
 # 数组对象的3个属性
 ---
 
 ## length属性
 
-ength属性表示数组的长度，即其中元素的个数
-因为数组的索引总是由0开始，所以一个数组的上下限分别是：0和length-1
+- length属性表示数组的长度，即其中元素的个数
+- 因为数组的索引总是由0开始，所以一个数组的上下限分别是：0和length-1
 
 JavaScript数组的length属性是可变的
 - 当length属性被设置得更大时，整个数组的状态事实上不会发生变化，仅仅是length属性变大
 - 当length属性被设置得比原来小时，则原先数组中索引大于或等于length的元素的值全部被丢失
 
+
 ```js
-var arr=[12,23,5,3,25,98,76,54,56,76];//定义了一个包含10个数字的数组
-alert(arr.length); //显示数组的长度10
+var arr = [12, 23, 5, 3, 25, 98, 76, 54, 56, 76]; // 定义了一个包含10个数字的数组
+alert(arr.length); // 显示数组的长度10
 
-arr.length=12; //增大数组的长度
-alert(arr.length); //显示数组的长度已经变为12
-alert(arr[8]); //显示第9个元素的值，为56
+arr.length = 12; // 增大数组的长度
+alert(arr.length); // 显示数组的长度已经变为12
+alert(arr[8]); // 显示第9个元素的值，为56
 
-arr.length=5; //将数组的长度减少到5，索引等于或超过5的元素被丢弃
-alert(arr[8]); //显示第9个元素已经变为"undefined"
+arr.length = 5; // 将数组的长度减少到5，索引等于或超过5的元素被丢弃
+alert(arr[8]); // 显示第9个元素已经变为"undefined"
 
-arr.length=10; //将数组长度恢复为10
-alert(arr[8]); //虽然长度被恢复为10，但第9个元素却无法收回，显示"undefined"
+arr.length = 10; // 将数组长度恢复为10
+alert(arr[8]); // 虽然长度被恢复为10，但第9个元素却无法收回，显示"undefined"
 ```
 
-由上面的代码我们可以清楚的看到length属性的性质。但length对象不仅可以显式的设置，它也有可能被隐式修改。JavaScript中可以使用一个未声明过的变量，同样，也可以使用一个未定义的数组元素（指索引超过或等于length的元素），这时，length属性的值将被设置为所使用元素索引的值加1。例如下面的代码：
 
-    var arr=[12,23,5,3,25,98,76,54,56,76];
-    console.log(arr.length);  // 10
-    
-    arr[15] = 34;
-    console.log(arr.length);  //16
-    
-    console.log(arr[10]);     //undefine
-    console.log(arr.toString())
-    //12,23,5,3,25,98,76,54,56,76,,,,,,34
-    
+- JavaScript中可以使用一个未声明过的变量，同样，也可以使用一个未定义的数组元素（指索引超过或等于length的元素）
+- length对象不仅可以显式的设置，它也有可能被隐式修改
+- length属性的值将被设置为所使用元素索引的值加1
 
-代码中同样是先定义了一个包含10个数字的数组，通过alert语句可以看出其长度为10。随后使用了索引为15的元素，将其赋值为15，即 arr\[15\]=34，这时再用alert语句输出数组的长度，得到的是16。无论如何，对于习惯于强类型编程的开发人员来说，这是一个很令人惊讶的特性。事实上，使用new Array()形式创建的数组，其初始长度就是为0，正是对其中未定义元素的操作，才使数组的长度发生变化。
-
-大多数其他编程语言不允许直接改变数组的大小，越界访问索引会报错。然而，JavaScript的Array却不会有任何错误。在编写代码时，**不建议直接修改Array的大小，访问索引时要确保索引不会越界。**
-
-由上面的介绍可以看到，length属性是如此的神奇，利用它可以方便的增加或者减少数组的容量。因此对length属性的深入了解，有助于在开发过程中灵活运用。
-
-### 2\. **prototype 属性**
-
-返回对象类型原型的引用。prototype 属性是 object 共有的。
-
-**objectName.prototype**:objectName 参数是object对象的名称。  
-说明：用 prototype 属性提供对象的类的一组基本功能。 对象的新实例“继承”赋予该对象原型的操作。  
-对于数组对象，以以下例子说明prototype 属性的用途。
-
-给数组对象添加返回数组中最大元素值的方法。要完成这一点，声明一个函数，将它加入 Array.prototype， 并使用它。
-
-    function array_max()
-     {
-        var i,
-        max = this[0];
-        for (i = 1; i < this.length; i++)
-        {
-            if (max < this[i])
-            max = this[i];
-        }
-        return max;
-    }
-    Array.prototype.max = array_max;
-    var x = new Array(1, 2, 3, 4, 5, 6);
-    var y = x.max();
-    
-
-该代码执行后，y 保存数组 x 中的最大值，即：6。
-
-### 3\. **constructor 属性**
-
-表示创建对象的函数。object.constructor //object是对象或函数的名称。
-
-说明：constructor 属性是所有具有 prototype 的对象的成员。它们包括除 Global 和 Math 对象以外的所有 JScript 固有对象。constructor 属性保存了对构造特定对象实例的函数的引用。
-
-    x = new String("Hi");
-    if (x.constructor == String) // 进行处理（条件为真）。
-     
-    function MyFunc {
-       // 函数体。
-    }
-    y = new MyFunc;
-    if (y.constructor == MyFunc) // 进行处理（条件为真）。
-    
-    y = new Array();
-    
-
-**三、判断是否为数组**
--------------
-
-js因为设计上的某些缺陷，导致在对于Array的判断，也是颇费周折的。  
-`typeof 操作符`:对于Function， String， Number ，Undefined 等几种类型的对象来说，他完全可以胜任，但是为Array时,难免会让人失望：
-
-    var arr=new Array("1","2","3","4","5");
-    alert(typeof(arr));  // Object
-    
-
-`instanceof 操作符`: 运算符会返回一个 Boolean 值，指出对象是否是特定类的一个实例。
-
-    var arrayStr=new Array("1","2","3","4","5");
-    alert(arrayStr instanceof Array);  //true
-    
-
-虽然此时能够完好的工作，但，事实上在多个frame中穿梭就会产生大问题了。所以~~~
-
-    var iframe = document.createElement('iframe');    
-    document.body.appendChild(iframe);    
-    xArray = window.frames[window.frames.length-1].Array;       
-    var arr = new xArray("1","2","3","4","5");//这个写法IE大哥下是不支持的，FF下才有
-           
-    alert(arr instanceof Array); // false 
-    alert(arr.constructor === Array); // false  
-    
-
-ECMA-262中规范定义了Object.prototype.toString的行为：首先，取得对象的一个内部属性\[\[Class\]\]，然后依据这个属性，返回一个类似于"\[object Array\]"的字符串作为结果（看过ECMA标准的应该都知道，\[\[\]\]用来表示语言内部用到的、外部不可直接访问的属性，称为“内部属性”）。利用这个方法，再配合call，我们可以取得任何对象的内部属性\[\[Class\]\]，然后把类型检测转化为字符串比较，以达到我们的目的。于是利用这点，就有了下面这种方法：
-
-    function isArray(obj) {  
-      return Object.prototype.toString.call(obj) === '[object Array]';   
-    }
-    
-
-call改变toString的this引用为待检测的对象，返回此对象的字符串表示，然后对比此字符串是否是'\[object Array\]'，以判断其是否是Array的实例。也许你要问了，为什么不直接o.toString()？嗯，虽然Array继承自Object，也会有toString方法，但是这个方法有可能会被改写而达不到我们的要求，而Object.prototype则是老虎的屁股，很少有人敢去碰它的，所以能一定程度保证其“纯洁性”：）。这也是Array.isArray()方法的兼容旧环境（Polyfill）。
-
-如此很好的解决了跨frame对象构建的问题，经过测试，各大浏览器兼容性也很好，可以放心使用。很多框架，比如jQuery、Base2等等，都计划借鉴此方法以实现某些特殊的，比如数组、正则表达式等对象的类型判定！当然也可以写成如下这样：
-
-    function isArray2 (v){
-        return toString.apply(v) === '[object Array]';
-    }
-    
-
-要注意的是：toString方法极有可能被重写，所以需要使用的时候，可以直接使用Object.prototype.toString()方法。
-
-`Array.isArray()`[See](https://link.jianshu.com?t=https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray)方法用来判断某个值是否为数组。如果是，则返回 true，否则返回 false。
-
-    // 下面的函数调用都返回 true
-    Array.isArray([]);
-    Array.isArray([1]);
-    Array.isArray(new Array());
-    // 鲜为人知的事实：其实 Array.prototype 也是一个数组。
-    Array.isArray(Array.prototype); 
-    
-    // 下面的函数调用都返回 false
-    Array.isArray();
-    Array.isArray({});
-    Array.isArray(null);
-    Array.isArray(undefined);
-    Array.isArray(17);
-    Array.isArray('Array');
-    Array.isArray(true);
-    Array.isArray(false);
-    Array.isArray({ __proto__: Array.prototype });
-    
-
-**四, 数组迭代过程**
--------------
-
-### **filter()** [See](https://link.jianshu.com?t=https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
-
-**方法使用指定的函数测试所有元素，并创建一个包含所有通过测试的元素的新数组。**  
-语法：arr.filter(callback\[, thisArg\])  
-如果为 filter 提供一个 thisArg 参数，则它会被作为 callback 被调用时的 this 值。否则，callback 的 this 值在非严格模式下将是全局对象，严格模式下为 undefined。
-
-> filter 为数组中的每个元素调用一次 callback 函数，并利用所有使得 callback 返回 true 或 等价于 true 的值 的元素创建一个新数组。callback 只会在已经赋值的索引上被调用，对于那些已经被删除或者从未被赋值的索引不会被调用。那些没有通过 callback 测试的元素会被跳过，不会被包含在新数组中。
-
-**示例**：筛选排除掉所有的小值
-
-    function isBigEnough(element) {
-      return element >= 10;
-    }
-    var filtered = [12, 5, 8, 130, 44].filter(isBigEnough);
-    // filtered is [12, 130, 44]
-    
-
-### forEach() 
-
-**方法让数组的每一项都执行一次给定的函数。**  
-语法: array.forEach(callback\[, thisArg\])
-
-> forEach 方法按升序为数组中含有效值的每一项执行一次callback 函数，那些已删除（使用delete方法等情况）或者从未赋值的项将被跳过（但不包括哪些值为 undefined 的项）。
-
-_forEach 遍历的范围在第一次调用 callback 前就会确定。调用forEach 后添加到数组中的项不会被 callback 访问到。如果已经存在的值被改变，则传递给 callback 的值是 forEach 遍历到他们那一刻的值。已删除的项不会被遍历到。_ **注意： 没有办法中止 forEach 循环。如果要中止，可使用 Array.every 或 Array.some。见下面的例子。**
-
-**示例1**:打印出数组的内容
 ```js
-function logArrayElements(element, index, array) {
-    console.log("a[" + index + "] = " + element);
+var arr = [12, 23, 5, 3, 25, 98, 76, 54, 56, 76];
+console.log(arr.length);  // 10
+
+arr[15] = 34;
+console.log(arr.length);  //16
+
+console.log(arr[10]);     // undefine
+console.log(arr.toString())
+// 12,23,5,3,25,98,76,54,56,76,,,,,,34
+```
+
+- 代码中同样是先定义了一个包含10个数字的数组，通过alert语句可以看出其长度为10
+- 随后使用了索引为15的元素，将其赋值为15，即 `arr[15]=34`
+- 这时再用alert语句输出数组的长度，得到的是16
+- 多数其他编程语言不允许直接改变数组的大小，越界访问索引会报错
+- JavaScript的Array却不会有任何错误
+- 但在编写代码时，**不建议直接修改Array的大小，访问索引时要确保索引不会越界**
+
+
+## prototype属性
+- 返回对象类型原型的引用
+- prototype 属性是 object 共有的
+
+**objectName.prototype**
+
+- objectName 参数是object对象的名称。  
+- 用 prototype 属性提供对象的类的一组基本功能
+- 对象的新实例“继承”赋予该对象原型的操作。  
+
+给数组对象添加返回数组中最大元素值的方法。要完成这一点，声明一个函数，将它加入 Array.prototype， 并使用它
+
+```js
+function array_max() {
+  var i,
+  max = this[0];
+  for (i = 1; i < this.length; i++) {
+    if (max < this[i])
+      max = this[i];
+  }
+  return max;
 }
-[2, 5, 9].forEach(logArrayElements);
-// logs:
-// a[0] = 2
-// a[1] = 5
-// a[2] = 9
+Array.prototype.max = array_max;
+var x = new Array(1, 2, 3, 4, 5, 6);
+var y = x.max();
 ```
 
-**示例2**:一个可以克隆对象的函数  
-使用下面的代码可以复制一个给定的对象,虽然有很多不同的复制对象的方法.不过下面介绍的这种方法使用了Array.prototype.forEach和其他一些ECMAScript 5中的Object.*函数.
+该代码执行后，y 保存数组 x 中的最大值，即：6
+
+## constructor属性
+
+- 表示创建对象的函数
+- `object.constructor`是对象或函数的名称
+
+说明：constructor 属性是所有具有 prototype 的对象的成员。它们包括除 Global 和 Math 对象以外的所有 JScript 固有对象。constructor 属性保存了对构造特定对象实例的函数的引用
+
+```js
+x = new String("Hi");
+if (x.constructor == String) // 进行处理（条件为真）
+
+function MyFunc() {
+  // 函数体
+}
+y = new MyFunc;
+if (y.constructor == MyFunc) // 进行处理（条件为真）
+
+y = new Array();
+```
+
+
+# 判断是否为数组
+---
+
+- JS因为设计上的某些缺陷，导致在对于Array的判断，也是颇费周折的 
+- `typeof`：对于Function， String， Number ，Undefined 等几种类型的对象来说，他完全可以胜任，但是为Array时，难免会让人失望
+```js
+var arr = new Array("1","2","3","4","5");
+alert(typeof(arr)); // Object
+```
+
+`instanceof`：运算符会返回一个`Boolean`值，指出对象是否是特定类的一个实例
+```js
+var arrayStr = new Array("1","2","3","4","5");
+alert(arrayStr instanceof Array);  // true
+```
+
+虽然此时能够完好的工作，但事实上在**多个frame中穿梭**就会产生大问题了
+```js
+variframe = document.createElement('iframe');    
+document.body.appendChild(iframe);    
+xArray = window.frames[window.frames.length-1].Array;       
+var arr = new xArray("1","2","3","4","5"); // 这个写法IE大哥下是不支持的，FF下才有
+
+alert(arr instanceof Array); // false 
+alert(arr.constructor === Array); // false  
+```
+
+ECMA-262中规范定义了Object.prototype.toString的行为
+
+- 首先，取得对象的一个内部属性`[[Class]]`，然后依据这个属性，返回一个类似于`[object Array]`的字符串作为结果
+- `[[]]`用来表示语言内部用到的、外部不可直接访问的属性，称为“内部属性”
+- 利用这个方法，再配合call，我们可以取得任何对象的内部属性`[[Class]]`，然后把类型检测转化为字符串比较，以达到我们的目的。于是利用这点，就有了下面这种方法：
+```js
+function isArray(obj) {  
+  return Object.prototype.toString.call(obj) === '[object Array]';   
+}
+```
+
+- call改变toString的this引用为待检测的对象，返回此对象的字符串表示
+- 然后对此字符串是否是`[object Array]`，以判断其是否是Array的实例
+
+为什么不直接o.toString()？
+- 虽然Array继承自Object，toString方法极有可能被重写而达不到我们的要求
+- Object.prototype则是老虎的屁股，很少有人敢去碰它的，所以能一定程度保证其“纯洁性”
+
+如此很好的解决了跨frame对象构建的问题，经过测试，各大浏览器兼容性也很好，可以放心使用。很多框架，比如jQuery等，都计划借鉴此方法以实现某些特殊的，比如数组、正则表达式等对象的类型判定
+
+`Array.isArray()`方法用来判断某个值是否为数组。如果是，则返回 true，否则返回 false
+
+```js
+// 下面的函数调用都返回 true
+Array.isArray([]);
+Array.isArray([1]);
+Array.isArray(new Array());
+// 鲜为人知的事实：其实 Array.prototype 也是一个数组。
+Array.isArray(Array.prototype); 
+
+// 下面的函数调用都返回 false
+Array.isArray();
+Array.isArray({});
+Array.isArray(null);
+Array.isArray(undefined);
+Array.isArray(17);
+Array.isArray('Array');
+Array.isArray(true);
+Array.isArray(false);
+Array.isArray({ __proto__: Array.prototype });
+```
+
+# 数组迭代过程
+---
+
+## filter()：过滤符合条件的元素
+- 不改变原数组
+- 返回符合条件的数组
+- filter 为数组中的每个元素调用一次 callback 函数，并利用所有使得 callback 返回 true 或 等价于 true 的值的元素创建一个新数组。callback 只会在已经赋值的索引上被调用，对于那些已经被删除或者从未被赋值的索引不会被调用。那些没有通过 callback 测试的元素会被跳过，不会被包含在新数组中
+
+```js
+var arr = [1, 2, 3];
+var arr2 = arr.filter(function(item, index) {
+  // 通过某一个条件过滤数组
+  if (item >= 2) {
+    return true;
+  }
+})
+console.log(arr2);
+```
+
+
+```js
+function isBigEnough(item) {
+  return item >= 10;
+}
+var filtered = [12, 5, 8, 130, 44].filter(isBigEnough);
+// filtered is [12, 130, 44]
+```
+
+### forEach() ：遍历数组中所有元素
+
+- forEach 方法按升序为数组中含有效值的每一项执行一次callback 函数，那些已删除（使用delete方法等情况）或者从未赋值的项将被跳过（但不包括哪些值为 undefined 的项）
+- forEach 遍历的范围在第一次调用 callback 前就会确定。调用forEach 后添加到数组中的项不会被 callback 访问到。如果已经存在的值被改变，则传递给 callback 的值是 forEach 遍历到他们**那一刻**的值
+- 已删除的项不会被遍历到
+- 没有办法中止 forEach 循环
+
+**打印出数组的内容**
+```js
+var arr = ['a', 'b', 'c'];
+arr.forEach(function(item, index) { // 值，索引
+  // 遍历数组的所有元素
+  // item对应"a", "b", "c"
+  // index对应0, 1, 2
+  console.log(index, item);
+  // 0 "a"
+  // 1 "b"
+  // 2 "c"
+})
+```
+
+**一个可以克隆对象的函数**  ？
+使用下面的代码可以复制一个给定的对象，虽然有很多不同的复制对象的方法，不过下面这种方法使用了`Array.prototype.forEach`和其他一些ECMAScript 5中的Object.*函数
 ```js
 function copy(o){
   var copy = Object.create( Object.getPrototypeOf(o) );
@@ -328,21 +353,18 @@ var o1 = {a:1, b:2};
 var o2 = copy(o1); // o2 looks like o1 now
 ```
 
- ex3
+### every()：判断所有元素是否都符合条件
+返回true或false
 ```js
-var arr = ['a', 'b', 'c'];
-arr.forEach(function(item, index) { // 值，索引
-  // 遍历数组的所有元素
-  // item对应"a", "b", "c"
-  // index对应0, 1, 2
-  console.log(index, item);
-  // 0 "a"
-  // 1 "b"
-  // 2 "c"
+var arr = [1, 2, 3];
+var result = arr.every(function(item, index) {
+  // 用来判断所有的数组元素，都满足一个条件
+  if (item < 4) {
+    return true;
+  }
 })
+console.log(result); // true
 ```
-
-### every()
 **方法测试数组的所有元素是否都通过了指定函数的测试。**  
 语法:arr.every(callback\[, thisArg\])
 
@@ -360,7 +382,18 @@ arr.forEach(function(item, index) { // 值，索引
     // passed is true
     
 
-### map() 
+### map() ：对元素重新组装
+- 不改变原数组
+- 生成新数组
+```js
+var arr = [1, 2, 3, 4];
+var arr2 = arr.map(function(item, index) {
+  // 将元素重新组装，并返回
+  return '<b>' + item + '</b>';
+})
+console.log(arr2);
+```
+
 
 **方法返回一个由原数组中的每个元素调用一个指定方法后的返回值组成的新数组。**
 
@@ -396,7 +429,18 @@ map方法在调用callback函数时,会给它传递三个参数:当前正在遍�
     // 返回[1,2,3]
     
 
-### some()
+### some()：判断是否有至少一个元素符合条件
+返回true或false
+```js
+var arr = [1, 2, 3];
+var result = arr.some(function(item, index) {
+  // 用来判断所有的数组元素，只要有一个满足条件即可
+  if (item < 2) {
+    return true;
+  }
+})
+console.log(result); // true
+```
 
 **方法测试数组中的某些元素是否通过了指定函数的测试。**
 
@@ -511,84 +555,32 @@ map方法在调用callback函数时,会给它传递三个参数:当前正在遍�
 
 # 总结
 ---
+| 函数名 | 是否改变原数组 | 返回值 |备注 |  
+|--|--|--|--|
+| pop | 会改变 | 返回被删除元素 | |
+| push | 会改变 | 返回新数组长度 | |
+| reverse | 会改变| | |
+|shift | 会改变 | 返回被删除元素 | |
+| sort | 会改变 | | |
+| splice | 会改变| 回被删除元素组成的数组，或者为空数组 | |
+| unshift | 会改变 | | |
+| join | 不会改变 |||
+| concat | 不会改变 |||
+| indexOf | 不会改变 |||
+| lastIndexOf | 不会改变 |||
+| slice | 不会改变 |||
+| toString | 不会改变 |||
+| map | 不会改变 |||
+| filter | 不会改变 |||
+| some | 不会改变 || 有true的时候停止 |
+| every | 不会改变 || 在有false的时候停止 |
+| reduce | 不会改变 |||
+| forEach | 不会改变 |||
 
-pop,push,reverse,shift,sort,splice,unshift 会改变原数组  
-join,concat,indexOf,lastIndexOf,slice,toString 不会改变原数组  
-map,filter,some,every,reduce,forEach这些迭代方法不会改变原数组
-
-几个注意点：
-
-1.  shift,pop会返回那个被删除的元素
-2.  splice 会返回被删除元素组成的数组，或者为空数组
-3.  push 会返回新数组长度
-4.  some 在有true的时候停止
-5.  every 在有false的时候停止
-6.  上述的迭代方法可以在最后追加一个参数thisArg,它是执行 callback 时的 this 值。
+上述的迭代方法可以在最后追加一个参数thisArg,它是执行 callback 时的 this 值。
 
 JavaScript的数据类型分为：值类型和引用类型(地址值)；而常见的引用类型有Object和Array／数组的存储模型中，如果是诸如Number,String之类的类型数据会被直接压入栈中，而引用类型只会压入对该值的一个索引（即C中所说的保存了数据的指针）。这些数据时储存在堆中的某块区间中，堆栈并不是独立的，栈中也可以在堆中存放。在使用Array的进行赋值操作的时候，也当注意是否要进行深度拷贝复制(可借助arr.slice(0))，以免造成对自身污染。对于Js数据，其实内容还是还有很多需要学习的，比如ArrayBuffer等。根据学以致用的原则，这些等到需要的时候再去学吧。
 
-[原文链接http://www.jeffjade.com/2015/09/25/2015-09-25-js-array](https://link.jianshu.com?t=http://www.jeffjade.com/2015/09/25/2015-09-25-js-array/#)
-
-参考文章如下：  
-[js数组操作](https://link.jianshu.com?t=http://www.cnblogs.com/qiantuwuliang/archive/2011/01/08/1930499.html)  
-[js如何判断一个对象是不是Array？](https://link.jianshu.com?t=http://www.nowamagic.net/librarys/veda/detail/1250)  
-[MDN-Array](https://link.jianshu.com?t=https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array#Mutator_.E6.96.B9.E6.B3.95)  
-[盘点JavaScript里好用的原生API](https://link.jianshu.com?t=http://segmentfault.com/a/1190000002753931?utm_source=tuicool)  
-[5个现在就该使用的数组Array方法](https://link.jianshu.com?t=http://ourjs.com/detail/54a9f2ba5695544119000005)
-
-
----
-# 数组API
-## forEach：遍历数组中所有元素
-
-## every：判断所有元素是否都符合条件
-返回true或false
-```js
-var arr = [1, 2, 3];
-var result = arr.every(function(item, index) {
-  // 用来判断所有的数组元素，都满足一个条件
-  if (item < 4) {
-    return true;
-  }
-})
-console.log(result); // true
-```
-## some：判断是否有至少一个元素符合条件
-返回true或false
-```js
-var arr = [1, 2, 3];
-var result = arr.some(function(item, index) {
-  // 用来判断所有的数组元素，只要有一个满足条件即可
-  if (item < 2) {
-    return true;
-  }
-})
-console.log(result); // true
-```
-## 
-
-## map：对元素重新组装
-- 不改变原数组
-- 生成新数组
-```js
-var arr = [1, 2, 3, 4];
-var arr2 = arr.map(function(item, index) {
-  // 将元素重新组装，并返回
-  return '<b>' + item + '</b>';
-})
-console.log(arr2);
-```
-## fileter：过滤符合条件的元素
-- 不改变原数组
-- 返回符合条件的数组
-```js
-var arr = [1, 2, 3];
-var arr2 = arr.filter(function(item, index) {
-  // 通过某一个条件过滤数组
-  if (item >= 2) {
-    return true;
-  }
-})
-console.log(arr2);
-```
+# 参考资料
+> [1] https://www.jeffjade.com/2015/09/25/2015-09-25-js-array/
 
