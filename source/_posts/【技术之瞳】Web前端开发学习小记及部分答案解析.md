@@ -6,6 +6,8 @@ typora-root-url: ..
 typora-copy-images-to: ../images
 ---
 
+
+
 基础技术
 - HTTP
 - HTML
@@ -111,9 +113,9 @@ http://www.tashan10.com/zhong-yu-gao-dong-liao-cssshi-xian-san-jiao-xing-tu-biao
 	border-bottom: 40px solid transparent;
 }
 ```
-![](https://img-blog.csdnimg.cn/20190307122720117.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2t4YmsxMDA=,size_16,color_FFFFFF,t_70)
-![](https://img-blog.csdnimg.cn/20190307122739359.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2t4YmsxMDA=,size_16,color_FFFFFF,t_70)
-![](https://img-blog.csdnimg.cn/20190307122808816.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2t4YmsxMDA=,size_16,color_FFFFFF,t_70)
+![](/images/20190404013737885.png)
+![](/images/20190404013749598.png)
+![](/images/20190404013800508.png)
 border-top + border-bottom = 三角形的底
 border-left = 三角形的高
 # JavaScript

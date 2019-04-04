@@ -1,7 +1,7 @@
 ---
 title: 【JavaScript】第十一章 开发环境
 date: 2019-03-23 02:43:38
-categories:
+categories: JavaScript
 typora-root-url: ..
 typora-copy-images-to: ../images
 ---
@@ -50,7 +50,7 @@ Git的基本操作必须很熟练
 | git checkout xxx (branch name) | 切换到一个已有的分支 |
 | git merge xxx | 合并分支 |
 
-![](/images/undefined)
+![](/images/20190404005909339.png)
 
 ```
 echo "# test" >> README.md
@@ -276,10 +276,12 @@ module.export = {
 1. 进入文件目录
 2. 初始化环境`npm init`
 3. 自动生成package.json文件
-![](/images/undefined)
-4. 安装包`npm install webpack --save-dev`，`-dev`表示仅用于开发环境
-5. 安装包`npm install jquery --save`，任何环境都需要
-6. 卸载包`npm uninstall moment --save`
+
+![](/images/20190404005832689.png)
+
+5. 安装包`npm install webpack --save-dev`，`-dev`表示仅用于开发环境
+6. 安装包`npm install jquery --save`，任何环境都需要
+7. 卸载包`npm uninstall moment --save`
 
 ## 配置webpack
 1. 新建webpack.config.js，与index.html和package.json同级

@@ -1,7 +1,7 @@
 ---
 title: 【JavaScript】第七章 JS-Web-API DOM&BOM
 date: 2019-03-16 14:45:50
-categories:
+categories: JavaScript
 typora-root-url: ..
 typora-copy-images-to: ../images
 ---
@@ -70,7 +70,9 @@ p.className='p1'; // 修改class
 console.log(p.nodeClass)
 console.log(p.nodeType)
 ```
-![](/images/undefined)
+
+![](/images/20190404005605175.png)
+
 ## Attribute
 - 文档直接修改，查看源码即可看到修改
 - 修改的是HTML代码文档内的标签，有关文档内标签的属性
@@ -94,10 +96,12 @@ var parent = div1.parentElement;
 
 ## 获取子元素
 在使用childNodes获取子元素时，换行也会算作1个text，计为1个Node
-![](/images/undefined)
-![](/images/undefined)
-![](/images/undefined)
-![](/images/undefined)
+
+![](/images/20190404005650180.png)
+![](/images/20190404005707591.png)
+![](/images/2019040400572392.png)
+![](/images/20190404005738279.png)
+
 ```js
 var div1 = document.getElementById("div1");
 var child = div1.childNodes;

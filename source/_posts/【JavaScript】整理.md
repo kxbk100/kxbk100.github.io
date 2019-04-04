@@ -1,4 +1,12 @@
-﻿# 一、变量类型和计算
+---
+title: 【JavaScript】整理
+date: 2019-04-01 00:24:16
+categories: JavaScript
+typora-root-url: ..
+typora-copy-images-to: ../images
+---
+
+# 一、变量类型和计算
 ---
 > 1. JS中使用typeof能得到的哪些类型
 > 1. 何时使用`===`何时使用`==`
