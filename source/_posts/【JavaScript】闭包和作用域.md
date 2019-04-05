@@ -1,5 +1,5 @@
 ---
-title: 【JavaScript】第四章 闭包和作用域
+title: 【JavaScript】闭包和作用域
 date: 2019-03-06 00:34:15
 categories: JavaScript
 typora-root-url: ..
@@ -83,6 +83,23 @@ function fn(name) {
 # this
 ---
 
+> 涉及面试题：如何正确判断 this？箭头函数的 this 是什么？
+
+**是什么**
+
+指向当前对象
+
+**分类边界**
+
+可能会发生多个规则同时出现的情况，这时候不同的规则之间会根据优先级最高的来决定 `this` 最终指向哪里。
+
+首先，`new` 的方式优先级最高，接下来是 `bind` 这些函数，然后是 `obj.foo()` 这种调用方式，最后是 `foo` 这种调用方式，同时，箭头函数的 `this` 一旦被绑定，就不会再被任何方式所改变。
+
+如果你还是觉得有点绕，那么就看以下的这张流程图吧，图中的流程只针对于单个规则。
+
+![](/images/20190405174036963.png)
+
+
 this要在执行时才能确定值，定义时无法确认
 - 一个函数后面加`()`，即为要执行
 - 在此之前，函数永远处于定义状态
@@ -98,7 +115,128 @@ a.fn.call({ name: 'B' }); // this === {name: 'B'}
 var fn1 = a.fn;
 fn1(); // this === window
 ```
-## 作为构造函执行
+
+
+**组合**
+
+## call apply bind中的this判断
+
+说到 `bind`，不知道大家是否考虑过，如果对一个函数进行多次 `bind`，那么上下文会是什么呢？
+
+```js
+let a = {}
+let fn = function () { console.log(this) }
+fn.bind().bind(a)() // => ?
+```
+
+如果你认为输出结果是 `a`，那么你就错了，其实我们可以把上述代码转换成另一种形式
+
+```js
+// fn.bind().bind(a) 等于
+let fn2 = function fn1() {
+  return function() {
+    return fn.apply()
+  }.apply(a)
+}
+fn2();
+```
+
+可以从上述代码中发现，不管我们给函数 `bind` 几次，`fn` 中的 `this` 永远由第一次 `bind` 决定，所以结果永远是 `window`
+
+```js
+let a = { name: 'yck' }
+function foo() {
+  console.log(this.name)
+}
+foo.bind(a)() // => 'yck'
+```
+
+## 题目描述
+
+将函数 fn 的执行上下文改为 obj，返回 fn 执行后的值
+
+示例1
+
+输入
+
+```js
+alterContext(function() {return this.greeting + ', ' + this.name + '!'; }, {name: 'Rebecca', greeting: 'Yo' })
+```
+
+输出
+
+```js
+Yo, Rebecca!
+```
+
+回答
+
+```js
+function alterContext(fn, obj) {
+  return fn.bind(obj)(); // .bind()返回的是一个函数，所以需要立即执行
+}
+ 
+function alterContext(fn, obj) {
+  return fn.call(obj);
+}
+ 
+function alterContext(fn, obj) {
+  return fn.apply(obj);
+}
+```
+
+**条件**
+
+对于直接调用 `foo` 来说，不管 `foo` 函数被放在了什么地方，`this` 一定是 `window`
+
+```js
+function foo() {
+  console.log(this.a)
+}
+var a = 1
+foo()
+```
+
+对于 `obj.foo()` 来说，我们只需要记住，谁调用了函数，谁就是 `this`，所以在这个场景下 `foo` 函数中的 `this` 就是 `obj` 对象
+
+```js
+const obj = {
+  a: 2,
+  foo: foo
+}
+obj.foo()
+```
+
+对于 `new` 的方式来说，`this` 被永远绑定在了 `c` 上面，不会被任何方式改变 `this`
+
+```js
+const c = new foo()
+```
+
+箭头函数
+
+箭头函数中的 `this`
+```js
+function a() {
+  return () => {
+    return () => {
+      console.log(this)
+    }
+  }
+}
+console.log(a()()())
+```
+
+- 首先箭头函数其实是没有 `this` 的，箭头函数中的 `this` 只取决包裹箭头函数的第一个普通函数的 `this`
+- 在这个例子中，因为包裹箭头函数的第一个普通函数是 `a`，所以此时的 `this` 是 `window`
+- 另外对箭头函数使用 `bind` 这类函数是无效的
+
+最后种情况也就是 `bind` 这些改变上下文的 API 了，对于这些函数来说，`this` 取决于第一个参数，如果第一个参数为空，那么就是 `window`
+
+ex
+
+作为构造函执行
+
 ```js
 function Foo(name) {
   // this = {};
@@ -107,7 +245,9 @@ function Foo(name) {
 }
 var f = new Foo('zhangsan');
 ```
-## 作为对象属性执行
+
+作为对象属性执行
+
 ```js
 var obj = {
   name: 'A',
@@ -117,14 +257,15 @@ var obj = {
 }
 obj.printName();
 ```
-## 作为普通函数执行
+
+作为普通函数执行
 ```js
 function fn() {
   console.log(this); // this === window
 }
 fn();
 ```
-## call apply bind
+call apply bind
 ```js
 function fn1(name, age) {
   alert(name);
@@ -146,6 +287,7 @@ var fn2 = function (name, age) {
 }.bind({ y: 200 })
 fn2('zhangsan', 20)
 ```
+
 # 作用域
 - 没有**块级作用域**
 - 但有**函数**和**全局作用域**
