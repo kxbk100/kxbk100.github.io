@@ -15,7 +15,7 @@ typora-copy-images-to: ../images
 > 1. 如何理解JSON
 
 ## 变量类型
-JS中有7种内置类型，7种内置类型又分为两大类型
+JS中有7种**内置类型**，7种内置类型又分为两大类型
 - 基本类型/值类型：`null`、`undefined`、`boolean`、`number`、`string`、`symbol`
 - 对象/引用类型：`object`
 
@@ -179,8 +179,8 @@ let a = {
 
 **组合**
 
-- 加法运算中一方为字符串，那么就会把另一方也转换为字符串
-- 加法运算中一方不是数字或字符串，那么会将它转换为数字或字符串
+- 加法运算中一方为**字符串**，那么就会把另一方也转换为**字符串**
+- 加法运算中一方**不是数字或字符串**，那么会将它转换为**数字或字符串**
 
 ```js
 1 + '1' // '11'
@@ -214,7 +214,7 @@ true + true // 2
 ### 比较运算符
 
 **是什么**
-== > < !=
+`== > < !=`
 
 **组合**
 
@@ -256,10 +256,19 @@ function(a, b) {
 > 3. JS中有哪些内置函数（数据封装类对象）
 
 都是函数
-- Boolean、Number、String、**Object**、**Array**、**Function**、Date、RegExp、Error（一定要大写）
+- Boolean
+- Number
+- String
+- **Object**
+- **Array**
+- **Function**
+- Date
+- RegExp
+- Error（一定要大写）
 
 内置对象
-- Math、JSON
+- Math
+- JSON
 
 > 4. JS变量按照存储方式区分为哪些类型，并描述其特点
 
@@ -272,7 +281,7 @@ console.log(b); //100
 ```
 引用类型：好几个变量共用1个内存块，节省内存空间，赋值只是变量指针的赋值，并不是真正值的拷贝，所以值的修改相互干预
 ```js
-var a = {age:20};
+var a = {age: 20};
 var b = a;
 b.age = 21;
 conlose.log(a.age) //21
@@ -286,7 +295,7 @@ conlose.log(a.age) //21
 
 ```js
 JSON.stringify({a:10,b:20}) //将对象转换为字符串
-JSON.parse('{"a":10,"b":20}') //将字符串变为对象
+JSON.parse('{"a": 10,"b":20}') //将字符串变为对象
 ```
 
 # 二、原型与原型链
@@ -327,6 +336,7 @@ var f = new Foo('zhangsan', 20);
 ## 原型
 ### 5条原型规则和示例
 1. **所有**的引用类型（数组、对象、函数），都具有**对象**特性，即可自由扩展属性（`null`除外）
+
 ```js
 var obj ={};
 obj.a = 100 ;
@@ -337,6 +347,7 @@ fn.a = 100;
 ```
 
 2. **所有的引用类型**，都有一个`__proto__`属性（隐式原型属性），属性值是一个普通的**对象**
+
 ```js
 console.log(obj.__proto__);
 console.log(arr.__proto__);
@@ -352,11 +363,15 @@ console.log(fn.prototype);
 ```
 
 4. **所有引用类型**，`__proto__`属性值指向（完全等===）他的构造函数的`prototype`属性值
+
+
 ```js
 console.log(obj.__proto__ === Object.prototype)
 ```
 
 5. 当试图得到一个对象的某个属性时，若果这个对象本身没有这个属性，那么在它的`__proto__`（即它的构造函数的`prototype`）中寻找
+
+
 ```js
 // 构造函数
 function Foo(name, age){
@@ -374,6 +389,7 @@ f.printName = function () {
 f.printName();
 f.alertName();
 ```
+
 - f本身没有`alertName`的属性，所以会去f的隐式原型`__proto__`中去寻找，f的隐式原型`__proto__`即为其构造函数Foo的显式原型`prototype`，Foo的显式原型已被扩展了`alertName`的属性，所以可顺利执行
 - this永远指向对象本身，在执行`f.alertName()`的时候会执行到第6行`alert(this.name)`，但是这里的this还是f本身
 
@@ -457,6 +473,7 @@ var hashiqi = new Dog();
 hashiqi.eat();
 hashiqi.bark();
 ```
+
 ```js
 // 一个封装DOM查询的例子
 function Elem(id) {
@@ -485,6 +502,7 @@ div1.html('<p>hello world</p>').on('click', function () {
   alert('clicked');
 }).html('<p>javascript</p>')
 ```
+
 > 3. 描述new一个对象的过程
 
 - 创建一个空对象
@@ -523,6 +541,7 @@ function fn() {
   ... // 函数声明
 }
 ```
+
 函数表示式
 ```js
 fn1(); // 会报错，fn1会被当做变量定义，会提升相当于var fn1 = undefined，在执行fn1();
@@ -595,6 +614,7 @@ a.fn.call({ name: 'B' }); // this === {name: 'B'}
 var fn1 = a.fn;
 fn1(); // this === window
 ```
+
 ### 作为构造函执行
 ```js
 function Foo(name) {
@@ -604,6 +624,7 @@ function Foo(name) {
 }
 var f = new Foo('zhangsan');
 ```
+
 ### 作为对象属性执行
 ```js
 var obj = {
@@ -614,6 +635,7 @@ var obj = {
 }
 obj.printName();
 ```
+
 ### 作为普通函数执行
 ```js
 function fn() {
@@ -621,6 +643,7 @@ function fn() {
 }
 fn();
 ```
+
 ### call apply bind
 ```js
 function fn1(name, age) {
@@ -715,6 +738,7 @@ F1();
 ```
 ### 闭包使用场景
 函数作为返回值
+
 ```js
 function F1() {
   // a是F1局部变量
@@ -889,6 +913,7 @@ img.src = '/xxx.png';
 console.log('end');
 // start end 等待图片加载
 ```
+
 - 事件绑定
 可执行多次，可以点击再点击，而前2个场景只能执行1次
 
@@ -920,6 +945,7 @@ console.log(300)
 3. 执行最后一行，打印300
 4. 待所有程序执行完，处于空闲状态时，会立马看有没有暂存起来的任务要执行
 5. 发现暂存起来的setTimeout中的函数无需等待时间，就立即来过来执行
+
 ### 执行顺序原理
 - **所有异步**中的函数都会被拿出去暂时不执行，让它们等待
 
@@ -929,12 +955,13 @@ console.log(300)
 - 所有同步任务执行完后，要看边上有没有等待的程序在执行
 - 所有异步等待的任务，**同时**判断是否满足以下条件，**不管排队或者代码书写先后**
 
-3. 是否有等待时间
-4. 发送的请求是否正确返回
-5. 绑定事件是否发生
+1. 是否有等待时间
+2. 发送的请求是否正确返回
+3. 绑定事件是否发生
 
 - 若有，则被封禁，等待事件发生时解禁执行异步任务
 - 若无，则一直处于解禁状态，直接执行等待的异步任务
+
 ### 什么是单线程
 - 单线程一次只能干一件事，只能一个一个任务排队来，不能同时执行两个任务
 - JavaScript是单线程的，但是又不能让程序阻塞卡顿，所以必须异步
@@ -1050,7 +1077,7 @@ console.log(arr2);
 ```
 ### map：对元素重新组装
 - 不改变原数组
-- 生成新数组
+- 返回符合条件的数组
 
 ```js
 var arr = [1, 2, 3, 4];
@@ -1103,7 +1130,7 @@ function formatDate(dt) {
     dt = new Date();
   }
   var year = dt.getFullYear();
-  var month = dt.getMonth() + 1;
+  var month = dt.getMonth() + 1; // 一定要+1
   var date = dt.getDate();
   if (month < 10) {
     // 强制类型转换
@@ -1547,7 +1574,7 @@ xhr.status == 200
 
 例如你的网站要跨域访问慕课网的一个接口
 - 慕课给你一个地址 http://coding.m.mooc.com/api.js
-- 返回内容格式如`callpack({x:100, y:200})`（可动态生成）
+- 返回内容格式如`callback({x:100, y:200})`（可动态生成）
 
 ```js
 <script>
@@ -1663,7 +1690,7 @@ Git的基本操作必须很熟练
 
 ![](/images/20190321231209609.png)
 
-```
+```shell
 echo "# test" >> README.md
 git init
 git add README.md
@@ -1884,6 +1911,7 @@ module.export = {
 1. 进入文件目录
 2. 初始化环境`npm init`
 3. 自动生成package.json文件
+
 ![](/images/2019032212273325.png)
 4. 安装包`npm install webpack --save-dev`，`-dev`表示仅用于开发环境
 5. 安装包`npm install jquery --save`，任何环境都需要
@@ -1911,29 +1939,43 @@ module.exports = {
 
 3. 新建src文件夹，在其中创建app.js入口文件
 4. 在package.json的script中新增
+
 ```json
 "start": "webpack" // 将start指定为webpack
 ```
+
+
 5. 在index.html中，引入bundle.js
 6. 访问页面
 
 ### 使用jQuery
 1. 在app.js中添加
+
 ```js
 var $ = require('jquery'); // 它会从package.js中的dependencies中查找安装的juqery
 ```
+
+
 2. 自己写模块可以根据相对路径获取
+
+
 ```js
 var aUtil = require('./a-util.js')
 ```
+
+
 3. `npm start`打包
 
 ###  压缩jQuery
 1. 安装UglifyJS Webpack Plugin
-```
+
+```shell
 $ npm install uglifyjs-webpack-plugin --save-dev
 ```
+
+
 2. 修改webpack.config.json如下
+
 ```js
 var path = require('path');
 var webpack = require('webpack');
@@ -1960,7 +2002,10 @@ module.exports = {
   }
 }
 ```
-3. `npm start`打包
+
+
+4. `npm start`打包
+
 ## 上限回滚流程
 ### 介绍
 - 是非常重要的开发环节
@@ -2016,8 +2061,8 @@ module.exports = {
 
 ### 加载一个资源的过程
 1. 浏览器根据DNS服务器得到域名的IP地址
-2. 向这个IP的机器发送http请求
-3. 服务器收到处理并返回http请求
+2. 向这个IP的机器发送**http请求**
+3. 服务器收到处理并返回**http请求**
 4. 浏览器得到返回内容
 
 ### 浏览器渲染页面的过程
@@ -2074,6 +2119,7 @@ CSS放前面，js放后面
 - 真正的图片放在一个data后面
 - 用的时候再把data属性赋值到src中
 - 加快页面渲染速度
+
 ```html
 <img id="img1" src="preview.png" data-realsrc="abc.png" />
 <script>
@@ -2083,6 +2129,7 @@ CSS放前面，js放后面
 ```
 减少DOM操作
 - 缓存DOM查询，减少DOM查询，对DOM查询做缓存
+
 ```js
 // 未缓存DOM查询
 var i;
@@ -2099,6 +2146,7 @@ for (i = 0; i < pList.length; i++) {
 ```
 
 - 合并DOM插入，减少DOM操作，多个操作尽量合并在一起执行
+
 ```js
 var listNode = document.getElementById('list');
 // 创建1个片段
@@ -2116,6 +2164,8 @@ listNode.appendChild(frag);
 事件节流
 - 合并频繁操作
 - 很快的连着的操作，快速打字先不触发
+
+
 ```js
 var textaarea = document.getElementById('text');
 var timeoutId;
@@ -2174,6 +2224,8 @@ document.addEventListener('DOMContentLoaded', function () {
 - 学会给面试官惊喜，但不要太多
 - 遇到不会回答的问题，说出你知道的就可以
 - 谈谈你的缺点：说说你最近正在学什么就可以了
+
+
 > 可能对React不是很了解，最近正在学React，大约1个月后就能做出1个React的网站
  
 ## 题目解答
@@ -2185,6 +2237,7 @@ document.addEventListener('DOMContentLoaded', function () {
 - 浏览器得到返回内容
 
 > 2. window.load和DOMContentLoaded的区别
+
 ```js
 window.addEventListener('load', function () {
   // 页面全部加载完之后才会执行，包括图片、视频等
@@ -2195,4 +2248,3 @@ document.addEventListener('DOMContentLoaded', function () {
   // jQuery、zepto均使用此方法
 })
 ```
--EOF-

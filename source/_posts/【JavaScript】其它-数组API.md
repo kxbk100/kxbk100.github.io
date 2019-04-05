@@ -354,7 +354,9 @@ var o2 = copy(o1); // o2 looks like o1 now
 ```
 
 ### every()：判断所有元素是否都符合条件
+语法：`arr.every(callback[, thisArg])`
 返回true或false
+
 ```js
 var arr = [1, 2, 3];
 var result = arr.every(function(item, index) {
@@ -365,26 +367,33 @@ var result = arr.every(function(item, index) {
 })
 console.log(result); // true
 ```
-**方法测试数组的所有元素是否都通过了指定函数的测试。**  
-语法:arr.every(callback\[, thisArg\])
+ 
 
-> every 方法为数组中的每个元素执行一次 callback 函数，直到它找到一个使 callback 返回 falsy（表示可转换为布尔值 false 的值）的元素。如果发现了一个这样的元素，every 方法将会立即返回 false。否则，callback 为每一个元素返回 true，every 就会返回 true。callback 只会为那些已经被赋值的索引调用。不会为那些被删除或从来没被赋值的索引调用。**callback 被调用时传入三个参数：元素值，元素的索引，原数组。** _every 不会改变原数组。_
 
-实例：检测所有数组元素的大小
+- every 方法为数组中的每个元素执行一次 callback 函数，直到它找到一个使 callback 返回 false（表示可转换为布尔值 false 的值）的元素
+- 如果发现了一个这样的元素，every方法将会立即返回 false。否则，callback 为每一个元素返回 true，every 就会返回 true
+- callback只会为那些已经被赋值的索引调用。不会为那些被删除或从来没被赋值的索引调用
+- **callback 被调用时传入三个参数：元素值，元素的索引，原数组。** every 不会改变原数组
 
-    //检测数组中的所有元素是否都大于 10
-    function isBigEnough(element, index, array) {
-      return (element >= 10);
-    }
-    var passed = [12, 5, 8, 130, 44].every(isBigEnough);
-    // passed is false
-    passed = [12, 54, 18, 130, 44].every(isBigEnough);
-    // passed is true
-    
+检测所有数组元素的大小
+```js
+//检测数组中的所有元素是否都大于 10
+function isBigEnough(element, index, array) {
+  return (element >= 10);
+}
+var passed = [12, 5, 8, 130, 44].every(isBigEnough);
+// passed is false
+passed = [12, 54, 18, 130, 44].every(isBigEnough);
+// passed is true
+```
 
 ### map() ：对元素重新组装
+语法：`array.map(callback[, thisArg])`
+
+
 - 不改变原数组
 - 生成新数组
+
 ```js
 var arr = [1, 2, 3, 4];
 var arr2 = arr.map(function(item, index) {
@@ -395,42 +404,49 @@ console.log(arr2);
 ```
 
 
-**方法返回一个由原数组中的每个元素调用一个指定方法后的返回值组成的新数组。**
 
-语法: array.map(callback\[, thisArg\])
+- map 方法会给原数组中的每个元素都按顺序调用一次 callback 函数
+- callback 每次执行后的返回值组合起来形成一个新数组
+- callback 函数只会在有值的索引上被调用；那些从来没被赋过值或者使用 delete 删除的索引则不会被调用
+- **map 不修改调用它的原数组本身（当然可以在 callback 执行时改变原数组）**
 
-> map 方法会给原数组中的每个元素都按顺序调用一次 callback 函数。callback 每次执行后的返回值组合起来形成一个新数组。 callback 函数只会在有值的索引上被调用；那些从来没被赋过值或者使用 delete 删除的索引则不会被调用。**map 不修改调用它的原数组本身（当然可以在 callback 执行时改变原数组）。**
+在一个 String 上使用 map 方法获取字符串中每个字符所对应的 ASCII 码组成的数组
 
-实例一：求数组中每个元素的平方根
+```js
+var map = Array.prototype.map
+var a = map.call("Hello World", x => x.charCodeAt(0)});
+// a的值为[72, 101, 108, 108, 111, 32, 87, 111, 114, 108, 100]
+```
 
-    //在一个 String  上使用 map 方法获取字符串中每个字符所对应的 ASCII 码组成的数组：
-    var map = Array.prototype.map
-    var a = map.call("Hello World", function(x) { return x.charCodeAt(0); })
-    // a的值为[72, 101, 108, 108, 111, 32, 87, 111, 114, 108, 100]
-    
+- 通常情况下，map 方法中的 callback 函数只需要接受一个参数，就是正在被遍历的数组元素本身
+- 但这并不意味着 map 只给 callback 传了一个参数。这个思维惯性可能会让我们犯一个很容易犯的错误。比如下面的语句返回什么呢
 
-通常情况下，map 方法中的 callback 函数只需要接受一个参数，就是正在被遍历的数组元素本身。但这并不意味着 map 只给 callback 传了一个参数。这个思维惯性可能会让我们犯一个很容易犯的错误。比如下面的语句返回什么呢:
+```js
+["1", "2", "3"].map(parseInt);
+// 你可能觉的会是[1, 2, 3]
+// 但实际的结果是 [1, NaN, NaN]
+```
 
-    ["1", "2", "3"].map(parseInt);
-    // 你可能觉的会是[1, 2, 3]
-    // 但实际的结果是 [1, NaN, NaN]
-    
+通常使用parseInt时，只需要传递一个参数，但实际上parseInt可以有两个参数，第二个参数是进制数。可以通过语句`alert(parseInt.length) === 2`来验证
 
-通常使用parseInt时,只需要传递一个参数.但实际上,parseInt可以有两个参数.第二个参数是进制数.可以通过语句"alert(parseInt.length)===2"来验证.
+map方法在调用callback函数时，会给它传递3个参数：当前正在遍历的元素，元素索引，原数组本身
 
-map方法在调用callback函数时,会给它传递三个参数:当前正在遍历的元素, 元素索引, 原数组本身.  
-第三个参数parseInt会忽视, 但第二个参数不会,也就是说,parseInt把传过来的索引值当成进制数来使用.从而返回了NaN。 因此此时应该使用如下的用户函数returnInt：
+第3个参数parseInt会忽视，但第二个参数不会，也就是说parseInt把传过来的索引值当成进制数来使用，从而返回了NaN。 因此此时应该使用如下的用户函数returnInt
 
-    function returnInt(element){
-      return parseInt(element,10);
-    }
-    
-    ["1", "2", "3"].map(returnInt);
-    // 返回[1,2,3]
-    
+```js
+function returnInt(element){
+  return parseInt(element, 10);
+}
+
+["1", "2", "3"].map(returnInt);
+// 返回[1,2,3]
+```
 
 ### some()：判断是否有至少一个元素符合条件
+语法：`arr.some(callback[, thisArg])`
+
 返回true或false
+
 ```js
 var arr = [1, 2, 3];
 var result = arr.some(function(item, index) {
@@ -442,144 +458,145 @@ var result = arr.some(function(item, index) {
 console.log(result); // true
 ```
 
-**方法测试数组中的某些元素是否通过了指定函数的测试。**
 
-语法: arr.some(callback\[, thisArg\])
 
-> **描述**:some 为数组中的每一个元素执行一次 callback 函数，直到找到一个使得 callback 返回一个“真值”（即可转换为布尔值 true 的值）。如果找到了这样一个值，some 将会立即返回 true。否则，some 返回 false。callback 只会在那些”有值“的索引上被调用，不会在那些被删除或从来未被赋值的索引上调用。
 
-示例：测试数组元素的值
 
-    //检测在数组中是否有元素大于 10。
-    function isBigEnough(element, index, array) {
-      return (element >= 10);
-    }
-    var passed = [2, 5, 8, 1, 4].some(isBigEnough);
-    // passed is false
-    passed = [12, 5, 8, 1, 4].some(isBigEnough);
-    // passed is true
-    
+- some 为数组中的每一个元素执行一次 callback 函数，直到找到一个使得 callback 返回一个“真值”（即可转换为布尔值 true 的值）
+- 如果找到了这样一个值，some 将会立即返回 true。否则，some 返回 false
+- callback 只会在那些”有值“的索引上被调用，不会在那些**被删除**或**从来未被赋值**的索引上调用
 
-### reduce() 
+测试数组元素的值
+```js
+//检测在数组中是否有元素大于 10
+function isBigEnough(element, index, array) {
+  return (element >= 10);
+}
+var passed = [2, 5, 8, 1, 4].some(isBigEnough);
+// passed is false
+passed = [12, 5, 8, 1, 4].some(isBigEnough);
+// passed is true
+```
 
-**接收一个函数作为累加器（accumulator），数组中的每个值（从左到右）开始缩减，最终为一个值。**  
-语法: arr.reduce(callback,\[initialValue\])  
-**callback:**执行数组中每个值的函数，包含四个参数
+### reduce() ：接收一个函数作为累加器，数组中的每个值（从左到右）开始缩减，最终为一个值
+语法：`arr.reduce(callback,[initialValue])`  
 
-*   previousValue:上一次调用回调返回的值，或者是提供的初始值（initialValue）
-*   currentValue 数组中当前被处理的元素
-*   index 当前元素在数组中的索引
-*   array 调用 reduce 的数组  
-    **initialValue:** 作为第一次调用 callback 的第一个参数。
 
-> **描述**:reduce 为数组中的每一个元素依次执行回调函数，不包括数组中被删除或从未被赋值的元素，接受四个参数：初始值（或者上一次回调函数的返回值），当前元素值，当前索引，调用 reduce 的数组。
+callback执行数组中每个值的函数，包含四个参数
+
+- previousValue上一次调用回调返回的值，或者是提供的初始值（initialValue）
+- currentValue 数组中当前被处理的元素
+- index 当前元素在数组中的索引
+- array 调用 reduce 的数组
+- initialValue作为第一次调用 callback 的第一个参数。
+
+> **描述**：reduce 为数组中的每一个元素依次执行回调函数，不包括数组中被删除或从未被赋值的元素，接受四个参数：初始值（或者上一次回调函数的返回值），当前元素值，当前索引，调用 reduce 的数组
 
 > 回调函数第一次执行时，previousValue 和 currentValue 可以是一个值，如果 initialValue 在调用 reduce 时被提供，那么第一个 previousValue 等于 initialValue ，并且currentValue 等于数组中的第一个值；如果initialValue 未被提供，那么previousValue 等于数组中的第一个值，currentValue等于数组中的第二个值。
 
 > 如果数组为空并且没有提供initialValue， 会抛出TypeError 。如果数组仅有一个元素（无论位置如何）并且没有提供initialValue， 或者有提供initialValue但是数组为空，那么此唯一值将被返回并且callback不会被执行。
 
-示例1：将数组所有项相加
+将数组所有项相加
+```js
+var total = [0, 1, 2, 3].reduce(function (a, b) {
+  return a + b;
+});
+// total == 6
+```
 
-    var total = [0, 1, 2, 3].reduce(function(a, b) {
-        return a + b;
-    });
-    // total == 6
-    
+数组扁平化
+```js
+var flattened = [[0, 1], [2, 3], [4, 5]].reduce(function (a, b) {
+  return a.concat(b);
+});
+// flattened is [0, 1, 2, 3, 4, 5]
+```
 
-示例2: 数组扁平化
+统计一个数组中有多少个不重复的单词
 
-    var flattened = [[0, 1], [2, 3], [4, 5]].reduce(function(a, b) {
-        return a.concat(b);
-    });
-    // flattened is [0, 1, 2, 3, 4, 5]
-    
+- 不使用reduce时的写法
 
-示例2: 统计一个数组中有多少个不重复的单词
+```js
+var arr = ["apple", "orange", "apple", "orange", "pear", "orange"];
+function getWordCnt() {
+  var obj = {};
 
-不使用reduce时的写法
+  for (var i = 0, l = arr.length; i < l; i++) {
+    var item = arr[i];
+    obj[item] = (obj[item] + 1) || 1;
+  }
 
-    var arr = ["apple","orange","apple","orange","pear","orange"];
-    function getWordCnt(){
-        var obj = {};
-        
-        for(var i= 0, l = arr.length; i< l; i++){
-            var item = arr[i];
-            obj[item] = (obj[item] +1 ) || 1;
-        }
-        
-        return obj;
-    }
-    console.log(getWordCnt());
-    
+  return obj;
+}
+console.log(getWordCnt());
+```
 
-使用reduce()后的写法：
+- 使用reduce()后的写法
+```js
+var arr = ["apple", "orange", "apple", "orange", "pear", "orange"];
+function getWordCnt() {
+  return arr.reduce(function (prev, next) {
+    prev[next] = (prev[next] + 1) || 1;
+    return prev;
+  }, {});
+}
+console.log(getWordCnt());
+```
 
-    var arr = ["apple","orange","apple","orange","pear","orange"];
-    function getWordCnt(){
-        return arr.reduce(function(prev,next){
-            prev[next] = (prev[next] + 1) || 1;
-            return prev;
-        },{});
-    }
-    console.log(getWordCnt());
-    
+这其中一个需要注意的点在于，initialValue提供与否对prev和next的影响
+```js
+/* 二者的区别，在console中运行一下即可知晓*/
+var arr = ["apple", "orange", 'pear', 'jade'];
 
-这其中一个需要注意的点在于，initialValue提供与否对prev和next的影响；
+function noPassValue() {
+  return arr.reduce(function (prev, next) {
+    console.log("prev:", prev);
+    console.log("next:", next);
 
-    /* 二者的区别，在console中运行一下即可知晓*/
-    var arr = ["apple","orange",'pear','jade'];
-    
-    function noPassValue(){
-        return arr.reduce(function(prev,next){
-            console.log("prev:",prev);
-            console.log("next:",next);
-            
-            //console.info('prev type:'+ typeof(prev)); //prev type:string
-            return prev + " " +next;
-        });
-    }
-    function passValue(){
-        return arr.reduce(function(prev,next){
-            console.log("prev:",prev);
-            console.log("next:",next);
-            
-            prev[next] = 1;
-            //console.info('prev type:'+ typeof(prev)); // object
-            return prev;
-        },{});
-    }
-    console.log("No Additional parameter:",noPassValue());
-    console.log("----------------");
-    console.log("With {} as an additional parameter:",passValue());
-    
+    //console.info('prev type:'+ typeof(prev)); //prev type:string
+    return prev + " " + next;
+  });
+}
+function passValue() {
+  return arr.reduce(function (prev, next) {
+    console.log("prev:", prev);
+    console.log("next:", next);
+
+    prev[next] = 1;
+    //console.info('prev type:'+ typeof(prev)); // object
+    return prev;
+  }, {});
+}
+console.log("No Additional parameter:", noPassValue());
+console.log("----------------");
+console.log("With {} as an additional parameter:", passValue());
+```
 
 # 总结
 ---
-| 函数名 | 是否改变原数组 | 返回值 |备注 |  
+| 函数名 | 是否改变原数组 | 返回值 |说明 |  
 |--|--|--|--|
-| pop | 会改变 | 返回被删除元素 | |
-| push | 会改变 | 返回新数组长度 | |
-| reverse | 会改变| | |
-|shift | 会改变 | 返回被删除元素 | |
-| sort | 会改变 | | |
-| splice | 会改变| 回被删除元素组成的数组，或者为空数组 | |
-| unshift | 会改变 | | |
-| join | 不会改变 |||
-| concat | 不会改变 |||
-| indexOf | 不会改变 |||
-| lastIndexOf | 不会改变 |||
-| slice | 不会改变 |||
-| toString | 不会改变 |||
-| map | 不会改变 |||
-| filter | 不会改变 |||
-| some | 不会改变 || 有true的时候停止 |
-| every | 不会改变 || 在有false的时候停止 |
-| reduce | 不会改变 |||
-| forEach | 不会改变 |||
+| push | 会改变 | 返回新数组长度 | 向数组的末尾添加一个或更多元素，并返回新的长度 |
+| pop | 会改变 | 返回被删除元素 | 删除并返回数组的最后一个元素 |
+| unshift | 会改变 |返回新的长度 | 向数组的开头添加一个或更多元素，并返回新的长度|
+|shift | 会改变 | 返回被删除元素 | 	删除并返回数组的第一个元素|
+| splice | 会改变| 返回被删除元素组成的数组，或者为空数组 | 删除元素，并向数组添加新元素 |
+| reverse | 会改变| 返回原数组 |颠倒数组中元素的顺序 |
+| sort | 会改变 |返回原数组 | 对数组的元素进行排序|
+| join | 不会改变 | 返回字符串 | 把数组的所有元素放入一个字符串。元素通过指定的分隔符进行分隔|
+| concat | 不会改变 |返回新数组| 连接两个或更多的数组，并返回结果 |
+| indexOf | 不会改变 | 返回数组中某个指定的元素位置，如果不存在返回 -1 |查找数组中某个指定的元素位置。|
+| lastIndexOf | 不会改变 |返回指定元素在数组中的最后一个的索引，如果不存在返回 -1|查找指定元素在数组中的最后一个的索引|
+| slice | 不会改变 |返回一个新的数组，包含从 start 到 end （不包括该元素）中的元素|从已有的数组中返回选定的元素|
+| toString | 不会改变 |返回字符串|把数组转换为字符串，并返回结果|
+| map | 不会改变 |返回处理后的数组|通过指定函数处理数组的每个元素，并返回处理后的数组|
+| filter | 不会改变 |返回新数组|检测数值元素，并返回符合条件所有元素的数组|
+| some | 不会改变 |返回true或false| 检测数组元素中是否有元素符合指定条件，有true的时候停止 |
+| every | 不会改变 |返回true或false| 检测数组元素中是否有元素符合指定条件，在有false的时候停止 |
+| reduce | 不会改变 |返回计算结果|将数组元素计算为一个值（从左到右）|
+| forEach | 不会改变 |undefined|调用数组的每个元素，并将元素传递给回调函数|
 
-上述的迭代方法可以在最后追加一个参数thisArg,它是执行 callback 时的 this 值。
-
-JavaScript的数据类型分为：值类型和引用类型(地址值)；而常见的引用类型有Object和Array／数组的存储模型中，如果是诸如Number,String之类的类型数据会被直接压入栈中，而引用类型只会压入对该值的一个索引（即C中所说的保存了数据的指针）。这些数据时储存在堆中的某块区间中，堆栈并不是独立的，栈中也可以在堆中存放。在使用Array的进行赋值操作的时候，也当注意是否要进行深度拷贝复制(可借助arr.slice(0))，以免造成对自身污染。对于Js数据，其实内容还是还有很多需要学习的，比如ArrayBuffer等。根据学以致用的原则，这些等到需要的时候再去学吧。
+上述的迭代方法可以在最后追加一个参数thisArg,它是执行 callback 时的 this 值
 
 # 参考资料
 > [1] https://www.jeffjade.com/2015/09/25/2015-09-25-js-array/
