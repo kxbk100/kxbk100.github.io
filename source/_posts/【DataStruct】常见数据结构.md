@@ -6,59 +6,78 @@ typora-root-url: ..
 typora-copy-images-to: ../images
 ---
 
-# 常见数据结构
-## 时间复杂度
+# 时间复杂度
+---
 
-在进入正题之前，我们先来了解下什么是时间复杂度。
 
-通常使用最差的时间复杂度来衡量一个算法的好坏。
+**目的**
 
-常数时间 O(1) 代表这个操作和数据量没关系，是一个固定时间的操作，比如说四则运算。
+我们通常使用**最差的时间复杂度**来衡量一个算法的好坏
 
-对于一个算法来说，可能会计算出操作次数为 aN + 1，N 代表数据量。那么该算法的时间复杂度就是 O(N)。因为我们在计算时间复杂度的时候，数据量通常是非常大的，这时候低阶项和常数项可以忽略不计。
+**如何达成**
 
-当然可能会出现两个算法都是 O(N) 的时间复杂度，那么对比两个算法的好坏就要通过对比低阶项和常数项了。
+在计算时间复杂度的时候，数据量通常是非常大的，所以我们忽略低阶项和常数项，计算出操作次数为 `aN + 1`，`N` 代表数据量。那么该算法的时间复杂度就是 `O(N)`
 
-## 栈
 
-### 概念
+**条件**
 
-栈是一个线性结构，在计算机中是一个相当常见的数据结构。
+- 常数时间`O(1)`代表这个操作和数据量没关系，是一个固定时间的操作，比如说四则运算
+- 计算出操作次数为 `aN + 1`，`N` 代表数据量。那么该算法的时间复杂度就是 `O(N)`
+- 当出现两个算法都是 `O(N)` 的时间复杂度，那么对比两个算法的好坏就要通过对比**低阶项**和**常数项**了
 
-栈的特点是只能在某一端添加或删除数据，遵循先进后出的原则
+# 栈
+---
 
-![](/images/20190401215924710.png)
+**是什么**
 
-### 实现
+栈是一个**线性结构**，在计算机中是一个相当常见的数据结构
+
+**分类边界**
+
+只能在某一端添加或删除数据，遵循**先进后出**的原则
+
+![](https://img-blog.csdnimg.cn/20190401215924710.png)
+
+
+**如何达成**
 
 每种数据结构都可以用很多种方式来实现，其实可以把栈看成是数组的一个子集，所以这里使用数组来实现
+
 ```js
 class Stack {
+  // 构造器
   constructor() {
     this.stack = []
   }
+  // 入栈
   push(item) {
     this.stack.push(item)
   }
+  // 出栈
   pop() {
     this.stack.pop()
   }
-  peek() {
-    return this.stack[this.getCount() - 1]
-  }
+  // 栈内元素个数
   getCount() {
     return this.stack.length
   }
+  // 判断栈是否为空
   isEmpty() {
     return this.getCount() === 0
   }
+  // 栈顶元素的值
+  peek() {
+    return this.stack[this.getCount() - 1]
+  }
 }
 ```
-## 应用
 
-选取了 [LeetCode 上序号为 20 的题目](https://link.juejin.im/?target=https%3A%2F%2Fleetcode.com%2Fproblems%2Fvalid-parentheses%2Fsubmissions%2F1)
+**条件**
 
-题意是匹配括号，可以通过栈的特性来完成这道题目
+选取了 [LeetCode 上序号为 20 的题目](https://leetcode.com/problems/valid-parentheses/)
+
+题意是**匹配括号**，可以通过栈的特性来完成这道题目
+
 ```js
 var isValid = function (s) {
   let map = {
@@ -75,6 +94,7 @@ var isValid = function (s) {
       stack.push(s[i])
     } else {
       let last = stack.pop()
+      // 注意这里是[]
       if (map[last] + map[s[i]] != 0) return false
     }
   }
@@ -82,46 +102,57 @@ var isValid = function (s) {
   return true
 };
 ```
-其实在 Vue 中关于模板解析的代码，就有应用到匹配尖括号的内容。
 
-## 队列
+在 Vue 中关于模板解析的代码，就有应用到匹配尖括号的内容
 
-### 概念
 
-队列是一个线性结构，特点是在某一端添加数据，在另一端删除数据，遵循先进先出的原则。
+# 队列
+---
 
-![](/images/20190401215950128.png)
+**是什么**
 
-### 实现
+队列是一个线性结构
 
-这里会讲解两种实现队列的方式，分别是单链队列和循环队列。
+**分类边界**
 
-#### 单链队列
+在某一端添加数据，在另一端删除数据，遵循**先进先出**的原则
+
+![](https://img-blog.csdnimg.cn/20190401215950128.png)
+
+
+**组合**
+
+## 单链队列 O(n)
 ```js
 class Queue {
   constructor() {
     this.queue = []
   }
+  // 入队
   enQueue(item) {
     this.queue.push(item)
   }
+  // 出队
   deQueue() {
     return this.queue.shift()
   }
+  // 队首元素
   getHeader() {
     return this.queue[0]
   }
+  // 队中元素个数
   getLength() {
     return this.queue.length
   }
+  // 队列是否为空
   isEmpty() {
     return this.getLength() === 0
   }
 }
 ```
-因为单链队列在出队操作的时候需要 O(n) 的时间复杂度，所以引入了循环队列。循环队列的出队操作平均是 O(1) 的时间复杂度。
+因为单链队列在出队操作的时候需要 `O(n)` 的时间复杂度，所以引入了循环队列。循环队列的出队操作平均是 `O(1)` 的时间复杂度
 
-#### 循环队列
+## 循环队列 O(1)
 ```js
 class SqQueue {
   constructor(length) {
@@ -183,24 +214,33 @@ class SqQueue {
   }
 }
 ```
-## 链表
+# 链表
+---
 
-### 概念
+**是什么**
 
-链表是一个线性结构，同时也是一个天然的递归结构。链表结构可以充分利用计算机内存空间，实现灵活的内存动态管理。但是链表失去了数组随机读取的优点，同时链表由于增加了结点的指针域，空间开销比较大。
+- 链表是一个线性结构，同时也是一个天然的递归结构
+- 链表结构可以充分利用计算机内存空间，实现灵活的内存动态管理
+- 但是链表失去了数组随机读取的优点，同时链表由于增加了结点的指针域，空间开销比较大
+
+**分类边界**
 
 ![](/images/20190401220011546.png)
 
-### 实现
+**组合**
+
 
 **单向链表**
 ```js
+// 定义节点
 class Node {
   constructor(v, next) {
     this.value = v
     this.next = next
   }
 }
+
+// 链表
 class LinkList {
   constructor() {
     // 链表长度
@@ -208,30 +248,45 @@ class LinkList {
     // 虚拟头部
     this.dummyNode = new Node(null, null)
   }
+  // 查找
   find(header, index, currentIndex) {
     if (index === currentIndex) return header
     return this.find(header.next, index, currentIndex + 1)
   }
+
+  find(header, index, currentIndex) {
+    for (let i = 0; header === null; i++) {
+      if (i === index) {
+        return header;
+      }
+      header = header.next;
+    }
+  }
+
+  // 添加节点
   addNode(v, index) {
     this.checkIndex(index)
     // 当往链表末尾插入时，prev.next 为空
-    // 其他情况时，因为要插入节点，所以插入的节点
-    // 的 next 应该是 prev.next
+    // 其他情况时，因为要插入节点，所以插入的节点的 next 应该是 prev.next
     // 然后设置 prev.next 为插入的节点
     let prev = this.find(this.dummyNode, index, 0)
     prev.next = new Node(v, prev.next)
     this.size++
     return prev.next
   }
+  // 插入节点
   insertNode(v, index) {
     return this.addNode(v, index)
   }
+  // 添加到链表开头
   addToFirst(v) {
     return this.addNode(v, 0)
   }
+  // 添加到链表末尾
   addToLast(v) {
     return this.addNode(v, this.size)
   }
+  // 删除节点
   removeNode(index, isLast) {
     this.checkIndex(index)
     index = isLast ? index - 1 : index
@@ -242,47 +297,71 @@ class LinkList {
     this.size--
     return node
   }
+  // 删除第一个节点
   removeFirstNode() {
     return this.removeNode(0)
   }
+  // 删除最后一个节点
   removeLastNode() {
     return this.removeNode(this.size, true)
   }
+  // 检查节点
   checkIndex(index) {
     if (index < 0 || index > this.size) throw Error('Index error')
   }
+  // 获取节点
   getNode(index) {
     this.checkIndex(index)
     if (this.isEmpty()) return
     return this.find(this.dummyNode, index, 0).next
   }
+  // 判断链表是否为空
   isEmpty() {
     return this.size === 0
   }
+  // 获取链表大小
   getSize() {
     return this.size
   }
 }
 ```
-## 树
 
-### 二叉树
+# 树
+---
 
-树拥有很多种结构，二叉树是树中最常用的结构，同时也是一个天然的递归结构。
+## 二叉树
 
-二叉树拥有一个根节点，每个节点至多拥有两个子节点，分别为：左节点和右节点。树的最底部节点称之为叶节点，当一颗树的叶数量数量为满时，该树可以称之为满二叉树。
+**是什么**
+
+树拥有很多种结构，二叉树是树中最常用的结构，同时也是一个天然的**递归结构**
+
+
+**组合**
+
+二叉树拥有一个**根节点**，每个节点**至多**拥有两个子节点，分别为：左节点和右节点。树的**最底部节点**称之为**叶节点**，当一颗树的**叶节点数量为满**时，该树可以称之为**满二叉树**
 
 ![](/images/20190401220030554.png)
 
-### 二分搜索树
 
-二分搜索树也是二叉树，拥有二叉树的特性。但是区别在于二分搜索树每个节点的值都比他的左子树的值大，比右子树的值小。
+## 二分搜索树（BST）
 
-这种存储方式很适合于数据搜索。如下图所示，当需要查找 6 的时候，因为需要查找的值比根节点的值大，所以只需要在根节点的右子树上寻找，大大提高了搜索效率。
+**是什么**
+
+二分搜索树也是二叉树，拥有二叉树的特性
+
+
+**分类边界**
+
+二分搜索树每个节点的**值都比他的左子树的值大，比右子树的值小**
+
+**目的**
+
+便于数据搜索。如下图所示，当需要查找 6 的时候，因为需要查找的值比根节点的值大，所以只需要在根节点的右子树上寻找，大大提高了搜索效率。
 
 ![](/images/20190401220051859.png)
 
-### 实现
+**如何达成**
+
 ```js
 class Node {
   constructor(value) {
@@ -305,8 +384,7 @@ class BST {
   addNode(v) {
     this.root = this._addChild(this.root, v)
   }
-  // 添加节点时，需要比较添加的节点值和当前
-  // 节点值的大小
+  // 添加节点时，需要比较添加的节点值和当前节点值的大小
   _addChild(node, v) {
     if (!node) {
       this.size++
@@ -321,12 +399,21 @@ class BST {
   }
 }
 ```
-以上是最基本的二分搜索树实现，接下来实现树的遍历。
 
-对于树的遍历来说，有三种遍历方法，分别是先序遍历、中序遍历、后序遍历。三种遍历的区别在于何时访问节点。在遍历树的过程中，每个节点都会遍历三次，分别是遍历到自己，遍历左子树和遍历右子树。如果需要实现先序遍历，那么只需要第一次遍历到节点时进行操作即可。
+**组合**
+
+对于树的遍历（深度遍历）来说，有三种遍历方法，分别是
+- 先序遍历
+- 中序遍历
+- 后序遍历
+
+每次都单独抽离出一颗子树来考虑
+
+三种遍历的区别在于何时访问节点。在遍历树的过程中，**每个节点都会遍历三次**，分别是遍历到自己，遍历左子树和遍历右子树。如果需要实现先序遍历，那么只需要第一次遍历到节点时进行操作即可。
+
 ```js
 // 先序遍历可用于打印树的结构
-// 先序遍历先访问根节点，然后访问左节点，最后访问右节点。
+// 先序遍历先访问根节点，然后访问左节点，最后访问右节点
 preTraversal() {
   this._pre(this.root)
 }
@@ -337,10 +424,10 @@ _pre(node) {
     this._pre(node.right)
   }
 }
+
 // 中序遍历可用于排序
-// 对于 BST 来说，中序遍历可以实现一次遍历就
-// 得到有序的值
-// 中序遍历表示先访问左节点，然后访问根节点，最后访问右节点。
+// 对于 BST 来说，中序遍历可以实现一次遍历就得到有序的值
+// 中序遍历表示先访问左节点，然后访问根节点，最后访问右节点
 midTraversal() {
   this._mid(this.root)
 }
@@ -351,6 +438,7 @@ _mid(node) {
     this._mid(node.right)
   }
 }
+
 // 后序遍历可用于先操作子节点
 // 再操作父节点的场景
 // 后序遍历表示先访问左节点，然后访问右节点，最后访问根节点。
@@ -365,15 +453,15 @@ _back(node) {
   }
 }
 ```
-以上的这几种遍历都可以称之为深度遍历，对应的还有种遍历叫做广度遍历，也就是一层层地遍历树。对于广度遍历来说，我们需要利用之前讲过的队列结构来完成。
+
+以上的这几种遍历都可以称之为**深度遍历**，对应的还有种遍历叫做**广度遍历**，也就是**一层层地遍历树**。对于广度遍历来说，我们需要利用之前讲过的**队列结构**来完成。
 ```js
 breadthTraversal() {
   if (!this.root) return null
   let q = new Queue()
   // 将根节点入队
   q.enQueue(this.root)
-  // 循环判断队列是否为空，为空
-  // 代表树遍历完毕
+  // 循环判断队列是否为空，为空代表树遍历完毕
   while (!q.isEmpty()) {
     // 将队首出队，判断是否有左右子树
     // 有的话，就先左后右入队
@@ -384,7 +472,7 @@ breadthTraversal() {
   }
 }
 ```
-接下来先介绍如何在树中寻找最小值或最大数。因为二分搜索树的特性，所以最小值一定在根节点的最左边，最大值相反
+接下来先介绍如何在树中寻找**最小值或最大数**。因为二分搜索树的特性，所以最小值一定在根节点的最左边，最大值相反
 ```js
 getMin() {
   return this._getMin(this.root).value
@@ -401,7 +489,7 @@ _getMax(node) {
   return this._getMin(node.right)
 }
 ```
-**向上取整和向下取整**，这两个操作是相反的，所以代码也是类似的，这里只介绍如何向下取整。既然是向下取整，那么根据二分搜索树的特性，值一定在根节点的左侧。只需要一直遍历左子树直到当前节点的值不再大于等于需要的值，然后判断节点是否还拥有右子树。如果有的话，继续上面的递归判断。
+**向上取整和向下取整**，这两个操作是相反的，所以代码也是类似的，这里只介绍如何向下取整。既然是向下取整，那么根据二分搜索树的特性，值一定在根节点的左侧。只需要一直遍历左子树直到当前节点的值不再大于等于需要的值，然后判断节点是否还拥有右子树。如果有的话，继续上面的递归判断
 ```js
 floor(v) {
   let node = this._floor(this.root, v)
@@ -469,9 +557,9 @@ _select(node, k) {
 ```
 接下来讲解的是二分搜索树中最难实现的部分：删除节点。因为对于删除节点来说，会存在以下几种情况
 
-*   需要删除的节点没有子树
-*   需要删除的节点只有一条子树
-*   需要删除的节点有左右两条树
+*   需要删除的节点没有子树 删除
+*   需要删除的节点只有一条子树 接上
+*   需要删除的节点有左右两条树  取出右子树中最小的那个节点来替换父节点
 
 对于前两种情况很好解决，但是第三种情况就有难度了，所以先来实现相对简单的操作：删除最小节点，对于删除最小节点来说，是不存在第三种情况的，删除最大节点操作是和删除最小节点相反的，所以这里也就不再赘述。
 ```js
@@ -490,11 +578,12 @@ _delectMin(node) {
   return node
 }
 ```
-最后讲解的就是如何删除任意节点了。对于这个操作，T.Hibbard 在 1962 年提出了解决这个难题的办法，也就是如何解决第三种情况。
+最后讲解的就是如何删除**任意节点**了。对于这个操作，T.Hibbard 在 1962 年提出了解决这个难题的办法，也就是如何解决第三种情况。
 
 当遇到这种情况时，需要取出当前节点的后继节点（也就是当前节点右子树的最小节点）来替换需要删除的节点。然后将需要删除节点的左子树赋值给后继结点，右子树删除后继结点后赋值给他。
 
-你如果对于这个解决办法有疑问的话，可以这样考虑。因为二分搜索树的特性，父节点一定比所有左子节点大，比所有右子节点小。那么当需要删除父节点时，势必需要拿出一个比父节点大的节点来替换父节点。这个节点肯定不存在于左子树，必然存在于右子树。然后又需要保持父节点都是比右子节点小的，那么就可以取出右子树中最小的那个节点来替换父节点。
+你如果对于这个解决办法有疑问的话，可以这样考虑。因为二分搜索树的特性，父节点一定比所有左子节点大，比所有右子节点小。那么当需要删除父节点时，势必需要拿出一个比父节点大的节点来替换父节点。这个节点肯定不存在于左子树，必然存在于右子树。然后又需要保持父节点都是比右子节点小的，那么就可以**取出右子树中最小的那个节点来替换父节点**
+
 ```js
 delect(v) {
   this.root = this._delect(this.root, v)
@@ -528,232 +617,258 @@ _delect(node, v) {
   return node
 }
 ```
-## AVL 树
 
-### 概念
+# AVL 树
+---
 
-二分搜索树实际在业务中是受到限制的，因为并不是严格的 O(logN)，在极端情况下会退化成链表，比如加入一组升序的数字就会造成这种情况。
+**是什么**
 
-AVL 树改进了二分搜索树，在 AVL 树中任意节点的左右子树的高度差都不大于 1，这样保证了时间复杂度是严格的 O(logN)。基于此，对 AVL 树增加或删除节点时可能需要旋转树来达到高度的平衡。
+AVL 树改进了二分搜索树，在 AVL 树中任意节点的左右子树的**高度差都≤ 1**（高度从下往上数层数，包括根节点），这样保证了时间复杂度是严格的 `O(logN)`。基于此，对 AVL 树增加或删除节点时可能需要旋转树来达到高度的平衡
 
-### 实现
 
-因为 AVL 树是改进了二分搜索树，所以部分代码是于二分搜索树重复的，对于重复内容不作再次解析。
+**目的**
+
+二分搜索树实际在业务中是受到限制的，因为并不是严格的 `O(logN)`，在极端情况下会退化成链表，比如加入一组升序的数字就会造成这种情况
+
+
+
+**组合**
+
 
 对于 AVL 树来说，添加节点会有四种情况
+- 右旋即为顺时针
+- 左旋即为逆时针
 
 ![](/images/20190401220115209.png)
 
-对于左左情况来说，新增加的节点位于节点 2 的左侧，这时树已经不平衡，需要旋转。因为搜索树的特性，节点比左节点大，比右节点小，所以旋转以后也要实现这个特性。
+- 对于左左情况（左边多出来加左侧）来说
+
+新增加的节点位于节点 2 的左侧，这时树已经不平衡，需要旋转。因为搜索树的特性，节点比左节点大，比右节点小，所以旋转以后也要实现这个特性。
 
 旋转之前：new < 2 < C < 3 < B < 5 < A，右旋之后节点 3 为根节点，这时候需要将节点 3 的右节点加到节点 5 的左边，最后还需要更新节点的高度。
 
-对于右右情况来说，相反于左左情况，所以不再赘述。
+- 对于右右情况（右边多出来加右侧）来说，相反于左左情况，所以不再赘述。
 
-对于左右情况来说，新增加的节点位于节点 4 的右侧。对于这种情况，需要通过两次旋转来达到目的。
+- 对于左右情况（左边多出来加右侧）来说，新增加的节点位于节点 4 的右侧
+
+对于这种情况，需要通过两次旋转来达到目的。
 
 首先对节点的左节点左旋，这时树满足左左的情况，再对节点进行一次右旋就可以达到目的。
+```js
+class Node {
+  constructor(value) {
+    this.value = value
+    this.left = null
+    this.right = null
+    this.height = 1
+  }
+}
 
-    class Node {
-      constructor(value) {
-        this.value = value
-        this.left = null
-        this.right = null
-        this.height = 1
-      }
+class AVL {
+  constructor() {
+    this.root = null
+  }
+  addNode(v) {
+    this.root = this._addChild(this.root, v)
+  }
+  _addChild(node, v) {
+    if (!node) {
+      return new Node(v)
+    }
+    if (node.value > v) {
+      node.left = this._addChild(node.left, v)
+    } else if (node.value < v) {
+      node.right = this._addChild(node.right, v)
+    } else {
+      node.value = v
+    }
+    node.height =
+      1 + Math.max(this._getHeight(node.left), this._getHeight(node.right))
+    let factor = this._getBalanceFactor(node)
+    // 当需要右旋时，根节点的左树一定比右树高度高
+    if (factor > 1 && this._getBalanceFactor(node.left) >= 0) {
+      return this._rightRotate(node)
+    }
+    // 当需要左旋时，根节点的左树一定比右树高度矮
+    if (factor < -1 && this._getBalanceFactor(node.right) <= 0) {
+      return this._leftRotate(node)
+    }
+    // 左右情况
+    // 节点的左树比右树高，且节点的左树的右树比节点的左树的左树高
+    if (factor > 1 && this._getBalanceFactor(node.left) < 0) {
+      node.left = this._leftRotate(node.left)
+      return this._rightRotate(node)
+    }
+    // 右左情况
+    // 节点的左树比右树矮，且节点的右树的右树比节点的右树的左树矮
+    if (factor < -1 && this._getBalanceFactor(node.right) > 0) {
+      node.right = this._rightRotate(node.right)
+      return this._leftRotate(node)
     }
 
-    class AVL {
-      constructor() {
-        this.root = null
-      }
-      addNode(v) {
-        this.root = this._addChild(this.root, v)
-      }
-      _addChild(node, v) {
-        if (!node) {
-          return new Node(v)
-        }
-        if (node.value > v) {
-          node.left = this._addChild(node.left, v)
-        } else if (node.value < v) {
-          node.right = this._addChild(node.right, v)
-        } else {
-          node.value = v
-        }
-        node.height =
-          1 + Math.max(this._getHeight(node.left), this._getHeight(node.right))
-        let factor = this._getBalanceFactor(node)
-        // 当需要右旋时，根节点的左树一定比右树高度高
-        if (factor > 1 && this._getBalanceFactor(node.left) >= 0) {
-          return this._rightRotate(node)
-        }
-        // 当需要左旋时，根节点的左树一定比右树高度矮
-        if (factor < -1 && this._getBalanceFactor(node.right) <= 0) {
-          return this._leftRotate(node)
-        }
-        // 左右情况
-        // 节点的左树比右树高，且节点的左树的右树比节点的左树的左树高
-        if (factor > 1 && this._getBalanceFactor(node.left) < 0) {
-          node.left = this._leftRotate(node.left)
-          return this._rightRotate(node)
-        }
-        // 右左情况
-        // 节点的左树比右树矮，且节点的右树的右树比节点的右树的左树矮
-        if (factor < -1 && this._getBalanceFactor(node.right) > 0) {
-          node.right = this._rightRotate(node.right)
-          return this._leftRotate(node)
-        }
+    return node
+  }
+  _getHeight(node) {
+    if (!node) return 0
+    return node.height
+  }
+  _getBalanceFactor(node) {
+    return this._getHeight(node.left) - this._getHeight(node.right)
+  }
+  // 节点右旋
+  //           5                    2
+  //         /   \                /   \
+  //        2     6   ==>       1      5
+  //       /  \               /       /  \
+  //      1    3             new     3    6
+  //     /
+  //    new
+  _rightRotate(node) {
+    // 旋转后新根节点
+    let newRoot = node.left
+    // 需要移动的节点
+    let moveNode = newRoot.right
+    // 节点 2 的右节点改为节点 5
+    newRoot.right = node
+    // 节点 5 左节点改为节点 3
+    node.left = moveNode
+    // 更新树的高度
+    node.height =
+      1 + Math.max(this._getHeight(node.left), this._getHeight(node.right))
+    newRoot.height =
+      1 +
+      Math.max(this._getHeight(newRoot.left), this._getHeight(newRoot.right))
 
-        return node
-      }
-      _getHeight(node) {
-        if (!node) return 0
-        return node.height
-      }
-      _getBalanceFactor(node) {
-        return this._getHeight(node.left) - this._getHeight(node.right)
-      }
-      // 节点右旋
-      //           5                    2
-      //         /   \                /   \
-      //        2     6   ==>       1      5
-      //       /  \               /       /  \
-      //      1    3             new     3    6
-      //     /
-      //    new
-      _rightRotate(node) {
-        // 旋转后新根节点
-        let newRoot = node.left
-        // 需要移动的节点
-        let moveNode = newRoot.right
-        // 节点 2 的右节点改为节点 5
-        newRoot.right = node
-        // 节点 5 左节点改为节点 3
-        node.left = moveNode
-        // 更新树的高度
-        node.height =
-          1 + Math.max(this._getHeight(node.left), this._getHeight(node.right))
-        newRoot.height =
-          1 +
-          Math.max(this._getHeight(newRoot.left), this._getHeight(newRoot.right))
+    return newRoot
+  }
+  // 节点左旋
+  //           4                    6
+  //         /   \                /   \
+  //        2     6   ==>       4      7
+  //             /  \         /   \      \
+  //            5     7      2     5      new
+  //                   \
+  //                    new
+  _leftRotate(node) {
+    // 旋转后新根节点
+    let newRoot = node.right
+    // 需要移动的节点
+    let moveNode = newRoot.left
+    // 节点 6 的左节点改为节点 4
+    newRoot.left = node
+    // 节点 4 右节点改为节点 5
+    node.right = moveNode
+    // 更新树的高度
+    node.height =
+      1 + Math.max(this._getHeight(node.left), this._getHeight(node.right))
+    newRoot.height =
+      1 +
+      Math.max(this._getHeight(newRoot.left), this._getHeight(newRoot.right))
 
-        return newRoot
-      }
-      // 节点左旋
-      //           4                    6
-      //         /   \                /   \
-      //        2     6   ==>       4      7
-      //             /  \         /   \      \
-      //            5     7      2     5      new
-      //                   \
-      //                    new
-      _leftRotate(node) {
-        // 旋转后新根节点
-        let newRoot = node.right
-        // 需要移动的节点
-        let moveNode = newRoot.left
-        // 节点 6 的左节点改为节点 4
-        newRoot.left = node
-        // 节点 4 右节点改为节点 5
-        node.right = moveNode
-        // 更新树的高度
-        node.height =
-          1 + Math.max(this._getHeight(node.left), this._getHeight(node.right))
-        newRoot.height =
-          1 +
-          Math.max(this._getHeight(newRoot.left), this._getHeight(newRoot.right))
+    return newRoot
+  }
+}
+```
 
-        return newRoot
-      }
-    }
+# Trie
+---
 
-## Trie
+**是什么**
 
-### Tire是什么
+在计算机科学，**trie**，又称**前缀树**或**字典树**，是一种有序树，用于保存关联数组，其中的键通常是字符串
 
-在计算机科学，**trie**，又称**前缀树**或**字典树**，是一种有序树，用于保存关联数组，其中的键通常是字符串。
-
-简单点来说，这个结构的作用大多是为了方便**搜索字符串**，该树有以下几个特点
+**分类边界**
 
 -   根节点代表空字符串，每个节点都有N（假如搜索英文字符，就有 26 条）条链接，每条链接代表一个字符
--   节点不存储字符，只有路径才存储，这点和其他的树结构不同
--   从根节点开始到任意一个节点，将沿途经过的字符连接起来就是该节点对应的字符串
+-   节点不存储字符，只有**路径才存储**，这点和其他的树结构不同
+-   从根节点开始到任意一个节点，**将沿途经过的字符连接起来就是该节点对应的字符串**
 
 ![](/images/20190401220147215.png)
 
-### 实现
+**目的**
+
+为了方便**搜索字符串**
+
+**如何达成**
 
 总得来说 Trie 的实现相比别的树结构来说简单的很多，实现就以搜索英文字符为例。
-
-    class TrieNode {
-      constructor() {
-        // 代表每个字符经过节点的次数
-        this.path = 0
-        // 代表到该节点的字符串有几个
-        this.end = 0
-        // 链接
-        this.next = new Array(26).fill(null)
+```js
+class TrieNode {
+  constructor() {
+    // 代表每个字符经过节点的次数
+    this.path = 0
+    // 代表到该节点的字符串有几个
+    this.end = 0
+    // 链接
+    this.next = new Array(26).fill(null)
+  }
+}
+class Trie {
+  constructor() {
+    // 根节点，代表空字符
+    this.root = new TrieNode()
+  }
+  // 插入字符串
+  insert(str) {
+    if (!str) return
+    let node = this.root
+    for (let i = 0; i < str.length; i++) {
+      // 获得字符先对应的索引
+      let index = str[i].charCodeAt() - 'a'.charCodeAt()
+      // 如果索引对应没有值，就创建
+      if (!node.next[index]) {
+        node.next[index] = new TrieNode()
       }
+      node.path += 1
+      node = node.next[index]
     }
-    class Trie {
-      constructor() {
-        // 根节点，代表空字符
-        this.root = new TrieNode()
+    node.end += 1
+  }
+  // 搜索字符串出现的次数
+  search(str) {
+    if (!str) return
+    let node = this.root
+    for (let i = 0; i < str.length; i++) {
+      let index = str[i].charCodeAt() - 'a'.charCodeAt()
+      // 如果索引对应没有值，代表没有需要搜素的字符串
+      if (!node.next[index]) {
+        return 0
       }
-      // 插入字符串
-      insert(str) {
-        if (!str) return
-        let node = this.root
-        for (let i = 0; i < str.length; i++) {
-          // 获得字符先对应的索引
-          let index = str[i].charCodeAt() - 'a'.charCodeAt()
-          // 如果索引对应没有值，就创建
-          if (!node.next[index]) {
-            node.next[index] = new TrieNode()
-          }
-          node.path += 1
-          node = node.next[index]
-        }
-        node.end += 1
-      }
-      // 搜索字符串出现的次数
-      search(str) {
-        if (!str) return
-        let node = this.root
-        for (let i = 0; i < str.length; i++) {
-          let index = str[i].charCodeAt() - 'a'.charCodeAt()
-          // 如果索引对应没有值，代表没有需要搜素的字符串
-          if (!node.next[index]) {
-            return 0
-          }
-          node = node.next[index]
-        }
-        return node.end
-      }
-      // 删除字符串
-      delete(str) {
-        if (!this.search(str)) return
-        let node = this.root
-        for (let i = 0; i < str.length; i++) {
-          let index = str[i].charCodeAt() - 'a'.charCodeAt()
-          // 如果索引对应的节点的 Path 为 0，代表经过该节点的字符串
-          // 已经一个，直接删除即可
-          if (--node.next[index].path == 0) {
-            node.next[index] = null
-            return
-          }
-          node = node.next[index]
-        }
-        node.end -= 1
-      }
+      node = node.next[index]
     }
+    return node.end
+  }
+  // 删除字符串
+  delete(str) {
+    if (!this.search(str)) return
+    let node = this.root
+    for (let i = 0; i < str.length; i++) {
+      let index = str[i].charCodeAt() - 'a'.charCodeAt()
+      // 如果索引对应的节点的 Path 为 0，代表经过该节点的字符串
+      // 已经一个，直接删除即可
+      if (--node.next[index].path == 0) {
+        node.next[index] = null
+        return
+      }
+      node = node.next[index]
+    }
+    node.end -= 1
+  }
+}
+```
 
-## 并查集
 
-### 概念
 
-并查集是一种特殊的树结构，用于处理一些不交集的合并及查询问题。该结构中每个节点都有一个父节点，如果只有当前一个节点，那么该节点的父节点指向自己。
+# 并查集
+---
+
+**是什么**
+
+并查集是一种特殊的树结构
+
+**分类边界**
+
+该结构中每个节点都有一个父节点，如果只有当前一个节点，那么该节点的父节点指向自己
 
 这个结构中有两个重要的操作，分别是：
 
@@ -762,69 +877,81 @@ AVL 树改进了二分搜索树，在 AVL 树中任意节点的左右子树的�
 
 ![](/images/20190401220208504.png)
 
-### 实现
+**目的**
 
-    class DisjointSet {
-      // 初始化样本
-      constructor(count) {
-        // 初始化时，每个节点的父节点都是自己
-        this.parent = new Array(count)
-        // 用于记录树的深度，优化搜索复杂度
-        this.rank = new Array(count)
-        for (let i = 0; i < count; i++) {
-          this.parent[i] = i
-          this.rank[i] = 1
-        }
-      }
-      find(p) {
-        // 寻找当前节点的父节点是否为自己，不是的话表示还没找到
-        // 开始进行路径压缩优化
-        // 假设当前节点父节点为 A
-        // 将当前节点挂载到 A 节点的父节点上，达到压缩深度的目的
-        while (p != this.parent[p]) {
-          this.parent[p] = this.parent[this.parent[p]]
-          p = this.parent[p]
-        }
-        return p
-      }
-      isConnected(p, q) {
-        return this.find(p) === this.find(q)
-      }
-      // 合并
-      union(p, q) {
-        // 找到两个数字的父节点
-        let i = this.find(p)
-        let j = this.find(q)
-        if (i === j) return
-        // 判断两棵树的深度，深度小的加到深度大的树下面
-        // 如果两棵树深度相等，那就无所谓怎么加
-        if (this.rank[i] < this.rank[j]) {
-          this.parent[i] = j
-        } else if (this.rank[i] > this.rank[j]) {
-          this.parent[j] = i
-        } else {
-          this.parent[i] = j
-          this.rank[j] += 1
-        }
-      }
+用于处理一些不交集的合并及查询问题
+
+
+**如何达成**
+
+
+```js
+class DisjointSet {
+  // 初始化样本
+  constructor(count) {
+    // 初始化时，每个节点的父节点都是自己
+    this.parent = new Array(count)
+    // 用于记录树的深度，优化搜索复杂度
+    this.rank = new Array(count)
+    for (let i = 0; i < count; i++) {
+      this.parent[i] = i
+      this.rank[i] = 1
     }
+  }
+  find(p) {
+    // 寻找当前节点的父节点是否为自己，不是的话表示还没找到
+    // 开始进行路径压缩优化
+    // 假设当前节点父节点为 A
+    // 将当前节点挂载到 A 节点的父节点上，达到压缩深度的目的
+    while (p != this.parent[p]) {
+      this.parent[p] = this.parent[this.parent[p]]
+      p = this.parent[p]
+    }
+    return p
+  }
+  isConnected(p, q) {
+    return this.find(p) === this.find(q)
+  }
+  // 合并
+  union(p, q) {
+    // 找到两个数字的父节点
+    let i = this.find(p)
+    let j = this.find(q)
+    if (i === j) return
+    // 判断两棵树的深度，深度小的加到深度大的树下面
+    // 如果两棵树深度相等，那就无所谓怎么加
+    if (this.rank[i] < this.rank[j]) {
+      this.parent[i] = j
+    } else if (this.rank[i] > this.rank[j]) {
+      this.parent[j] = i
+    } else {
+      this.parent[i] = j
+      this.rank[j] += 1
+    }
+  }
+}
+```
+# 堆
+---
 
-## 堆
+**是什么**
 
-### 概念
+堆通常是一个可以被看做一棵树的数组对象
 
-堆通常是一个可以被看做一棵树的数组对象。
+**分类边界**
 
-堆的实现通过构造**二叉堆**，实为二叉树的一种。这种数据结构具有以下性质。
+堆的实现通过构造**二叉堆**，实为二叉树的一种。这种数据结构具有以下性质
 
 *   任意节点小于（或大于）它的所有子节点
-*   堆总是一棵完全树。即除了最底层，其他层的节点都被元素填满，且最底层从左到右填入。
+*   堆总是一棵完全树。即除了最底层，其他层的节点都被元素填满，且最底层从左到右填入
 
-将根节点最大的堆叫做**最大堆**或**大根堆**，根节点最小的堆叫做**最小堆**或**小根堆**。
+将根节点最大的堆叫做**最大堆**或**大根堆**，根节点最小的堆叫做**最小堆**或**小根堆**
 
 优先队列也完全可以用堆来实现，操作是一模一样的。
 
-### 实现大根堆
+**组合**
+
+实现大根堆
 
 堆的每个节点的左边子节点索引是 `i * 2 + 1`，右边是 `i * 2 + 2`，父节点是 `(i - 1) /2`。
 
@@ -835,63 +962,57 @@ AVL 树改进了二分搜索树，在 AVL 树中任意节点的左右子树的�
 `shiftDown` 的核心思路是先将根节点和末尾交换位置，然后移除末尾元素。接下来循环判断父节点和两个子节点的大小，如果子节点大，就把最大的子节点和父节点交换。
 
 ![](/images/2019040122023092.png)
-
-    class MaxHeap {
-      constructor() {
-        this.heap = []
-      }
-      size() {
-        return this.heap.length
-      }
-      empty() {
-        return this.size() == 0
-      }
-      add(item) {
-        this.heap.push(item)
-        this._shiftUp(this.size() - 1)
-      }
-      removeMax() {
-        this._shiftDown(0)
-      }
-      getParentIndex(k) {
-        return parseInt((k - 1) / 2)
-      }
-      getLeftIndex(k) {
-        return k * 2 + 1
-      }
-      _shiftUp(k) {
-        // 如果当前节点比父节点大，就交换
-        while (this.heap[k] > this.heap[this.getParentIndex(k)]) {
-          this._swap(k, this.getParentIndex(k))
-          // 将索引变成父节点
-          k = this.getParentIndex(k)
-        }
-      }
-      _shiftDown(k) {
-        // 交换首位并删除末尾
-        this._swap(k, this.size() - 1)
-        this.heap.splice(this.size() - 1, 1)
-        // 判断节点是否有左孩子，因为二叉堆的特性，有右必有左
-        while (this.getLeftIndex(k) < this.size()) {
-          let j = this.getLeftIndex(k)
-          // 判断是否有右孩子，并且右孩子是否大于左孩子
-          if (j + 1 < this.size() && this.heap[j + 1] > this.heap[j]) j++
-          // 判断父节点是否已经比子节点都大
-          if (this.heap[k] >= this.heap[j]) break
-          this._swap(k, j)
-          k = j
-        }
-      }
-      _swap(left, right) {
-        let rightValue = this.heap[right]
-        this.heap[right] = this.heap[left]
-        this.heap[left] = rightValue
-      }
+```js
+class MaxHeap {
+  constructor() {
+    this.heap = []
+  }
+  size() {
+    return this.heap.length
+  }
+  empty() {
+    return this.size() == 0
+  }
+  add(item) {
+    this.heap.push(item)
+    this._shiftUp(this.size() - 1)
+  }
+  removeMax() {
+    this._shiftDown(0)
+  }
+  getParentIndex(k) {
+    return parseInt((k - 1) / 2)
+  }
+  getLeftIndex(k) {
+    return k * 2 + 1
+  }
+  _shiftUp(k) {
+    // 如果当前节点比父节点大，就交换
+    while (this.heap[k] > this.heap[this.getParentIndex(k)]) {
+      this._swap(k, this.getParentIndex(k))
+      // 将索引变成父节点
+      k = this.getParentIndex(k)
     }
-
-## 小结
-
-这一章节我们学习了一些常见的数据结构，当然我没有将其他更难的数据结构也放进来，能够掌握这些常见的内容已经足够解决大部分的问题了。当然你如果还想继续深入学习数据结构，可以阅读 [算法第四版](https://link.juejin.im/?target=https%3A%2F%2Fbook.douban.com%2Fsubject%2F19952400%2F) 以及在 [leetcode](https://link.juejin.im/?target=https%3A%2F%2Fleetcode-cn.com%2Fproblemset%2Fall%2F) 中实践。
-
-</div>
-
+  }
+  _shiftDown(k) {
+    // 交换首位并删除末尾
+    this._swap(k, this.size() - 1)
+    this.heap.splice(this.size() - 1, 1)
+    // 判断节点是否有左孩子，因为二叉堆的特性，有右必有左
+    while (this.getLeftIndex(k) < this.size()) {
+      let j = this.getLeftIndex(k)
+      // 判断是否有右孩子，并且右孩子是否大于左孩子
+      if (j + 1 < this.size() && this.heap[j + 1] > this.heap[j]) j++
+      // 判断父节点是否已经比子节点都大
+      if (this.heap[k] >= this.heap[j]) break
+      this._swap(k, j)
+      k = j
+    }
+  }
+  _swap(left, right) {
+    let rightValue = this.heap[right]
+    this.heap[right] = this.heap[left]
+    this.heap[left] = rightValue
+  }
+}
+```
