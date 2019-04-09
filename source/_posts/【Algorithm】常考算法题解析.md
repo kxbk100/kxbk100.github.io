@@ -271,7 +271,7 @@ function part(array, left, right) {
     }
   }
   // 将基准值和比基准值大的第一个值交换位置
-  // 这样数组就变成 `[比基准值小, 基准值, 比基准值大]`
+  // 这样数组就变成[比基准值小, 基准值, 比基准值大]
   swap(array, right, more);
   return [less, more];
 }
@@ -347,11 +347,11 @@ function part(array, left, right) {
 -   大根堆是某个节点的所有子节点的值都比他小
 -   小根堆是某个节点的所有子节点的值都比他大
 
-堆排序的原理就是组成一个大根堆或者小根堆。以小根堆为例，某个节点的左边子节点索引是 `i * 2 + 1`，右边是 `i * 2 + 2`，父节点是 `(i - 1) /2`。
+堆排序的原理就是组成一个大根堆或者小根堆。以**小根堆**为例，某个节点的左边子节点索引是 `i * 2 + 1`，右边是 `i * 2 + 2`，父节点是 `(i - 1) /2`。
 
 1.  首先遍历数组，判断该节点的父节点是否比他小，如果小就交换位置并继续判断，直到他的父节点比他大
 2.  重新以上操作 1，直到数组首位是最大值
-3.  然后将首位和末尾交换位置并将数组长度减一，表示数组末尾已是最大值，不需要再比较大小
+3.  然后将首位和末尾交换位置并将数组长度-1，表示数组末尾已是最大值，不需要再比较大小
 4.  对比左右节点哪个大，然后记住大的节点的索引并且和父节点对比大小，如果子节点大就交换位置
 5.  重复以上操作 3 - 4 直到整个数组都是大根堆。
 
@@ -388,8 +388,7 @@ function heapify(array, index, size) {
   let left = index * 2 + 1;
   while (left < size) {
     // 判断左右节点大小
-    let largest =
-      left + 1 < size && array[left] < array[left + 1] ? left + 1 : left;
+    let largest = left + 1 < size && array[left] < array[left + 1] ? left + 1 : left;
     // 判断子节点和父节点大小
     largest = array[index] < array[largest] ? largest : index;
     if (largest === index) break;
@@ -402,7 +401,7 @@ function heapify(array, index, size) {
 
 以上代码实现了小根堆，如果需要实现大根堆，只需要把节点对比反一下就好。
 
-该算法的复杂度是 O(logN)
+该算法的复杂度是 `O(logN)`
 
 ### 系统自带排序实现
 
@@ -418,29 +417,30 @@ function heapify(array, index, size) {
 
 ### 反转单向链表
 
-该题目来自 [LeetCode](https://link.juejin.im/?target=https%3A%2F%2Fleetcode.com%2Fproblems%2Freverse-linked-list%2Fdescription%2F)，题目需要将一个单向链表反转。思路很简单，使用三个变量分别表示当前节点和当前节点的前后节点，虽然这题很简单，但是却是一道面试常考题
+该题目来自 [LeetCode](https://leetcode.com/problems/reverse-linked-list/description/)，题目需要将一个单向链表反转。思路很简单，使用三个变量分别表示当前节点和当前节点的前后节点，虽然这题很简单，但是却是一道面试常考题
 
 以下是实现该算法的代码
-
-    var reverseList = function(head) {
-        // 判断下变量边界问题
-        if (!head || !head.next) return head
-        // 初始设置为空，因为第一个节点反转后就是尾部，尾部节点指向 null
-        let pre = null
-        let current = head
-        let next
-        // 判断当前节点是否为空
-        // 不为空就先获取当前节点的下一节点
-        // 然后把当前节点的 next 设为上一个节点
-        // 然后把 current 设为下一个节点，pre 设为当前节点
-        while(current) {
-            next = current.next
-            current.next = pre
-            pre = current
-            current = next
-        }
-        return pre
-    };
+```js
+var reverseList = function(head) {
+    // 判断下变量边界问题
+    if (!head || !head.next) return head
+    // 初始设置为空，因为第一个节点反转后就是尾部，尾部节点指向 null
+    let pre = null
+    let current = head
+    let next
+    // 判断当前节点是否为空
+    // 不为空就先获取当前节点的下一节点
+    // 然后把当前节点的 next 设为上一个节点
+    // 然后把 current 设为下一个节点，pre 设为当前节点
+    while(current) {
+        next = current.next
+        current.next = pre
+        pre = current
+        current = next
+    }
+    return pre
+};
+```
 
 ## 树
 
@@ -460,16 +460,23 @@ function TreeNode(val) {
   this.val = val;
   this.left = this.right = null;
 }
+
 var traversal = function(root) {
   if (root) {
     // 先序
     console.log(root); 
     traversal(root.left);
-    // 中序
-    // console.log(root); 
     traversal(root.right);
+    
+    // 中序
+    traversal(root.left);
+    console.log(root); 
+    traversal(root.right);
+    
     // 后序
-    // console.log(root);
+    traversal(root.left);
+    traversal(root.right);
+    console.log(root);
   }
 };
 ```
@@ -569,28 +576,30 @@ function pos(root) {
 3.  如果左节点为空，且目标节点是父节点的左节点，向上寻找到第一个是父节点的右节点的节点。对于节点 `6` 来说，没有左节点，且是节点 `3` 的左节点，所以向上寻找到节点 `1` ，发现节点 `3` 是节点 `1` 的右节点，所以节点 `1` 是节点 `6` 的前驱节点
 
 以下是算法实现
+```js
+function predecessor(node) {
+  if (!node) return 
+  // 结论 1
+  if (node.left) {
+    return getRight(node.left)
+  } else {
+    let parent = node.parent
+    // 结论 2 3 的判断
+    while(parent && parent.right === node) {
+      node = parent
+      parent = node.parent
+    }
+    return parent
+  }
+}
 
-    function predecessor(node) {
-      if (!node) return 
-      // 结论 1
-      if (node.left) {
-        return getRight(node.left)
-      } else {
-        let parent = node.parent
-        // 结论 2 3 的判断
-        while(parent && parent.right === node) {
-          node = parent
-          parent = node.parent
-        }
-        return parent
-      }
-    }
-    function getRight(node) {
-      if (!node) return 
-      node = node.right
-      while(node) node = node.right
-      return node
-    }
+function getRight(node) {
+  if (!node) return 
+  node = node.right
+  while(node) node = node.right
+  return node
+}
+```
 
 #### 后继节点
 
@@ -600,41 +609,43 @@ function pos(root) {
 2.  如果没有右节点，就向上遍历直到找到一个节点是父节点的左节点。对于节点 `5` 来说，没有右节点，就向上寻找到节点 `2` ，该节点是父节点 `1` 的左节点，所以节点 `1` 是后继节点
 
 以下是算法实现
+```js
+function successor(node) {
+  if (!node) return 
+  // 结论 1
+  if (node.right) {
+    return getLeft(node.right)
+  } else {
+    // 结论 2
+    let parent = node.parent
+    // 判断 parent 为空
+    while(parent && parent.left === node) {
+      node = parent
+      parent = node.parent
+    }
+    return parent
+  }
+}
 
-    function successor(node) {
-      if (!node) return 
-      // 结论 1
-      if (node.right) {
-        return getLeft(node.right)
-      } else {
-        // 结论 2
-        let parent = node.parent
-        // 判断 parent 为空
-        while(parent && parent.left === node) {
-          node = parent
-          parent = node.parent
-        }
-        return parent
-      }
-    }
-    function getLeft(node) {
-      if (!node) return 
-      node = node.left
-      while(node) node = node.left
-      return node
-    }
+function getLeft(node) {
+  if (!node) return 
+  node = node.left
+  while(node) node = node.left
+  return node
+}
+```
 
 ### 树的深度
 
-**树的最大深度**：该题目来自 [Leetcode](https://link.juejin.im/?target=https%3A%2F%2Fleetcode.com%2Fproblems%2Fmaximum-depth-of-binary-tree%2Fdescription%2F)，题目需要求出一颗二叉树的最大深度
+**树的最大深度**：该题目来自 [Leetcode](https://leetcode.com/problems/maximum-depth-of-binary-tree/description/)，题目需要求出一颗二叉树的最大深度
 
 以下是算法实现
-
-    var maxDepth = function(root) {
-        if (!root) return 0 
-        return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1
-    };
-
+```js
+var maxDepth = function(root) {
+    if (!root) return 0 
+    return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1
+};
+```
 对于该递归函数可以这样理解：一旦没有找到节点就会返回 0，每弹出一次递归函数就会加一，树有三层就会得到3。
 
 ## 动态规划
@@ -661,162 +672,48 @@ fib(10)
 
 动态规划的本质其实就是两点
 
-1.  自底向上分解子问题
-2.  通过变量存储已经计算过的解
+**1.  自底向上分解子问题
+2.  通过变量存储已经计算过的解**
 
 根据上面两点，我们的斐波那契数列的动态规划思路也就出来了
 
 1.  斐波那契数列从 0 和 1 开始，那么这就是这个子问题的最底层
 2.  通过数组来存储每一位所对应的斐波那契数列的值
 
-    function fib(n) {
-      let array = new Array(n + 1).fill(null)
-      array[0] = 0
-      array[1] = 1
-      for (let i = 2; i <= n; i++) {
-        array[i] = array[i - 1] + array[i - 2]
-      }
-      return array[n]
-    }
-    fib(10)
+```js
+function fib(n) {
+  let array = new Array(n + 1).fill(null)
+  array[0] = 0
+  array[1] = 1
+  for (let i = 2; i <= n; i++) {
+    array[i] = array[i - 1] + array[i - 2]
+  }
+  return array[n]
+}
+fib(10)
+```
 
 ### 0 - 1背包问题
 
-该问题可以描述为：给定一组物品，每种物品都有自己的重量和价格，在限定的总重量内，我们如何选择，才能使得物品的总价格最高。每个问题只能放入至多一次。
+该问题可以描述为：给定一组物品，每种物品都有自己的重量和价格，**在限定的总重量内，我们如何选择，才能使得物品的总价格最高**。每个问题只能放入**至多一次**。
 
 假设我们有以下物品
-
-<table>
-
-<thead>
-
-<tr>
-
-<th style="text-align:center">物品 ID / 重量</th>
-
-<th style="text-align:center">价值</th>
-
-</tr>
-
-</thead>
-
-<tbody>
-
-<tr>
-
-<td style="text-align:center">1</td>
-
-<td style="text-align:center">3</td>
-
-</tr>
-
-<tr>
-
-<td style="text-align:center">2</td>
-
-<td style="text-align:center">7</td>
-
-</tr>
-
-<tr>
-
-<td style="text-align:center">3</td>
-
-<td style="text-align:center">12</td>
-
-</tr>
-
-</tbody>
-
-</table>
+| 物品 ID / 重量 | 价值 |
+|--|--|
+| 1 | 3 |
+| 2 | 7 |
+| 3 | 12 |
 
 对于一个总容量为 5 的背包来说，我们可以放入重量 2 和 3 的物品来达到背包内的物品总价值最高。
 
 对于这个问题来说，子问题就两个，分别是放物品和不放物品，可以通过以下表格来理解子问题
 
-<table>
 
-<thead>
-
-<tr>
-
-<th style="text-align:center">物品 ID / 剩余容量</th>
-
-<th style="text-align:center">0</th>
-
-<th style="text-align:center">1</th>
-
-<th style="text-align:center">2</th>
-
-<th style="text-align:center">3</th>
-
-<th style="text-align:center">4</th>
-
-<th style="text-align:center">5</th>
-
-</tr>
-
-</thead>
-
-<tbody>
-
-<tr>
-
-<td style="text-align:center">1</td>
-
-<td style="text-align:center">0</td>
-
-<td style="text-align:center">3</td>
-
-<td style="text-align:center">3</td>
-
-<td style="text-align:center">3</td>
-
-<td style="text-align:center">3</td>
-
-<td style="text-align:center">3</td>
-
-</tr>
-
-<tr>
-
-<td style="text-align:center">2</td>
-
-<td style="text-align:center">0</td>
-
-<td style="text-align:center">3</td>
-
-<td style="text-align:center">7</td>
-
-<td style="text-align:center">10</td>
-
-<td style="text-align:center">10</td>
-
-<td style="text-align:center">10</td>
-
-</tr>
-
-<tr>
-
-<td style="text-align:center">3</td>
-
-<td style="text-align:center">0</td>
-
-<td style="text-align:center">3</td>
-
-<td style="text-align:center">7</td>
-
-<td style="text-align:center">12</td>
-
-<td style="text-align:center">15</td>
-
-<td style="text-align:center">19</td>
-
-</tr>
-
-</tbody>
-
-</table>
+|物品 ID / 剩余容量|0|1|2|3|4|5|
+|--- |--- |--- |--- |--- |--- |--- |
+|1|0|3|3|3|3|3|
+|2|0|3|7|10|10|10|
+|3|0|3|7|12|15|19|
 
 直接来分析能放三种物品的情况，也就是最后一行
 
@@ -880,61 +777,10 @@ function knapsack(w, v, C) {
 
 对于以上这串数字来说，最长递增子序列就是 0, 3, 4, 8, 10，可以通过以下表格更清晰的理解
 
-<table>
+|数字|0|3|4|17|2|8|6|10|
+|--- |--- |--- |--- |--- |--- |--- |--- |--- |
+|长度|1|2|3|4|2|4|4|5|
 
-<thead>
-
-<tr>
-
-<th style="text-align:center">数字</th>
-
-<th style="text-align:center">0</th>
-
-<th style="text-align:center">3</th>
-
-<th style="text-align:center">4</th>
-
-<th style="text-align:center">17</th>
-
-<th style="text-align:center">2</th>
-
-<th style="text-align:center">8</th>
-
-<th style="text-align:center">6</th>
-
-<th style="text-align:center">10</th>
-
-</tr>
-
-</thead>
-
-<tbody>
-
-<tr>
-
-<td style="text-align:center">长度</td>
-
-<td style="text-align:center">1</td>
-
-<td style="text-align:center">2</td>
-
-<td style="text-align:center">3</td>
-
-<td style="text-align:center">4</td>
-
-<td style="text-align:center">2</td>
-
-<td style="text-align:center">4</td>
-
-<td style="text-align:center">4</td>
-
-<td style="text-align:center">5</td>
-
-</tr>
-
-</tbody>
-
-</table>
 
 通过以上表格可以很清晰的发现一个规律，找出刚好比当前数字小的数，并且在小的数组成的长度基础上加一。
 
