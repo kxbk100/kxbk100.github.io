@@ -60,11 +60,166 @@ function replaceSpace(str)
 }
 ```
 
-# 3 从尾到头打印链表 　　简单　　栈
-# 4 重建二叉树 　　中等　　画图、递归、注意下标
-# 5 用两个栈实现队列 　　简单　　注意判断条件
-# 6 旋转数组中的最小数字 　　简单　　二分法
-# 7 斐波那契数列 　　简单　　动态规划
+# 3 从尾到头打印链表
+## 题目描述
+输入一个链表，按链表值从尾到头的顺序返回一个ArrayList。
+
+## 题目分析
+![](/images/20190409191942462.png)
+## 代码
+```js
+function printListFromTailToHead(head)
+{
+    // write code here
+    let arr = [];
+    while(head) {
+        arr.push(head.val);
+        head = head.next
+    }
+    return arr.reverse();
+}
+```
+# 4 重建二叉树
+## 题目描述
+输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。例如输入前序遍历序列{1,2,4,7,3,5,6,8}和中序遍历序列{4,7,2,1,5,3,8,6}，则重建二叉树并返回。
+
+## 题目分析
+前序遍历的第一个值为根节点的值，使用这个值将中序遍历结果分成两部分，左部分为树的左子树中序遍历结果，右部分为树的右子树中序遍历的结果。
+![](/images/20190409195230655.gif)
+
+
+## 代码
+```js
+/* function TreeNode(x) {
+    this.val = x;
+    this.left = null;
+    this.right = null;
+} */
+function reConstructBinaryTree(pre, vin)
+{
+    // write code here
+    // 边界条件
+    if(pre.lenght === 0 || vin.length === 0) {
+        return null;
+    }
+    
+    let index = vin.indexOf(pre[0]);
+    let left = vin.slice(0, index);
+    let right = vin.slice(index + 1);
+    
+    return {
+        val: pre[0],
+        left: reConstructBinaryTree(pre.slice(1, index + 1), left),
+        right: reConstructBinaryTree(pre.slice(index + 1), right)
+    }
+}
+```
+
+ 　　
+# 5 用两个栈实现队列
+## 题目描述
+用两个栈来实现一个队列，完成队列的Push和Pop操作。 队列中的元素为int类型。
+## 题目分析
+in 栈用来处理入栈（push）操作，out 栈用来处理出栈（pop）操作。一个元素进入 in 栈之后，出栈的顺序被反转。当元素要出栈时，需要先进入 out 栈，此时元素出栈顺序再一次被反转，因此出栈顺序就和最开始入栈顺序是相同的，先进入的元素先退出，这就是队列的顺序。
+
+![](/images/20190409201610193.gif)
+## 代码
+```js
+var inStack = [];
+var outStack = [];
+
+function push(node)
+{
+    // write code here
+    inStack.push(node);
+    
+}
+function pop()
+{
+    if(!outStack.length) {
+        while(inStack.length) {
+            outStack.push(inStack.pop());
+        }
+    }
+    return outStack.pop();
+}
+```
+
+
+# 6 旋转数组中的最小数字
+## 题目描述
+把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。 输入一个非减排序的数组的一个旋转，输出旋转数组的最小元素。 例如数组{3,4,5,1,2}为{1,2,3,4,5}的一个旋转，该数组的最小值为1。 NOTE：给出的所有元素都大于0，若数组大小为0，请返回0。
+
+## 题目分析
+在一个有序数组中查找一个元素可以用二分查找，二分查找也称为折半查找，每次都能将查找区间减半，这种折半特性的算法时间复杂度都为`O(logN)`。
+
+本题可以修改二分查找算法进行求解：
+- 当 nums[mid] <= nums[high] 的情况下，说明解在 [low, mid] 之间，此时令 high = mid；
+- 否则解在 [mid + 1, high] 之间，令 low = mid + 1。
+
+
+## 代码
+暴力使用sort
+```js
+function minNumberInRotateArray(rotateArray)
+{
+    // 边界条件
+    if(rotateArray.length === 0) return 0;
+    return rotateArray.sort(function(a, b){return a - b})[0];
+}
+```
+
+二分法
+
+```js
+function minNumberInRotateArray(rotateArray) {
+  if (rotateArray.length == 0) return 0;
+  var low = 0;
+  var high = rotateArray.length - 1;
+  while (low < high) {
+    var mid = low + high >> 1;
+    if (rotateArray[mid] <= rotateArray[high])
+      high = mid;
+    else
+      low = mid + 1;
+  }
+  return rotateArray[low];
+}
+```
+
+# 7 斐波那契数列
+## 题目描述
+大家都知道斐波那契数列，现在要求输入一个整数n，请你输出斐波那契数列的第n项（从0开始，第0项为0）。
+n<=39
+
+## 题目分析
+![](/images/20190410003716825.gif)
+## 代码
+递归
+虽然可以实现，但是运行超时:您的程序未能在规定时间内运行结束，请检查是否循环有错或算法复杂度过大。
+```js
+function Fibonacci(n)
+{
+    // write code here
+    if(n >= 0 && n < 2) return n;
+    return Fibonacci(n - 1) + Fibonacci(n - 2);
+}
+```
+
+动态规划
+```js
+function Fibonacci(n)
+{
+    // write code here
+    let arr = [];
+    arr[0] = 0;
+    arr[1] = 1;
+    for (let i = 2; i <= n; i++) {
+        arr[i] = arr[i - 1] + arr[i - 2];
+    }
+    return arr[n];
+}
+```
 # 8 跳台阶 　　简单　　动态规划
 # 9 变态跳台阶 　　中等　　类似斐波那契、数学分析
 # 10 矩形覆盖 　　简单偏难　　类似斐波那契
@@ -126,6 +281,6 @@ function replaceSpace(str)
 # 机器人的运动范围 　　中等　　回溯法
 # 参考资料
 > [1] https://www.cnblogs.com/wuguanglin/p/code-interview.html
-> [2] https://github.com/CyC2018/CS-Notes/blob/master/docs/notes/%E5%89%91%E6%8C%87%20Offer%20%E9%A2%98%E8%A7%A3%20-%20%E7%9B%AE%E5%BD%951.md
+> [2] https://github.com/CyC2018/CS-Notes/blob/master/docs/notes/%E5%89%91%E6%8C%87%20Offer%20%E9%A2%98%E8%A7%A3%20-%20%E7%9B%AE%E5%BD%95.md
 > [3] https://www.cnblogs.com/wuguanglin/p/SummaryOfJSDoAlgorithmProblem.html
 

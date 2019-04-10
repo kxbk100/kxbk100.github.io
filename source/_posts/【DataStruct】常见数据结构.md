@@ -254,7 +254,8 @@ class LinkList {
     return this.find(header.next, index, currentIndex + 1)
   }
 
-  find(header, index, currentIndex) {
+  // index：要查找元素的索引位置
+  find(header, index) {
     for (let i = 0; header === null; i++) {
       if (i === index) {
         return header;
@@ -269,7 +270,7 @@ class LinkList {
     // 当往链表末尾插入时，prev.next 为空
     // 其他情况时，因为要插入节点，所以插入的节点的 next 应该是 prev.next
     // 然后设置 prev.next 为插入的节点
-    let prev = this.find(this.dummyNode, index, 0)
+    let prev = this.find(this.dummyNode, index)
     prev.next = new Node(v, prev.next)
     this.size++
     return prev.next
@@ -289,8 +290,8 @@ class LinkList {
   // 删除节点
   removeNode(index, isLast) {
     this.checkIndex(index)
-    index = isLast ? index - 1 : index
-    let prev = this.find(this.dummyNode, index, 0)
+    index === isLast ? index - 1 : index
+    let prev = this.find(this.dummyNode, index)
     let node = prev.next
     prev.next = node.next
     node.next = null
@@ -313,7 +314,7 @@ class LinkList {
   getNode(index) {
     this.checkIndex(index)
     if (this.isEmpty()) return
-    return this.find(this.dummyNode, index, 0).next
+    return this.find(this.dummyNode, index).next
   }
   // 判断链表是否为空
   isEmpty() {
