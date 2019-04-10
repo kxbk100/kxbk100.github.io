@@ -1,6 +1,6 @@
 ---
-title: 【JavaScript】第十一章 开发环境
-date: 2019-03-23 02:43:38
+title: 【JavaScript】开发环境
+date: 2019年04月08日 00:27:43
 categories: JavaScript
 typora-root-url: ..
 typora-copy-images-to: ../images

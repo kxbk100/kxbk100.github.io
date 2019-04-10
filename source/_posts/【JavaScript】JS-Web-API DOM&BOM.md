@@ -1,6 +1,6 @@
 ---
-title: 【JavaScript】第七章 JS-Web-API DOM&BOM
-date: 2019-03-16 14:45:50
+title: 【JavaScript】JS-Web-API DOM&BOM
+date: 2019年04月08日 00:27:43
 categories: JavaScript
 typora-root-url: ..
 typora-copy-images-to: ../images

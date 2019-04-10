@@ -68,11 +68,12 @@ def to_md_files(username, total_pages, cookie_file, start=1, stop=None, hexo=Tru
         logging.info('Page {}'.format(p))
         # 获取该页文章
         articles = requests.get(
-            'http://blog.csdn.net/'+username+'/article/list/' + str(p), cookies=cookies).text
+            'https://mp.csdn.net/postlist/list/all/' + str(p), cookies=cookies).text
         soup = BeautifulSoup(articles, 'lxml')
-        for article in soup.find_all('div', attrs={'class':'article-item-box','style':''}):
-            article_id = article['data-articleid']
-            create = article.find('span',attrs={'class':'date'}).text
+        for article in soup.find_all('a', attrs={'target':'_blank','title':'编辑'}):
+            article_id = article['href'][-8:]
+            # create = article.find('span',attrs={'class':'date'}).text
+            create = '2019年04月08日 00:27:43'
             base_url = 'https://mp.csdn.net/mdeditor/getArticle'
             params = {
                 'id': article_id

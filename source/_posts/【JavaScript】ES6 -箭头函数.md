@@ -1,6 +1,6 @@
 ---
 title: 【JavaScript】ES6 -箭头函数
-date: 2019-04-03 23:48:31
+date: 2019年04月08日 00:27:43
 categories: JavaScript
 typora-root-url: ..
 typora-copy-images-to: ../images

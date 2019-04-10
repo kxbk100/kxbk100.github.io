@@ -1,6 +1,6 @@
 ---
 title: 【JavaScript】整理
-date: 2019-04-01 00:24:16
+date: 2019年04月08日 00:27:43
 categories: JavaScript
 typora-root-url: ..
 typora-copy-images-to: ../images
@@ -32,7 +32,7 @@ console.log(b); // 100
 **条件**
 
 原始类型存储的都是值，是没有函数可以调用的，比如`undefined.toString()`
-![](/images/20190325104109107.png)
+![](/images/undefined)
  `'1'.toString()` 是可以使用的。在这种情况下，`'1'` 已经不是原始类型了，而是被强制转换成了 `String` 类型（大写）也就是引用类型，所以可以调用 `toString` 函数
  
 JS 的`number` 类型是浮点类型的，在使用中会遇到某些 Bug

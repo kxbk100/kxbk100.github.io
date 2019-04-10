@@ -1,6 +1,6 @@
 ---
 title: 【JavaScript】原型与原型链
-date: 2019-02-01 19:29:46
+date: 2019年04月08日 00:27:43
 categories: JavaScript
 typora-root-url: ..
 typora-copy-images-to: ../images

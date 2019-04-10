@@ -1,6 +1,6 @@
 ---
-title: 【JavaScript】第九章 Ajax & 跨域
-date: 2019-03-16 15:42:44
+title: 【JavaScript】Ajax & 跨域
+date: 2019年04月08日 00:27:43
 categories: JavaScript
 typora-root-url: ..
 typora-copy-images-to: ../images

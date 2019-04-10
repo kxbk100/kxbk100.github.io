@@ -1,6 +1,6 @@
 ---
-title: 【JavaScript】第一章 简介
-date: 2019-01-31 22:57:04
+title: 【JavaScript】简介
+date: 2019年04月08日 00:27:43
 categories: JavaScript
 typora-root-url: ..
 typora-copy-images-to: ../images

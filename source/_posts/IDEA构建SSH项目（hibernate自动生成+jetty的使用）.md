@@ -1,6 +1,6 @@
 ---
 title: IDEA构建SSH项目（hibernate自动生成+jetty的使用）
-date: 2019-03-31 19:12:06
+date: 2019年04月08日 00:27:43
 categories: Back-End
 typora-root-url: ..
 typora-copy-images-to: ../images
