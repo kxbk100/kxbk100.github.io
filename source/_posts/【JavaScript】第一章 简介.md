@@ -1,5 +1,5 @@
 ---
-title: 【JavaScript】简介
+title: 【JavaScript】第一章 简介
 date: 2019年04月08日 00:27:43
 categories: JavaScript
 typora-root-url: ..

@@ -1,5 +1,5 @@
 ---
-title: 【JavaScript】其它-日期、Math
+title: 【JavaScript】第六章 其它-日期、Math
 date: 2019年04月08日 00:27:43
 categories: JavaScript
 typora-root-url: ..

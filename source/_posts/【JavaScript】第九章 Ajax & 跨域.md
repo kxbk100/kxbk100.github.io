@@ -1,5 +1,5 @@
 ---
-title: 【JavaScript】Ajax & 跨域
+title: 【JavaScript】第九章 Ajax & 跨域
 date: 2019年04月08日 00:27:43
 categories: JavaScript
 typora-root-url: ..
