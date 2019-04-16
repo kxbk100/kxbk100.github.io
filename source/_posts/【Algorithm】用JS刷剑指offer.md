@@ -220,12 +220,213 @@ function Fibonacci(n)
     return arr[n];
 }
 ```
-# 8 跳台阶 　　简单　　动态规划
-# 9 变态跳台阶 　　中等　　类似斐波那契、数学分析
-# 10 矩形覆盖 　　简单偏难　　类似斐波那契
-# 二进制中1的个数 　　中等　　位运算n=n&n-1　　
-# 数值的整数次方 　　中等　　数学分析、位运算
-# 调整数组顺序使奇数位于偶数前面 　　简单　　两个变量作为奇数和偶数的下标
+# 8 跳台阶
+## 题目描述
+
+一只青蛙一次可以跳上1级台阶，也可以跳上2级。求该青蛙跳上一个n级的台阶总共有多少种跳法（先后次序不同算不同的结果）。
+## 题目分析
+![](/images/20190412101500374.png)
+稍微分析就知道这是斐波那契数列，所以可以动态规划来做
+- 如果两种跳法，1阶或者2阶，那么假定第一次跳的是一阶，那么剩下的是n-1个台阶，跳法是f(n-1)
+- 假定第一次跳的是2阶，那么剩下的是n-2个台阶，跳法是f(n-2)
+- 由1、2假设可以得出总跳法为：f(n) = f(n-1) + f(n-2) 
+- 通过实际的情况可以得出：只有一阶的时候 f(1) = 1 ,只有两阶的时候可以有 f(2) = 2
+- 可以发现最终得出的是一个斐波那契数列
+
+## 代码
+
+递归
+
+```js
+function jumpFloor(number)
+{
+    // write code here
+    if (number <= 2) return number;
+    return jumpFloor(number - 1) + jumpFloor(number - 2);
+}
+```
+
+动态规划
+```js
+function jumpFloor(number)
+{
+    // write code here
+    let arr = new Array(number + 1).fill(null);
+    arr[0] = 0;
+    arr[1] = 1;
+    arr[2] = 2;
+    for(let i = 3; i <= number; i++) {
+        arr[i] = arr[i - 1] + arr[i - 2];
+    }
+    return arr[number]
+}
+```
+
+# 9 变态跳台阶
+## 题目描述
+
+一只青蛙一次可以跳上1级台阶，也可以跳上2级……它也可以跳上n级。求该青蛙跳上一个n级的台阶总共有多少种跳法。
+## 题目分析
+根据上一个题目可以知道，青蛙只跳1或2可以得出是一个斐波那契问题，即`a[n] = a[n-1] + a[n-2]`，那么能跳1,2,3个台阶时`a[n] = a[n-1] + a[n-2] + a[n-3] + ... + a[1]`
+
+那么有：
+```
+a[n]   = a[n-1] + a[n-2] + ... + a[1]    ①
+a[n-1] = a[n-2] + a[n-3] + ... + a[1]    ②
+```
+`② - ①`可得：`a[n] = 2*a[n-1]`
+## 代码
+```js
+function jumpFloorII(number)
+{
+    // write code here
+    let acc = 1;
+    while(--number) {
+        acc = acc * 2;
+    }
+    return acc;
+}
+```
+
+# 10 矩形覆盖
+## 题目描述
+我们可以用2*1的小矩形横着或者竖着去覆盖更大的矩形。请问用n个2*1的小矩形无重叠地覆盖一个2*n的大矩形，总共有多少种方法？
+## 题目分析
+其本质就是一个斐波那契数列
+![](/images/20190415195927942.png)
+## 代码
+```js
+function rectCover(number)
+{
+    // write code here
+    var arr = [];
+    arr[0] = 0;
+    arr[1] = 1;
+    arr[2] = 2;
+    for (let i = 3; i <= number; i++) {
+        arr[i] = arr[i - 2] + arr[i - 1];
+    }
+    return arr[number];
+}
+```
+
+# 二进制中1的个数
+## 题目描述
+## 题目分析
+如果一个整数与1做与运算的结果是1，则表示该整数最右边一位是1，否则是0
+
+那么解法就出来了：一个一个向右移位，并且判断最右边的那个位是否为1，为1就count++
+
+但是这样输入负数时会陷入死循环，因为负数右移时，最高位补得是1，那么这样会有无数个1
+
+此时这时候有两个解决办法：
+
+1. 既然不能对要操作的数一个一个右移位，那么我们可以考虑对另一个数1进行左移位计算
+2. 把一个整数减去1，再和原整数做与运算，会把该整数最右边一个1变成0。那么一个整数的二进制有多少个1，就可以进行多少次这样的操作
+
+## 代码
+方法1
+```js
+function NumberOf1(n) {
+    let count = 0;
+    let flag = 1;
+    while (flag) {
+        // 循环的次数等于整数二进制的位数，32位的整数需要循环32位
+        if (flag & n) count++;
+        flag = flag << 1;
+    }
+    return count;
+}
+```
+
+方法2
+```js
+function NumberOf1(n) {
+    let count = 0;
+    while (n) {
+    	// 有几位就循环几次，效率高
+        n = n & n - 1
+        count++;
+    }
+    return count;
+}
+```
+Java
+```java
+public class Solution {
+    public int NumberOf1(int n) {
+        int count = 0;
+        int flag = 1;
+        while(flag != 0) {
+            if((n & flag) != 0) {
+                count++;
+            }
+            flag = flag << 1;
+        }
+        return count;
+    }
+}
+```
+
+# 数值的整数次方
+## 题目描述
+给定一个double类型的浮点数base和int类型的整数exponent。求base的exponent次方。
+## 题目分析
+![](/images/20190416163817565.png)
+- js中所有数字都是浮点数，所以`3 / 2 === 1.5`，所以在进行位运算和乘除运算时，最好都使用`parseInt()`
+- 用右移运算（`>>`）代替除运算（`/`），所以`parseInt(3) / 2 === parseInt(3) >> 1`，直接`3 >> 1`也可以，但是浮点数位运算效率十分低
+- 用位与运算代替求余运算（`%`），所以`parseInt(3) % 2 === parseInt(3) & 1`，直接`3 & 1`也可以，但是浮点数位运算效率十分低
+## 代码
+```js
+function Power(base, exponent) {
+  // write code here
+  if (exponent === 0) return 1;
+  if (exponent === 1) return base;
+  var isNegative = false;
+  if (exponent < 0) {
+    exponent = -exponent;
+    isNegative = true;
+  }
+  var pow = Power(base * base, parseInt(exponent) >> 1);
+  if (parseInt(exponent) & 1 !== 0) pow = pow * base;
+  return isNegative ? 1 / pow : pow;
+}
+```
+
+# 调整数组顺序使奇数位于偶数前面
+## 题目描述
+输入一个整数数组，实现一个函数来调整该数组中数字的顺序，使得所有的奇数位于数组的前半部分，所有的偶数位于数组的后半部分，并保证奇数和奇数，偶数和偶数之间的相对位置不变。
+## 题目分析
+两个变量作为奇数和偶数的下标，我们可以维护两个指针
+- 第一个指针初始化时指向数组的第一个数字，它只向后移动
+- 第二个指针初始化时指向数组的最后一个数字，它只向前移动
+
+在两个指针相遇之前，第一个指针总是位于第二个指针的前面。如果第一个指针指向的数字是偶数，并且第二个指针指向的数字是奇数，则交换这两个数字
+
+![](/images/20190416201428919.png)
+
+## 代码
+```js
+function reOrderArray(array)
+{
+    // write code here
+    let oddbegin = 0;
+    let oddcount = 0;
+    let arr = [];
+    for (let i = 0; i < array.length; i++) {
+        if(array[i] & 1) oddcount++
+    }
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] & 1){
+            arr[oddbegin++] = array[i];
+        } else{
+            arr[oddcount++] = array[i];
+        }
+    }
+    return arr;
+}
+```
+
 # 链表中倒数第k个节点 　　简单　　双指针法
 # 反转链表 　　简单　　三个指针
 # 合并两个排序的链表 　　简单　　递归

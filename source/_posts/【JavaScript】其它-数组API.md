@@ -13,9 +13,10 @@ typora-copy-images-to: ../images
 var arrayObj = new Array();　//创建一个数组
 var arrayObj = new Array([size]);　//创建一个数组并指定长度，注意不是上限，是长度
 var arrayObj = new Array(item1, item2, item3, ...);　//创建一个数组并赋值
+var arrayObj = [];
 ```
 
-虽然第二种方法创建数组指定了长度，但实际上所有情况下数组都是变长的，也就是说即使指定了长度为5，仍然可以将元素存储在规定长度以外的
+虽然第二种方法创建数组指定了长度，但实际上所有情况下数组都是**变长**的，也就是说即使指定了长度为5，仍然可以将元素存储在规定长度以外的
 
 
 
@@ -26,10 +27,10 @@ arrayObj. push(item1, item2, item3, ...); // 将一个或多个新元素添加�
 arrayObj.unshift(item1, item2, item3, ...); // 将一个或多个新元素添加到数组开始，数组中的元素自动后移，返回数组新长度
 arrayObj.splice(index, 0, item1, item2, item3, ...); // 将一个或多个新元素插入到数组的指定位置，插入位置的元素自动后移，返回包含被删除项目的新数组
 ```
-splice
+splice(index, howmany, item1, item3, ...)
 |参数  | 描述 |
 |--|--|
-|index  |必需。整数，规定添加/删除项目的位置，使用负数可从数组结尾处规定位置，index位会被删除 |
+|index  |必需。整数，规定添加/删除项目的位置，使用负数可从数组结尾处规定位置，**index位会被删除** |
 |howmany  |必需。要删除的项目数量。如果设置为 0，则不会删除项目 |
 |item1, ..., itemX  |可选。向数组添加的新项目 |
 
@@ -93,11 +94,10 @@ var arr = ['A', 'B', 'C', 1, 2, 3];
 arr.join('-'); // 'A-B-C-1-2-3'
 ```
 
-- 如果Array的元素不是字符串，将自动转换为字符串后再连接
+如果Array中的元素不是字符串，将**自动转换为字符串**后再连接
 
 toLocaleString 、toString可以看作是join的特殊用法，不常用;  
-**toLocaleString()**: 方法可根据本地时间把 Date 对象转换为字符串，并返回结果。
-
+- **toLocaleString()**: 方法可根据本地时间把 Date 对象转换为字符串，并返回结果
 - **toString**:把数组转换为字符串，并返回结果
 - **lastIndexOf**：返回在数组中搜索到的与给定参数相等的元素的最后（最大）索引
 - **toSource()**: 返回一个字符串,代表该数组的源代码，<font color="red">该特性是非标准的，请尽量不要在生产环境中使用它！</font>
@@ -122,7 +122,7 @@ arr.indexOf('30'); // 元素'30'的索引为2
 - 因为数组的索引总是由0开始，所以一个数组的上下限分别是：0和length-1
 
 JavaScript数组的length属性是可变的
-- 当length属性被设置得更大时，整个数组的状态事实上不会发生变化，仅仅是length属性变大
+- 当length属性被设置得更大时，**整个数组的状态事实上不会发生变化，仅仅是length属性变大**
 - 当length属性被设置得比原来小时，则原先数组中索引大于或等于length的元素的值全部被丢失
 
 
@@ -142,7 +142,7 @@ alert(arr[8]); // 虽然长度被恢复为10，但第9个元素却无法收回�
 ```
 
 
-- JavaScript中可以使用一个未声明过的变量，同样，也可以使用一个未定义的数组元素（指索引超过或等于length的元素）
+- JavaScript中可以使用一个未声明过的变量，同样，也可以使用一个未定义的数组元素（**指索引超过或等于length的元素**）
 - length对象不仅可以显式的设置，它也有可能被隐式修改
 - length属性的值将被设置为所使用元素索引的值加1
 
@@ -174,7 +174,7 @@ console.log(arr.toString())
 
 - objectName 参数是object对象的名称。  
 - 用 prototype 属性提供对象的类的一组基本功能
-- 对象的新实例“继承”赋予该对象原型的操作。  
+- 对象的新实例“继承”赋予该对象原型的操作
 
 给数组对象添加返回数组中最大元素值的方法。要完成这一点，声明一个函数，将它加入 Array.prototype， 并使用它
 
@@ -200,7 +200,7 @@ var y = x.max();
 - 表示创建对象的函数
 - `object.constructor`是对象或函数的名称
 
-说明：constructor 属性是所有具有 prototype 的对象的成员。它们包括除 Global 和 Math 对象以外的所有 JScript 固有对象。constructor 属性保存了对构造特定对象实例的函数的引用
+说明：constructor 属性是所有具有 prototype 的对象的成员。它们包括除 Global 和 Math 对象以外的所有 JS 固有对象。constructor 属性保存了对构造特定对象实例的函数的引用
 
 ```js
 x = new String("Hi");
@@ -247,14 +247,14 @@ ECMA-262中规范定义了Object.prototype.toString的行为
 
 - 首先，取得对象的一个内部属性`[[Class]]`，然后依据这个属性，返回一个类似于`[object Array]`的字符串作为结果
 - `[[]]`用来表示语言内部用到的、外部不可直接访问的属性，称为“内部属性”
-- 利用这个方法，再配合call，我们可以取得任何对象的内部属性`[[Class]]`，然后把类型检测转化为字符串比较，以达到我们的目的。于是利用这点，就有了下面这种方法：
+- 利用这个方法，**再配合call**，我们可以取得任何对象的内部属性`[[Class]]`，然后把类型检测转化为字符串比较，以达到我们的目的。于是利用这点，就有了下面这种方法：
 ```js
 function isArray(obj) {  
   return Object.prototype.toString.call(obj) === '[object Array]';   
 }
 ```
 
-- call改变toString的this引用为待检测的对象，返回此对象的字符串表示
+- **call改变toString的this引用为待检测的对象**，返回此对象的字符串表示
 - 然后对此字符串是否是`[object Array]`，以判断其是否是Array的实例
 
 为什么不直接o.toString()？
