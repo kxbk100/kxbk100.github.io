@@ -245,7 +245,7 @@ alert(arr.constructor === Array); // false
 
 ECMA-262中规范定义了Object.prototype.toString的行为
 
-- 首先，取得对象的一个内部属性`[[Class]]`，然后依据这个属性，返回一个类似于`[object Array]`的字符串作为结果
+- 首先，取得对象的一个**内部属性**`[[Class]]`，然后依据这个属性，返回一个类似于`[object Array]`的字符串作为结果
 - `[[]]`用来表示语言内部用到的、外部不可直接访问的属性，称为“内部属性”
 - 利用这个方法，**再配合call**，我们可以取得任何对象的内部属性`[[Class]]`，然后把类型检测转化为字符串比较，以达到我们的目的。于是利用这点，就有了下面这种方法：
 ```js
@@ -261,7 +261,7 @@ function isArray(obj) {
 - 虽然Array继承自Object，toString方法极有可能被重写而达不到我们的要求
 - Object.prototype则是老虎的屁股，很少有人敢去碰它的，所以能一定程度保证其“纯洁性”
 
-如此很好的解决了跨frame对象构建的问题，经过测试，各大浏览器兼容性也很好，可以放心使用。很多框架，比如jQuery等，都计划借鉴此方法以实现某些特殊的，比如数组、正则表达式等对象的类型判定
+如此很好的解决了跨frame对象构建的问题，经过测试，各大浏览器兼容性也很好，可以放心使用。**很多框架，比如jQuery等**，都借鉴此方法以实现某些特殊的，比如**数组、正则表达式**等对象的类型判定
 
 `Array.isArray()`方法用来判断某个值是否为数组。如果是，则返回 true，否则返回 false
 
@@ -270,7 +270,8 @@ function isArray(obj) {
 Array.isArray([]);
 Array.isArray([1]);
 Array.isArray(new Array());
-// 鲜为人知的事实：其实 Array.prototype 也是一个数组。
+
+// 鲜为人知的事实：其实 Array.prototype 也是一个数组
 Array.isArray(Array.prototype); 
 
 // 下面的函数调用都返回 false
@@ -291,7 +292,7 @@ Array.isArray({ __proto__: Array.prototype });
 ## filter()：过滤符合条件的元素
 - 不改变原数组
 - 返回符合条件的数组
-- filter 为数组中的每个元素调用一次 callback 函数，并利用所有使得 callback 返回 true 或 等价于 true 的值的元素创建一个新数组。callback 只会在已经赋值的索引上被调用，对于那些已经被删除或者从未被赋值的索引不会被调用。那些没有通过 callback 测试的元素会被跳过，不会被包含在新数组中
+- filter 为数组中的每个元素调用一次 **callback 函数**，并利用所有使得 callback 返回 true 或 等价于 true 的值的元素创建一个新数组。callback 只会在**已经赋值的索引**上被调用，对于那些**已经被删除或者从未被赋值的索引**不会被调用。那些没有通过 callback 测试的元素会被跳过，不会被包含在新数组中
 
 ```js
 var arr = [1, 2, 3];
@@ -316,9 +317,11 @@ var filtered = [12, 5, 8, 130, 44].filter(isBigEnough);
 ### forEach() ：遍历数组中所有元素
 
 - forEach 方法按升序为数组中含有效值的每一项执行一次callback 函数，那些已删除（使用delete方法等情况）或者从未赋值的项将被跳过（但不包括哪些值为 undefined 的项）
-- forEach 遍历的范围在第一次调用 callback 前就会确定。调用forEach 后添加到数组中的项不会被 callback 访问到。如果已经存在的值被改变，则传递给 callback 的值是 forEach 遍历到他们**那一刻**的值
-- 已删除的项不会被遍历到
+- forEach 遍历的范围在**第一次调用 callback 前就会确定**。调用forEach 后添加到数组中的项不会被 callback 访问到。**如果已经存在的值被改变**，则传递给 callback 的值是 forEach 遍历到他们**那一刻**的值
 - 没有办法中止 forEach 循环
+
+![](/images/20190417105333946.png)
+
 
 **打印出数组的内容**
 ```js
@@ -414,7 +417,7 @@ console.log(arr2);
 
 ```js
 var map = Array.prototype.map
-var a = map.call("Hello World", x => x.charCodeAt(0)});
+var a = map.call("Hello World", x => x.charCodeAt(0));
 // a的值为[72, 101, 108, 108, 111, 32, 87, 111, 114, 108, 100]
 ```
 
@@ -427,11 +430,11 @@ var a = map.call("Hello World", x => x.charCodeAt(0)});
 // 但实际的结果是 [1, NaN, NaN]
 ```
 
-通常使用parseInt时，只需要传递一个参数，但实际上parseInt可以有两个参数，第二个参数是进制数。可以通过语句`alert(parseInt.length) === 2`来验证
+通常使用parseInt时，只需要传递一个参数，但实际上parseInt可以有两个参数，第二个参数是进制数。可以通过语句`alert(parseInt.length === 2)`来验证
 
 map方法在调用callback函数时，会给它传递3个参数：当前正在遍历的元素，元素索引，原数组本身
 
-第3个参数parseInt会忽视，但第二个参数不会，也就是说parseInt把传过来的索引值当成进制数来使用，从而返回了NaN。 因此此时应该使用如下的用户函数returnInt
+第3个参数parseInt会忽视，但第二个参数不会，也就是说parseInt把传过来的**索引值当成进制数来使用**，从而返回了NaN。 因此此时应该使用如下的用户函数`returnInt`
 
 ```js
 function returnInt(element){

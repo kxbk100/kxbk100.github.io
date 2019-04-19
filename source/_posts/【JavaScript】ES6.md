@@ -76,7 +76,7 @@ test()
 
 你可能会认为这里也出现了提升的情况，但是因为某些原因导致不能访问。
 
-首先报错的原因是因为**存在暂时性死区**，我们**不能在声明前就使用变量**，这也是 `let` 和 `const` 优于 `var` 的一点。然后这里你认为的提升和 `var` 的提升是有区别的，虽然变量在编译的环节中被告知在这块作用域中可以访问，但是访问是受限制的。
+首先报错的原因是因为存在**暂时性死区**，我们**不能在声明前就使用变量**，这也是 `let` 和 `const` 优于 `var` 的一点。然后这里你认为的提升和 `var` 的提升是有区别的，虽然变量在编译的环节中被告知在这块作用域中可以访问，但是访问是受限制的。
 
 那么到这里，想必大家也都明白 `var`、`let` 及 `const` 区别了，不知道你是否会有这么一个疑问，为什么要存在提升这个事情呢，其实提升存在的根本原因就是为了**解决函数间互相调用的情况**
 ```js
@@ -97,7 +97,7 @@ test1()
 - `var` 存在提升，我们能在声明之前使用。`let`、`const` 因为**暂时性死区**的原因，不能在声明前使用，其作用域为该语句所在的代码块内
 - `var` 在**全局作用域**下声明变量会导致变量挂载在 `window` 上，其他两者不会
 - `let` 和 `const` 作用基本一致，但是后者声明的变量不能再次赋值
-- let使得JS存在块级作用域
+- `let` 和 `const` 使得JS存在块级作用域
 
 参考资料
 > [1] https://www.youtube.com/watch?v=XgSjoHgy3Rk
@@ -108,18 +108,21 @@ test1()
 
 > 涉及面试题：原型如何实现继承？Class 如何实现继承？Class 本质是什么？
 
+**Class是什么**
+
 首先先来讲下 `class`，其实在 JS 中并不存在类，`class` 只是语法糖，本质还是**函数**。
 ```js
 class Person {}
 Person instanceof Function // true
 ```
 
-在上一章节中我们讲解了原型的知识点，在这一小节中我们将会使用分别使用原型和 `class` 的方式来实现继承。
+**组合**
 
 ## 组合继承
 
-组合继承是最常用的继承方式，
+组合继承是最常用的继承方式
 ```js
+// 父类构造函数
 function Parent(value) {
   this.val = value
 }
@@ -128,13 +131,17 @@ Parent.prototype.getValue = function() {
   console.log(this.val)
 }
 
+// 子类构造函数
 function Child(value) {
-  Parent.call(this, value) // Parent.call 不是 Child.call
+  Parent.call(this, value); // 继承父类属性
+  // Parent.call 不是 Child.call
+  // 类比Java中的extendParent
 }
 
-Child.prototype = new Parent() //要new出来
+//要new出来
+Child.prototype = new Parent(); // 继承父类函数
 
-const child = new Child(1)
+const child = new Child(1);
 
 child.getValue() // 1
 child instanceof Parent // true
@@ -142,13 +149,13 @@ child instanceof Parent // true
 
 以上继承的方式核心是在子类的构造函数中通过 `Parent.call(this)` 继承父类的属性，然后改变子类的原型为 `new Parent()` 来继承父类的函数。
 
-这种继承方式优点在于构造函数可以传参，不会与父类引用属性共享，可以复用父类的函数，但是也存在一个缺点就是在继承父类函数的时候调用了父类构造函数，导致子类的原型上多了不需要的父类属性，存在**内存上的浪费**。
+这种继承方式优点在于**构造函数可以传参**，不会与父类引用属性共享，可以复用父类的函数，但是也存在一个缺点就是在**继承父类函数的时候调用了父类构造函数**，导致子类的原型上多了不需要的父类属性，存在**内存上的浪费**。
 
 ![](/images/20190411110308503.png)
 
 ## 寄生组合继承
 
-这种继承方式对组合继承进行了优化，组合继承缺点在于继承父类函数时调用了构造函数，我们只需要优化掉这点就行了。
+这种继承方式对组合继承进行了优化，组合继承缺点在于**继承父类函数时调用了构造函数**，我们只需要优化掉这点就行了。
 
 ```js
 function Parent(value) {
@@ -162,6 +169,7 @@ Parent.prototype.getValue = function() {
 function Child(value) {
   Parent.call(this, value)
 }
+
 Child.prototype = Object.create(Parent.prototype, {
   constructor: {
     value: Child,
@@ -177,13 +185,14 @@ child.getValue() // 1
 child instanceof Parent // true
 ```
 
-以上继承实现的核心就是**将父类的原型赋值给了子类**，并且将构造函数设置为子类，这样既解决了无用的父类属性问题，还能正确的找到子类的构造函数。
+以上继承实现的核心就是**将父类的原型赋值给了子类**，并且将构造函数设置为子类，这样既解决了**无用的父类属性问题**，还能正确的找到子类的构造函数。
 
 ![](/images/20190411110855900.png)
 
 ## Class 继承
 
 以上两种继承方式都是通过原型去解决的，在 ES6 中，我们可以使用 `class` 去实现继承，并且实现起来很简单
+
 ```js
 class Parent {
   constructor(value) {
@@ -193,6 +202,7 @@ class Parent {
     console.log(this.val)
   }
 }
+
 class Child extends Parent {
   constructor(value) {
     super(value)
@@ -216,14 +226,14 @@ child instanceof Parent // true
 
 **是什么**
 
-Proxy 是 ES6 中新增的功能，它可以用来自定义对象中的操作
+Proxy 是 ES6 中新增的功能，它可以用来自定义**对象中的操作**
 
 
 
 
 **目的**
 
-- 无需一层层递归为每个属性添加代理，一次即可完成以上操作，性能上更好
+- 无需一层层**递归**为每个属性添加代理，一次即可完成以上操作，性能上更好
 - 原本的实现有一些数据更新不能监听到，但是 `Proxy` 可以完美监听到任何方式的数据改变
 - 唯一缺陷可能就是浏览器的兼容性不好了
 
@@ -284,7 +294,7 @@ p.a // 'a' = 2
 
 另外 `map` 的回调函数接受三个参数，分别是当前索引元素，索引，原数组
 ```js
-['1','2','3'].map(parseInt)
+['1','2','3'].map(parseInt) // 会出错，可以另定义函数
 ```
 
 *   第一轮遍历 `parseInt('1', 0) -> 1`
@@ -433,7 +443,8 @@ var obj = {
     getAge: function () {
         var b = this.birth; // 1990
         var fn = function () {
-            return new Date().getFullYear() - this.birth; // this指向window或undefined
+            return new Date().getFullYear() - this.birth;
+            // this父级作用域，直到window，若window也没有则为undefined
         };
         return fn();
     }

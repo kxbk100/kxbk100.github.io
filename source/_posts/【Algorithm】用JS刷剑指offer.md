@@ -427,10 +427,158 @@ function reOrderArray(array)
 }
 ```
 
-# 链表中倒数第k个节点 　　简单　　双指针法
-# 反转链表 　　简单　　三个指针
-# 合并两个排序的链表 　　简单　　递归
-# 树的子结构 　　简单偏难　　注意判断条件、递归
+# 链表中倒数第k个节点
+## 题目描述
+输入一个链表，输出该链表中倒数第k个结点。
+## 题目分析
+![](/images/20190419002206942.png)
+## 代码
+我的解法
+```js
+/*function ListNode(x){
+    this.val = x;
+    this.next = null;
+}*/
+function FindKthToTail(head, k)
+{
+    // write code here
+    if (head == null || k <= 0) return null;
+    let arr = [];
+    while(head) {
+        arr.push(head);
+        head = head.next;
+    }
+    return arr[arr.length - k];
+}
+```
+
+引用类型不是共享内存吗？应使用浅拷贝
+```js
+/* function ListNode(x){
+ this.val = x;
+ this.next = null;
+ }*/
+function FindKthToTail(head, k) {
+  if (head === null || k <= 0) return null;
+  let pNode1 = head;
+  let pNode2 = head;
+  while (--k) {
+    if (pNode2.next !== null) {
+      pNode2 = pNode2.next;
+    } else {
+      return null;
+    }
+  }
+  while (pNode2.next !== null) {
+    pNode1 = pNode1.next;
+    pNode2 = pNode2.next;
+  }
+  return pNode1;
+}
+```
+
+# 反转链表
+## 题目描述
+输入一个链表，反转链表后，输出新链表的表头。
+## 题目分析
+![](/images/20190419005529386.png)
+所以第一步要把当前节点的next记住
+
+定义3个指针
+- 当前遍历到的节点
+- 它的前一个节点
+- 它的后一个节点
+## 代码
+```js
+/*function ListNode(x){
+    this.val = x;
+    this.next = null;
+}*/
+function ReverseList(pHead)
+{
+    // write code here
+    // 链表题都要判断边界条件，下句比较通用，都可以写
+    if (!pHead || !pHead.next) return pHead;
+   	// 记录当前节点
+    let current = pHead;
+    // 记录当前节点的前一个节点
+    let pre = null;
+    // 记录当前节点的后一个节点
+    let next;
+    
+    while(current) {
+    	// 先记录当前节点的下一个节点，到时候断掉就找不到了
+        next = current.next;
+        // 将当前节点的下一节点指向前一个节点
+        current.next = pre;
+        // 前一个节点后移1位
+        pre = current;
+        // 当前节点后移1位
+        current = next;
+    }
+    return pre;
+}
+```
+
+# 合并两个排序的链表
+## 题目描述
+输入两个单调递增的链表，输出两个链表合成后的链表，当然我们需要合成后的链表满足单调递增规则。
+## 题目分析
+运用递归
+![](/images/20190419102936801.png)
+## 代码
+```js
+/*function ListNode(x){
+    this.val = x;
+    this.next = null;
+}*/
+function Merge(pHead1, pHead2)
+{
+    // write code here
+    if(!pHead1) return pHead2;
+    if(!pHead2) return pHead1;
+    let pMergeHead = null;
+    if (pHead1.val < pHead2.val) {
+        pMergeHead = pHead1;
+        pMergeHead.next = Merge(pHead1.next, pHead2);
+    } else {
+        pMergeHead = pHead2;
+        pMergeHead.next = Merge(pHead1, pHead2.next);
+    }
+    return pMergeHead;
+}
+```
+# 树的子结构❓
+## 题目描述
+输入两棵二叉树A，B，判断B是不是A的子结构。（ps：我们约定空树不是任意一个树的子结构）
+## 题目分析
+分析如何判断树B是不是树A的子结构，只需要两步。很容易看出来这是一个递归的过程。一般在树的求解方面都和递归有关。
+
+1. 在树A中找到和B的根结点的值一样的结点R
+2. 判断树A中以R为根结点的子树是不是包含和树B一样的结点
+
+## 代码
+```js
+/* function TreeNode(x) {
+ this.val = x;
+ this.left = null;
+ this.right = null;
+ } */
+function HasSubtree(pRoot1, pRoot2) {
+  let res = false;
+  if (pRoot1 === null || pRoot2 === null) return false;
+  if (pRoot1.val === pRoot2.val) res = doesTree1HasTree2(pRoot1, pRoot2);
+  if (!res) res = HasSubtree(pRoot1.left, pRoot2);
+  if (!res) res = HasSubtree(pRoot1.right, pRoot2);
+  return res;
+}
+function doesTree1HasTree2(pRoot1, pRoot2) {
+  if (pRoot2 === null) return true;
+  if (pRoot1 === null) return false;
+  if (pRoot1.val !== pRoot2.val) return false;
+  return doesTree1HasTree2(pRoot1.left, pRoot2.left) && doesTree1HasTree2(pRoot1.right, pRoot2.right);
+}
+```
 # 二叉树的镜像 　　简单　　递归
 # 顺时针打印矩阵 　　中等偏难　　注意判断条件、递归 || 模拟魔方法
 # 包含min函数的栈 　　中等　　辅助栈　　
