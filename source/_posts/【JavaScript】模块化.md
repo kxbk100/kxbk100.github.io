@@ -34,7 +34,7 @@ typora-copy-images-to: ../images
 ## AMD 和 CMD
 
 鉴于目前这两种实现方式已经很少见到，所以不再对具体特性细聊，只需要了解这两者是如何使用的。
-
+AMD异步加载，CommonJS同步加载
 ```js
 // AMD
 define(['./a', './b'], function(a, b) {

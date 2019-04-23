@@ -9,8 +9,8 @@ typora-copy-images-to: ../images
 # 执行上下文（声明提升）
 ---
 范围：一段`<script>`或者一个函数
-- 全局（某个`<script>`）：变量定义提前、函数声明提前
-- 函数（函数即将执行之前）：变量定义提前、函数声明提前、确定this的值、确定arguments的值
+- 全局（某个`<script>`）：变量定义提前，函数声明提前，且函数声明优先级高于变量定义
+- 函数（函数即将执行之前）：变量定义提前，函数声明提前，确定this的值，确定arguments的值
 
 注意：函数声明和函数表达式的区别
 
@@ -23,7 +23,8 @@ function fn() {
 ```
 函数表示式
 ```js
-fn1(); // 会报错，fn1会被当做变量定义，会提升相当于var fn1 = undefined，在执行fn1();
+fn1();
+// 会报错，fn1会被当做变量定义，会提升相当于var fn1 = undefined，再执行fn1();
 // 以下均为函数表达式，函数表达式本质上即为变量定义
 var a = 100;
 var fn1 = function () {
@@ -87,23 +88,30 @@ function fn(name) {
 
 可能会发生多个规则同时出现的情况，这时候不同的规则之间会根据优先级最高的来决定 `this` 最终指向哪里。
 
-首先，`new` 的方式优先级最高，接下来是 `bind` 这些函数，然后是 `obj.foo()` 这种调用方式，最后是 `foo` 这种调用方式，同时，箭头函数的 `this` 一旦被绑定，就不会再被任何方式所改变。
+- 首先，`new` 的方式优先级最高
+- 接下来是 `bind` 这些函数
+- 然后是 `obj.foo()` 这种调用方式
+- 最后是 `foo()` 这种调用方式
+- 箭头函数的 `this` 一旦被绑定，就不会再被任何方式所改变
 
 如果你还是觉得有点绕，那么就看以下的这张流程图吧，图中的流程只针对于单个规则。
 
 ![](/images/20190405174036963.png)
 
 
-this要在执行时才能确定值，定义时无法确认
+this要在函数被调用，即将执行时才能确定值，定义时无法确认
 - 一个函数后面加`()`，即为要执行
 - 在此之前，函数永远处于定义状态
+
 ```js
 var a = {
   name: 'A',
   fn: function () {
     console.log(this.name);
   }
-} // 只看到这里不能确认this到底是什么
+}
+
+// 只看到这里不能确认this到底是什么
 a.fn(); // this === a
 a.fn.call({ name: 'B' }); // this === {name: 'B'}
 var fn1 = a.fn;
@@ -135,7 +143,7 @@ let fn2 = function fn1() {
 fn2();
 ```
 
-可以从上述代码中发现，不管我们给函数 `bind` 几次，`fn` 中的 `this` 永远由第一次 `bind` 决定，所以结果永远是 `window`
+可以从上述代码中发现，不管我们给函数 `bind` 几次，`fn` 中的 `this` 永远由第一次 `bind` 决定，`bind` 参数为空，所以结果永远是 `window`
 
 ```js
 let a = { name: 'yck' }
@@ -154,7 +162,12 @@ foo.bind(a)() // => 'yck'
 输入
 
 ```js
-alterContext(function() {return this.greeting + ', ' + this.name + '!'; }, {name: 'Rebecca', greeting: 'Yo' })
+alterContext(
+  function () {
+    return this.greeting + ', ' + this.name + '!';
+  },
+  { name: 'Rebecca', greeting: 'Yo' }
+)
 ```
 
 输出
@@ -311,7 +324,7 @@ fn();  // 函数 a = 200
 ---
 **是什么**
 
-去父级作用域取值，根据调用回到变量定义或函数声明的地方的父作用域
+根据调用回到变量定义或函数声明的地方的父作用域，去父级作用域取值
 
 **目的**
 

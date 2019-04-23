@@ -14,7 +14,7 @@ typora-copy-images-to: ../images
 - `$("selector1,selector2")`：选择所有选择器匹配的元素，返回**集合**元素
 
 # 层次选择器
-- `$("div span")`：选择`<div>`里的的**所有**`<span>`后代元素，返回**集合**元素
+- `$("div span")`：选择`<div>`里的**所有**`<span>`后代元素，返回**集合**元素
 - `$("div>span")`：选择`<div>`下的`<span>`子元素，只寻找一级（第一代子元素），`<span>`中的`<span>`不会找到，而上述则全部找到
 ```html
 <div>
@@ -29,7 +29,8 @@ typora-copy-images-to: ../images
 - `$("#one+div")`：获取**紧接**在`one`后面的**一个**同辈`div`元素，等同于`$(#one).next("div")`
 - `$(#one).prev("div")`获取**紧接**在`one`前面的**一个**同辈`div`元素
 - `$("#one~div")`：获取`one`后面的**所有**同辈`div`元素，等同于`$(#one).nextAll("div")`
-- `$(#one).siblings("div")`：获取`one`的元素的所有`div`同辈元素**（不管前后）**
+- `$(#one).siblings("div")`：获取`one`的元素的所有`div`同辈元素 **（不管前后）**
+
 所以 获取元素范围大小顺序依次为：
 - `$(#one).siblings("div")>$("#one~div")>$("#one +div")`
 - `$(#one).siblings("div")>$(#one).nextAll("div")>$(#one).next("div")`

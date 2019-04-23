@@ -12,7 +12,7 @@ typora-copy-images-to: ../images
 ## inline or inline-*元素（比如文字或者链接）
 - 让一个父元素为块级元素的行内元素水平居中
 - text-align用于父元素，用于块元素，而不是用于a
-- line-heighth设置于父元素或a均可
+- line-heigh设置于父元素或a均可
 - vertical-align: middle设置于文本
 ```css
 .center-children {
@@ -20,10 +20,11 @@ typora-copy-images-to: ../images
 }
 ```
 ## 单个块级元素
-- 这个块级元素是被设置了一个 `width` 属性了，否则它会占满宽度，这时候已经不需要居中了）
+- 这个块级元素是被设置了一个 `width` 属性了，否则它会占满宽度，这时候已经不需要居中了
 - 你可以设置块级元素的 `margin-left` 和 `margin-right` 为 `auto` 来使它水平居中
 - 无论父级容器和块级元素的宽度如何变化，都不会影响块级元素的居中效果
 - float属性是不能实现元素居中的
+
 ```css
 .center-me {
     margin: 0 auto;
@@ -52,7 +53,6 @@ typora-copy-images-to: ../images
 }
 .inline-block-center div {
   display: inline-block;
-  text-align: left;
 }
 ```
 方法二：设置为 `flexbox` 
@@ -103,6 +103,8 @@ main div:nth-child(3) {
 ### 单行
 - 有时候行内元素或者文字显示为垂直居中，仅仅是因为它们的上下内边距相等
 - 这样的情况下，文字也水平居中
+
+
 ![](/images/20190330015122978.png)
 ```html
 <main>
@@ -221,7 +223,7 @@ table cell
 
 如果我们知道元素的高度，可以这样来实现垂直居中
 
-需要用负margin进行调整：`- 子元素height/width * 50% - padding-top/left`
+需要用负margin进行调整：`- 子元素height * 50% - padding-top/left`
 ```css
 .parent {
   position: relative;
@@ -307,6 +309,17 @@ table cell
   display: flex;
   justify-content: center;
   align-items: center;
+}
+```
+
+## 使用grid
+```css
+body, html {
+  height: 100%;
+  display: grid;
+}
+span { /* thing to center */
+  margin: auto;
 }
 ```
 

@@ -13,9 +13,9 @@ typora-copy-images-to: ../images
 | `*                   ` | `*                    ` |**通用选择器**：选择所有元素                            | 2   |
 | `element             ` | `p                    ` | **标签选择器**：选择所有 `<p>` 元素                       | 1   |
 | `element, element     ` | `div, p                ` | 选择所有 `<div>` 元素和所有 `<p>` 元素           | 1   |
-| `element element     ` | `div p                ` | 选择 `<div>` 元素内部的所有 `<p>` 元素           | 1   |
-| `element > element     ` | `div > p                ` | 选择父元素为 `<div>` 元素的所有 `<p>` 元素         | 2   |
-| `element + element     ` | `div + p                ` | 选择紧接在 `<div>` 元素之后的所有 `<p>` 元素        | 2   |
+| `element element     ` | `div p                ` | 选择 `<div>` 元素内部的所有 `<p>` 元素，跨层也可           | 1   |
+| `element > element     ` | `div > p                ` | 选择父元素为 `<div>` 元素的所有 `<p>` 元素，只寻找一级（第一代子元素），`<p>`中的`<p>`不会找到，而`element element`全部找到   | 2   |
+| `element + element     ` | `div + p                ` | 选择紧接在 `<div>` 元素之后的**一个同辈** `<p>` 元素        | 2   |
 | `[attribute]         ` | `[target]             ` | 选择带有 target 属性所有元素                | 2   |
 | `[attribute=value]   ` | `[target=_blank]      ` | 选择 target="_blank" 的所有元素          | 2   |
 | `[attribute~=value]  ` | `[title~=flower]      ` | 选择 title 属性包含单词 "flower" 的所有元素    | 2   |

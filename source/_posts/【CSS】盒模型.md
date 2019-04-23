@@ -87,7 +87,7 @@ form表单中的部分元素还是基于IE的怪异盒模型，input中的
   margin: 15px;
 }
 ```
-`.border-box`设置为IE模型，它的元素宽度width = content + 2padding + 2border = 70px + 2*10px + 2*5px = 100px
+`.border-box`设置为IE模型，它的元素宽度`width = content + 2padding + 2border = 70px + 2*10px + 2*5px = 100px`
 ![](/images/20190330173135288.png)
 
 
