@@ -1952,7 +1952,7 @@ module.exports = {
 1. 在app.js中添加
 
 ```js
-var $ = require('jquery'); // 它会从package.js中的dependencies中查找安装的juqery
+var $ = require('jquery'); // 它会从package.json中的dependencies中查找安装的jQuery
 ```
 
 

@@ -93,7 +93,10 @@ var f = new Foo('zhangsan', 20);
 
 *   `Object` 是所有对象的爸爸，所有对象都可以通过 `__proto__` 找到它
 *   `Function` 是所有函数的爸爸，所有函数都可以通过 `__proto__` 找到它
+*  `Function.prototype.__proto__ === Object.prototype`
+* `Object.prototype.__proto__ === null`
 *   函数的 `prototype` 是一个对象
+* 对象的`__proto__`是一个对象
 *   对象的 `__proto__` 属性指向原型， `__proto__` 将对象和原型连接起来组成了原型链
 *   原型的 `constructor` 属性指向构造函数，构造函数又通过 `prototype` 属性指回原型
 
