@@ -6,7 +6,6 @@ typora-root-url: ..
 typora-copy-images-to: ../images
 ---
 
-
 # 1 二维数组的查找
 ## 题目描述
 在一个二维数组中（每个一维数组的长度相同），每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。
@@ -580,8 +579,81 @@ function doesTree1HasTree2(pRoot1, pRoot2) {
   return doesTree1HasTree2(pRoot1.left, pRoot2.left) && doesTree1HasTree2(pRoot1.right, pRoot2.right);
 }
 ```
-# 18 二叉树的镜像 　　简单　　递归
-# 19 顺时针打印矩阵 　　中等偏难　　注意判断条件、递归 || 模拟魔方法
+# 18 二叉树的镜像
+## 题目描述
+操作给定的二叉树，将其变换为源二叉树的镜像
+二叉树的镜像定义：源二叉树
+![](/images/20190429104858797.png)
+## 题目分析
+递归交换左右节点
+
+## 代码
+```js
+/* function TreeNode(x) {
+    this.val = x;
+    this.left = null;
+    this.right = null;
+} */
+function Mirror(root)
+{
+    // write code here
+    if(root === null) return;
+    if(root.left === null && root.right === null) return;
+    let temp = root.left;
+    root.left = root.right;
+    root.right = temp;
+    if(root.left) Mirror(root.left);
+    if(root.right) Mirror(root.right);
+}
+```
+
+# 19 顺时针打印矩阵
+## 题目描述
+输入一个矩阵，按照从外向里以顺时针的顺序依次打印出每一个数字，例如
+![](/images/20190429114053902.png)
+## 题目分析
+用左上和右下的坐标定位出一次要旋转打印的数据，一次旋转打印结束后，往对角分别前进和后退一个单位。
+## 代码
+```js
+function printMatrix(matrix)
+{
+    // write code here
+    if(matrix == null) return;
+    const rows = matrix.length;
+    const cols = matrix[0].length;
+    let start = 0;
+    let result = [];
+    while (rows > start * 2 && cols > start * 2) {
+        result = result.concat(printMatrixInCircle(matrix, rows, cols, start));
+        start++;
+    }
+    return result;
+}
+
+function printMatrixInCircle(matrix, rows, cols, start) {
+    const endX = cols - 1 - start;
+    const endY = rows - 1 - start;
+    let result = [];
+    // 从左往右
+    for (let i = start; i <= endX; i++) {
+        result.push(matrix[start][i]);
+    }
+    // 从上往下
+    for(let i = start + 1; i <= endY; i++) {
+        result.push(matrix[i][endX]);
+    }
+    // 从右往左
+    for(let i = endX - 1; i >= start && endY > start; i--) {
+        result.push(matrix[endY][i]);
+    }
+    // 从下往上
+    for(let i = endY -1; i >= start + 1 && endX > start; i--) {
+        result.push(matrix[i][start]);
+    }
+    return result;
+}
+```
+
 # 20 包含min函数的栈 　　中等　　辅助栈　　
 # 21 栈的压入、弹出序列 　　中等　辅助栈　
 # 22 从上往下打印二叉树　　简单　　广度遍历、队列
