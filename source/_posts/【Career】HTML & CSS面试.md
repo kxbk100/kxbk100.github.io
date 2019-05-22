@@ -93,19 +93,19 @@ CSS中的1px并不等于移动设备的1px，这个是由dpr决定的（devicePi
 
 - 知道宽高：使用relative+absolute绝对定位，负margin宽⾼的50%加以调整
 - 未知宽高：`transform: translate(-50%, -50%); transform-style: preserve-3d`
-- flex布局：`item-align: center; justify-content: center`
+- flex布局：`justify-content: center; align-items: center;`
 - grid：`html, body {height: 100%; display: grid}; element {margin: auto}`
 - table-cell布局：`display: table-cell; vertical-align: middle`
 
 > flex布局
 
 - 容器**默认**存在两根主轴：水平方向主轴 (main axis)和垂直方向交叉轴 (cross axis)，默认项目按主轴排列
-- `flex-direction`属性决定主轴的方向，row主轴水平起点在左端（默认），column主轴垂直起点在上边沿
-- `justify-content`属性定义项目在**主轴**上的对齐方式flex-start左对齐（默认值）,flex-end右对齐，center居中
+- `flex-direction` 属性决定主轴的方向，row主轴水平起点在左端（默认），column主轴垂直起点在上边沿
+- `justify-content` 属性定义项目在**主轴**上的对齐方式flex-start左对齐（默认值）,flex-end右对齐，center居中
 - `align-items`属性定义在**交叉**轴上的对齐方式（对齐方式与交叉轴的方向有关，暂设交叉轴从上到下），stretch如果项目未设置高度或设为auto，将占满整个容器的高度（默认值），flex-start起点对齐，flex-end终点对齐，center中点对齐
-- `flex-grow`属性定义项目的放大比例，属性值为数字，默认值为0，即如果空间有剩余也不放大，可以为小数，按比例占据剩余空间
-- `flex-shrink`属性定义项目的缩小比例，属性值为非负整数，默认值为1，即如果空间不足将等比缩小；属性值为0时项目不缩小，如果所有项目属性值都为0，则当空间不足时，项目撑破容器而溢出
-- `flex-basis`属性定义在分配多余空间之前，项目占据的主轴空间，属性值默认为auto
+- `flex-grow` 属性定义项目的放大比例，属性值为数字，默认值为0，即如果空间有剩余也不放大，可以为小数，按比例占据剩余空间
+- `flex-shrink` 属性定义项目的缩小比例，属性值为非负整数，默认值为1，即如果空间不足将等比缩小；属性值为0时项目不缩小，如果所有项目属性值都为0，则当空间不足时，项目撑破容器而溢出
+- `flex-basis` 属性定义在分配多余空间之前，项目占据的主轴空间，属性值默认为auto
 - `flex`属性是`flex-grow`、`flex-shrink`和`flex-basis`的简写，默认值为`0 1 auto`，第一个值必需，后两个值可选
 - 可以用`flex:auto;`代替 `flex:1 1 auto;`
 - 可以用`flex:none;`代替 `flex:0 0 auto;`
@@ -182,7 +182,7 @@ hr {
 
 - 设置左边左浮动，右边的margin-left设置等于左边宽度
 - 父元素设置flex布局，子左元素设置宽度，右子元素设置flex: 1
-- 定位布局：父元素relative，子左元素设置absolute，设置宽度，设置left: 0，子右元素设置width: 100%; height: 100%;
+- 定位布局：父元素relative，子左元素设置absolute，设置宽度，设置`left: 0`，子右元素设置`width: 100%; height: 100%;`
 
 > CSS3⽤过哪些新特性
 

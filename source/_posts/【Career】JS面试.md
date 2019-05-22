@@ -20,6 +20,7 @@ typora-copy-images-to: ../images
 2. 面试中不要经常出现一问一答的情况
 3. 遇到自己薄弱的讲的快一点，避免提问，遇到自己会的故意停顿， 给自己挖合适的坑
 4. 不要先否认不知道不了解，要先说知道，然后问到不知道的再解释
+5. 从CSS->JS，这个我不太清楚，但是我知道
 
 
 > ⚠️个人介绍
@@ -52,7 +53,7 @@ typora-copy-images-to: ../images
 - 浅拷贝使用`let b = Object.assign({}, a)`，也可以使用展开运算符`let b = {...a}`，它的原理就拷贝所有的属性值到新的对象中，但当属性值是对象的时候，拷贝的仍是地址
 - 深拷贝就是用来解决深层的问题，可以使用`let b = JSON.parse(JSON.stringfy(a))`，但是会忽略undefined，会忽略symbol，无法序列化函数，不能解决循环引用的问题
 - 当含有内置类型，不含有函数时可以使用`messagechannel`
-- 目前最完美的方案还是lodash深拷贝函数
+- 目前最完美的方案还是lodash的深拷贝函数`cloneDeep`，它会通过递归的方式来拷贝value
 
 **如何判断类型**
 - typeof只能判断基本类型，instanceof只能判断引用类型
@@ -242,22 +243,28 @@ child instanceof Parent // true
 - 可以通过 `Generator` 函数返回的**迭代器**解决回调地狱的问题
 - 也可以通过 `Promise` 解决回调地狱问题
 
+> 为什么引入Promise
+
+- 回调函数有一个致命的弱点，如果有多个请求存在依赖性，就是容易写出回调地狱
+- 回调地狱的根本问题就是，嵌套函数存在耦合性，一旦有所改动，就会牵一发而动全身，嵌套函数一多，就很难处理错误
+- 回调函数不能使用 `try catch` 捕获错误，不能直接 `return`
+- 引入 `Promise` 我们用`.then`让回调在统一层次，看上去十分干净
+
 > ⚠️Promise的原理
 
 `Promise` 代表承诺会在未来有一个确切的答复，承诺有三种状态：
 
-- 等待态（pending）
-- 成功态 （fulfilled）                                                                
-- 拒绝态（rejected）
+- 待定态（pending）
+- 已解决 （resolved）                                                                
+- 被拒绝（rejected）
 
-完成态（resolved） =  成功态 （fulfilled） + 拒绝态（rejected）
+---
 
-------
-
-- 一旦状态变为 `resolved` 后，就不能再次改变
-- `promise`是⽤来处理**异步操作**的对象，允许为异步操作的成功和失败分别绑定相应的处理方法
+- `Promise`是⽤来处理**异步操作**的对象，允许为异步操作的成功和失败分别绑定相应的处理方法，一旦 Promise 被解决（resolved）或者被拒（rejected），使用`.then` 和 `.catch` 采取措施
+- `.then` 中有个 `function(fulfilled) { ... }` ，`fulfilled` 就是传入 Promise 的`resolve` 中的值，`then`⾥⾯的回调是**异步延迟调用**的，它的原理是临时存储在callback数组中（类似`setTimeout(handle(callbacks), 0)`，但是实现上是在微任务队列（microtask）中，在setTimeout之前，setTimeout属于宏观任务（macrotask））
+- `.catch` 中有 `function(error){ ... }`，`error` 就是传入 Promise 中的 `reject` 的值
 - `promise`是⼀个`then-able`的对象，**构造函数**内部的代码是**立即执行**的
-- then⾥⾯的回调是异步延迟调用的，它的原理是临时存储在callback数组中，类似`setTimeout(handle(callbacks), 0)`，但是实现上是在微任务队列（microtask）中，在setTimeout之前，setTimeout属于宏观任务（macrotask）
+- 一旦状态变为 `resolved` 或 `rejected` 后，状态不能再次改变
 - `Promise` 也有一些缺陷，比如无法取消 `Promise`，错误需要通过**回调函数**捕获
 
 > 链式调用为什么要返回新的promise⽽不是this
@@ -267,19 +274,19 @@ child instanceof Parent // true
 
 > async/await原理
 
-- 一个函数如果加上 `async` ，那么该函数就会返回一个 `Promise`，`async` 就是将函数返回值使用 `Promise.resolve()` 包裹了下，和 `then` 中处理返回值一样
-- `async` 和 `await` 可以说是**异步**终极解决方案了， 通过yield和promise实现，`await` 只能配套 `async` 使用，⽤同步**写法**去做异步操作的处理，解决了使用`promise`写一大堆`then`的问题，也能解决回调地狱问题
-- `await` 就是 `generator` 加上 `Promise`的语法糖，且内部实现了自动执行 `generator`
+- `async` 和 `await` 可以说是**异步**终极解决方案了， 通过yield和promise实现，`await` 只能配套 `async` 使用，⽤同步**写法**去做异步操作，让异步语法看上去更整洁和易于理解，解决了使用`Promise`写一大堆`then` 和 `catch` 的问题，也能解决回调地狱问题，还能用 `try-catch`直接捕获Promise错误
+- 当函数中返回一个Promise的时候，在函数前加`async`，`async` 就是将函数返回值使用 `Promise.resolve()` 包裹了下，和 `then` 中处理返回值一样
+- 当需要调用一个Promise的时候，在函数前加`await`，`await` 就是 `generator` 加上 `Promise`的语法糖，且内部实现了自动执行 `generator`
 - 因为 `await` 将异步代码改造成了同步代码，如果多个异步代码**没有依赖性**却使用了 `await` 会导致性能上的降低
-- 可以使用`try-catch`直接处理异常
+
+参考资料：https://www.zcfy.cc/article/javascript-promises-for-dummies-scotch
 
 > setTimeout、setInterval、requestAnimationFrame 各有什么特点？
 
 **setTimeout**
 
 - 很多人认为 `setTimeout` 是延时多久，然后多久后执行，其实这个观点是错误的
-- JS 是单线程执行的
-- 如果前面的代码影响了**性能**，就会导致 `setTimeout` 不会按期执行
+- JS 是单线程执行的，如果前面的代码影响了**性能**，就会导致 `setTimeout` 不会按期执行
 - 当然了，我们可以通过代码去修正 `setTimeout`，将时间戳与当前时间比较，看是否已经过指定的毫秒数 ，时间未够，则继续setTimeout，步长可改为1秒 ，否则执行，从而使定时器相对准确
 
 **setInterval**
@@ -318,7 +325,7 @@ child instanceof Parent // true
 
 - 首先执行同步代码，这属于**宏任务**
 - 当执行完所有同步代码后，执行栈为空，查询是否有异步代码需要执行
-- 如果有异步代码则执行所有微任务
+- 如果有异步代码则执行所有**微任务**
 - 当执行完所有微任务后，如有必要会渲染页面
 - 然后开始下一轮 Event Loop，执行宏任务中的异步代码
 
@@ -332,7 +339,7 @@ child instanceof Parent // true
 
 - 它实际上是ES6构造函数的语法糖
 - 是实现继承的一种方式
-- `class` 实现继承的核心在于使用 `extends` 表明继承自哪个父类，父类中定义构造函数，并且在子类构造函数中必须调用 `super`，可以看成父类调用`call`传值
+- `class` 实现继承的核心在于使用 `extends` 表明继承自哪个父类，父类中定义构造函数，并且在子类构造函数中必须调用`super`，可以看成父类调用`call`传值
 - 与ES5不同，class的属性方法不可枚举
 
 **我们也可以通过原型实现继承**
@@ -342,12 +349,13 @@ child instanceof Parent // true
 **原本都是通过var来定义变量，现在比较多用let和const**
 - 原本 `var` 的话是存在变量提升的，并挂载到window上，`let` / `const` 即使在全局作用域下声明也不会挂载到window上
 - `let` 和 `const` 也存在提升，告知在这块作用域可以访问，但是访问受限，因为存在**暂时性死区**，所以不能在声明前使用变量
-- `const` 和`let` 的区别在于不能再次赋值，但如果定义的是对象的话可以对对象进行操作
+- `const` 和`let` 的区别在于不能再次赋值，但如果定义的是对象的话可以对象进行操作
 - `let` 和 `const` 使得JS存在块级作用域
 ---
 - 变量提升，是将声明挪到顶部为undefined
 - 函数提升，是将整个函数挪到顶部
 - 函数提升优于变量提升
+---
 
 **还使用过箭头函数**
 
@@ -594,8 +602,8 @@ console.log(array);
 
 > ⚠️实现节流和防抖的应用场景
 
-- 节流：⿏标移动，隔一段时间发起一次，将当前时间和上一次执行函数时间对比，如果差值大于设置的**等待时间**就执行函数，设置`setInterval`不断调用
-- 防抖：input输入，scroll，一段时间后没有再次操作的情况才去发起网络请求，设置一个定时器，延迟执行用户传入的方法，如果已经设定过定时器了就清空上一次的定时器，调用setTimeout函数
+- **节流**：⿏标移动，隔一段时间发起一次，将当前时间和上一次执行函数时间对比，如果差值大于设置的**等待时间**就执行函数，设置`setInterval`不断调用
+- **防抖**：input输入，scroll，一段时间后没有再次操作的情况才去发起网络请求，设置一个定时器，延迟执行用户传入的方法，如果已经设定过定时器了就清空上一次的定时器，调用`setTimeout`函数
 
 > 实现parseInt，简单实现转化数字符串
 
@@ -604,7 +612,7 @@ console.log(array);
 
 > 数组操作
 
-？？？
+https://blog.csdn.net/kxbk100/article/details/89005213
 
 > 函数科里化的原理和作用
 
