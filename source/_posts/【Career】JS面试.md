@@ -252,6 +252,8 @@ child instanceof Parent // true
 
 > ⚠️Promise的原理
 
+https://zhuanlan.zhihu.com/p/29632791
+
 `Promise` 代表承诺会在未来有一个确切的答复，承诺有三种状态：
 
 - 待定态（pending）
@@ -271,6 +273,156 @@ child instanceof Parent // true
 
 - 因为`this`会返回当前的`Promise`本身，再运行一次会改变状态，但是状态应该不能改变
 - `Promise` 实现了链式调用，在 `then` 中使用了 `return`，`return` 的值会被 `Promise.resolve()` 包装，所以每次调用 `then` 之后返回的都是一个全新的 `Promise`
+
+> Promise封装Ajax
+
+```js
+function getJSON(url) {
+	return new Promise((resolve, reject) => {
+		let xhr = new XMLHttpRequest();
+		// async: true标志着在请求开始后，其他代码依然能够执行
+		// 如果把这个选项设置成false，这意味着所有的请求都不再是异步的了，这也会导致浏览器被锁死
+		xhr.open("GET", url, true);
+
+		xhr.onreadystatechange = () => {
+			if (xhr.readyState === 4) {
+				if (xhr.status === 200) {
+					resolve(xhr.responseText);
+				} else {
+					let resJSON = { code: xhr.status, response: xhr.response };
+					reject(resJSON);
+				}
+			}
+		}
+		xhr.send();
+	})
+}
+
+function postJSON(url, data) {
+	return new Promise((resolve, reject) => {
+		let xhr = new XMLHttpRequest();
+		xhr.open("POST", url, true);
+		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+		xhr.onreadystatechange = () => {
+			if (xhr.readyState === 4) {
+				if (xhr.status === 200) {
+					resolve(JSON.parse(xhr.responseText));
+				} else {
+					let resJSON = { code: xhr.status, response: xhr.response };
+					reject(resJSON);
+				}
+			}
+		}
+		xhr.send(JSON.stringify(data));
+	})
+}
+
+// 调用方式
+let url1 = "http://212.64.11.56:8080/EAnnotation/getAllAnnotations?passageId=10";
+let url2 = "http://212.64.11.56:8080/EAnnotation/getCurrentUser";
+
+getJSON(url1)
+	.catch(error => {
+		console.log(error);
+	})
+	.then(data => {
+		console.log(data);
+		return getJSON(url2);
+	})
+
+	.catch(error => {
+		console.log(error);
+	})
+	.then(data2 => {
+		console.log(data2);
+	})
+```
+
+> 手写Promise
+
+**函数大体框架**
+
+- 首先创建了三个常量用于表示状态，对于经常使用的一些值都应该通过常量来管理，便于开发及后期维护
+- 在函数体内部创建了常量 `that`，因为代码可能会异步执行，用于获取正确的 `this` 对象
+- 设置`that.state = PENDING`，一开始 `Promise` 的状态应该是 `pending`
+- 设置`that.value = null`，`value` 变量用于保存 `resolve` 或者 `reject` 中传入的值
+- 设置`resolvedCallbacks` 和 `rejectedCallbacks` 用于保存 `then` 中的回调，因为当执行完 `Promise` 时状态可能还是等待中，这时候应该把 `then` 中的回调保存起来用于状态改变时使用
+
+**完善`resolve`和`reject`函数，添加到`myPromise`函数体内部**
+
+- 首先两个函数都得判断当前状态是否为等待中，因为规范规定只有等待态才可以改变状态
+- 将当前状态更改为对应状态，并且将传入的值赋值给 `value`
+- 遍历回调数组并执行
+
+**执行 Promise 中传入的函数**
+
+- 执行传入的参数并且将之前两个函数`resolve`和`reject`当做参数传进去
+- 可能执行函数过程中会遇到错误，需要捕获错误并且执行 `reject` 函数
+
+**最后实现较为复杂的 `then` 函数**
+
+- 首先判断两个参数是否为函数类型，因为这两个参数是可选参数
+
+- 当参数不是函数类型时，需要创建一个函数赋值给对应的参数，同时也实现了透传
+- 接下来就是一系列判断状态的逻辑，当状态不是等待态时，就去执行相对应的函数。如果状态是等待态的话，就往回调函数中 `push` 函数
+
+```js
+const PENDING = 'pending';
+const RESOLVED = "resolved";
+const REJECTED = "rejected";
+
+function myPromise(fn) {
+	const that = this;
+	that.state = PENDING;
+	that.value = null;
+	that.resolvedCallbacks = [];
+	that.rejectedCallbacks = [];
+
+	function resolve(value) {
+		if (that.state === PENDING) {
+			that.state = RESOLVED;
+			that.value = value;
+			that.resolvedCallbacks.map(cb => cb(that.value));
+		}
+	}
+
+	function reject(value) {
+		if (that.state === PENDING) {
+			that.state = REJECTED;
+			that.value = value;
+			that.rejectedCallbacks.map(cb => cb(that.value));
+		}
+	}
+
+	try {
+		fn(resolve, reject)
+	} catch (e) {
+		reject(e)
+	}
+}
+
+myPromise.prototype.then = function (onFulfilled, onRejected) {
+	const that = this
+	onFulfilled = typeof onFulfilled === 'function' ? onFulfilled : v => v
+	onRejected =
+		typeof onRejected === 'function'
+			? onRejected
+			: r => {
+				throw r
+			}
+	if (that.state === PENDING) {
+		that.resolvedCallbacks.push(onFulfilled)
+		that.rejectedCallbacks.push(onRejected)
+	}
+	if (that.state === RESOLVED) {
+		onFulfilled(that.value)
+	}
+	if (that.state === REJECTED) {
+		onRejected(that.value)
+	}
+}
+```
 
 > async/await原理
 

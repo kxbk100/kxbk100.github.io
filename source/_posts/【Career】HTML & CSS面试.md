@@ -288,6 +288,22 @@ hr {
 }
 ```
 
+> CSS实现三角形
+
+- 当一个div宽高为0时，设置border的话其实是4个三角形
+- 当我们设置部分border的大小并设置部分border为透明时，就可以达到三角形的效果
+- 比如说我要画一个底和高均为40px的等腰三角形用来做气泡框的那个三角，我就可以设置
+
+```css
+.div {
+  width: 0;
+  height: 0;
+  /*三角形的高设置为有颜色*/
+  border-bottom: 40px solid #ff0000;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+}
+```
 # HTML
 
 > ⚠️你是如何理解 HTML 语义化的
