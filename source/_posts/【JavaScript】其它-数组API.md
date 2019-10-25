@@ -19,11 +19,9 @@ var arrayObj = [];
 虽然第二种方法创建数组指定了长度，但实际上所有情况下数组都是**变长**的，也就是说即使指定了长度为5，仍然可以将元素存储在规定长度以外的
 
 
-
-
 ## 数组元素的添加
 ```js
-arrayObj. push(item1, item2, item3, ...); // 将一个或多个新元素添加到数组结尾，并返回数组新长度
+arrayObj.push(item1, item2, item3, ...); // 将一个或多个新元素添加到数组结尾，并返回数组新长度
 arrayObj.unshift(item1, item2, item3, ...); // 将一个或多个新元素添加到数组开始，数组中的元素自动后移，返回数组新长度
 arrayObj.splice(index, 0, item1, item2, item3, ...); // 将一个或多个新元素插入到数组的指定位置，插入位置的元素自动后移，返回包含被删除项目的新数组
 ```
@@ -45,7 +43,7 @@ arrayObj.splice(deletePos, deleteCount); // 删除从指定位置deletePos开始
 ## 数组的截取和合并
 ```js
 arrayObj.slice(start, end); // 以数组的形式返回数组的一部分，注意不包括 end 对应的元素，如果省略 end 将复制 start 之后的所有元素
-arrayObj.concat([]/string); // 将多个数组（也可以是字符串，或者是数组和字符串的混合）连接为一个数组，返回连接好的新的数组
+arrayObj.concat([], string); // 将多个数组（也可以是字符串，或者是数组和字符串的混合）连接为一个数组，返回连接好的新的数组
 ```
 
 ## 数组的元素的访问
@@ -322,8 +320,8 @@ var filtered = [12, 5, 8, 130, 44].filter(isBigEnough);
 
 ![](/images/20190417105333946.png)
 
-
 **打印出数组的内容**
+
 ```js
 var arr = ['a', 'b', 'c'];
 arr.forEach(function(item, index) { // 值，索引
@@ -370,8 +368,6 @@ var result = arr.every(function(item, index) {
 })
 console.log(result); // true
 ```
- 
-
 
 - every 方法为数组中的每个元素执行一次 callback 函数，直到它找到一个使 callback 返回 false（表示可转换为布尔值 false 的值）的元素
 - 如果发现了一个这样的元素，every方法将会立即返回 false。否则，callback 为每一个元素返回 true，every 就会返回 true
@@ -577,7 +573,7 @@ console.log("With {} as an additional parameter:", passValue());
 
 # 总结
 ---
-| 函数名 | 是否改变原数组 | 返回值 |说明 |  
+| 函数名 | 是否改变原数组 | 返回值 |说明 |
 |--|--|--|--|
 | push | 会改变 | 返回新数组长度 | 向数组的末尾添加一个或更多元素，并返回新的长度 |
 | pop | 会改变 | 返回被删除元素 | 删除并返回数组的最后一个元素 |
