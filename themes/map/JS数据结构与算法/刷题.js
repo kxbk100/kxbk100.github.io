@@ -1,7 +1,15 @@
-const duplicate = (number, duplication) => {
-  for(let i = 0; i < number.length; i++) {
-    while(i !== number[i]) {
-      
+const inStack = [];
+const outStack = [];
+
+const push = node => {
+  inStack.push(node);
+};
+
+const pop = () => {
+  if (!outStack.length) {
+    while (inStack.length) {
+      outStack.push(inStack.pop());
     }
   }
-}
+  return outStack.pop();
+};
