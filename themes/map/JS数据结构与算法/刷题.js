@@ -1,15 +1,10 @@
-const inStack = [];
-const outStack = [];
-
-const push = node => {
-  inStack.push(node);
-};
-
-const pop = () => {
-  if (!outStack.length) {
-    while (inStack.length) {
-      outStack.push(inStack.pop());
-    }
+var name = 'The Window';
+var object = {
+  name: 'My Object',
+  getNameFunc: function() {
+    return function() {
+      return this.name;
+    };
   }
-  return outStack.pop();
 };
+console.log(object.getNameFunc()()); //"The Window"（在非严格模式下）
