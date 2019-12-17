@@ -1,88 +1,32 @@
-const hasPath = (matrix, rows, cols, path) => {
-  const pathLength = 0;
-  const visited = new Array(rows * cols);
-  for (let row = 0; row < rows; row++) {
-    for (let col = 0; col < cols; col++) {
-      // 遍历，遍历的点为起点。
-      if (
-        hasPathCore(matrix, rows, cols, row, col, path, pathLength, visited)
-      ) {
-        return true;
+const maxProductAfterCutting = length => {
+  // 初始值就直接返回
+  if (length < 2) return 0;
+  if (length === 2) return 1;
+  if (length === 3) return 2;
+
+  // 直接赋值
+  const product = [];
+  product[0] = 0;
+  product[1] = 1;
+  product[2] = 2;
+  product[3] = 3;
+
+  // 求之后数组各项的最大值
+  // 第一个for，自下而上
+  for (let i = 4; i <= length; i++) {
+    let max = 0;
+
+    for (let j = 1; j <= i / 2; j++) {
+      let product = product[j] * product[i - j];
+
+      if (max < product) {
+        max = product;
       }
+      product[i] = max;
     }
   }
-  return false;
-};
 
-const hasPathCore = (
-  matrix,
-  rows,
-  cols,
-  row,
-  col,
-  path,
-  pathLength,
-  visited
-) => {
-  let hasPath = false;
-  if (pathLength === path.length) return true;
-  if (
-    row >= 0 &&
-    row < rows &&
-    col >= 0 &&
-    col < cols &&
-    matrix[row * cols + col] === path[pathLength] &&
-    !visited[row * cols + col]
-  ) {
-    ++pathLength;
-    visited[row * cols + col] = true;
-    // 因为||为短路运算符，只要第一个满足就会返回，而不会去计算后面的，所以有些路径可以不用去走。
-    hasPath =
-      hasPathCore(
-        matrix,
-        rows,
-        cols,
-        row - 1,
-        col,
-        path,
-        pathLength,
-        visited
-      ) ||
-      hasPathCore(
-        matrix,
-        rows,
-        cols,
-        row,
-        col - 1,
-        path,
-        pathLength,
-        visited
-      ) ||
-      hasPathCore(
-        matrix,
-        rows,
-        cols,
-        row + 1,
-        col,
-        path,
-        pathLength,
-        visited
-      ) ||
-      hasPathCore(matrix, rows, cols, row, col + 1, path, pathLength, visited);
-    if (!hasPath) {
-      --pathLength;
-      visited[row * cols + col] = false;
-    }
-  }
-  return hasPath;
-};
+  max = product[length];
 
-const movingCount = (k, rows, cols) => {
-  if (k < 0 || rows <= 0 || cols <= 0) {
-    return false;
-  }
-
-  const visited = new Array(rows * cols);
-  let count = movingCountCore(k, rows, cols, 0, 0, visited);
-  return count;
+  return max;
 };
