@@ -1,16 +1,20 @@
-const Power = (base, exponent) => {
-  if (exponent === 0) return 0;
-  if (exponent === 1) return base;
+/*function ListNode(x){
+    this.val = x;
+    this.next = null;
+}*/
 
-  let isNegative = false;
-
-  if (exponent < 0) {
-    isNegative = true;
-    exponent = -exponent;
+const deleteDuplication = pHead => {
+  if (pHead == null || pHead.next == null) {
+    return pHead;
   }
-
-  let pow = Power(base * base, parseInt(exponent) >> 1);
-  if (parseInt(exponent) & 1 !== 0) pow = pow * base;
-
-  return isNegative ? 1 / pow : pow;
+  // 重要，方便处理第一个、第二个节点就是相同的情况
+  const Head = new ListNode(0);
+  Head.next = pHead;
+  let current = pHead;
+  while (current !== null) {
+    if (current.next !== null && current.val === current.next.val) {
+     current.next =  current.next.next;
+    }
+  }
+  return pHead;
 };
