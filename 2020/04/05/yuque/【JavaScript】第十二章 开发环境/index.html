@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    <meta name="referrer" content="no-referrer">
+    
+    
+    
+    
+    <title>【JavaScript】第十二章 开发环境 | 冯天祥 | 前端小白的技术博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content>
+    <meta name="description" content="title: 【JavaScript】第十二章 开发环境date: 2019年04月08日 00:27:43categories: JavaScripttypora-root-url: ..typora-copy-images-to: ../images 关于开发环境  面试官放通过开发环境了解面试者的经验 开发环境最能体现工作产出效率 会以聊天的形式为主，而不是出具体的问题 IDE（开发工具，">
+<meta name="keywords" content="前端,技术,冯天祥,fengtx">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【JavaScript】第十二章 开发环境">
+<meta property="og:url" content="http://fengtx.tk/2020/04/05/yuque/【JavaScript】第十二章 开发环境/index.html">
+<meta property="og:site_name" content="冯天祥">
+<meta property="og:description" content="title: 【JavaScript】第十二章 开发环境date: 2019年04月08日 00:27:43categories: JavaScripttypora-root-url: ..typora-copy-images-to: ../images 关于开发环境  面试官放通过开发环境了解面试者的经验 开发环境最能体现工作产出效率 会以聊天的形式为主，而不是出具体的问题 IDE（开发工具，">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://fengtx.tk/images/20190404005909339.png#alt=">
+<meta property="og:image" content="http://fengtx.tk/images/20190404005832689.png#alt=">
+<meta property="og:updated_time" content="2020-05-03T16:19:08.776Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【JavaScript】第十二章 开发环境">
+<meta name="twitter:description" content="title: 【JavaScript】第十二章 开发环境date: 2019年04月08日 00:27:43categories: JavaScripttypora-root-url: ..typora-copy-images-to: ../images 关于开发环境  面试官放通过开发环境了解面试者的经验 开发环境最能体现工作产出效率 会以聊天的形式为主，而不是出具体的问题 IDE（开发工具，">
+<meta name="twitter:image" content="http://fengtx.tk/images/20190404005909339.png#alt=">
+    
+        <link rel="alternate" type="application/atom+xml" title="冯天祥" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">冯天祥</h5>
+          <a href="mailto:im.txfeng@gmail.com" title="im.txfeng@gmail.com" class="mail">im.txfeng@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/kxbk100" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">【JavaScript】第十二章 开发环境</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">【JavaScript】第十二章 开发环境</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-04-05T00:54:37.000Z" itemprop="datePublished" class="page-time">
+  2020-04-05
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#title-【JavaScript】第十二章-开发环境date-2019年04月08日-00-27-43"><span class="post-toc-number">1.</span> <span class="post-toc-text">title: 【JavaScript】第十二章 开发环境date: 2019年04月08日 00:27:43</span></a></li></ol><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#关于开发环境"><span class="post-toc-number"></span> <span class="post-toc-text">关于开发环境</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#IDE"><span class="post-toc-number"></span> <span class="post-toc-text">IDE</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Git"><span class="post-toc-number"></span> <span class="post-toc-text">Git</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#模块化"><span class="post-toc-number"></span> <span class="post-toc-text">模块化</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#不使用模块化"><span class="post-toc-number">1.</span> <span class="post-toc-text">不使用模块化</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用模块化"><span class="post-toc-number">2.</span> <span class="post-toc-text">使用模块化</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#AMD"><span class="post-toc-number">3.</span> <span class="post-toc-text">AMD</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#CommonJS"><span class="post-toc-number">4.</span> <span class="post-toc-text">CommonJS</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#AMD-和-CommonJS-的使用场景"><span class="post-toc-number">5.</span> <span class="post-toc-text">AMD 和 CommonJS 的使用场景</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#构建工具-对模块化的代码打包和压缩"><span class="post-toc-number"></span> <span class="post-toc-text">构建工具(对模块化的代码打包和压缩)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装-nodeJS"><span class="post-toc-number">1.</span> <span class="post-toc-text">安装 nodeJS</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装-webpack"><span class="post-toc-number">2.</span> <span class="post-toc-text">安装 webpack</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#配置-webpack"><span class="post-toc-number">3.</span> <span class="post-toc-text">配置 webpack</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用-jQuery"><span class="post-toc-number">4.</span> <span class="post-toc-text">使用 jQuery</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#压缩-jQuery"><span class="post-toc-number">5.</span> <span class="post-toc-text">压缩 jQuery</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#上限回滚流程"><span class="post-toc-number"></span> <span class="post-toc-text">上限回滚流程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#介绍"><span class="post-toc-number">1.</span> <span class="post-toc-text">介绍</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#上线和回滚的基本流程"><span class="post-toc-number">2.</span> <span class="post-toc-text">上线和回滚的基本流程</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#linux-基本命令"><span class="post-toc-number">3.</span> <span class="post-toc-text">linux 基本命令</span></a></li></ol>
+        </li></nav>
+    </aside>
+
+
+<article id="post-yuque/【JavaScript】第十二章 开发环境" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">【JavaScript】第十二章 开发环境</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-04-05 02:54:37" datetime="2020-04-05T00:54:37.000Z" itemprop="datePublished">2020-04-05</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <hr>
+<h2 id="title-【JavaScript】第十二章-开发环境date-2019年04月08日-00-27-43"><a href="#title-【JavaScript】第十二章-开发环境date-2019年04月08日-00-27-43" class="headerlink" title="title: 【JavaScript】第十二章 开发环境date: 2019年04月08日 00:27:43"></a>title: 【JavaScript】第十二章 开发环境date: 2019年04月08日 00:27:43</h2><p>categories: JavaScript<br>typora-root-url: ..<br>typora-copy-images-to: ../images</p>
+<h1 id="关于开发环境"><a href="#关于开发环境" class="headerlink" title="关于开发环境"></a>关于开发环境</h1><hr>
+<ul>
+<li>面试官放通过开发环境了解面试者的经验</li>
+<li>开发环境最能体现工作产出效率</li>
+<li>会以聊天的形式为主，而不是出具体的问题</li>
+<li>IDE（开发工具，写代码的效率）</li>
+<li>Git（代码版本管理，多人协作开发）</li>
+<li>JS 模块化</li>
+<li>打包工具</li>
+<li>上线回滚的流程</li>
+</ul>
+<h1 id="IDE"><a href="#IDE" class="headerlink" title="IDE"></a>IDE</h1><hr>
+<ul>
+<li>webstorm</li>
+<li>sublime</li>
+<li>vscode</li>
+<li>atom</li>
+<li>插件</li>
+</ul>
+<h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><hr>
+<ul>
+<li>正式项目都需要代码版本管理</li>
+<li>大型项目需要多人协作开发</li>
+<li>Git 和 linux 是一个作者</li>
+<li>网络 Git 服务器，如 coding.net 和 github.com</li>
+<li>一般公司代码非开源，都有自己的 Git 服务器</li>
+<li>搭建 Git 服务器无需了解太多</li>
+</ul>
+<p>Git 的基本操作必须很熟练</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>git status</td>
+<td>查看状态</td>
+</tr>
+<tr>
+<td>git diff</td>
+<td>查看两个文件的不同</td>
+</tr>
+<tr>
+<td>git checkout xxx (file name)</td>
+<td>发现自己改错了，需要还原</td>
+</tr>
+<tr>
+<td>git add .</td>
+<td>将所有修改的东西全部囊括进来</td>
+</tr>
+<tr>
+<td>git commit -m “xxx”</td>
+<td>修改的内容提交到本地仓库，-m 代表添加的备注</td>
+</tr>
+<tr>
+<td>git push origin master</td>
+<td>提交到远程仓库</td>
+</tr>
+<tr>
+<td>git pull origin master</td>
+<td>别人修改代码，从远程下载已修改的代码</td>
+</tr>
+<tr>
+<td>git clone</td>
+<td>克隆新的项目</td>
+</tr>
+<tr>
+<td>git branch</td>
+<td>查看当前分支</td>
+</tr>
+<tr>
+<td>git checkout -b xxx</td>
+<td>新建一个分支</td>
+</tr>
+<tr>
+<td>git checkout xxx (branch name)</td>
+<td>切换到一个已有的分支</td>
+</tr>
+<tr>
+<td>git merge xxx</td>
+<td>合并分支</td>
+</tr>
+</tbody>
+</table>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/20190404005909339.png#alt=" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;# test&quot; &gt;&gt; README.md</span><br><span class="line">git init</span><br><span class="line">git add README.md</span><br><span class="line">git commit -m &quot;first commit&quot;</span><br><span class="line">git remote add origin git@github.com:kxbk100/test.git</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
+<h1 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a>模块化</h1><hr>
+<h2 id="不使用模块化"><a href="#不使用模块化" class="headerlink" title="不使用模块化"></a>不使用模块化</h2><ul>
+<li>依赖层级引用关系</li>
+<li>代码中的函数必须是全局变量，才能暴露给使用方面，所以全局变量污染，不清楚各个文件间的依赖关系</li>
+<li>a.js 知道要引用 a-util.js，但是不知道其还需要依赖 util.js</li>
+</ul>
+<p>util.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getFormatDate</span>(<span class="params">date, type</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// type === 1 返回 2017-06-15</span></span><br><span class="line">  <span class="comment">// type === 2 返回 2017年6月15日</span></span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>a-util.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">aGetFormatDate</span>(<span class="params">date</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 要求返回 2017年6月15日 格式</span></span><br><span class="line">  <span class="keyword">return</span> getFormatDate(date, <span class="number">2</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>a.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> dt = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="built_in">console</span>.log(aGetFormatDate(dt));</span><br></pre></td></tr></table></figure>
+<p>date.html</p>
+<ul>
+<li>顺序不能颠倒</li>
+<li>3 个文件之间是强依赖关系</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"util.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"a-util.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"a.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="使用模块化"><a href="#使用模块化" class="headerlink" title="使用模块化"></a>使用模块化</h2><ul>
+<li>只往外 s 输出 1 个函数</li>
+<li>在另一个文件中再接收</li>
+<li>直接<code>&lt;script src=&quot;a. js&quot;&gt;&lt;/script&gt;</code> ，其他的根据依赖关系自动引用</li>
+<li>前 2 个函数，没必要做成全局变量，不会带来污染和覆盖</li>
+</ul>
+<p>util.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> &#123;</span><br><span class="line">  getFormatDate: <span class="function"><span class="keyword">function</span>(<span class="params">date, type</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// type === 1 返回 2017-06-15</span></span><br><span class="line">    <span class="comment">// type === 2 返回 2017年6月15日</span></span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>a-util.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> getFormatDate = <span class="built_in">require</span>(<span class="string">'util.js'</span>);</span><br><span class="line"><span class="keyword">export</span> &#123;</span><br><span class="line">  aGetFormatDate: <span class="function"><span class="keyword">function</span> (<span class="params">date</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 要求返回 2017年6月15日 格式</span></span><br><span class="line">    <span class="keyword">return</span> getFormatDate(date, <span class="number">2</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>a.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> aGetFormatDate = <span class="built_in">require</span>(<span class="string">"a-util.js"</span>);</span><br><span class="line"><span class="keyword">var</span> dt = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="built_in">console</span>.log(aGetFormatDate(dt));</span><br></pre></td></tr></table></figure>
+<h2 id="AMD"><a href="#AMD" class="headerlink" title="AMD"></a>AMD</h2><hr>
+<ul>
+<li>异步模块定义</li>
+<li>require.js</li>
+<li>全局定义 define 函数</li>
+<li>全局定义 require 函数</li>
+<li>依赖 js 会自动、异步加载，不使用就不加载，提升性能</li>
+<li>return 一个对象</li>
+<li>只有先 define 才能被 require</li>
+</ul>
+<p>util.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">define(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    getFormateDate: <span class="function"><span class="keyword">function</span> (<span class="params">date, type</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (type == <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"2017-06-15"</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span> (type == <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"2017年6月15日"</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>a-util.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">define([<span class="string">"./util.js"</span>], <span class="function"><span class="keyword">function</span> (<span class="params">util</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    aGetFormatDate: <span class="function"><span class="keyword">function</span> (<span class="params">date</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> util.getFormatDate(date, <span class="number">2</span>);</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>a.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">define([<span class="string">"./a-util.js"</span>], <span class="function"><span class="keyword">function</span> (<span class="params">aUtil</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    printDate: <span class="function"><span class="keyword">function</span> (<span class="params">date</span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(aUtil.aGetFormatDate);</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>main.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>([<span class="string">"./a.js"</span>], <span class="function"><span class="keyword">function</span> (<span class="params">a</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">  a.printDate(date);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>main.html</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"/require.min.js"</span> <span class="attr">data-main</span>=<span class="string">"./main.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">// 定义程序入口</span><br></pre></td></tr></table></figure>
+<hr>
+<p>a.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">define([<span class="string">"./util.js"</span>], <span class="function"><span class="keyword">function</span> (<span class="params">util</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    aGetFormateDate: <span class="function"><span class="keyword">function</span> (<span class="params">date</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> util.getFormateDate();</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>main.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">define([<span class="string">"./a.js"</span>], <span class="function"><span class="keyword">function</span> (<span class="params">a</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    printDate: <span class="function"><span class="keyword">function</span> (<span class="params">date</span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(autil.aGetFormateDate(date));</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="CommonJS"><a href="#CommonJS" class="headerlink" title="CommonJS"></a>CommonJS</h2><ul>
+<li>nodejs 模块化规范，现在被大量用于前端</li>
+<li>前端开发依赖的插件和库，都可以从 npm 中获取</li>
+<li>构建工具的高度自动化，使得使用 npm 的成本非常低</li>
+<li>CommonJS 不会异步加载 JS，而是同步一次性加载进来</li>
+<li>exports 输出出一个东西，var require 接收一个东西</li>
+</ul>
+<p>util.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  getFormateDate: <span class="function"><span class="keyword">function</span> (<span class="params">date, type</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (type == <span class="number">1</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="string">"2017-06-15"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (type == <span class="number">2</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="string">"2017年6月15日"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>a-uril.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> util = <span class="built_in">require</span>(<span class="string">"util.js"</span>);</span><br><span class="line"><span class="built_in">module</span>.export = &#123;</span><br><span class="line">  aGetFormateDate: <span class="function"><span class="keyword">function</span> (<span class="params">date</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> util.getFormateDate(date, <span class="number">2</span>);</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="AMD-和-CommonJS-的使用场景"><a href="#AMD-和-CommonJS-的使用场景" class="headerlink" title="AMD 和 CommonJS 的使用场景"></a>AMD 和 CommonJS 的使用场景</h2><ul>
+<li>需要异步加载，用 AMD</li>
+<li>不需要异步加载 JS，用 CommonJS</li>
+<li>使用 npm 之后使用 CommonJS</li>
+</ul>
+<h1 id="构建工具-对模块化的代码打包和压缩"><a href="#构建工具-对模块化的代码打包和压缩" class="headerlink" title="构建工具(对模块化的代码打包和压缩)"></a>构建工具(对模块化的代码打包和压缩)</h1><hr>
+<p>构建工具</p>
+<ul>
+<li>grunt（没人用）</li>
+<li>gulp</li>
+<li>fis3</li>
+<li>webpack</li>
+</ul>
+<p>构建的意义</p>
+<ul>
+<li>模块化打包</li>
+<li>支持 CommonJS</li>
+<li>CommonJS 受 nodeJS 支持</li>
+<li>后端放到前端来用需要兼容</li>
+<li>webpack 封装了很多方法，支持通过 CommonJS 的方式来运行在前端</li>
+</ul>
+<p>安装 -&gt; 配置 -&gt; 处理一个简单事例 -&gt; 得到结果</p>
+<h2 id="安装-nodeJS"><a href="#安装-nodeJS" class="headerlink" title="安装 nodeJS"></a>安装 nodeJS</h2><ol>
+<li>安装 Node.js</li>
+<li>进入文件目录</li>
+<li>初次使用安装 http-server <code>sudo npm install http-server -g</code></li>
+<li>使用<code>http-server -p 8881</code>生成服务</li>
+</ol>
+<p>这个服务只能针对静态页面的编辑，nodejs 或者 php 的修改无法使用</p>
+<h2 id="安装-webpack"><a href="#安装-webpack" class="headerlink" title="安装 webpack"></a>安装 webpack</h2><ol>
+<li>进入文件目录</li>
+<li>初始化环境<code>npm init</code></li>
+<li>自动生成 package.json 文件</li>
+</ol>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/20190404005832689.png#alt=" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ol start="5">
+<li>安装包<code>npm install webpack --save-dev</code>，<code>-dev</code>表示仅用于开发环境</li>
+<li>安装包<code>npm install jquery --save</code>，任何环境都需要</li>
+<li>卸载包<code>npm uninstall moment --save</code></li>
+</ol>
+<h2 id="配置-webpack"><a href="#配置-webpack" class="headerlink" title="配置 webpack"></a>配置 webpack</h2><ol>
+<li>新建 webpack.config.js，与 index.html 和 package.json 同级</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">"path"</span>);</span><br><span class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">"webpack"</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  context: path.resolve(__dirname, <span class="string">"./src"</span>), <span class="comment">// __dirname：前端目录</span></span><br><span class="line">  entry: &#123;</span><br><span class="line">    app: <span class="string">"./app.js"</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  output: &#123;</span><br><span class="line">    path: path.resolve(__dirname, <span class="string">"./dist"</span>),</span><br><span class="line">    filename: <span class="string">"bundle.js"</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>新建 src 文件夹，在其中创建 app.js 入口文件</li>
+<li>在 package.json 的 script 中新增</li>
+</ol>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">"start": "webpack" // 将start指定为webpack</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>在 index.html 中，引入 bundle.js</li>
+<li>访问页面</li>
+</ol>
+<h2 id="使用-jQuery"><a href="#使用-jQuery" class="headerlink" title="使用 jQuery"></a>使用 jQuery</h2><ol>
+<li>在 app.js 中添加</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> $ = <span class="built_in">require</span>(<span class="string">"jquery"</span>); <span class="comment">// 它会从package.js中的dependencies中查找安装的juqery</span></span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>自己写模块可以根据相对路径获取</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> aUtil = <span class="built_in">require</span>(<span class="string">"./a-util.js"</span>);</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li><code>npm start</code>打包</li>
+</ol>
+<h2 id="压缩-jQuery"><a href="#压缩-jQuery" class="headerlink" title="压缩 jQuery"></a>压缩 jQuery</h2><ol>
+<li>安装 UglifyJS Webpack Plugin</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install uglifyjs-webpack-plugin --save-dev</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>修改 webpack.config.json 如下</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">"path"</span>);</span><br><span class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">"webpack"</span>);</span><br><span class="line"><span class="keyword">var</span> uglifyJsPlugin = <span class="built_in">require</span>(<span class="string">"uglifyjs-webpack-plugin"</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  context: path.resolve(__dirname, <span class="string">"./src"</span>), <span class="comment">// __dirname：前端目录</span></span><br><span class="line">  entry: &#123;</span><br><span class="line">    app: <span class="string">"./app.js"</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  output: &#123;</span><br><span class="line">    path: path.resolve(__dirname, <span class="string">"./dist"</span>),</span><br><span class="line">    filename: <span class="string">"bundle.js"</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">//压缩js</span></span><br><span class="line">  optimization: &#123;</span><br><span class="line">    minimizer: [</span><br><span class="line">      <span class="keyword">new</span> uglifyJsPlugin(&#123;</span><br><span class="line">        uglifyOptions: &#123;</span><br><span class="line">          compress: <span class="literal">false</span>,</span><br><span class="line">        &#125;,</span><br><span class="line">      &#125;),</span><br><span class="line">    ],</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li><code>npm start</code>打包</li>
+</ol>
+<h1 id="上限回滚流程"><a href="#上限回滚流程" class="headerlink" title="上限回滚流程"></a>上限回滚流程</h1><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><ul>
+<li>是非常重要的开发环节</li>
+<li>各个公司的具体流程不同</li>
+<li>由专门的工具负责系统完成，我们无需关心细节</li>
+<li>如果没有参与过，面试时也要说出要点</li>
+<li>只讲要点，具体实现无法讲解</li>
+</ul>
+<h2 id="上线和回滚的基本流程"><a href="#上线和回滚的基本流程" class="headerlink" title="上线和回滚的基本流程"></a>上线和回滚的基本流程</h2><p>上线</p>
+<ul>
+<li>将测试完成的代码提交到 git 版本库的 master 分支</li>
+<li>将当前服务器的代码全部打包并记录版本号（1.0），备份</li>
+<li>将 master 分支的代码提交到服务器覆盖到线上服务器，生成新版本号（1.1）</li>
+</ul>
+<p>回滚</p>
+<ul>
+<li>将当前服务器的代码打包并记录版本号（1.1），备份</li>
+<li>将备份的上一个版本号解压（1.0），覆盖到线上服务器，并生成新的版本号（1.2）</li>
+</ul>
+<h2 id="linux-基本命令"><a href="#linux-基本命令" class="headerlink" title="linux 基本命令"></a>linux 基本命令</h2><ul>
+<li>服务器使用 Linux 居多，server 版，只有命令行</li>
+<li>测试环境要匹配线上环境，因此也是 Linux</li>
+<li>经常需要登录测试机来自己配置，获取数据</li>
+</ul>
+<p>常用命令</p>
+<ul>
+<li>mkdir a</li>
+<li>ls</li>
+<li>ll</li>
+<li>cd a</li>
+<li>pwd 查看路径</li>
+<li>rm -rf a</li>
+<li>vi a.js</li>
+</ul>
+<p>输入：i</p>
+<p>保存：esc :w</p>
+<p>退出：esc :q</p>
+<p>保存并退出：esc :wq</p>
+<ul>
+<li>cat a.js 查看文件</li>
+<li>cp a.js a1.js 拷贝</li>
+<li>mv a1.js src/a1.js</li>
+<li>rm a.js</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-05-03T16:19:08.776Z" itemprop="dateUpdated">2020-05-03 18:19:08</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="http://fengtx.tk">
+            <img src="/img/avatar.jpg" alt="冯天祥">
+            冯天祥
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://fengtx.tk/2020/04/05/yuque/【JavaScript】第十二章 开发环境/&title=《【JavaScript】第十二章 开发环境》 — 冯天祥&pic=http://fengtx.tk/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://fengtx.tk/2020/04/05/yuque/【JavaScript】第十二章 开发环境/&title=《【JavaScript】第十二章 开发环境》 — 冯天祥&source=前端小白冯天祥的技术博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://fengtx.tk/2020/04/05/yuque/【JavaScript】第十二章 开发环境/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【JavaScript】第十二章 开发环境》 — 冯天祥&url=http://fengtx.tk/2020/04/05/yuque/【JavaScript】第十二章 开发环境/&via=http://fengtx.tk" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://fengtx.tk/2020/04/05/yuque/【JavaScript】第十二章 开发环境/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/04/05/yuque/【JavaScript】第十一章 运行环境/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">【JavaScript】第十一章 运行环境</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/04/05/yuque/【JavaScript】第三章 原型与原型链/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">【JavaScript】第三章 原型与原型链</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢打赏
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>冯天祥 &copy; 2016 - 2020</span>
+            <!-- <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span> -->
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://fengtx.tk/2020/04/05/yuque/【JavaScript】第十二章 开发环境/&title=《【JavaScript】第十二章 开发环境》 — 冯天祥&pic=http://fengtx.tk/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://fengtx.tk/2020/04/05/yuque/【JavaScript】第十二章 开发环境/&title=《【JavaScript】第十二章 开发环境》 — 冯天祥&source=前端小白冯天祥的技术博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://fengtx.tk/2020/04/05/yuque/【JavaScript】第十二章 开发环境/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【JavaScript】第十二章 开发环境》 — 冯天祥&url=http://fengtx.tk/2020/04/05/yuque/【JavaScript】第十二章 开发环境/&via=http://fengtx.tk" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://fengtx.tk/2020/04/05/yuque/【JavaScript】第十二章 开发环境/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACsklEQVR42u3aQW7CQAwF0N7/0lTqqhJK+LbHFFUvq4oCmedFPHzP11d8PX6u/D2PX1fyqefPPv83+bbmhYeHh9da+tU1uc39ohPqfQnu14yHh4e3zZs86O/feV+OK8ykQHh4eHifw6tusu8/m8Dw8PDw/gevt7heqJGXGw8PD+/9vCSMyOPXeZuphiMHshY8PDy8mHcqkH3n34vzPTw8PLzBVD1pEtUWMo+GC6vFw8PDW+Altz/VVHrsalgc/WLAw8PDO8rLH8p51JtvkSeFuIw28PDw8NZ41aFX9fhpsoGeD9Uut9R4eHh4h3h5lJC/0vuGlcaAh4eHt7bnjH7SHwVXjwhUj2fVEws8PDy8k7zJK3lIkRex2jzw8PDwNnjV5Sbj/DxKyB/01fgDDw8Pb5uXBKPzMf+kiL2S4eHh4Z3l5cP7QrUOsfMYNzo0gIeHh3eIN3l89wKIeQmqW3k8PDy8s7x5Y+iN8/NiJdHt5Qrx8PDwFni9G2zEu73jCxEbDw8P7yhvsvTqgapqk8gb1Yu+h4eHh7fMywPW/JZ5w8jjj2iQhoeHh7fGq+7Bq0cHeoP/3nDrMmvBw8PDO8qbjLiqYUTeHvIjYgdSFjw8PLwiL28MSVTRK0Q1vIjaCR4eHt4Cr3q8adIAehvl6iAtajN4eHh4A96Bh+wg9u0dWSg0MDw8PLw38vJxfv6gz9+fj7heNAw8PDy8BV4+cEoWUS1Qfq9qsIuHh4e3xzu2eT0UwuYNI4qM8fDw8BZ4k4gh3xxvbJRzPB4eHt4GLx9c5Y/+asib88rRMx4eHt4arzrKOtWFqg2gWjI8PDy8v+VVx/y9KKEaFr8oJR4eHt4H8E6FF73jAvnBLDw8PLxt3jyMKB+EittP77ACHh4e3h6vd7ApufGkQElRRjM9PDw8vA7vG43IAydJHpbYAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

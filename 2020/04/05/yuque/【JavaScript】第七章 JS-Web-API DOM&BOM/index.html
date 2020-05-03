@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    <meta name="referrer" content="no-referrer">
+    
+    
+    
+    
+    <title>【JavaScript】第七章 JS-Web-API DOM&amp;amp;BOM | 冯天祥 | 前端小白的技术博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content>
+    <meta name="description" content="title: 【JavaScript】第七章 JS-Web-API DOM&amp;amp;BOMdate: 2019年04月08日 00:27:43categories: JavaScripttypora-root-url: ..typora-copy-images-to: ../images   DOM是哪种基本的数据结构？ DOM操作常用API有哪些？ DOM节点的attr和property有何区">
+<meta name="keywords" content="前端,技术,冯天祥,fengtx">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【JavaScript】第七章 JS-Web-API DOM&amp;amp;BOM">
+<meta property="og:url" content="http://fengtx.tk/2020/04/05/yuque/【JavaScript】第七章 JS-Web-API DOM&BOM/index.html">
+<meta property="og:site_name" content="冯天祥">
+<meta property="og:description" content="title: 【JavaScript】第七章 JS-Web-API DOM&amp;amp;BOMdate: 2019年04月08日 00:27:43categories: JavaScripttypora-root-url: ..typora-copy-images-to: ../images   DOM是哪种基本的数据结构？ DOM操作常用API有哪些？ DOM节点的attr和property有何区">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://fengtx.tk/images/20190404005605175.png#alt=">
+<meta property="og:image" content="http://fengtx.tk/images/20190404005650180.png#alt=">
+<meta property="og:image" content="http://fengtx.tk/images/20190404005707591.png#alt=">
+<meta property="og:image" content="http://fengtx.tk/images/2019040400572392.png#alt=">
+<meta property="og:image" content="http://fengtx.tk/images/20190404005738279.png#alt=">
+<meta property="og:updated_time" content="2020-05-03T16:19:08.904Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【JavaScript】第七章 JS-Web-API DOM&amp;amp;BOM">
+<meta name="twitter:description" content="title: 【JavaScript】第七章 JS-Web-API DOM&amp;amp;BOMdate: 2019年04月08日 00:27:43categories: JavaScripttypora-root-url: ..typora-copy-images-to: ../images   DOM是哪种基本的数据结构？ DOM操作常用API有哪些？ DOM节点的attr和property有何区">
+<meta name="twitter:image" content="http://fengtx.tk/images/20190404005605175.png#alt=">
+    
+        <link rel="alternate" type="application/atom+xml" title="冯天祥" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">冯天祥</h5>
+          <a href="mailto:im.txfeng@gmail.com" title="im.txfeng@gmail.com" class="mail">im.txfeng@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/kxbk100" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">【JavaScript】第七章 JS-Web-API DOM&amp;amp;BOM</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">【JavaScript】第七章 JS-Web-API DOM&amp;amp;BOM</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-04-05T00:54:26.000Z" itemprop="datePublished" class="page-time">
+  2020-04-05
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#title-【JavaScript】第七章-JS-Web-API-DOM-amp-BOMdate-2019年04月08日-00-27-43"><span class="post-toc-number">1.</span> <span class="post-toc-text">title: 【JavaScript】第七章 JS-Web-API DOM&amp;BOMdate: 2019年04月08日 00:27:43</span></a></li></ol><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#回顾JS基础知识"><span class="post-toc-number"></span> <span class="post-toc-text">回顾JS基础知识</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#DOM-本质"><span class="post-toc-number"></span> <span class="post-toc-text">DOM 本质</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#DOM-节点操作"><span class="post-toc-number"></span> <span class="post-toc-text">DOM 节点操作</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#获取-DOM-节点"><span class="post-toc-number">1.</span> <span class="post-toc-text">获取 DOM 节点</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#property"><span class="post-toc-number">2.</span> <span class="post-toc-text">property</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Attribute"><span class="post-toc-number">3.</span> <span class="post-toc-text">Attribute</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#DOM-结构操作"><span class="post-toc-number"></span> <span class="post-toc-text">DOM 结构操作</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#获取父元素"><span class="post-toc-number">1.</span> <span class="post-toc-text">获取父元素</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#获取子元素"><span class="post-toc-number">2.</span> <span class="post-toc-text">获取子元素</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#新增节点"><span class="post-toc-number">3.</span> <span class="post-toc-text">新增节点</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#删除节点"><span class="post-toc-number">4.</span> <span class="post-toc-text">删除节点</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#BOM"><span class="post-toc-number"></span> <span class="post-toc-text">BOM</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#navigator"><span class="post-toc-number">1.</span> <span class="post-toc-text">navigator</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#screen"><span class="post-toc-number">2.</span> <span class="post-toc-text">screen</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#location"><span class="post-toc-number">3.</span> <span class="post-toc-text">location</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#history"><span class="post-toc-number">4.</span> <span class="post-toc-text">history</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#题目解答"><span class="post-toc-number"></span> <span class="post-toc-text">题目解答</span></a>
+        </li></nav>
+    </aside>
+
+
+<article id="post-yuque/【JavaScript】第七章 JS-Web-API DOM&amp;BOM" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">【JavaScript】第七章 JS-Web-API DOM&amp;BOM</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-04-05 02:54:26" datetime="2020-04-05T00:54:26.000Z" itemprop="datePublished">2020-04-05</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <hr>
+<h2 id="title-【JavaScript】第七章-JS-Web-API-DOM-amp-BOMdate-2019年04月08日-00-27-43"><a href="#title-【JavaScript】第七章-JS-Web-API-DOM-amp-BOMdate-2019年04月08日-00-27-43" class="headerlink" title="title: 【JavaScript】第七章 JS-Web-API DOM&amp;BOMdate: 2019年04月08日 00:27:43"></a>title: 【JavaScript】第七章 JS-Web-API DOM&amp;BOMdate: 2019年04月08日 00:27:43</h2><p>categories: JavaScript<br>typora-root-url: ..<br>typora-copy-images-to: ../images</p>
+<blockquote>
+<ol>
+<li>DOM是哪种基本的数据结构？</li>
+<li>DOM操作常用API有哪些？</li>
+<li>DOM节点的attr和property有何区别？</li>
+<li>如何检测浏览器的类型？</li>
+<li>拆解URL的各个部分</li>
+</ol>
+</blockquote>
+<h1 id="回顾JS基础知识"><a href="#回顾JS基础知识" class="headerlink" title="回顾JS基础知识"></a>回顾JS基础知识</h1><hr>
+<p>特点：表面看来并不能用于工作中开发代码</p>
+<ul>
+<li>内置函数：Object、Array、Boolean、String 等</li>
+<li>内置对象：Math、JSON 等</li>
+<li>我们连在网页弹出一句 hello world 都不能实现</li>
+</ul>
+<p>常说的 JS（浏览器执行的 JS）包含两部分：JS 基础知识（ECMA262 标准）和 JS-Web-API（W3C 标准）</p>
+<ul>
+<li>JS 基础知识 ：ECMA262 标准，只是一个规则</li>
+<li>JS-Web-API：W3C 标准，没有规定任何 JS 基础相关的东西，不管什么变量类型、原型、作用域和异步，只管定义用于浏览器中 JS 操作页面的 API 和全局变量</li>
+<li>W3C 标准中关于 JS 的规定有：DOM 操作、BOM 操作、事件绑定、Ajax 请求（包括 http 协议）等</li>
+<li>NodeJS 因为是基于 JS 所以符合 ECMA262 标准，但是其服务于服务器端，没有 window、document 等，而是有 network、service 等，不符合 W3C 标准</li>
+</ul>
+<p>全面考虑，JS 内置的全局函数和对象有哪些？</p>
+<ul>
+<li>之前讲过的 Object、Array、Boolean、String、Math、JSON</li>
+<li>刚刚提到的 window、document</li>
+<li>所有未定义的全局变量，如 navigator.userAgent</li>
+</ul>
+<h1 id="DOM-本质"><a href="#DOM-本质" class="headerlink" title="DOM 本质"></a>DOM 本质</h1><hr>
+<p>XML 是一种可扩展的描述语言，可以描述任何结构化的数据</p>
+<ul>
+<li>数据结构：树</li>
+<li>HTML 是 XML 的一种特殊类型</li>
+</ul>
+<p>DOM：浏览器把拿到的 HTML 代码，结构化一个<strong>浏览器能识别</strong>并且<strong>JS 可操作性</strong>的一个模型</p>
+<ul>
+<li>Document 文档</li>
+<li>Object 对象</li>
+<li>Modal 模型</li>
+</ul>
+<h1 id="DOM-节点操作"><a href="#DOM-节点操作" class="headerlink" title="DOM 节点操作"></a>DOM 节点操作</h1><hr>
+<h2 id="获取-DOM-节点"><a href="#获取-DOM-节点" class="headerlink" title="获取 DOM 节点"></a>获取 DOM 节点</h2><p><a href="https://juejin.im/post/5a7d8f325188257a6c690065" target="_blank" rel="noopener">QuerySelector/QuerySelectorAll 和 getElementById/getElementsByClassName 的区别</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// div1、divList、containerList、pList都是JS对象</span></span><br><span class="line"><span class="keyword">var</span> div1 = <span class="built_in">document</span>.getElementById(<span class="string">"div1"</span>); <span class="comment">// 元素</span></span><br><span class="line"><span class="keyword">var</span> divList = <span class="built_in">document</span>.getElementByTagName(<span class="string">"div"</span>); <span class="comment">// 集合</span></span><br><span class="line"><span class="built_in">console</span>.log(divList.length);</span><br><span class="line"><span class="built_in">console</span>.log(divList[<span class="number">0</span>]);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> containerList = <span class="built_in">document</span>.getElementByClassName(<span class="string">".container"</span>); <span class="comment">// 集合</span></span><br><span class="line"><span class="keyword">var</span> pList = <span class="built_in">document</span>.querySelectorAll(<span class="string">"p"</span>); <span class="comment">// 集合</span></span><br></pre></td></tr></table></figure>
+<h2 id="property"><a href="#property" class="headerlink" title="property"></a>property</h2><ul>
+<li>文档直接修改，查看源码即可看到修改</li>
+<li>修改的是 JS 对象的标准属性，有关 JS 的属性</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> pList = <span class="built_in">document</span>.querySelectorAll(<span class="string">"p"</span>); <span class="comment">// 集合</span></span><br><span class="line"><span class="keyword">var</span> p = pList[<span class="number">0</span>];</span><br><span class="line"><span class="built_in">console</span>.log(p.style.width); <span class="comment">// 获取样式</span></span><br><span class="line">p.style.width = <span class="string">"100px"</span>; <span class="comment">// 修改样式</span></span><br><span class="line"><span class="built_in">console</span>.log(p.className); <span class="comment">// 获取class</span></span><br><span class="line">p.className = <span class="string">"p1"</span>; <span class="comment">// 修改class</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取nodeName和nodeType</span></span><br><span class="line"><span class="built_in">console</span>.log(p.nodeClass);</span><br><span class="line"><span class="built_in">console</span>.log(p.nodeType);</span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/20190404005605175.png#alt=" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="Attribute"><a href="#Attribute" class="headerlink" title="Attribute"></a>Attribute</h2><ul>
+<li>文档直接修改，查看源码即可看到修改</li>
+<li>修改的是 HTML 代码文档内的标签，有关文档内标签的属性</li>
+<li>setAttribute 原本没有的标签属性会自动添加</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> pList = <span class="built_in">document</span>.querySelectorAll(<span class="string">"p"</span>); <span class="comment">// 集合</span></span><br><span class="line"><span class="keyword">var</span> p = pList[<span class="number">0</span>];</span><br><span class="line">p.getAttribute(<span class="string">"data-name"</span>);</span><br><span class="line">p.setAttribute(<span class="string">"data-name"</span>, <span class="string">"imooc"</span>);</span><br><span class="line">p.getAttribute(<span class="string">"style"</span>);</span><br><span class="line">p.setAttribute(<span class="string">"style"</span>, <span class="string">"font-size:30px;"</span>);</span><br></pre></td></tr></table></figure>
+<h1 id="DOM-结构操作"><a href="#DOM-结构操作" class="headerlink" title="DOM 结构操作"></a>DOM 结构操作</h1><hr>
+<p>针对树的操作</p>
+<h2 id="获取父元素"><a href="#获取父元素" class="headerlink" title="获取父元素"></a>获取父元素</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> div1 = <span class="built_in">document</span>.getElementById(<span class="string">"div1"</span>);</span><br><span class="line"><span class="keyword">var</span> parent = div1.parentElement;</span><br></pre></td></tr></table></figure>
+<h2 id="获取子元素"><a href="#获取子元素" class="headerlink" title="获取子元素"></a>获取子元素</h2><p>在使用 childNodes 获取子元素时，换行也会算作 1 个 text，计为 1 个 Node</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/20190404005650180.png#alt=" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/20190404005707591.png#alt=" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/2019040400572392.png#alt=" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/20190404005738279.png#alt=" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> div1 = <span class="built_in">document</span>.getElementById(<span class="string">"div1"</span>);</span><br><span class="line"><span class="keyword">var</span> child = div1.childNodes;</span><br><span class="line"><span class="built_in">console</span>.log(child[<span class="number">0</span>].nodeType); <span class="comment">// text 3</span></span><br><span class="line"><span class="built_in">console</span>.log(child[<span class="number">1</span>].nodeType); <span class="comment">// p 1 标签都是1</span></span><br><span class="line"><span class="built_in">console</span>.log(child[<span class="number">0</span>].nodeName); <span class="comment">// text #text</span></span><br><span class="line"><span class="built_in">console</span>.log(child[<span class="number">1</span>].nodeName); <span class="comment">// p P</span></span><br></pre></td></tr></table></figure>
+<h2 id="新增节点"><a href="#新增节点" class="headerlink" title="新增节点"></a>新增节点</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> div1 = <span class="built_in">document</span>.getElementById(<span class="string">"div1"</span>);</span><br><span class="line"><span class="comment">// 添加新节点</span></span><br><span class="line"><span class="keyword">var</span> p1 = <span class="built_in">document</span>.createElement(<span class="string">"p"</span>);</span><br><span class="line">p1.innerHTML = <span class="string">"this is p1"</span>;</span><br><span class="line">div1.appendChild(p1); <span class="comment">// 添加新创建的元素</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 移动已有节点</span></span><br><span class="line"><span class="keyword">var</span> p2 = <span class="built_in">document</span>.getElementById(<span class="string">"p2"</span>);</span><br><span class="line">div1.appendChild(p2);</span><br></pre></td></tr></table></figure>
+<h2 id="删除节点"><a href="#删除节点" class="headerlink" title="删除节点"></a>删除节点</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> div1 = <span class="built_in">document</span>.getElementById(<span class="string">"div1"</span>);</span><br><span class="line"><span class="keyword">var</span> child = div1.childNodes;</span><br><span class="line">div1.removeChild(child[<span class="number">0</span>]); <span class="comment">// 可能看不到效果，因为删除的child[0]可能是1个因换行引起的text Node</span></span><br></pre></td></tr></table></figure>
+<h1 id="BOM"><a href="#BOM" class="headerlink" title="BOM"></a>BOM</h1><hr>
+<ul>
+<li>Browser 浏览器</li>
+<li>Object 对象</li>
+<li>Modal 模型</li>
+</ul>
+<h2 id="navigator"><a href="#navigator" class="headerlink" title="navigator"></a>navigator</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ua = navigator.userAgent;</span><br><span class="line"><span class="keyword">var</span> isChrome = ua.indexof(<span class="string">"Chrome"</span>);</span><br><span class="line"><span class="built_in">console</span>.log(isChrome);</span><br></pre></td></tr></table></figure>
+<h2 id="screen"><a href="#screen" class="headerlink" title="screen"></a>screen</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(screen.width);</span><br><span class="line"><span class="built_in">console</span>.log(screen.height);</span><br></pre></td></tr></table></figure>
+<h2 id="location"><a href="#location" class="headerlink" title="location"></a>location</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(location.href); <span class="comment">// 整个url</span></span><br><span class="line">location.protocol; <span class="comment">//协议：http or https</span></span><br><span class="line">location.host; <span class="comment">// 域名</span></span><br><span class="line">location.pathname; <span class="comment">// 路径</span></span><br><span class="line">location.search; <span class="comment">// ?后的参数</span></span><br><span class="line">location.hash; <span class="comment">// #后面是哈希</span></span><br></pre></td></tr></table></figure>
+<h2 id="history"><a href="#history" class="headerlink" title="history"></a>history</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">history.back(); <span class="comment">// 返回</span></span><br><span class="line">history.forward(); <span class="comment">// 前进</span></span><br></pre></td></tr></table></figure>
+<h1 id="题目解答"><a href="#题目解答" class="headerlink" title="题目解答"></a>题目解答</h1><hr>
+<blockquote>
+<ol>
+<li>DOM 是哪种基本的数据结构？</li>
+</ol>
+</blockquote>
+<p>树</p>
+<blockquote>
+<ol start="2">
+<li>DOM 操作常用 API 有哪些？</li>
+</ol>
+</blockquote>
+<ul>
+<li>获取 DOM 节点以及节点的 property 和 Attribute</li>
+<li>获取父节点、子节点</li>
+<li>新增节点和删除节点</li>
+</ul>
+<blockquote>
+<ol start="3">
+<li>DOM 节点的 attr 和 property 有何区别？</li>
+</ol>
+</blockquote>
+<ul>
+<li>property 只是一个 JS 对象的属性的修改和获取</li>
+<li>Attribute 是对 HTML 标签属性的修改和获取</li>
+</ul>
+<blockquote>
+<ol start="4">
+<li>如何检测浏览器的类型？</li>
+</ol>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ua = navigator.userAgent;</span><br><span class="line"><span class="keyword">var</span> isChrome = ua.indexof(<span class="string">"Chrome"</span>);</span><br><span class="line"><span class="built_in">console</span>.log(isChrome);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<ol start="5">
+<li>拆解 URL 的各个部分</li>
+</ol>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(location.href); <span class="comment">// 整个url</span></span><br><span class="line">location.protocol; <span class="comment">//协议：http or https</span></span><br><span class="line">location.host; <span class="comment">// 域名</span></span><br><span class="line">location.pathname; <span class="comment">// 路径</span></span><br><span class="line">location.search; <span class="comment">// ?后的参数</span></span><br><span class="line">location.hash; <span class="comment">// #后面是哈希</span></span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-05-03T16:19:08.904Z" itemprop="dateUpdated">2020-05-03 18:19:08</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="http://fengtx.tk">
+            <img src="/img/avatar.jpg" alt="冯天祥">
+            冯天祥
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://fengtx.tk/2020/04/05/yuque/【JavaScript】第七章 JS-Web-API DOM&BOM/&title=《【JavaScript】第七章 JS-Web-API DOM&amp;BOM》 — 冯天祥&pic=http://fengtx.tk/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://fengtx.tk/2020/04/05/yuque/【JavaScript】第七章 JS-Web-API DOM&BOM/&title=《【JavaScript】第七章 JS-Web-API DOM&amp;BOM》 — 冯天祥&source=前端小白冯天祥的技术博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://fengtx.tk/2020/04/05/yuque/【JavaScript】第七章 JS-Web-API DOM&BOM/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【JavaScript】第七章 JS-Web-API DOM&amp;BOM》 — 冯天祥&url=http://fengtx.tk/2020/04/05/yuque/【JavaScript】第七章 JS-Web-API DOM&BOM/&via=http://fengtx.tk" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://fengtx.tk/2020/04/05/yuque/【JavaScript】第七章 JS-Web-API DOM&BOM/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/04/05/yuque/【JavaScript】第三章 原型与原型链/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">【JavaScript】第三章 原型与原型链</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/04/05/yuque/【JavaScript】第六章 其它-日期、Math/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">【JavaScript】第六章 其它-日期、Math</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢打赏
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>冯天祥 &copy; 2016 - 2020</span>
+            <!-- <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span> -->
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://fengtx.tk/2020/04/05/yuque/【JavaScript】第七章 JS-Web-API DOM&BOM/&title=《【JavaScript】第七章 JS-Web-API DOM&amp;BOM》 — 冯天祥&pic=http://fengtx.tk/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://fengtx.tk/2020/04/05/yuque/【JavaScript】第七章 JS-Web-API DOM&BOM/&title=《【JavaScript】第七章 JS-Web-API DOM&amp;BOM》 — 冯天祥&source=前端小白冯天祥的技术博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://fengtx.tk/2020/04/05/yuque/【JavaScript】第七章 JS-Web-API DOM&BOM/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【JavaScript】第七章 JS-Web-API DOM&amp;BOM》 — 冯天祥&url=http://fengtx.tk/2020/04/05/yuque/【JavaScript】第七章 JS-Web-API DOM&BOM/&via=http://fengtx.tk" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://fengtx.tk/2020/04/05/yuque/【JavaScript】第七章 JS-Web-API DOM&BOM/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACuElEQVR42u3a247CMAwFQP7/p1lpX1FaHzspu9L0CXEpmSLV4divV/l4/x6fz3w+v3r/6tX34qh/14YDDw8Pr7X066/pPZOC62eorBkPDw/vNC893eo9148nr15/avk8Hh4e3ld56U38unj0Cg8eHh7ef+SlEcPknOln8fDw8J7kVcKI6wLQw+8qMBuyFjw8PLwyb3JT/tbjg/09PDw8vEFXfRIcVCLa+lDCu3Xg4eHhneDVm1v1JdY3u/ViUN+yl/4x4OHh4Q146U1/3riqLPr6/UFBwsPDwzvAq2xke+2uSWhbyRPSxhseHh7eLl79pt8rDL0N8aQsLeseHh4e3jHeufZ/2qVKi1NwzfDw8PDGvHSsatLmr1/QeiSxfBUPDw/vAG/v8FNvUCAFpD8GHh4e3glevZmUbrt3ba/ngwV4eHh4e3m923daJNLzXAcfwcrx8PDwDvB6p5u0rCbDCmnxwMPDw9vLqyyu+ee/vP2tB771sAMPDw/vSV66xPo2t7fEXiMNDw8P7xwvPV29GOwab03HuZb9PTw8PLxNvHrY2gsm0vPsugR4eHh453i9hlbavE+HD3ptuZu6h4eHh7eJN9nspsNSaZzRG0q4+d3w8PDwxrz54FTa1K9/S68U4eHh4T3Dm7f8d71aKUuTQAQPDw9vzqtvfIN+WiucrQe+wZYdDw8P70FePZ7o3cQn7CD+wMPDwzvASyOAXmuqfkNPQ5B4PXh4eHhj3js8XuNjEu+mkQQeHh7eCd7k5tuLgNPxrLQ44eHh4T3Dq0cJaWTQKwaTDt5yMgIPDw/vAG8STKSXpr70SkG6eT8eHh7eV3np+FR65vpoQj0gxsPDw/s7vN74VD0LSbfXN2EEHh4e3gHeZFvcG66qhxdpDIGHh4d3mrerAVa5QOklSAvDaKIBDw8P7573A5WcK/BjYb/YAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

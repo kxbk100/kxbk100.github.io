@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    <meta name="referrer" content="no-referrer">
+    
+    
+    
+    
+    <title>【JavaScript】第十章 存储 | 冯天祥 | 前端小白的技术博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content>
+    <meta name="description" content="title: 【JavaScript】第十章 存储 date: 2019 年 04 月 08 日 00:27:43categories: JavaScripttypora-root-url: ..typora-copy-images-to: ../images   请描述下 cookie、sessionStorage 和 localStorage 的区别   cookie 本身用于客户端和服务端">
+<meta name="keywords" content="前端,技术,冯天祥,fengtx">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【JavaScript】第十章 存储">
+<meta property="og:url" content="http://fengtx.tk/2020/04/05/yuque/【JavaScript】第十章 存储/index.html">
+<meta property="og:site_name" content="冯天祥">
+<meta property="og:description" content="title: 【JavaScript】第十章 存储 date: 2019 年 04 月 08 日 00:27:43categories: JavaScripttypora-root-url: ..typora-copy-images-to: ../images   请描述下 cookie、sessionStorage 和 localStorage 的区别   cookie 本身用于客户端和服务端">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-05-03T16:19:08.607Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【JavaScript】第十章 存储">
+<meta name="twitter:description" content="title: 【JavaScript】第十章 存储 date: 2019 年 04 月 08 日 00:27:43categories: JavaScripttypora-root-url: ..typora-copy-images-to: ../images   请描述下 cookie、sessionStorage 和 localStorage 的区别   cookie 本身用于客户端和服务端">
+    
+        <link rel="alternate" type="application/atom+xml" title="冯天祥" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">冯天祥</h5>
+          <a href="mailto:im.txfeng@gmail.com" title="im.txfeng@gmail.com" class="mail">im.txfeng@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/kxbk100" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">【JavaScript】第十章 存储</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">【JavaScript】第十章 存储</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-04-05T00:54:46.000Z" itemprop="datePublished" class="page-time">
+  2020-04-05
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#title-【JavaScript】第十章-存储-date-2019-年-04-月-08-日-00-27-43"><span class="post-toc-number">1.</span> <span class="post-toc-text">title: 【JavaScript】第十章 存储 date: 2019 年 04 月 08 日 00:27:43</span></a></li></ol><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#cookie"><span class="post-toc-number"></span> <span class="post-toc-text">cookie</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#localStorage"><span class="post-toc-number"></span> <span class="post-toc-text">localStorage</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#sessionStorage"><span class="post-toc-number"></span> <span class="post-toc-text">sessionStorage</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#题目解答"><span class="post-toc-number"></span> <span class="post-toc-text">题目解答</span></a>
+        </li></nav>
+    </aside>
+
+
+<article id="post-yuque/【JavaScript】第十章 存储" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">【JavaScript】第十章 存储</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-04-05 02:54:46" datetime="2020-04-05T00:54:46.000Z" itemprop="datePublished">2020-04-05</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <hr>
+<h2 id="title-【JavaScript】第十章-存储-date-2019-年-04-月-08-日-00-27-43"><a href="#title-【JavaScript】第十章-存储-date-2019-年-04-月-08-日-00-27-43" class="headerlink" title="title: 【JavaScript】第十章 存储 date: 2019 年 04 月 08 日 00:27:43"></a>title: 【JavaScript】第十章 存储 date: 2019 年 04 月 08 日 00:27:43</h2><p>categories: JavaScript<br>typora-root-url: ..<br>typora-copy-images-to: ../images</p>
+<blockquote>
+<ol>
+<li>请描述下 cookie、sessionStorage 和 localStorage 的区别</li>
+</ol>
+</blockquote>
+<h1 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h1><ul>
+<li>本身用于客户端和服务端通讯</li>
+<li>但它有本地存储的功能，于是就被借用了</li>
+<li>使用<code>document.cookie = xxx</code>获取修改即可</li>
+</ul>
+<p>缺点</p>
+<ul>
+<li>存储量太小，4kb</li>
+<li>所有 http/Ajax 请求都带着，影响获取资源效率</li>
+<li>API 简单，需要封装才能用 document.cookie</li>
+</ul>
+<h1 id="localStorage"><a href="#localStorage" class="headerlink" title="localStorage"></a>localStorage</h1><ul>
+<li>HTML5 专门为存储而设计，最大容量 5M</li>
+<li>API 简单易用</li>
+<li>iOS safari 隐藏模式下，<code>localstorage.getItem</code>会报错，建议统一使用 try-catch 封装</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">localStorage.setItem(key, value);</span><br><span class="line">localStorage.getItem(key);</span><br></pre></td></tr></table></figure>
+<h1 id="sessionStorage"><a href="#sessionStorage" class="headerlink" title="sessionStorage"></a>sessionStorage</h1><ul>
+<li>HTML5 专门为存储而设计，最大容量 5M</li>
+<li>API 简单易用</li>
+<li>浏览器关了会清 0</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sessionStorage.setItem(key, value);</span><br><span class="line">sessionStorage.getItem(key);</span><br></pre></td></tr></table></figure>
+<h1 id="题目解答"><a href="#题目解答" class="headerlink" title="题目解答"></a>题目解答</h1><blockquote>
+<ol>
+<li>请描述下 cookie、sessionStorage 和 localStorage 的区别</li>
+</ol>
+</blockquote>
+<ul>
+<li>容量</li>
+<li>是否会携带到 Ajax 中</li>
+</ul>
+<p>cookie 会携带，sessionStorage 和 localStorage 不会携带</p>
+<ul>
+<li>API 易用性</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-05-03T16:19:08.607Z" itemprop="dateUpdated">2020-05-03 18:19:08</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="http://fengtx.tk">
+            <img src="/img/avatar.jpg" alt="冯天祥">
+            冯天祥
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://fengtx.tk/2020/04/05/yuque/【JavaScript】第十章 存储/&title=《【JavaScript】第十章 存储》 — 冯天祥&pic=http://fengtx.tk/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://fengtx.tk/2020/04/05/yuque/【JavaScript】第十章 存储/&title=《【JavaScript】第十章 存储》 — 冯天祥&source=前端小白冯天祥的技术博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://fengtx.tk/2020/04/05/yuque/【JavaScript】第十章 存储/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【JavaScript】第十章 存储》 — 冯天祥&url=http://fengtx.tk/2020/04/05/yuque/【JavaScript】第十章 存储/&via=http://fengtx.tk" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://fengtx.tk/2020/04/05/yuque/【JavaScript】第十章 存储/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/04/05/yuque/【JavaScript】第四章 闭包和作用域/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">【JavaScript】第四章 闭包和作用域</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/04/05/yuque/【JavaScript】第十一章 运行环境/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">【JavaScript】第十一章 运行环境</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢打赏
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>冯天祥 &copy; 2016 - 2020</span>
+            <!-- <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span> -->
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://fengtx.tk/2020/04/05/yuque/【JavaScript】第十章 存储/&title=《【JavaScript】第十章 存储》 — 冯天祥&pic=http://fengtx.tk/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://fengtx.tk/2020/04/05/yuque/【JavaScript】第十章 存储/&title=《【JavaScript】第十章 存储》 — 冯天祥&source=前端小白冯天祥的技术博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://fengtx.tk/2020/04/05/yuque/【JavaScript】第十章 存储/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【JavaScript】第十章 存储》 — 冯天祥&url=http://fengtx.tk/2020/04/05/yuque/【JavaScript】第十章 存储/&via=http://fengtx.tk" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://fengtx.tk/2020/04/05/yuque/【JavaScript】第十章 存储/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACvElEQVR42u3awW4bMQwEUP//T6dAb0XqeIaUEhd9ezKcZFdPh6Uy5OMRXx+/r9k3+fef7/Ps8+ELDw8Pb7T0Z9ezxyS8ltSyv14zHh4e3m1e+4LOl5tvSv7TZM14eHh478BrS0VeNtpjPR4eHt6/wstf/S148xkPDw/vp3hJGJH/9FT4mx/rD2QteHh4eDFvc5z9qc8X+3t4eHh4i6568tptf6cNhfNi8Jf74OHh4V3g5SFs3uzfjxTMWmuP/AF4eHh4C177Ip696PON2J+Q/7gzHh4e3gVe2+afhbD51rQFYBjj4uHh4S14+R/k8cHsVZ5vWTHIhYeHh3eBNwsIWljeVMuD4AN1Dw8PD2/B2zSo2ui23aD8b4sGGB4eHt4hXntITaj5ndsNOjAvhoeHh3f0P/S8GLSLaJ/SDjdEB2s8PDy8Ba9tvW8a9m0Um4fIL4au8PDw8I7y2qg0OTTnBWMz1JXcEw8PD+8GbxbLtg9rxwKSMhCtHA8PD+8CLz/UzlpQbROrPcQXKQseHh7eNV4eAbRN/fY43rbiitEBPDw8vAUvP7zmL/FNTNzGIi8O7nh4eHgXeHnKO5tKmJWQvCwV+TQeHh7eIV7byppFtC1stq0vGmB4eHh4F3hnA9zhghbv82/Np/Hw8P5jXovcDGntn9IOGeDh4eHd47WxbBvUtuUnX27eJMPDw8M7y9tEDLMikbTc2jLzVIGHh4d3mTeLDGZjBLNxhAP1DQ8PD299aM6vKDZdBA3tal9sPR4eHt4F3qx4zDaiffxscGFYSPDw8PBKXr7Q/KjdNr3yuKEuDHh4eHjXeHnnKG9K5YUh+WZ4fMfDw8N7A16+BftxgTbIwMPDw3s33qxllbTKckY94IWHh4d3jTcLZDcH4lno0G4QHh4e3g1e2wCbHbtnYwpJWLyJMPDw8PBK3i/fraZLbosmHAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

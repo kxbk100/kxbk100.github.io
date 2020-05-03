@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    <meta name="referrer" content="no-referrer">
+    
+    
+    
+    
+    <title>【面经】2019腾讯前端实习生一面 | 冯天祥 | 前端小白的技术博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content>
+    <meta name="description" content="title: 【面经】2019腾讯前端实习生一面date: 2019年04月08日 00:27:43categories: Careertypora-root-url: ..typora-copy-images-to: ../images JS  jQuery 事件绑定的原理 ✔️  调用 on 函数的时候，将生成一份事件数据，并将该数据加入到元素的缓存中 12345678910&amp;#123;">
+<meta name="keywords" content="前端,技术,冯天祥,fengtx">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【面经】2019腾讯前端实习生一面">
+<meta property="og:url" content="http://fengtx.tk/2020/04/05/yuque/【面经】2019腾讯前端实习生一面/index.html">
+<meta property="og:site_name" content="冯天祥">
+<meta property="og:description" content="title: 【面经】2019腾讯前端实习生一面date: 2019年04月08日 00:27:43categories: Careertypora-root-url: ..typora-copy-images-to: ../images JS  jQuery 事件绑定的原理 ✔️  调用 on 函数的时候，将生成一份事件数据，并将该数据加入到元素的缓存中 12345678910&amp;#123;">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-05-03T16:19:10.791Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【面经】2019腾讯前端实习生一面">
+<meta name="twitter:description" content="title: 【面经】2019腾讯前端实习生一面date: 2019年04月08日 00:27:43categories: Careertypora-root-url: ..typora-copy-images-to: ../images JS  jQuery 事件绑定的原理 ✔️  调用 on 函数的时候，将生成一份事件数据，并将该数据加入到元素的缓存中 12345678910&amp;#123;">
+    
+        <link rel="alternate" type="application/atom+xml" title="冯天祥" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">冯天祥</h5>
+          <a href="mailto:im.txfeng@gmail.com" title="im.txfeng@gmail.com" class="mail">im.txfeng@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/kxbk100" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">【面经】2019腾讯前端实习生一面</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">【面经】2019腾讯前端实习生一面</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-04-05T00:51:56.000Z" itemprop="datePublished" class="page-time">
+  2020-04-05
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#title-【面经】2019腾讯前端实习生一面date-2019年04月08日-00-27-43"><span class="post-toc-number">1.</span> <span class="post-toc-text">title: 【面经】2019腾讯前端实习生一面date: 2019年04月08日 00:27:43</span></a></li></ol><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#JS"><span class="post-toc-number"></span> <span class="post-toc-text">JS</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#CSS"><span class="post-toc-number"></span> <span class="post-toc-text">CSS</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#浏览器"><span class="post-toc-number"></span> <span class="post-toc-text">浏览器</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#安全性"><span class="post-toc-number"></span> <span class="post-toc-text">安全性</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#算法"><span class="post-toc-number"></span> <span class="post-toc-text">算法</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#项目相关"><span class="post-toc-number"></span> <span class="post-toc-text">项目相关</span></a>
+        </li></nav>
+    </aside>
+
+
+<article id="post-yuque/【面经】2019腾讯前端实习生一面" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">【面经】2019腾讯前端实习生一面</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-04-05 02:51:56" datetime="2020-04-05T00:51:56.000Z" itemprop="datePublished">2020-04-05</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <hr>
+<h2 id="title-【面经】2019腾讯前端实习生一面date-2019年04月08日-00-27-43"><a href="#title-【面经】2019腾讯前端实习生一面date-2019年04月08日-00-27-43" class="headerlink" title="title: 【面经】2019腾讯前端实习生一面date: 2019年04月08日 00:27:43"></a>title: 【面经】2019腾讯前端实习生一面date: 2019年04月08日 00:27:43</h2><p>categories: Career<br>typora-root-url: ..<br>typora-copy-images-to: ../images</p>
+<h1 id="JS"><a href="#JS" class="headerlink" title="JS"></a>JS</h1><hr>
+<ol>
+<li>jQuery 事件绑定的原理 ✔️</li>
+</ol>
+<p>调用 on 函数的时候，将生成一份<strong>事件数据</strong>，并将该数据加入到元素的缓存中</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    type: type,</span><br><span class="line">    origType: origType,</span><br><span class="line">    data: data,</span><br><span class="line">    handler: handler,</span><br><span class="line">    guid: guid,</span><br><span class="line">    selector: selector,</span><br><span class="line">    needsContext: needsContext,</span><br><span class="line">    namespace: namespace</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>jquery 中每个元素都可以有一个缓存（只有有需要的时候才生成）</li>
+<li>缓存就是该元素的一个属性</li>
+<li>jquery 为每个元素的每种事件都建立一个队列，用来保存事件处理函数，所以可以对一个元素添加多个事件处理函数</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"div#box"</span>: &#123;  <span class="comment">//元素</span></span><br><span class="line">  <span class="string">"Jquery623873"</span>: &#123; <span class="comment">//元素的缓存</span></span><br><span class="line">    <span class="string">"events"</span>: &#123;</span><br><span class="line">      <span class="string">"click"</span>: [</span><br><span class="line">        &#123;    <span class="comment">//元素click事件的事件数据</span></span><br><span class="line">          type: type,</span><br><span class="line">          origType: origType,</span><br><span class="line">          data: data,</span><br><span class="line">          handler: handler,</span><br><span class="line">          guid: guid,</span><br><span class="line">          selector: selector,</span><br><span class="line">          needsContext: needsContext,</span><br><span class="line">          namespace: namespace</span><br><span class="line">        &#125;</span><br><span class="line">      ],</span><br><span class="line">        <span class="string">"mousemove"</span>: [</span><br><span class="line">          &#123;</span><br><span class="line">            type: type,</span><br><span class="line">            origType: origType,</span><br><span class="line">            data: data,</span><br><span class="line">            handler: handler,</span><br><span class="line">            guid: guid,</span><br><span class="line">            selector: selector,</span><br><span class="line">            needsContext: needsContext,</span><br><span class="line">            namespace: namespace</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当要解绑事件的时候，如果没指定 fn 参数，jquery 就会从该元素的缓存里拿到要解绑的事件的处理函数队列，从里面拿出 fn 参数,然后调用<code>removeEventListener</code>进行解绑</p>
+<ol start="2">
+<li><a href="https://blog.csdn.net/kxbk100/article/details/89005213" target="_blank" rel="noopener">数组函数是否改变原数组</a>✔️</li>
+<li><a href="https://blog.csdn.net/kxbk100/article/details/89005213" target="_blank" rel="noopener">用过哪些数组的 API</a>✔️</li>
+<li>jQuery 怎么获取 DOM 元素，DOM 怎么获取 jQuery 元素 ✔️</li>
+</ol>
+<p>jQuery -&gt; DOM</p>
+<ul>
+<li>使用数组索引方式访问</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> dom = $(dom)[<span class="number">0</span>];</span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用函数<code>get()</code>访问，get()函数中的参数为索引号</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> dom = $(dom).get(<span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+<p>DOM -&gt; jQuery</p>
+<p>对于已经是一个 DOM 对象，只需要用<code>$()</code>把 DOM 对象包装起来，就可以获得一个 jQuery 对象了</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> v = <span class="built_in">document</span>.getElementById(<span class="string">"v"</span>); <span class="comment">//DOM对象</span></span><br><span class="line"><span class="keyword">var</span> $v = $(v); <span class="comment">//jQuery对象</span></span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>深浅拷贝 ✔️</li>
+<li>如何判断数据类型？除了使用 typeof instanceof 之外怎么判断？✔️</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isArray</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(arr) === <span class="string">"[Object Array]"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="7">
+<li>jQuery 链式操作是怎么实现的？✔️</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> <span class="keyword">this</span>;</span><br></pre></td></tr></table></figure>
+<ol start="8">
+<li>new 一个对象的过程 ✔️</li>
+<li>ES6 了解吗？ ✔️</li>
+<li>有没有用过组件？完全没用过 Vue 或 React？ ✔️❓</li>
+<li>作用域和闭包？ES6 有块级作用域！ ✔️</li>
+<li>事件冒泡代理</li>
+</ol>
+<h1 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h1><hr>
+<ol>
+<li>CSS 动画</li>
+<li>CSS 选择器</li>
+<li>元素如何在页面中上下居中</li>
+<li>知道几种盒模型？怎么计算宽度？</li>
+</ol>
+<h1 id="浏览器"><a href="#浏览器" class="headerlink" title="浏览器"></a>浏览器</h1><hr>
+<ol>
+<li>跨域</li>
+<li>存储</li>
+<li>DOM 增加节点</li>
+</ol>
+<h1 id="安全性"><a href="#安全性" class="headerlink" title="安全性"></a>安全性</h1><hr>
+<ol>
+<li>安全性问题</li>
+</ol>
+<h1 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h1><hr>
+<ol>
+<li>判断字符串中是否有重复</li>
+<li>计算字符串中重复字符的个数</li>
+<li>如何匹配<code>{[(</code></li>
+</ol>
+<h1 id="项目相关"><a href="#项目相关" class="headerlink" title="项目相关"></a>项目相关</h1><hr>
+<ol>
+<li>如何实现长按批注？</li>
+<li>印象深刻的前端项目？</li>
+</ol>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-05-03T16:19:10.791Z" itemprop="dateUpdated">2020-05-03 18:19:10</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="http://fengtx.tk">
+            <img src="/img/avatar.jpg" alt="冯天祥">
+            冯天祥
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://fengtx.tk/2020/04/05/yuque/【面经】2019腾讯前端实习生一面/&title=《【面经】2019腾讯前端实习生一面》 — 冯天祥&pic=http://fengtx.tk/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://fengtx.tk/2020/04/05/yuque/【面经】2019腾讯前端实习生一面/&title=《【面经】2019腾讯前端实习生一面》 — 冯天祥&source=前端小白冯天祥的技术博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://fengtx.tk/2020/04/05/yuque/【面经】2019腾讯前端实习生一面/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【面经】2019腾讯前端实习生一面》 — 冯天祥&url=http://fengtx.tk/2020/04/05/yuque/【面经】2019腾讯前端实习生一面/&via=http://fengtx.tk" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://fengtx.tk/2020/04/05/yuque/【面经】2019腾讯前端实习生一面/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/04/05/yuque/【面经】阿里巴巴/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">【面经】阿里巴巴</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/04/05/yuque/【技术之瞳】Web前端开发学习小记及部分答案解析/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">【技术之瞳】Web前端开发学习小记及部分答案解析</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢打赏
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>冯天祥 &copy; 2016 - 2020</span>
+            <!-- <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span> -->
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://fengtx.tk/2020/04/05/yuque/【面经】2019腾讯前端实习生一面/&title=《【面经】2019腾讯前端实习生一面》 — 冯天祥&pic=http://fengtx.tk/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://fengtx.tk/2020/04/05/yuque/【面经】2019腾讯前端实习生一面/&title=《【面经】2019腾讯前端实习生一面》 — 冯天祥&source=前端小白冯天祥的技术博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://fengtx.tk/2020/04/05/yuque/【面经】2019腾讯前端实习生一面/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【面经】2019腾讯前端实习生一面》 — 冯天祥&url=http://fengtx.tk/2020/04/05/yuque/【面经】2019腾讯前端实习生一面/&via=http://fengtx.tk" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://fengtx.tk/2020/04/05/yuque/【面经】2019腾讯前端实习生一面/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACuElEQVR42u3awVLjMBAEUP7/p9krB+J0z0gbDs+nVDC2nqiSRM98fcXX94/r1U/z79v3nnoaHh4e3ine9+OVAJ7vn31Onvk8Zjw8PLzbvGRRbsH5JM540VaEh4eH9wd4LTtf0NspwMPDw/v7vM2Rtw04nu/Ew8PD+wu8/JibI9sIOJ+IK1kLHh4eXszbFKI+9flKfQ8PDw9vXVWfhQLPMe7sztlo8fDw8G7wZuX8TdNVezQ/ECXj4eHhHeVtQoTkmNtO3L5pIPq74eHh4S14s6JXG7POhtK2IxzIVPDw8PDW+We+iCctVvvBta0GeHh4eDd4bZC6qSvNht5+XzwUDw8Pb8TLg9dnXovfT3RblsPDw8M7xZst5W1zQFu+auOMl0/Dw8PDu8Bro9vZK9vz7axU9vK9eHh4eBd4s//i8yloP7chyCqewMPDwzvKy9uhNgfxzSaxCnbx8PDwRrwi3w22hzwI3nQ6DP8+eHh4eEd5s82gnbJ2Ctp97GUBDA8PD+8/8mbLdF4GyzeedhLx8PDw7vFmcUDSOjALETaNBW+mBg8PD+8QL1/iZzFEfljfN3L9cg8eHh7eNd7sBaeW+01UURTA8PDw8C7z8sN03ro6Y+Rb0csYFw8PD+8a7/nA2i7uyevz4/LwQI+Hh4d3gdcGDZuNoY2Pv+LrzVvw8PDwjvLa9ql8CtpJ2UQeUQEMDw8P7xBvM4jNcl90NJTbwy/PxMPDwzvK+y6v9jiebBv5FNfHdDw8PLwLvGN5xuiQnUe6eSicjxMPDw9vw9u0DrRL9iaAyMcw7GLAw8PDK3ltYT4PFzYbQ74VvdkY8PDw8D7ES4bVtiCciiHepNR4eHh4H+LNSln59+02EP0WHh4e3jVeG0Yki/imOeBUawIeHh7eDV77sry9oC2AtQHxseYtPDw8vJT3D+EFXpOXrqCyAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

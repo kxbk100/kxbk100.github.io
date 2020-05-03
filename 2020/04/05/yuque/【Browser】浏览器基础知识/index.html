@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    <meta name="referrer" content="no-referrer">
+    
+    
+    
+    
+    <title>【Browser】浏览器基础知识 | 冯天祥 | 前端小白的技术博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content>
+    <meta name="description" content="title: 【Browser】浏览器基础知识date: 2019年04月08日 00:27:43categories: Browsertypora-root-url: ..typora-copy-images-to: ../images 事件机制  涉及面试题：事件的触发过程是怎么样的？知道什么是事件代理嘛？  事件触发三阶段事件触发有三个阶段：  window 往事件触发处传播，遇到注册的捕">
+<meta name="keywords" content="前端,技术,冯天祥,fengtx">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Browser】浏览器基础知识">
+<meta property="og:url" content="http://fengtx.tk/2020/04/05/yuque/【Browser】浏览器基础知识/index.html">
+<meta property="og:site_name" content="冯天祥">
+<meta property="og:description" content="title: 【Browser】浏览器基础知识date: 2019年04月08日 00:27:43categories: Browsertypora-root-url: ..typora-copy-images-to: ../images 事件机制  涉及面试题：事件的触发过程是怎么样的？知道什么是事件代理嘛？  事件触发三阶段事件触发有三个阶段：  window 往事件触发处传播，遇到注册的捕">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://fengtx.tk/images/20190421132633872.png#alt=">
+<meta property="og:image" content="http://fengtx.tk/images/20190421132646432.png#alt=">
+<meta property="og:image" content="http://fengtx.tk/images/20190421132658468.png#alt=">
+<meta property="og:updated_time" content="2020-05-03T16:19:10.111Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【Browser】浏览器基础知识">
+<meta name="twitter:description" content="title: 【Browser】浏览器基础知识date: 2019年04月08日 00:27:43categories: Browsertypora-root-url: ..typora-copy-images-to: ../images 事件机制  涉及面试题：事件的触发过程是怎么样的？知道什么是事件代理嘛？  事件触发三阶段事件触发有三个阶段：  window 往事件触发处传播，遇到注册的捕">
+<meta name="twitter:image" content="http://fengtx.tk/images/20190421132633872.png#alt=">
+    
+        <link rel="alternate" type="application/atom+xml" title="冯天祥" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">冯天祥</h5>
+          <a href="mailto:im.txfeng@gmail.com" title="im.txfeng@gmail.com" class="mail">im.txfeng@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/kxbk100" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">【Browser】浏览器基础知识</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">【Browser】浏览器基础知识</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-04-05T00:52:36.000Z" itemprop="datePublished" class="page-time">
+  2020-04-05
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#title-【Browser】浏览器基础知识date-2019年04月08日-00-27-43"><span class="post-toc-number">1.</span> <span class="post-toc-text">title: 【Browser】浏览器基础知识date: 2019年04月08日 00:27:43</span></a></li></ol><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#事件机制"><span class="post-toc-number"></span> <span class="post-toc-text">事件机制</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#事件触发三阶段"><span class="post-toc-number">1.</span> <span class="post-toc-text">事件触发三阶段</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#注册事件"><span class="post-toc-number">2.</span> <span class="post-toc-text">注册事件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#事件代理"><span class="post-toc-number">3.</span> <span class="post-toc-text">事件代理</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#跨域"><span class="post-toc-number"></span> <span class="post-toc-text">跨域</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#JSONP"><span class="post-toc-number">1.</span> <span class="post-toc-text">JSONP</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#CORS"><span class="post-toc-number">2.</span> <span class="post-toc-text">CORS</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#简单请求"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">简单请求</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#复杂请求"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">复杂请求</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#document-domain"><span class="post-toc-number">3.</span> <span class="post-toc-text">document.domain</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#postMessage"><span class="post-toc-number">4.</span> <span class="post-toc-text">postMessage</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#存储"><span class="post-toc-number"></span> <span class="post-toc-text">存储</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#cookie，localStorage，sessionStorage，indexDB"><span class="post-toc-number">1.</span> <span class="post-toc-text">cookie，localStorage，sessionStorage，indexDB</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Service-Worker"><span class="post-toc-number">2.</span> <span class="post-toc-text">Service Worker</span></a></li></ol>
+        </li></nav>
+    </aside>
+
+
+<article id="post-yuque/【Browser】浏览器基础知识" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">【Browser】浏览器基础知识</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-04-05 02:52:36" datetime="2020-04-05T00:52:36.000Z" itemprop="datePublished">2020-04-05</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <hr>
+<h2 id="title-【Browser】浏览器基础知识date-2019年04月08日-00-27-43"><a href="#title-【Browser】浏览器基础知识date-2019年04月08日-00-27-43" class="headerlink" title="title: 【Browser】浏览器基础知识date: 2019年04月08日 00:27:43"></a>title: 【Browser】浏览器基础知识date: 2019年04月08日 00:27:43</h2><p>categories: Browser<br>typora-root-url: ..<br>typora-copy-images-to: ../images</p>
+<h1 id="事件机制"><a href="#事件机制" class="headerlink" title="事件机制"></a>事件机制</h1><hr>
+<blockquote>
+<p>涉及面试题：事件的触发过程是怎么样的？知道什么是事件代理嘛？</p>
+</blockquote>
+<h2 id="事件触发三阶段"><a href="#事件触发三阶段" class="headerlink" title="事件触发三阶段"></a>事件触发三阶段</h2><p>事件触发有三个阶段：</p>
+<ul>
+<li><code>window</code> 往事件触发处传播，遇到注册的捕获事件会触发</li>
+<li>传播到事件触发处时触发注册的事件</li>
+<li>从事件触发处往 <code>window</code> 传播，遇到注册的冒泡事件会触发</li>
+</ul>
+<p>事件触发一般来说会按照上面的顺序进行，但是也有特例，<strong>如果给一个 <code>body</code> 中的子节点同时注册冒泡和捕获事件，事件触发会按照注册的顺序执行。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 以下会先打印冒泡然后是捕获</span></span><br><span class="line">node.addEventListener(</span><br><span class="line">  <span class="string">"click"</span>,</span><br><span class="line">  (event) =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"冒泡"</span>);</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="literal">false</span></span><br><span class="line">);</span><br><span class="line">node.addEventListener(</span><br><span class="line">  <span class="string">"click"</span>,</span><br><span class="line">  (event) =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"捕获 "</span>);</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="literal">true</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h2 id="注册事件"><a href="#注册事件" class="headerlink" title="注册事件"></a>注册事件</h2><p>通常我们使用 <code>addEventListener</code> 注册事件，该函数的第三个参数可以是布尔值，也可以是对象。对于布尔值 <code>useCapture</code> 参数来说，该参数默认值为 <code>false</code> ，<code>useCapture</code> 决定了注册的事件是捕获事件还是冒泡事件。对于对象参数来说，可以使用以下几个属性</p>
+<ul>
+<li><code>capture</code>：布尔值，和 <code>useCapture</code> 作用一样</li>
+<li><code>once</code>：布尔值，值为 <code>true</code> 表示该回调只会调用一次，调用后会移除监听</li>
+<li><code>passive</code>：布尔值，表示永远不会调用 <code>preventDefault</code></li>
+</ul>
+<p>一般来说，如果我们只希望事件只触发在目标上，这时候可以使用 <code>stopPropagation</code> 来阻止事件的进一步传播。通常我们认为 <code>stopPropagation</code> 是用来阻止事件冒泡的，其实该函数也可以阻止捕获事件。<code>stopImmediatePropagation</code> 同样也能实现阻止事件，但是还能阻止该事件目标执行别的注册事件。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">node.addEventListener(</span><br><span class="line">  <span class="string">"click"</span>,</span><br><span class="line">  (event) =&gt; &#123;</span><br><span class="line">    event.stopImmediatePropagation();</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"冒泡"</span>);</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="literal">false</span></span><br><span class="line">);</span><br><span class="line"><span class="comment">// 点击 node 只会执行上面的函数，该函数不会执行</span></span><br><span class="line">node.addEventListener(</span><br><span class="line">  <span class="string">"click"</span>,</span><br><span class="line">  (event) =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"捕获 "</span>);</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="literal">true</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h2 id="事件代理"><a href="#事件代理" class="headerlink" title="事件代理"></a>事件代理</h2><p>如果一个节点中的子节点是动态生成的，那么子节点需要注册事件的话<strong>应该注册在父节点上</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul id=<span class="string">"ul"</span>&gt;</span><br><span class="line">	&lt;li&gt;<span class="number">1</span>&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">    &lt;li&gt;2&lt;/</span>li&gt;</span><br><span class="line">	&lt;li&gt;<span class="number">3</span>&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">	&lt;li&gt;4&lt;/</span>li&gt;</span><br><span class="line">	&lt;li&gt;<span class="number">5</span>&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">&lt;/u</span>l&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">	<span class="keyword">let</span> ul = <span class="built_in">document</span>.querySelector(<span class="string">'#ul'</span>)</span><br><span class="line">	ul.addEventListener(<span class="string">'click'</span>, (event) =&gt; &#123;</span><br><span class="line">		<span class="built_in">console</span>.log(event.target);</span><br><span class="line">	&#125;)</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<p>事件代理的方式相较于直接给目标注册事件来说，有以下优点：</p>
+<ul>
+<li>节省内存</li>
+<li>不需要给子节点注销事件</li>
+</ul>
+<h1 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h1><hr>
+<blockquote>
+<p>涉及面试题：什么是跨域？为什么浏览器要使用同源策略？你有几种方式可以解决跨域问题？了解预检请求嘛？</p>
+</blockquote>
+<p>因为浏览器出于安全考虑，有同源策略。也就是说，如果协议、域名或者端口有一个不同就是跨域，Ajax 请求会失败。</p>
+<p><strong>那么是出于什么安全考虑才会引入这种机制呢？</strong> 其实主要是用来防止 CSRF 攻击的。简单点说，CSRF 攻击是利用用户的登录态发起恶意请求。</p>
+<p>也就是说，没有同源策略的情况下，A 网站可以被任意其他来源的 Ajax 访问到内容。如果你当前 A 网站还存在登录态，那么对方就可以通过 Ajax 获得你的任何信息。当然跨域并不能完全阻止 CSRF。</p>
+<p><strong>然后我们来考虑一个问题，请求跨域了，那么请求到底发出去没有？</strong> 请求必然是发出去了，但是浏览器拦截了响应。你可能会疑问明明通过表单的方式可以发起跨域请求，为什么 Ajax 就不会。因为归根结底，跨域是为了阻止用户读取到另一个域名下的内容，Ajax 可以获取响应，浏览器认为这不安全，所以拦截了响应。但是表单并不会获取新的内容，所以可以发起跨域请求。同时也说明了跨域并不能完全阻止 CSRF，因为请求毕竟是发出去了。</p>
+<p>接下来我们将来学习几种常见的方式来解决跨域的问题。</p>
+<h2 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a>JSONP</h2><p>JSONP 的原理很简单，就是利用 <code>&lt;script&gt;</code> 标签没有跨域限制的漏洞。通过 <code>&lt;script&gt;</code> 标签指向一个需要访问的地址并提供一个回调函数来接收数据当需要通讯时。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"http://domain/api?param1=a&amp;param2=b&amp;callback=jsonp"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">jsonp</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">    	<span class="built_in">console</span>.log(data)</span><br><span class="line">	&#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<p>JSONP 使用简单且兼容性不错，但是只限于 <code>get</code> 请求。</p>
+<p>在开发中可能会遇到多个 JSONP 请求的回调函数名是相同的，这时候就需要自己封装一个 JSONP，以下是简单实现</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">jsonp</span>(<span class="params">url, jsonpCallback, success</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> script = <span class="built_in">document</span>.createElement(<span class="string">"script"</span>);</span><br><span class="line">  script.src = url;</span><br><span class="line">  script.async = <span class="literal">true</span>;</span><br><span class="line">  script.type = <span class="string">"text/javascript"</span>;</span><br><span class="line">  <span class="built_in">window</span>[jsonpCallback] = <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">    success &amp;&amp; success(data);</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="built_in">document</span>.body.appendChild(script);</span><br><span class="line">&#125;</span><br><span class="line">jsonp(<span class="string">"http://xxx"</span>, <span class="string">"callback"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(value);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="CORS"><a href="#CORS" class="headerlink" title="CORS"></a>CORS</h2><p>CORS 需要浏览器和后端同时支持。IE 8 和 9 需要通过 <code>XDomainRequest</code> 来实现。</p>
+<p>浏览器会自动进行 CORS 通信，实现 CORS 通信的关键是后端。只要后端实现了 CORS，就实现了跨域。</p>
+<p>服务端设置 <code>Access-Control-Allow-Origin</code> 就可以开启 CORS。 该属性表示哪些域名可以访问资源，如果设置通配符则表示所有网站都可以访问资源。</p>
+<p>虽然设置 CORS 和前端没什么关系，但是通过这种方式解决跨域问题的话，会在发送请求时出现两种情况，分别为<strong>简单请求和复杂请求</strong>。</p>
+<h3 id="简单请求"><a href="#简单请求" class="headerlink" title="简单请求"></a>简单请求</h3><p>以 Ajax 为例，当满足以下条件时，会触发简单请求</p>
+<p>1.</p>
+<p>使用下列方法之一：</p>
+<p>-</p>
+<p><code>GET</code></p>
+<p>-</p>
+<p><code>HEAD</code></p>
+<p>-</p>
+<p><code>POST</code></p>
+<p>2.</p>
+<p><code>Content-Type</code> 的值仅限于下列三者之一：</p>
+<p>-</p>
+<p><code>text/plain</code></p>
+<p>-</p>
+<p><code>multipart/form-data</code></p>
+<p>-</p>
+<p><code>application/x-www-form-urlencoded</code></p>
+<p>请求中的任意 <code>XMLHttpRequestUpload</code> 对象均没有注册任何事件监听器； <code>XMLHttpRequestUpload</code> 对象可以使用 <code>XMLHttpRequest.upload</code> 属性访问。</p>
+<h3 id="复杂请求"><a href="#复杂请求" class="headerlink" title="复杂请求"></a>复杂请求</h3><p>那么很显然，不符合以上条件的请求就肯定是复杂请求了。</p>
+<p>对于复杂请求来说，首先会发起一个预检请求，该请求是 <code>option</code> 方法的，通过该请求来知道服务端是否允许跨域请求。</p>
+<p>对于预检请求来说，如果你使用过 Node 来设置 CORS 的话，可能会遇到过这么一个坑。</p>
+<p>以下以 express 框架举例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">app.use(<span class="function">(<span class="params">req, res, next</span>) =&gt;</span> &#123;</span><br><span class="line">  res.header(<span class="string">"Access-Control-Allow-Origin"</span>, <span class="string">"*"</span>);</span><br><span class="line">  res.header(<span class="string">"Access-Control-Allow-Methods"</span>, <span class="string">"PUT, GET, POST, DELETE, OPTIONS"</span>);</span><br><span class="line">  res.header(</span><br><span class="line">    <span class="string">"Access-Control-Allow-Headers"</span>,</span><br><span class="line">    <span class="string">"Origin, X-Requested-With, Content-Type, Accept, Authorization, Access-Control-Allow-Credentials"</span></span><br><span class="line">  );</span><br><span class="line">  next();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>该请求会验证你的 <code>Authorization</code> 字段，没有的话就会报错。</p>
+<p>当前端发起了复杂请求后，你会发现就算你代码是正确的，返回结果也永远是报错的。因为预检请求也会进入回调中，也会触发 <code>next</code> 方法，因为预检请求并不包含 <code>Authorization</code> 字段，所以服务端会报错。</p>
+<p>想解决这个问题很简单，只需要在回调中过滤 <code>option</code> 方法即可</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">res.statusCode = <span class="number">204</span>;</span><br><span class="line">res.setHeader(<span class="string">"Content-Length"</span>, <span class="string">"0"</span>);</span><br><span class="line">res.end();</span><br></pre></td></tr></table></figure>
+<h2 id="document-domain"><a href="#document-domain" class="headerlink" title="document.domain"></a>document.domain</h2><p>该方式只能用于<strong>二级域名相同</strong>的情况下，比如 <code>a.test.com</code> 和 <code>b.test.com</code> 适用于该方式。</p>
+<p>只需要给页面添加 <code>document.domain = &#39;test.com&#39;</code> 表示二级域名都相同就可以实现跨域</p>
+<h2 id="postMessage"><a href="#postMessage" class="headerlink" title="postMessage"></a>postMessage</h2><p>这种方式通常用于获取嵌入页面中的第三方页面数据。一个页面发送消息，另一个页面判断来源并接收消息</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 发送消息端</span></span><br><span class="line"><span class="built_in">window</span>.parent.postMessage(<span class="string">"message"</span>, <span class="string">"http://test.com"</span>);</span><br><span class="line"><span class="comment">// 接收消息端</span></span><br><span class="line"><span class="keyword">var</span> mc = <span class="keyword">new</span> MessageChannel();</span><br><span class="line">mc.addEventListener(<span class="string">"message"</span>, (event) =&gt; &#123;</span><br><span class="line">  <span class="keyword">var</span> origin = event.origin || event.originalEvent.origin;</span><br><span class="line">  <span class="keyword">if</span> (origin === <span class="string">"http://test.com"</span>) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"验证通过"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h1 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h1><hr>
+<blockquote>
+<p>涉及面试题：有几种方式可以实现存储功能，分别有什么优缺点？什么是 Service Worker？</p>
+</blockquote>
+<h2 id="cookie，localStorage，sessionStorage，indexDB"><a href="#cookie，localStorage，sessionStorage，indexDB" class="headerlink" title="cookie，localStorage，sessionStorage，indexDB"></a>cookie，localStorage，sessionStorage，indexDB</h2><p>我们先来通过表格学习下这几种存储方式的区别</p>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>cookie</th>
+<th>localStorage</th>
+<th>sessionStorage</th>
+<th>indexDB</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>数据生命周期</td>
+<td>一般由服务器生成，可以设置过期时间</td>
+<td>除非被清理，否则一直存在</td>
+<td>页面关闭就清理</td>
+<td>除非被清理，否则一直存在</td>
+</tr>
+<tr>
+<td>数据存储大小</td>
+<td>4K</td>
+<td>5M</td>
+<td>5M</td>
+<td>无限</td>
+</tr>
+<tr>
+<td>与服务端通信</td>
+<td>每次都会携带在 header 中，对于请求性能影响</td>
+<td>不参与</td>
+<td>不参与</td>
+<td>不参与</td>
+</tr>
+</tbody>
+</table>
+<p>从上表可以看到，<code>cookie</code> 已经不建议用于存储。如果没有大量数据存储需求的话，可以使用 <code>localStorage</code> 和 <code>sessionStorage</code> 。对于不怎么改变的数据尽量使用 <code>localStorage</code> 存储，否则可以用 <code>sessionStorage</code> 存储。</p>
+<p>对于 <code>cookie</code> 来说，我们还需要注意安全性。</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td>如果用于保存用户登录态，应该将该值加密，不能使用明文的用户标识</td>
+</tr>
+<tr>
+<td>http-only</td>
+<td>不能通过 JS 访问 Cookie，减少 XSS 攻击</td>
+</tr>
+<tr>
+<td>secure</td>
+<td>只能在协议为 HTTPS 的请求中携带</td>
+</tr>
+<tr>
+<td>same-site</td>
+<td>规定浏览器不能在跨域请求中携带 Cookie，减少 CSRF 攻击</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Service-Worker"><a href="#Service-Worker" class="headerlink" title="Service Worker"></a>Service Worker</h2><p>Service Worker 是运行在浏览器背后的<strong>独立线程</strong>，一般可以用来实现缓存功能。使用 Service Worker 的话，传输协议必须为 <strong>HTTPS</strong>。因为 Service Worker 中涉及到<strong>请求拦截</strong>，所以必须使用 HTTPS 协议来保障安全。</p>
+<p>Service Worker 实现缓存功能一般分为三个步骤：首先需要先注册 Service Worker，然后监听到 <code>install</code> 事件以后就可以缓存需要的文件，那么在下次用户访问的时候就可以通过<strong>拦截请求的方式</strong>查询是否存在缓存，存在缓存的话就可以直接读取缓存文件，否则就去请求数据。以下是这个步骤的实现：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// index.js</span></span><br><span class="line"><span class="keyword">if</span> (navigator.serviceWorker) &#123;</span><br><span class="line">  navigator.serviceWorker</span><br><span class="line">    .register(<span class="string">"sw.js"</span>)</span><br><span class="line">    .then(<span class="function"><span class="keyword">function</span> (<span class="params">registration</span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"service worker 注册成功"</span>);</span><br><span class="line">    &#125;)</span><br><span class="line">    .catch(<span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"servcie worker 注册失败"</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// sw.js</span></span><br><span class="line"><span class="comment">// 监听 `install` 事件，回调中缓存所需文件</span></span><br><span class="line">self.addEventListener(<span class="string">"install"</span>, (e) =&gt; &#123;</span><br><span class="line">  e.waitUntil(</span><br><span class="line">    caches.open(<span class="string">"my-cache"</span>).then(<span class="function"><span class="keyword">function</span> (<span class="params">cache</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> cache.addAll([<span class="string">"./index.html"</span>, <span class="string">"./index.js"</span>]);</span><br><span class="line">    &#125;)</span><br><span class="line">  );</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 拦截所有请求事件</span></span><br><span class="line"><span class="comment">// 如果缓存中已经有请求的数据就直接用缓存，否则去请求数据</span></span><br><span class="line">self.addEventListener(<span class="string">"fetch"</span>, (e) =&gt; &#123;</span><br><span class="line">  e.respondWith(</span><br><span class="line">    caches.match(e.request).then(<span class="function"><span class="keyword">function</span> (<span class="params">response</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (response) &#123;</span><br><span class="line">        <span class="keyword">return</span> response;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"fetch source"</span>);</span><br><span class="line">    &#125;)</span><br><span class="line">  );</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>打开页面，可以在开发者工具中的 <code>Application</code> 看到 Service Worker 已经启动了</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/20190421132633872.png#alt=" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>在 Cache 中也可以发现我们所需的文件已被缓存</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/20190421132646432.png#alt=" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>当我们重新刷新页面可以发现我们缓存的数据是从 Service Worker 中读取的</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/20190421132658468.png#alt=" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-05-03T16:19:10.111Z" itemprop="dateUpdated">2020-05-03 18:19:10</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="http://fengtx.tk">
+            <img src="/img/avatar.jpg" alt="冯天祥">
+            冯天祥
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://fengtx.tk/2020/04/05/yuque/【Browser】浏览器基础知识/&title=《【Browser】浏览器基础知识》 — 冯天祥&pic=http://fengtx.tk/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://fengtx.tk/2020/04/05/yuque/【Browser】浏览器基础知识/&title=《【Browser】浏览器基础知识》 — 冯天祥&source=前端小白冯天祥的技术博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://fengtx.tk/2020/04/05/yuque/【Browser】浏览器基础知识/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【Browser】浏览器基础知识》 — 冯天祥&url=http://fengtx.tk/2020/04/05/yuque/【Browser】浏览器基础知识/&via=http://fengtx.tk" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://fengtx.tk/2020/04/05/yuque/【Browser】浏览器基础知识/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/04/05/yuque/【Browser】浏览器渲染原理/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">【Browser】浏览器渲染原理</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/04/05/yuque/【Algorithm】用JS刷剑指offer/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">【Algorithm】用JS刷剑指offer</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢打赏
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>冯天祥 &copy; 2016 - 2020</span>
+            <!-- <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span> -->
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://fengtx.tk/2020/04/05/yuque/【Browser】浏览器基础知识/&title=《【Browser】浏览器基础知识》 — 冯天祥&pic=http://fengtx.tk/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://fengtx.tk/2020/04/05/yuque/【Browser】浏览器基础知识/&title=《【Browser】浏览器基础知识》 — 冯天祥&source=前端小白冯天祥的技术博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://fengtx.tk/2020/04/05/yuque/【Browser】浏览器基础知识/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【Browser】浏览器基础知识》 — 冯天祥&url=http://fengtx.tk/2020/04/05/yuque/【Browser】浏览器基础知识/&via=http://fengtx.tk" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://fengtx.tk/2020/04/05/yuque/【Browser】浏览器基础知识/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACvUlEQVR42u3awU7sQAwEQP7/p3nSOyGhbLrtDCxS5YRglZ3KITZtf3zE1+f/6/vPX3/z9fr++6vPX33X1d0+Tlx4eHh4o6NfXVe810d//S3JSZJH/PrMeHh4eKd5s2KQ3CcpErOS8/rMeHh4eO/Ay1vnE/0+Hh4e3l/k5ZjN0fMz4OHh4f0uL3/1J21xHlXk4cXxrAUPDw8v5m3a2d/6+Yfme3h4eHjlVL19+bav+P3g7eYOeHh4eAd4syjhWXY7bKsDYjw8PLwDvHa038YW7fh/8+1RmIuHh4e34OVxbR7I7pcM8hj3pqjg4eHhHeDlL+L8KLMi0Y7ThosLeHh4eA/xNi/lTcDRLhwMFxHw8PDwjvHyMKI93CwyzsvPzV/x8PDwDvBet78zQD7WGg60ykeDh4eH9yyvJbUR7WztYNbQF3UPDw8Pb8R7KmJI7lNsMQSxSFSo8PDw8A7w2ma6PVbbcM+a7JvT4uHh4f0Ib9bI5lFs+97OS0IxAMPDw8Mb8fLh1mwtYLaelYcXNyUEDw8P7xivheXtbH7/PN4tWmo8PDy8A7z20ElEm4/KNkWlaNzx8PDwHuXN/tWfBRbJw9qsEdyUBDw8PLyHeCdWo/Kmeb9YED1iPDw8vEd57VgrXzJYDfvLT15+Lx4eHt4BXrtAkFebGaBtxIvwFw8PD+8Yb9iVjz7/VAuenAcPDw/vWd7stZuHvHnwmpSlusDg4eHhHeO1BWC2LrBp3JPrppnGw8PDW/M+yyuPHvIYoqUW5QQPDw/vAG9TT2bHar8+L1pF7oKHh4e35rXFYB8QtPdfFQY8PDy8Y7zZcsAmsFjN64JHhoeHh/c+vM3qwGxIlmPw8PDw3o1X3LT8a75cVS+/4uHh4R3jJWFE2xznTXC+1FU003h4eHjHeLNB1Oyh5J9PYt+8YODh4eE9xPsHOgyccaBMxfcAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    <meta name="referrer" content="no-referrer">
+    
+    
+    
+    
+    <title>【CSS】选择器 | 冯天祥 | 前端小白的技术博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content>
+    <meta name="description" content="title: 【CSS】选择器 date: 2019 年 04 月 08 日 00:27:43categories: CSStypora-root-url: ..typora-copy-images-to: ../images| 选择器 | 例子 | 例子描述 | CSS || — | — | — | — || .class | .intro | 类选择器：选择 class=&amp;quot;intr">
+<meta name="keywords" content="前端,技术,冯天祥,fengtx">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【CSS】选择器">
+<meta property="og:url" content="http://fengtx.tk/2020/04/05/yuque/【CSS】选择器/index.html">
+<meta property="og:site_name" content="冯天祥">
+<meta property="og:description" content="title: 【CSS】选择器 date: 2019 年 04 月 08 日 00:27:43categories: CSStypora-root-url: ..typora-copy-images-to: ../images| 选择器 | 例子 | 例子描述 | CSS || — | — | — | — || .class | .intro | 类选择器：选择 class=&amp;quot;intr">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-05-03T16:19:09.881Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【CSS】选择器">
+<meta name="twitter:description" content="title: 【CSS】选择器 date: 2019 年 04 月 08 日 00:27:43categories: CSStypora-root-url: ..typora-copy-images-to: ../images| 选择器 | 例子 | 例子描述 | CSS || — | — | — | — || .class | .intro | 类选择器：选择 class=&amp;quot;intr">
+    
+        <link rel="alternate" type="application/atom+xml" title="冯天祥" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">冯天祥</h5>
+          <a href="mailto:im.txfeng@gmail.com" title="im.txfeng@gmail.com" class="mail">im.txfeng@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/kxbk100" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">【CSS】选择器</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">【CSS】选择器</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-04-05T00:52:56.000Z" itemprop="datePublished" class="page-time">
+  2020-04-05
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#title-【CSS】选择器-date-2019-年-04-月-08-日-00-27-43"><span class="post-toc-number">1.</span> <span class="post-toc-text">title: 【CSS】选择器 date: 2019 年 04 月 08 日 00:27:43</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-yuque/【CSS】选择器" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">【CSS】选择器</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-04-05 02:52:56" datetime="2020-04-05T00:52:56.000Z" itemprop="datePublished">2020-04-05</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <hr>
+<h2 id="title-【CSS】选择器-date-2019-年-04-月-08-日-00-27-43"><a href="#title-【CSS】选择器-date-2019-年-04-月-08-日-00-27-43" class="headerlink" title="title: 【CSS】选择器 date: 2019 年 04 月 08 日 00:27:43"></a>title: 【CSS】选择器 date: 2019 年 04 月 08 日 00:27:43</h2><p>categories: CSS<br>typora-root-url: ..<br>typora-copy-images-to: ../images<br>| 选择器 | 例子 | 例子描述 | CSS |<br>| — | — | — | — |<br>| <code>.class</code> | <code>.intro</code> | <strong>类选择器</strong>：选择 <code>class=&quot;intro&quot;</code> 的所有元素 | 1 |<br>| <code>#id</code> | <code>#firstname</code> | <strong>ID 选择器</strong>：选择 <code>id=&quot;firstname&quot;</code> 的所有元素 | 1 |<br>| <code>*</code> | <code>*</code> | <strong>通用选择器</strong>：选择所有元素 | 2 |<br>| <code>element</code> | <code>p</code> | <strong>标签选择器</strong>：选择所有 <code>&lt;p&gt;</code> 元素 | 1 |<br>| <code>element, element</code> | <code>div, p</code> | 选择所有 <code>&lt;div&gt;</code> 元素和所有 <code>&lt;p&gt;</code> 元素 | 1 |<br>| <code>element element</code> | <code>div p</code> | 选择 <code>&lt;div&gt;</code> 元素内部的所有 <code>&lt;p&gt;</code> 元素，跨层也可 | 1 |<br>| <code>element &gt; element</code> | <code>div &gt; p</code> | 选择父元素为 <code>&lt;div&gt;</code> 元素的所有 <code>&lt;p&gt;</code> 元素，只寻找一级（第一代子元素），<code>&lt;p&gt;</code>中的<code>&lt;p&gt;</code>不会找到，而<code>element element</code>全部找到 | 2 |<br>| <code>element + element</code> | <code>div + p</code> | 选择紧接在 <code>&lt;div&gt;</code> 元素之后的<strong>一个同辈</strong> <code>&lt;p&gt;</code> 元素 | 2 |<br>| <code>[attribute]</code> | <code>[target]</code> | 选择带有 target 属性所有元素 | 2 |<br>| <code>[attribute=value]</code> | <code>[target=_blank]</code> | 选择 target=”_blank” 的所有元素 | 2 |<br>| <code>[attribute~=value]</code> | <code>[title~=flower]</code> | 选择 title 属性包含单词 “flower” 的所有元素 | 2 |<br>| <code>[attribute|=value]</code> | <code>[lang|=en]</code> | 选择 lang 属性值以 “en” 开头的所有元素 | 2 |<br>| <code>:link</code> | <code>a:link</code> | 选择所有未被访问的链接 | 1 |<br>| <code>:visited</code> | <code>a:visited</code> | 选择所有已被访问的链接 | 1 |<br>| <code>:active</code> | <code>a:active</code> | 选择活动链接 | 1 |<br>| <code>:hover</code> | <code>a:hover</code> | 选择鼠标指针位于其上的链接 | 1 |<br>| <code>:focus</code> | <code>input:focus</code> | 选择获得焦点的 input 元素 | 2 |<br>| <code>:first-letter</code> | <code>p:first-letter</code> | 选择每个 <code>&lt;p&gt;</code> 元素的首字母 | 1 |<br>| <code>:first-line</code> | <code>p:first-line</code> | 选择每个 <code>&lt;p&gt;</code> 元素的首行 | 1 |<br>| <code>:first-child</code> | <code>p:first-child</code> | 选择属于父元素的第一个子元素的每个 <code>&lt;p&gt;</code> 元素 | 2 |<br>| <code>:before</code> | <code>p:before</code> | 在每个 <code>&lt;p&gt;</code> 元素的内容之前插入内容 | 2 |<br>| <code>:after</code> | <code>p:after</code> | 在每个 <code>&lt;p&gt;</code> 元素的内容之后插入内容 | 2 |<br>| <code>:lang(language)</code> | <code>p:lang(it)</code> | 选择带有以 “it” 开头的 lang 属性值的每个 <code>&lt;p&gt;</code> 元素 | 2 |<br>| <code>element1~element2</code> | <code>p~ul</code> | 选择前面有 <code>&lt;p&gt;</code> 元素的每个 <code>&lt;ul&gt;</code> 元素 | 3 |<br>| <code>[attribute^=value]</code> | <code>a[src^=&quot;https&quot;]</code> | 选择其 src 属性值以 “https” 开头的每个 <code>&lt;a&gt;</code> 元素 | 3 |<br>| <code>[attribute$=value]</code> | <code>a[src$=&quot;.pdf&quot;]</code> | 选择其 src 属性以 “.pdf” 结尾的所有 <code>&lt;a&gt;</code> 元素 | 3 |<br>| <code>[attribute*=value]</code> | <code>a[src*=&quot;abc&quot;]</code> | 选择其 src 属性中包含 “abc” 子串的每个 <code>&lt;a&gt;</code> 元素 | 3 |<br>| <code>:first-of-type</code> | <code>p:first-of-type</code> | 选择属于其父元素的首个 <code>&lt;p&gt;</code> 元素的每个 <code>&lt;p&gt;</code> 元素 | 3 |<br>| <code>:last-of-type</code> | <code>p:last-of-type</code> | 选择属于其父元素的最后 <code>&lt;p&gt;</code> 元素的每个 <code>&lt;p&gt;</code> 元素 | 3 |<br>| <code>:only-of-type</code> | <code>p:only-of-type</code> | 选择属于其父元素唯一的 <code>&lt;p&gt;</code> 元素的每个 <code>&lt;p&gt;</code> 元素 | 3 |<br>| <code>:only-child</code> | <code>p:only-child</code> | 选择属于其父元素的唯一子元素的每个 <code>&lt;p&gt;</code> 元素 | 3 |<br>| <code>:nth-child(n)</code> | <code>p:nth-child(2)</code> | 选择属于其父元素的第二个子元素的每个 <code>&lt;p&gt;</code> 元素 | 3 |<br>| <code>:nth-last-child(n)</code> | <code>p:nth-last-child(2)</code> | 同上，从最后一个子元素开始计数 | 3 |<br>| <code>:nth-of-type(n)</code> | <code>p:nth-of-type(2)</code> | 选择属于其父元素第二个 <code>&lt;p&gt;</code> 元素的每个 <code>&lt;p&gt;</code> 元素 | 3 |<br>| <code>:nth-last-of-type(n)</code> | <code>p:nth-last-of-type(2)</code> | 同上，但是从最后一个子元素开始计数 | 3 |<br>| <code>:last-child</code> | <code>p:last-child</code> | 选择属于其父元素最后一个子元素每个 <code>&lt;p&gt;</code> 元素 | 3 |<br>| <code>:root</code> | <code>:root</code> | 选择文档的根元素 | 3 |<br>| <code>:empty</code> | <code>p:empty</code> | 选择没有子元素的每个 <code>&lt;p&gt;</code> 元素（包括文本节点） | 3 |<br>| <code>:target</code> | <code>#news:target</code> | 选择当前活动的 #news 元素 | 3 |<br>| <code>:enabled</code> | <code>input:enabled</code> | 选择每个启用的 <code>&lt;input&gt;</code> 元素 | 3 |<br>| <code>:disabled</code> | <code>input:disabled</code> | 选择每个禁用的 <code>&lt;input&gt;</code> 元素 | 3 |<br>| <code>:checked</code> | <code>input:checked</code> | 选择每个被选中的 <code>&lt;input&gt;</code> 元素 | 3 |<br>| <code>:not(selector)</code> | <code>:not(p)</code> | 选择非 <code>&lt;p&gt;</code> 元素的每个元素 | 3 |<br>| <code>::selection</code> | <code>::selection</code> | 选择被用户选取的元素部分 | 3 |</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-05-03T16:19:09.881Z" itemprop="dateUpdated">2020-05-03 18:19:09</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="http://fengtx.tk">
+            <img src="/img/avatar.jpg" alt="冯天祥">
+            冯天祥
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://fengtx.tk/2020/04/05/yuque/【CSS】选择器/&title=《【CSS】选择器》 — 冯天祥&pic=http://fengtx.tk/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://fengtx.tk/2020/04/05/yuque/【CSS】选择器/&title=《【CSS】选择器》 — 冯天祥&source=前端小白冯天祥的技术博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://fengtx.tk/2020/04/05/yuque/【CSS】选择器/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【CSS】选择器》 — 冯天祥&url=http://fengtx.tk/2020/04/05/yuque/【CSS】选择器/&via=http://fengtx.tk" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://fengtx.tk/2020/04/05/yuque/【CSS】选择器/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/04/05/yuque/【CSS】元素居中指南/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">【CSS】元素居中指南</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/04/05/yuque/【CSS】简介/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">【CSS】简介</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢打赏
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>冯天祥 &copy; 2016 - 2020</span>
+            <!-- <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span> -->
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://fengtx.tk/2020/04/05/yuque/【CSS】选择器/&title=《【CSS】选择器》 — 冯天祥&pic=http://fengtx.tk/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://fengtx.tk/2020/04/05/yuque/【CSS】选择器/&title=《【CSS】选择器》 — 冯天祥&source=前端小白冯天祥的技术博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://fengtx.tk/2020/04/05/yuque/【CSS】选择器/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【CSS】选择器》 — 冯天祥&url=http://fengtx.tk/2020/04/05/yuque/【CSS】选择器/&via=http://fengtx.tk" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://fengtx.tk/2020/04/05/yuque/【CSS】选择器/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACK0lEQVR42u3aQW7DMAwEwP7/0ynQUw+Ns0s5QCONToHhSBofCErk11c8Hj/j9+/f49mb+Tz5DEsDAwPjYxmPy5G/c72VZ0+erVWvi4GBcQBjPcgmgbKdJ/9MGBgYGPmSyRZnwRcDAwMjZyRJYZsyXq+FgYGBkR9iZxdz+QxLh2cMDIytGXdt7h2/317fwMDA+PeMRzmSsJiUJ5O0stgVBgbG1ozZVVeycJ78tW0WRYaLgYGxEeOuZG7lGm6WLL64O8TAwNiCkVxszTbdpoztxd8fGS4GBsYxjHzT+fO2LSNPPTEwME5gtE0PbXq3nhS2rR4YGBj7MdpwOSsVJJ8mKSe8SA0xMDA2ZbSHzzaw5ldm17MlPAwMjF0ZrbhNCpNC6azAGfWMYGBgbMTID6L5yXjleZtKYmBgnMNoSW0AzY++bYDGwMA4jbEeQPNtzY6vUcDFwMDYiDFraBguE6eAw2YLDAyMTRnD0mDZqJp/iFm5FAMDY29Gm8Dd1VSRJ535OxgYGLsyZhdhs+aJoiRZtndgYGCcw2gXuCulyw/ALwoDGBgYmzLyBos8aOaH3vUAHckwMDA+nLEeOq+Xz9O7pYMxBgbG1oz26n+W0s222K6LgYGxN+OuAsBKgbMtf2JgYJzJmB1Q31fCLK7YMDAwMMoSY94Qlgff6NNgYGBgBFdsyabbYJ3/CwMD4wRG2ypR39gF8+QwDAyM0xgrhYE2aM6azIqjLAYGxm6Mb867esA20nKDAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

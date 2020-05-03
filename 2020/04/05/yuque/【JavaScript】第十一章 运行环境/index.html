@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    <meta name="referrer" content="no-referrer">
+    
+    
+    
+    
+    <title>【JavaScript】第十一章 运行环境 | 冯天祥 | 前端小白的技术博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content>
+    <meta name="description" content="title: 【JavaScript】第十一章 运行环境date: 2019年04月08日 00:27:43categories: JavaScripttypora-root-url: ..typora-copy-images-to: ../images   从输入url到得到html的详细过程 window.load和DOMContentLoaded的区别   页面加载过程  浏览器就可以通过">
+<meta name="keywords" content="前端,技术,冯天祥,fengtx">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【JavaScript】第十一章 运行环境">
+<meta property="og:url" content="http://fengtx.tk/2020/04/05/yuque/【JavaScript】第十一章 运行环境/index.html">
+<meta property="og:site_name" content="冯天祥">
+<meta property="og:description" content="title: 【JavaScript】第十一章 运行环境date: 2019年04月08日 00:27:43categories: JavaScripttypora-root-url: ..typora-copy-images-to: ../images   从输入url到得到html的详细过程 window.load和DOMContentLoaded的区别   页面加载过程  浏览器就可以通过">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-05-03T16:19:08.676Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【JavaScript】第十一章 运行环境">
+<meta name="twitter:description" content="title: 【JavaScript】第十一章 运行环境date: 2019年04月08日 00:27:43categories: JavaScripttypora-root-url: ..typora-copy-images-to: ../images   从输入url到得到html的详细过程 window.load和DOMContentLoaded的区别   页面加载过程  浏览器就可以通过">
+    
+        <link rel="alternate" type="application/atom+xml" title="冯天祥" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">冯天祥</h5>
+          <a href="mailto:im.txfeng@gmail.com" title="im.txfeng@gmail.com" class="mail">im.txfeng@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/kxbk100" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">【JavaScript】第十一章 运行环境</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">【JavaScript】第十一章 运行环境</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-04-05T00:54:41.000Z" itemprop="datePublished" class="page-time">
+  2020-04-05
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#title-【JavaScript】第十一章-运行环境date-2019年04月08日-00-27-43"><span class="post-toc-number">1.</span> <span class="post-toc-text">title: 【JavaScript】第十一章 运行环境date: 2019年04月08日 00:27:43</span></a></li></ol><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#页面加载过程"><span class="post-toc-number"></span> <span class="post-toc-text">页面加载过程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#加载资源的形式"><span class="post-toc-number">1.</span> <span class="post-toc-text">加载资源的形式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#加载一个资源的过程"><span class="post-toc-number">2.</span> <span class="post-toc-text">加载一个资源的过程</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#浏览器渲染页面的过程"><span class="post-toc-number">3.</span> <span class="post-toc-text">浏览器渲染页面的过程</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#性能优化"><span class="post-toc-number"></span> <span class="post-toc-text">性能优化</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#原则"><span class="post-toc-number">1.</span> <span class="post-toc-text">原则</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#从哪里入手"><span class="post-toc-number">2.</span> <span class="post-toc-text">从哪里入手</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#加载页面和静态资源"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">加载页面和静态资源</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#页面渲染"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">页面渲染</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#安全性"><span class="post-toc-number"></span> <span class="post-toc-text">安全性</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#XSS-跨站请求攻击"><span class="post-toc-number">1.</span> <span class="post-toc-text">XSS 跨站请求攻击</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#XSRF-跨站请求伪造"><span class="post-toc-number">2.</span> <span class="post-toc-text">XSRF 跨站请求伪造</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#面试技巧"><span class="post-toc-number"></span> <span class="post-toc-text">面试技巧</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#简历"><span class="post-toc-number">1.</span> <span class="post-toc-text">简历</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#过程中"><span class="post-toc-number">2.</span> <span class="post-toc-text">过程中</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#题目解答"><span class="post-toc-number"></span> <span class="post-toc-text">题目解答</span></a>
+        </li></nav>
+    </aside>
+
+
+<article id="post-yuque/【JavaScript】第十一章 运行环境" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">【JavaScript】第十一章 运行环境</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-04-05 02:54:41" datetime="2020-04-05T00:54:41.000Z" itemprop="datePublished">2020-04-05</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <hr>
+<h2 id="title-【JavaScript】第十一章-运行环境date-2019年04月08日-00-27-43"><a href="#title-【JavaScript】第十一章-运行环境date-2019年04月08日-00-27-43" class="headerlink" title="title: 【JavaScript】第十一章 运行环境date: 2019年04月08日 00:27:43"></a>title: 【JavaScript】第十一章 运行环境date: 2019年04月08日 00:27:43</h2><p>categories: JavaScript<br>typora-root-url: ..<br>typora-copy-images-to: ../images</p>
+<blockquote>
+<ol>
+<li>从输入url到得到html的详细过程</li>
+<li>window.load和DOMContentLoaded的区别</li>
+</ol>
+</blockquote>
+<h1 id="页面加载过程"><a href="#页面加载过程" class="headerlink" title="页面加载过程"></a>页面加载过程</h1><hr>
+<ul>
+<li>浏览器就可以通过访问链接来得到页面的内容</li>
+<li>通过绘制和渲染，显示出页面的最终的样子</li>
+</ul>
+<h2 id="加载资源的形式"><a href="#加载资源的形式" class="headerlink" title="加载资源的形式"></a>加载资源的形式</h2><ul>
+<li>输入 url 或跳转页面加载 html <a href="http://coding.m.imooc.com" target="_blank" rel="noopener">http://coding.m.imooc.com</a></li>
+<li>加载 html 的静态资源<code>&lt;script src=&quot;jquery.js&quot;&gt;&lt;/script&gt;</code></li>
+</ul>
+<h2 id="加载一个资源的过程"><a href="#加载一个资源的过程" class="headerlink" title="加载一个资源的过程"></a>加载一个资源的过程</h2><ol>
+<li>浏览器根据 DNS 服务器得到域名的 IP 地址</li>
+<li>向这个 IP 的机器发送 http 请求</li>
+<li>服务器收到处理并返回 http 请求</li>
+<li>浏览器得到返回内容</li>
+</ol>
+<h2 id="浏览器渲染页面的过程"><a href="#浏览器渲染页面的过程" class="headerlink" title="浏览器渲染页面的过程"></a>浏览器渲染页面的过程</h2><ol>
+<li>根据 HTML 结构生成 DOM Tree</li>
+<li>根据 CSS 生成 CSSOM</li>
+<li>将 DOM 和 CSSOM 整合形成 Render Tree（渲染树）</li>
+<li>根据 Render Tree 开始渲染和展示</li>
+<li>遇到<code>&lt;script&gt;</code>时，会执行并阻塞渲染</li>
+</ol>
+<p>因为 JS 会改变 DOM 结构及内容，所以两者不能同时进行</p>
+<ul>
+<li>将 CSS 放于 head 中，加载完 CSS 后浏览器直接知道规则，在渲染 body 中的元素时，已将 CSS 考虑进去渲染</li>
+<li>将 CSS 放于 body 尾部，元素先按照默认加载，然后再根据 CSS 进行改变，性能较差</li>
+<li>将 script 放于 body 尾部，可以拿到所有 DOM 标签和结构，不会阻塞 body 上面的元素的渲染，性能较优</li>
+<li><code>&lt;p&gt;&lt;img src=&quot;XXX&quot; /&gt;&lt;/p&gt;</code>img DOM 元素会顺序生成，但图片 src 异步加载</li>
+</ul>
+<h1 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h1><hr>
+<h2 id="原则"><a href="#原则" class="headerlink" title="原则"></a>原则</h2><ul>
+<li>多使用内存、缓存或者其他方法</li>
+<li>减少 CPU 计算、减少网络请求、减少 IO 操作（前端不考虑）</li>
+</ul>
+<h2 id="从哪里入手"><a href="#从哪里入手" class="headerlink" title="从哪里入手"></a>从哪里入手</h2><h3 id="加载页面和静态资源"><a href="#加载页面和静态资源" class="headerlink" title="加载页面和静态资源"></a>加载页面和静态资源</h3><p>静态资源的压缩合并（打包合并+代码压缩）</p>
+<ul>
+<li>手动合并效率低、会出错，一般用构建工具合并</li>
+<li>3 个文件需要发 3 个请求，每个请求都会耗费很多时间</li>
+<li>1 个文件只需发送 1 个请求</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"a.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"b.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"c.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">// 打包合并后</span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"abc.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>静态资源缓存</p>
+<ul>
+<li>通过链接名称控制缓存，<code>&lt;script src=“abc_1.js”&gt;&lt;/script&gt;</code></li>
+<li>只有内容改变的时候，链接名称才会改变，<code>&lt;script src=&quot;abc_2.js&quot;&gt;&lt;/script&gt;</code></li>
+</ul>
+<p>使用 CDN</p>
+<ul>
+<li>不同地域的资源优化</li>
+<li>让资源加载更快</li>
+</ul>
+<p>使用 SSR 后端渲染</p>
+<ul>
+<li>现在 VUe React 提出了这样的概念</li>
+<li>其实 jsp php asp 都属于后端渲染</li>
+<li>数据直接输出到 HTML 中</li>
+</ul>
+<h3 id="页面渲染"><a href="#页面渲染" class="headerlink" title="页面渲染"></a>页面渲染</h3><p>CSS 放前面，js 放后面</p>
+<p>懒加载</p>
+<ul>
+<li>图片懒加载、下拉加载更多</li>
+<li>给 src 赋值一个很小的图</li>
+<li>真正的图片放在一个 data 后面</li>
+<li>用的时候再把 data 属性赋值到 src 中</li>
+<li>加快页面渲染速度</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">id</span>=<span class="string">"img1"</span> <span class="attr">src</span>=<span class="string">"preview.png"</span> <span class="attr">data-realsrc</span>=<span class="string">"abc.png"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> img1 = <span class="built_in">document</span>.getElementById(<span class="string">"img1"</span>);</span></span><br><span class="line"><span class="javascript">  img1.src = img1.getAttribute(<span class="string">"data-realsrc"</span>);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>减少 DOM 操作</p>
+<ul>
+<li>缓存 DOM 查询，减少 DOM 查询，对 DOM 查询做缓存</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 未缓存DOM查询</span></span><br><span class="line"><span class="keyword">var</span> i;</span><br><span class="line"><span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="built_in">document</span>.getElementsByTagName(<span class="string">"p"</span>).length; i++) &#123;</span><br><span class="line">  <span class="comment">// TODO</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 缓存了DOM查询</span></span><br><span class="line"><span class="keyword">var</span> pList = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"p"</span>);</span><br><span class="line"><span class="keyword">var</span> i;</span><br><span class="line"><span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; pList.length; i++) &#123;</span><br><span class="line">  <span class="comment">// TODO</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>合并 DOM 插入，减少 DOM 操作，多个操作尽量合并在一起执行</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> listNode = <span class="built_in">document</span>.getElementById(<span class="string">"list"</span>);</span><br><span class="line"><span class="comment">// 创建1个片段</span></span><br><span class="line"><span class="keyword">var</span> frag = <span class="built_in">document</span>.createDocumentFragment();</span><br><span class="line"><span class="keyword">var</span> x, li;</span><br><span class="line"><span class="keyword">for</span> (x = <span class="number">0</span>; x &lt; <span class="number">10</span>; x++) &#123;</span><br><span class="line">  li = <span class="built_in">document</span>.createElement(<span class="string">"li"</span>);</span><br><span class="line">  li.innerHTML = <span class="string">"List item"</span> + x;</span><br><span class="line">  <span class="comment">// 插入片段</span></span><br><span class="line">  frag.appendChild(li);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 最后将片段直接插入正文</span></span><br><span class="line">listNode.appendChild(frag);</span><br></pre></td></tr></table></figure>
+<p>事件节流</p>
+<ul>
+<li>合并频繁操作</li>
+<li>很快的连着的操作，快速打字先不触发</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> textaarea = <span class="built_in">document</span>.getElementById(<span class="string">"text"</span>);</span><br><span class="line"><span class="keyword">var</span> timeoutId;</span><br><span class="line">textaarea.addEventListener(<span class="string">"keyup"</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (timeoutId) &#123;</span><br><span class="line">    clearTimeout(timeoutId);</span><br><span class="line">  &#125;</span><br><span class="line">  timeoutId = setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 触发change事件</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"用户停止打字，开始触发事件"</span>);</span><br><span class="line">  &#125;, <span class="number">100</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>尽早执行操作</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">"load"</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 页面全部加载完之后才会执行，包括图片、视频等</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">"DOMContentLoaded"</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// DOM渲染完即可执行，此时图片、视频还可能没有加载完</span></span><br><span class="line">  <span class="comment">// jQuery、zepto均使用此方法</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h1 id="安全性"><a href="#安全性" class="headerlink" title="安全性"></a>安全性</h1><hr>
+<h2 id="XSS-跨站请求攻击"><a href="#XSS-跨站请求攻击" class="headerlink" title="XSS 跨站请求攻击"></a>XSS 跨站请求攻击</h2><ul>
+<li>在新浪博客写一篇文章，同时偷偷插入一段<code>&lt;script&gt;</code></li>
+<li>攻击代码中，获取 cookie，发送到自己的服务器</li>
+<li>发布博客，有人查看博客内容</li>
+<li>会把查看者的 cookie 发送到攻击者的服务器</li>
+</ul>
+<p>预防</p>
+<ul>
+<li>前端替换关键字，例如替换<code>&lt;</code>为<code>&lt;</code>、<code>&gt;</code>为<code>&gt;</code>（配合）</li>
+<li>后端替换（建议）</li>
+</ul>
+<h2 id="XSRF-跨站请求伪造"><a href="#XSRF-跨站请求伪造" class="headerlink" title="XSRF 跨站请求伪造"></a>XSRF 跨站请求伪造</h2><ul>
+<li>你已登录一个购物网站，正在浏览器商品</li>
+<li>该网站付费接口是 xxx.com/pay?id=100 ，但是没有任何验证</li>
+<li>然后你收到一封邮件，隐藏着<code>&lt;img src=xxx&gt;</code></li>
+<li>你查看邮件的时候，就已经悄悄的付费购买了</li>
+</ul>
+<p>预防</p>
+<ul>
+<li>增加验证流程，如输入指纹、密码、短信验证码等</li>
+</ul>
+<h1 id="面试技巧"><a href="#面试技巧" class="headerlink" title="面试技巧"></a>面试技巧</h1><hr>
+<h2 id="简历"><a href="#简历" class="headerlink" title="简历"></a>简历</h2><ul>
+<li>简洁明了，重点突出项目经历和解决方案</li>
+<li>把个人博客放在简历中，并且定期维护更新博客</li>
+<li>把个人的开源项目放在简历中，并维护开源项目</li>
+<li>简历千万不要造假，要保持能力和经历上的真实性</li>
+</ul>
+<h2 id="过程中"><a href="#过程中" class="headerlink" title="过程中"></a>过程中</h2><ul>
+<li>如何看待加班？加班就像借钱，救急不救穷</li>
+<li>千万不可挑战面试官，不要反铐面试官</li>
+<li>学会给面试官惊喜，但不要太多</li>
+<li>遇到不会回答的问题，说出你知道的就可以</li>
+<li>谈谈你的缺点：说说你最近正在学什么就可以了</li>
+</ul>
+<blockquote>
+<p>可能对 React 不是很了解，最近正在学 React，大约 1 个月后就能做出 1 个 React 的网站</p>
+</blockquote>
+<h1 id="题目解答"><a href="#题目解答" class="headerlink" title="题目解答"></a>题目解答</h1><hr>
+<blockquote>
+<ol>
+<li>从输入 url 到得到 html 的详细过程</li>
+</ol>
+</blockquote>
+<ul>
+<li>浏览器根据 DNS 服务器得到域名的 IP 地址</li>
+<li>向这个 IP 的机器发送 http 请求</li>
+<li>服务器收到处理并返回 http 请求</li>
+<li>浏览器得到返回内容</li>
+</ul>
+<blockquote>
+<ol start="2">
+<li>window.load 和 DOMContentLoaded 的区别</li>
+</ol>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">"load"</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 页面全部加载完之后才会执行，包括图片、视频等</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">"DOMContentLoaded"</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// DOM渲染完即可执行，此时图片、视频还可能没有加载完</span></span><br><span class="line">  <span class="comment">// jQuery、zepto均使用此方法</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-05-03T16:19:08.676Z" itemprop="dateUpdated">2020-05-03 18:19:08</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="http://fengtx.tk">
+            <img src="/img/avatar.jpg" alt="冯天祥">
+            冯天祥
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://fengtx.tk/2020/04/05/yuque/【JavaScript】第十一章 运行环境/&title=《【JavaScript】第十一章 运行环境》 — 冯天祥&pic=http://fengtx.tk/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://fengtx.tk/2020/04/05/yuque/【JavaScript】第十一章 运行环境/&title=《【JavaScript】第十一章 运行环境》 — 冯天祥&source=前端小白冯天祥的技术博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://fengtx.tk/2020/04/05/yuque/【JavaScript】第十一章 运行环境/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【JavaScript】第十一章 运行环境》 — 冯天祥&url=http://fengtx.tk/2020/04/05/yuque/【JavaScript】第十一章 运行环境/&via=http://fengtx.tk" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://fengtx.tk/2020/04/05/yuque/【JavaScript】第十一章 运行环境/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/04/05/yuque/【JavaScript】第十章 存储/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">【JavaScript】第十章 存储</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/04/05/yuque/【JavaScript】第十二章 开发环境/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">【JavaScript】第十二章 开发环境</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢打赏
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>冯天祥 &copy; 2016 - 2020</span>
+            <!-- <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span> -->
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://fengtx.tk/2020/04/05/yuque/【JavaScript】第十一章 运行环境/&title=《【JavaScript】第十一章 运行环境》 — 冯天祥&pic=http://fengtx.tk/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://fengtx.tk/2020/04/05/yuque/【JavaScript】第十一章 运行环境/&title=《【JavaScript】第十一章 运行环境》 — 冯天祥&source=前端小白冯天祥的技术博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://fengtx.tk/2020/04/05/yuque/【JavaScript】第十一章 运行环境/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【JavaScript】第十一章 运行环境》 — 冯天祥&url=http://fengtx.tk/2020/04/05/yuque/【JavaScript】第十一章 运行环境/&via=http://fengtx.tk" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://fengtx.tk/2020/04/05/yuque/【JavaScript】第十一章 运行环境/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACs0lEQVR42u3a0WrkMAwF0P7/T+9CnxaGda4kazqFk6ch7SQ+LliqpK+v+Przfb3e+ff+6+fXb+VPfn1O8rTmhYeHh9da+v+u5DVVxvn38608rxkPDw9vm5csqBoeqphzAEg2CA8PD+/TeGfY5Lv5HTw8PLzfzksqAL3E+iMCAx4eHt6RlxQjzoWJXuqcBJg31Vrw8PDwYt7kUP6pz4v9PTw8PLxBV716cOdv6ZUzyqvFw8PDW+BNUuRqAeJ8fz5oVfiPAQ8PD2/Mm7Svqsd0tenVCy0PSDw8PLwxr7cHvSJsNTWvYh5Sajw8PLwxr/fivNFVHTu4HBjw8PDwllPqMzVJsnvDVXkKHo1Y9eIYHh4eXouXFwjyO3lanAeYavDAw8PD2+D1gsEtWC8MFJJyPDw8vDVe3uKaN/irqfkozODh4eEt83qL7jW95ulyoYCLh4eHd5WXB4P8ZZNRqurGRcVfPDw8vEu8XkhIjua86JDjyyk4Hh4e3gIvL4lWBwvyuJSPUvUGHfDw8PDu8nqLqBZtJ0Hi/MYo7uHh4eFd5U3a//krJ8WOJL1+qLXg4eHhLfN6QSJvSs0P/XIowsPDw7vKy4NBb0yqelXHth5+ioeHh/dG3gTWa3FVixdROMHDw8Nb4CUZ97yJVd2mfICgXGjGw8PDG/PyQzYpzvbS8fkV9ffw8PDwFniTQ7+3EXnsaq4BDw8Pb4GXF0x7qXDU2q8WFC61yvDw8PB6vF7ymh/f1SJstbX28Hw8PDy8Bd7k8K2Gk7uJco7Hw8PD2+BVg0FeaOil6dWA9PBnwMPDw1vj9Rpg1YLspIXW2zI8PDy8n+VNRg3miXJ1JAsPDw/vc3i3vpuEh6S08YDEw8PDW+NNml7VImwv/DTDEh4eHt4Cb9IASxZUXXq+KaOeHh4eHl6H9xe3l3Ootl6EZAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

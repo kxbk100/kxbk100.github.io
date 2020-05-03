@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    <meta name="referrer" content="no-referrer">
+    
+    
+    
+    
+    <title>【Browser】浏览器渲染原理 | 冯天祥 | 前端小白的技术博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content>
+    <meta name="description" content="title: 【Browser】浏览器渲染原理date: 2019年04月08日 00:27:43categories: Browsertypora-root-url: ..typora-copy-images-to: ../images 执行 JS 有一个 JS 引擎，那么执行渲染也有一个渲染引擎。同样，渲染引擎在不同的浏览器中也不是都相同的。比如在 Firefox 中叫做 Gecko，在 C">
+<meta name="keywords" content="前端,技术,冯天祥,fengtx">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Browser】浏览器渲染原理">
+<meta property="og:url" content="http://fengtx.tk/2020/04/05/yuque/【Browser】浏览器渲染原理/index.html">
+<meta property="og:site_name" content="冯天祥">
+<meta property="og:description" content="title: 【Browser】浏览器渲染原理date: 2019年04月08日 00:27:43categories: Browsertypora-root-url: ..typora-copy-images-to: ../images 执行 JS 有一个 JS 引擎，那么执行渲染也有一个渲染引擎。同样，渲染引擎在不同的浏览器中也不是都相同的。比如在 Firefox 中叫做 Gecko，在 C">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://fengtx.tk/images/20190503195912159.png#alt=">
+<meta property="og:image" content="http://fengtx.tk/images/20190503200026131.png#alt=">
+<meta property="og:image" content="http://fengtx.tk/images/20190503200336317.png#alt=">
+<meta property="og:image" content="http://fengtx.tk/images/20190503200422136.png#alt=">
+<meta property="og:image" content="http://fengtx.tk/images/20190503200444680.png#alt=">
+<meta property="og:image" content="http://fengtx.tk/images/20190503200534309.png#alt=">
+<meta property="og:image" content="http://fengtx.tk/images/2019050320095767.png#alt=">
+<meta property="og:image" content="http://fengtx.tk/images/20190503201511297.gif#alt=">
+<meta property="og:image" content="http://fengtx.tk/images/20190503222853314.png#alt=">
+<meta property="og:image" content="http://fengtx.tk/images/20190503222835973.png#alt=">
+<meta property="og:updated_time" content="2020-05-03T16:19:10.020Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【Browser】浏览器渲染原理">
+<meta name="twitter:description" content="title: 【Browser】浏览器渲染原理date: 2019年04月08日 00:27:43categories: Browsertypora-root-url: ..typora-copy-images-to: ../images 执行 JS 有一个 JS 引擎，那么执行渲染也有一个渲染引擎。同样，渲染引擎在不同的浏览器中也不是都相同的。比如在 Firefox 中叫做 Gecko，在 C">
+<meta name="twitter:image" content="http://fengtx.tk/images/20190503195912159.png#alt=">
+    
+        <link rel="alternate" type="application/atom+xml" title="冯天祥" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">冯天祥</h5>
+          <a href="mailto:im.txfeng@gmail.com" title="im.txfeng@gmail.com" class="mail">im.txfeng@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/kxbk100" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">【Browser】浏览器渲染原理</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">【Browser】浏览器渲染原理</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-04-05T00:52:41.000Z" itemprop="datePublished" class="page-time">
+  2020-04-05
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#title-【Browser】浏览器渲染原理date-2019年04月08日-00-27-43"><span class="post-toc-number">1.</span> <span class="post-toc-text">title: 【Browser】浏览器渲染原理date: 2019年04月08日 00:27:43</span></a></li></ol><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#浏览器接收到-HTML-文件并转换为-DOM-树"><span class="post-toc-number"></span> <span class="post-toc-text">浏览器接收到 HTML 文件并转换为 DOM 树</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#将-CSS-文件转换为-CSSOM-树"><span class="post-toc-number"></span> <span class="post-toc-text">将 CSS 文件转换为 CSSOM 树</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#生成渲染树"><span class="post-toc-number"></span> <span class="post-toc-text">生成渲染树</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#为什么操作-DOM-慢"><span class="post-toc-number"></span> <span class="post-toc-text">为什么操作 DOM 慢</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#什么情况阻塞渲染"><span class="post-toc-number">1.</span> <span class="post-toc-text">什么情况阻塞渲染</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#重绘（Repaint）和回流（Reflow）"><span class="post-toc-number">2.</span> <span class="post-toc-text">重绘（Repaint）和回流（Reflow）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#减少重绘和回流"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">减少重绘和回流</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#思考题"><span class="post-toc-number"></span> <span class="post-toc-text">思考题</span></a>
+        </li></nav>
+    </aside>
+
+
+<article id="post-yuque/【Browser】浏览器渲染原理" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">【Browser】浏览器渲染原理</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-04-05 02:52:41" datetime="2020-04-05T00:52:41.000Z" itemprop="datePublished">2020-04-05</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <hr>
+<h2 id="title-【Browser】浏览器渲染原理date-2019年04月08日-00-27-43"><a href="#title-【Browser】浏览器渲染原理date-2019年04月08日-00-27-43" class="headerlink" title="title: 【Browser】浏览器渲染原理date: 2019年04月08日 00:27:43"></a>title: 【Browser】浏览器渲染原理date: 2019年04月08日 00:27:43</h2><p>categories: Browser<br>typora-root-url: ..<br>typora-copy-images-to: ../images</p>
+<p>执行 JS 有一个 JS 引擎，那么执行渲染也有一个渲染引擎。同样，渲染引擎在不同的浏览器中也不是都相同的。比如在 Firefox 中叫做 <strong>Gecko</strong>，在 Chrome 和 Safari 中都是基于 <strong>WebKit</strong> 开发的</p>
+<h1 id="浏览器接收到-HTML-文件并转换为-DOM-树"><a href="#浏览器接收到-HTML-文件并转换为-DOM-树" class="headerlink" title="浏览器接收到 HTML 文件并转换为 DOM 树"></a>浏览器接收到 HTML 文件并转换为 DOM 树</h1><hr>
+<p>当我们打开一个网页时，浏览器都会去请求对应的 HTML 文件。虽然平时我们写代码时都会分为 JS、CSS、HTML 文件，也就是字符串，但是计算机硬件是不理解这些字符串的，所以在网络中传输的内容其实都是 <code>0</code> 和 <code>1</code> 这些<strong>字节数据</strong>。当浏览器接收到这些字节数据以后，它会将这些<strong>字节数据转换为字符串</strong>，也就是我们写的代码。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/20190503195912159.png#alt=" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>当数据转换为字符串以后，浏览器会先将这些字符串通过词法分析转换为<strong>标记</strong>（token），这一过程在词法分析中叫做<strong>标记化</strong>（tokenization）。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/20190503200026131.png#alt=" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>那么什么是标记呢？这其实属于编译原理这一块的内容了。简单来说，标记还是字符串，是构成代码的<strong>最小单位</strong>。这一过程会将代码分拆成一块块，并给这些内容打上标记，便于理解这些最小单位的代码是什么意思。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/20190503200336317.png#alt=" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>当结束标记化后，这些标记会紧接着转换为 Node，最后这些 Node 会根据不同 Node 之前的联系构建为一颗 DOM 树。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/20190503200422136.png#alt=" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>以上就是浏览器从网络中接收到 HTML 文件然后一系列的转换过程。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/20190503200444680.png#alt=" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>当然，在解析 HTML 文件的时候，浏览器还会遇到 CSS 和 JS 文件，这时候浏览器也会去下载并解析这些文件，接下来就让我们先来学习浏览器如何解析 CSS 文件。</p>
+<h1 id="将-CSS-文件转换为-CSSOM-树"><a href="#将-CSS-文件转换为-CSSOM-树" class="headerlink" title="将 CSS 文件转换为 CSSOM 树"></a>将 CSS 文件转换为 CSSOM 树</h1><hr>
+<p>其实转换 CSS 到 CSSOM 树的过程和上一小节的过程是极其类似的</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/20190503200534309.png#alt=" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>在这一过程中，浏览器会确定下每一个节点的<strong>样式</strong>到底是什么，并且这一过程其实是<strong>很消耗资源</strong>的。因为样式你可以自行设置给某个节点，也可以通过<strong>继承</strong>获得。在这一过程中，浏览器得<strong>递归</strong> CSSOM 树，然后确定具体的元素到底是什么样式。</p>
+<p>如果你有点不理解为什么会消耗资源的话，我这里举个例子</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span>&gt;</span> <span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span> <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">  span &#123;</span></span><br><span class="line"><span class="undefined">    color: red;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined">  div &gt; a &gt; span &#123;</span></span><br><span class="line"><span class="undefined">    color: red;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>对于第一种设置样式的方式来说，浏览器只需要找到页面中所有的 <code>span</code> 标签然后设置颜色，但是对于第二种设置样式的方式来说，浏览器首先需要找到所有的 <code>span</code> 标签，然后找到 <code>span</code> 标签上的 <code>a</code> 标签，最后再去找到 <code>div</code> 标签，然后给符合这种条件的 <code>span</code> 标签设置颜色，这样的递归过程就很复杂。所以我们应该尽可能的避免写<strong>过于具体</strong>的 CSS 选择器，然后对于 HTML 来说也尽量少的添加无意义标签，保证<strong>层级扁平</strong>。</p>
+<h1 id="生成渲染树"><a href="#生成渲染树" class="headerlink" title="生成渲染树"></a>生成渲染树</h1><hr>
+<p>当我们生成 DOM 树和 CSSOM 树以后，就需要将这两棵树组合为渲染树。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/2019050320095767.png#alt=" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>在这一过程中，不是简单的将两者合并就行了。渲染树只会包括<strong>需要显示的节点</strong>和这些节点的样式信息，如果某个节点是 <code>display: none</code> 的，那么就不会在渲染树中显示。</p>
+<p>当浏览器生成渲染树以后，就会根据渲染树来进行<strong>布局</strong>（也可以叫做<strong>回流</strong>），然后调用 GPU 绘制，合成图层，显示在屏幕上。对于这一部分的内容因为过于底层，还涉及到了硬件相关的知识，这里就不再继续展开内容了。</p>
+<p>那么通过以上内容，我们已经详细了解到了浏览器从接收文件到将内容渲染在屏幕上的这一过程。接下来，我们将会来学习上半部分遗留下来的一些知识点。</p>
+<h1 id="为什么操作-DOM-慢"><a href="#为什么操作-DOM-慢" class="headerlink" title="为什么操作 DOM 慢"></a>为什么操作 DOM 慢</h1><hr>
+<p>想必大家都听过操作 DOM 性能很差，但是这其中的原因是什么呢？</p>
+<p>因为 <strong>DOM</strong> 是属于<strong>渲染引擎</strong>中的东西，而 <strong>JS</strong> 又是 <strong>JS 引擎</strong>中的东西。当我们通过 JS 操作 DOM 的时候，其实这个操作涉及到了<strong>两个线程之间的通信</strong>，那么势必会带来一些性能上的损耗。操作 DOM 次数一多，也就等同于<strong>一直在进行线程之间的通信</strong>，并且操作 DOM 可能还会带来重绘回流的情况，所以也就导致了性能上的问题。</p>
+<blockquote>
+<p>经典面试题：插入几万个 DOM，如何实现页面不卡顿？</p>
+</blockquote>
+<p>对于这道题目来说，首先我们肯定不能一次性把几万个 DOM 全部插入，这样肯定会造成卡顿，所以解决问题的重点应该是如何分批次部分渲染 DOM。大部分人应该可以想到通过 <code>requestAnimationFrame</code> 的方式去循环的插入 DOM，其实还有种方式去解决这个问题：<strong>虚拟滚动</strong>（virtualized scroller）。</p>
+<p><strong>这种技术的原理就是只渲染可视区域内的内容，非可见区域的那就完全不渲染了，当用户在滚动的时候就实时去替换渲染的内容。</strong></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/20190503201511297.gif#alt=" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>从上图中我们可以发现，即使列表很长，但是渲染的 DOM 元素永远只有那么几个，当我们滚动页面的时候就会实时去更新 DOM，这个技术就能顺利解决这道经典面试题。如果你想了解更多的内容可以了解下这个 <a href="https://github.com/bvaughn/react-virtualized" target="_blank" rel="noopener">react-virtualized</a>。</p>
+<h2 id="什么情况阻塞渲染"><a href="#什么情况阻塞渲染" class="headerlink" title="什么情况阻塞渲染"></a>什么情况阻塞渲染</h2><p>首先渲染的前提是生成渲染树，所以 HTML 和 CSS 肯定会阻塞渲染。如果你想渲染的越快，你越应该降低一开始需要渲染的文件<strong>大小</strong>，并且<strong>扁平层级，优化选择器</strong>。</p>
+<p>然后当浏览器在解析到 <code>script</code> 标签时，会暂停构建 DOM，完成后才会从暂停的地方重新开始。也就是说，如果你想首屏渲染的越快，就越不应该在首屏就加载 JS 文件，这也是都建议将 <code>script</code> 标签放在 <code>body</code> 标签底部的原因。</p>
+<p>当然在当下，并不是说 <code>script</code> 标签必须放在底部，因为你可以给 <code>script</code> 标签添加 <code>defer</code> 或者 <code>async</code> 属性。</p>
+<p>当 <code>script</code> 标签加上 <code>defer</code> 属性以后，表示该 JS 文件会并行下载，但是会放到 HTML 解析完成后顺序执行，所以对于这种情况你可以把 <code>script</code> 标签放在任意位置。</p>
+<p>对于没有任何依赖的 JS 文件可以加上 <code>async</code> 属性，表示 JS 文件下载和解析不会阻塞渲染。</p>
+<h2 id="重绘（Repaint）和回流（Reflow）"><a href="#重绘（Repaint）和回流（Reflow）" class="headerlink" title="重绘（Repaint）和回流（Reflow）"></a>重绘（Repaint）和回流（Reflow）</h2><p>重绘和回流会在我们设置节点样式时频繁出现，同时也会很大程度上影响性能。</p>
+<ul>
+<li>重绘是当节点需要更改外观而不会影响布局的，比如改变 <code>color</code> 就叫称为重绘</li>
+<li>回流是布局或者几何属性需要改变就称为回流。</li>
+</ul>
+<p>回流<strong>必定</strong>会发生重绘，重绘<strong>不一定</strong>会引发回流。回流所需的成本比重绘高的多，改变父节点里的子节点很可能会导致父节点的一系列回流。</p>
+<p>以下几个动作可能会导致性能问题：</p>
+<ul>
+<li>改变 <code>window</code> 大小</li>
+<li>改变字体</li>
+<li>添加或删除样式</li>
+<li>文字改变</li>
+<li>定位或者浮动</li>
+<li>盒模型</li>
+</ul>
+<p>并且很多人不知道的是，重绘和回流其实也和 Eventloop 有关。</p>
+<ol>
+<li>当 Eventloop 执行完 Microtasks 后，会判断 <code>document</code> 是否需要更新，因为浏览器是 60Hz 的刷新率，每 16.6ms 才会更新一次。</li>
+<li>然后判断是否有 <code>resize</code> 或者 <code>scroll</code> 事件，有的话会去触发事件，所以 <code>resize</code> 和 <code>scroll</code> 事件也是至少 16ms 才会触发一次，并且自带节流功能。</li>
+<li>判断是否触发了 media query</li>
+<li>更新动画并且发送事件</li>
+<li>判断是否有全屏操作事件</li>
+<li>执行 <code>requestAnimationFrame</code> 回调</li>
+<li>执行 <code>IntersectionObserver</code> 回调，该方法用于判断元素是否可见，可以用于懒加载上，但是兼容性不好</li>
+<li>更新界面</li>
+<li>以上就是一帧中可能会做的事情。如果在一帧中有空闲时间，就会去执行 <code>requestIdleCallback</code> 回调。</li>
+</ol>
+<p>以上内容来自于 <a href="https://html.spec.whatwg.org/multipage/webappapis.html#event-loop-processing-model" target="_blank" rel="noopener">HTML 文档</a>。</p>
+<p>既然我们已经知道了重绘和回流会影响性能，那么接下来我们将会来学习如何减少重绘和回流的次数。</p>
+<h3 id="减少重绘和回流"><a href="#减少重绘和回流" class="headerlink" title="减少重绘和回流"></a>减少重绘和回流</h3><ul>
+<li>使用 <code>transform</code> 替代 <code>top</code></li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"test"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">  .test &#123;</span></span><br><span class="line"><span class="undefined">    position: absolute;</span></span><br><span class="line"><span class="undefined">    top: 10px;</span></span><br><span class="line"><span class="undefined">    width: 100px;</span></span><br><span class="line"><span class="undefined">    height: 100px;</span></span><br><span class="line"><span class="undefined">    background: red;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="javascript">    <span class="comment">// 引起回流</span></span></span><br><span class="line"><span class="javascript">    <span class="built_in">document</span>.querySelector(<span class="string">".test"</span>).style.top = <span class="string">"100px"</span>;</span></span><br><span class="line"><span class="undefined">  &#125;, 1000);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>-</p>
+<p>使用 <code>visibility</code> 替换 <code>display: none</code> ，因为前者只会引起重绘，后者会引发回流（改变了布局）</p>
+<p>-</p>
+<p>不要把节点的属性值放在一个循环里当成循环里的变量</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">1000</span>; i++) &#123;</span><br><span class="line">  <span class="comment">// 获取 offsetTop 会导致回流，因为需要去获取正确的值</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">document</span>.querySelector(<span class="string">".test"</span>).style.offsetTop);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>-</p>
+<p>不要使用 <code>table</code> 布局，可能很小的一个小改动会造成整个 <code>table</code> 的重新布局</p>
+<p>-</p>
+<p>动画实现的速度的选择，动画速度越快，回流次数越多，也可以选择使用 <code>requestAnimationFrame</code></p>
+<p>-</p>
+<p>CSS 选择符<strong>从右往左</strong>匹配查找，避免节点层级过多</p>
+<p>-</p>
+<p>将频繁重绘或者回流的节点设置为图层，图层能够阻止该节点的渲染行为影响别的节点。比如对于 <code>video</code> 标签来说，浏览器会自动将该节点变为图层。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/20190503222853314.png#alt=" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>设置节点为图层的方式有很多，我们可以通过以下几个常用属性可以生成新图层</p>
+<ul>
+<li><code>will-change</code></li>
+<li><code>video</code>、<code>iframe</code> 标签</li>
+</ul>
+<h1 id="思考题"><a href="#思考题" class="headerlink" title="思考题"></a>思考题</h1><hr>
+<blockquote>
+<p>思考题：在不考虑缓存和优化网络协议的前提下，考虑可以通过哪些方式来最快的渲染页面，也就是常说的关键渲染路径，这部分也是性能优化中的一块内容。</p>
+</blockquote>
+<p>首先你可能会疑问，那怎么测量到底有没有加快渲染速度呢</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/20190503222835973.png#alt=" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>当发生 <code>DOMContentLoaded</code> 事件后，就会生成渲染树，生成渲染树就可以进行渲染了，这一过程更大程度上和硬件有关系了。</p>
+<p><strong>提示如何加速：</strong></p>
+<ol>
+<li>从文件大小考虑</li>
+<li>从 <code>script</code> 标签使用上来考虑</li>
+<li>从 CSS、HTML 的代码书写上来考虑</li>
+<li>从需要下载的内容是否需要在首屏使用上来考虑</li>
+</ol>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-05-03T16:19:10.020Z" itemprop="dateUpdated">2020-05-03 18:19:10</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="http://fengtx.tk">
+            <img src="/img/avatar.jpg" alt="冯天祥">
+            冯天祥
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://fengtx.tk/2020/04/05/yuque/【Browser】浏览器渲染原理/&title=《【Browser】浏览器渲染原理》 — 冯天祥&pic=http://fengtx.tk/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://fengtx.tk/2020/04/05/yuque/【Browser】浏览器渲染原理/&title=《【Browser】浏览器渲染原理》 — 冯天祥&source=前端小白冯天祥的技术博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://fengtx.tk/2020/04/05/yuque/【Browser】浏览器渲染原理/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【Browser】浏览器渲染原理》 — 冯天祥&url=http://fengtx.tk/2020/04/05/yuque/【Browser】浏览器渲染原理/&via=http://fengtx.tk" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://fengtx.tk/2020/04/05/yuque/【Browser】浏览器渲染原理/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/04/05/yuque/【CSS】盒模型/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">【CSS】盒模型</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/04/05/yuque/【Browser】浏览器基础知识/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">【Browser】浏览器基础知识</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢打赏
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>冯天祥 &copy; 2016 - 2020</span>
+            <!-- <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span> -->
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://fengtx.tk/2020/04/05/yuque/【Browser】浏览器渲染原理/&title=《【Browser】浏览器渲染原理》 — 冯天祥&pic=http://fengtx.tk/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://fengtx.tk/2020/04/05/yuque/【Browser】浏览器渲染原理/&title=《【Browser】浏览器渲染原理》 — 冯天祥&source=前端小白冯天祥的技术博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://fengtx.tk/2020/04/05/yuque/【Browser】浏览器渲染原理/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【Browser】浏览器渲染原理》 — 冯天祥&url=http://fengtx.tk/2020/04/05/yuque/【Browser】浏览器渲染原理/&via=http://fengtx.tk" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://fengtx.tk/2020/04/05/yuque/【Browser】浏览器渲染原理/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACtElEQVR42u3aUW4iMRAEUO5/aXIAElLVbWdZ6c1XBGTGz0i2qe7HI76eL9fru/l9knvmnzlw4eHh4a2H/nq7968kj39/t3xU+Zjx8PDwbvOSASVDn33m/bN+4kVPwcPDw/tgXn7szj//fmPAw8PD+794+aG2DS8SEh4eHt4n8DYL8ey4nExfG4Xg4eHh/Q1vVrj6t39fqe/h4eHhravqm3aBvEUg34rq0eLh4eFd4LXlq6Q0lReuNs0HxTjx8PDwrvGSpXwW0bbtXPk2EIXOeHh4eEd5mzC0DV7z/2o3pB9Hi4eHh3eBt4kS2kfmDQHDFoE86sXDw8O7wJttIS1g1qyQH+Xx8PDwbvCS5TWJD9rBtU/PQ5Nv6nt4eHh4F3iz0PZGMWyzDRQxLh4eHt6atz9A59Fq/npe6Brue3h4eHgLXr5YtyHsrHXgGV/Dngg8PDy8BW+zZO+P0W0BLD92DyNdPDw8vJLX1sqSJb6txc1aFur6Hh4eHt6CNyv274eSNyjkMccvvxjw8PDwjvL2kcFmG2inrBg5Hh4e3gVefqNZG0Ee7+ZbRRJV4OHh4d3jJcWqNqrIJ2IWB9dhBB4eHt5RXl6C+uXYWgays4i2nVY8PDy8G7zNj//k4NsGu/kdoonGw8PDu8Cb/fhvY4VnfLWbSnvsxsPDwzvFy0tWeTGsDV7r76H9xvDw8PCu8U6FBWfj2tnd8PDw8G7z8ge3DQf7YOKxufDw8PCO8p7lNYtuZ6Nqg+ZvJgUPDw/vAm+/xs4GlwxoFmQc3kLw8PDw1gX7JPbNWxDa14fNDXh4eHjXeO0Snyzfm3aE/XEcDw8P73N47cE3n6Z2yqKQAg8PD+8DeEnhahPUJm0ExXaCh4eHd43XHnzb+GBf5V8dqfHw8PCO8jbl/NlmMDtGHybh4eHhTXhfCIl9gtygnxQAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

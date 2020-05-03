@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    <meta name="referrer" content="no-referrer">
+    
+    
+    
+    
+    <title>【DataStruct】常见数据结构 | 冯天祥 | 前端小白的技术博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content>
+    <meta name="description" content="title: 【DataStruct】常见数据结构date: 2019年04月08日 00:27:43categories: DataStructtypora-root-url: ..typora-copy-images-to: ../images 时间复杂度 目的 我们通常使用最差的时间复杂度来衡量一个算法的好坏 如何达成 在计算时间复杂度的时候，数据量通常是非常大的，所以我们忽略低阶项和常数">
+<meta name="keywords" content="前端,技术,冯天祥,fengtx">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【DataStruct】常见数据结构">
+<meta property="og:url" content="http://fengtx.tk/2020/04/05/yuque/【DataStruct】常见数据结构/index.html">
+<meta property="og:site_name" content="冯天祥">
+<meta property="og:description" content="title: 【DataStruct】常见数据结构date: 2019年04月08日 00:27:43categories: DataStructtypora-root-url: ..typora-copy-images-to: ../images 时间复杂度 目的 我们通常使用最差的时间复杂度来衡量一个算法的好坏 如何达成 在计算时间复杂度的时候，数据量通常是非常大的，所以我们忽略低阶项和常数">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190401215924710.png#alt=">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190401215950128.png#alt=">
+<meta property="og:image" content="http://fengtx.tk/images/20190401220011546.png#alt=">
+<meta property="og:image" content="http://fengtx.tk/images/20190401220030554.png#alt=">
+<meta property="og:image" content="http://fengtx.tk/images/20190401220051859.png#alt=">
+<meta property="og:image" content="http://fengtx.tk/images/20190401220115209.png#alt=">
+<meta property="og:image" content="http://fengtx.tk/images/20190401220147215.png#alt=">
+<meta property="og:image" content="http://fengtx.tk/images/20190401220208504.png#alt=">
+<meta property="og:image" content="http://fengtx.tk/images/2019040122023092.png#alt=">
+<meta property="og:updated_time" content="2020-05-03T16:19:09.711Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【DataStruct】常见数据结构">
+<meta name="twitter:description" content="title: 【DataStruct】常见数据结构date: 2019年04月08日 00:27:43categories: DataStructtypora-root-url: ..typora-copy-images-to: ../images 时间复杂度 目的 我们通常使用最差的时间复杂度来衡量一个算法的好坏 如何达成 在计算时间复杂度的时候，数据量通常是非常大的，所以我们忽略低阶项和常数">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190401215924710.png#alt=">
+    
+        <link rel="alternate" type="application/atom+xml" title="冯天祥" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">冯天祥</h5>
+          <a href="mailto:im.txfeng@gmail.com" title="im.txfeng@gmail.com" class="mail">im.txfeng@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/kxbk100" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">【DataStruct】常见数据结构</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">【DataStruct】常见数据结构</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-04-05T00:53:16.000Z" itemprop="datePublished" class="page-time">
+  2020-04-05
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#title-【DataStruct】常见数据结构date-2019年04月08日-00-27-43"><span class="post-toc-number">1.</span> <span class="post-toc-text">title: 【DataStruct】常见数据结构date: 2019年04月08日 00:27:43</span></a></li></ol><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#时间复杂度"><span class="post-toc-number"></span> <span class="post-toc-text">时间复杂度</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#栈"><span class="post-toc-number"></span> <span class="post-toc-text">栈</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#队列"><span class="post-toc-number"></span> <span class="post-toc-text">队列</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#单链队列-O-n"><span class="post-toc-number">1.</span> <span class="post-toc-text">单链队列 O(n)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#循环队列-O-1"><span class="post-toc-number">2.</span> <span class="post-toc-text">循环队列 O(1)</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#链表"><span class="post-toc-number"></span> <span class="post-toc-text">链表</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#树"><span class="post-toc-number"></span> <span class="post-toc-text">树</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二叉树"><span class="post-toc-number">1.</span> <span class="post-toc-text">二叉树</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二分搜索树（BST）"><span class="post-toc-number">2.</span> <span class="post-toc-text">二分搜索树（BST）</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#AVL-树"><span class="post-toc-number"></span> <span class="post-toc-text">AVL 树</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Trie"><span class="post-toc-number"></span> <span class="post-toc-text">Trie</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#并查集"><span class="post-toc-number"></span> <span class="post-toc-text">并查集</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#堆"><span class="post-toc-number"></span> <span class="post-toc-text">堆</span></a>
+        </li></nav>
+    </aside>
+
+
+<article id="post-yuque/【DataStruct】常见数据结构" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">【DataStruct】常见数据结构</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-04-05 02:53:16" datetime="2020-04-05T00:53:16.000Z" itemprop="datePublished">2020-04-05</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <hr>
+<h2 id="title-【DataStruct】常见数据结构date-2019年04月08日-00-27-43"><a href="#title-【DataStruct】常见数据结构date-2019年04月08日-00-27-43" class="headerlink" title="title: 【DataStruct】常见数据结构date: 2019年04月08日 00:27:43"></a>title: 【DataStruct】常见数据结构date: 2019年04月08日 00:27:43</h2><p>categories: DataStruct<br>typora-root-url: ..<br>typora-copy-images-to: ../images</p>
+<h1 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h1><hr>
+<p><strong>目的</strong></p>
+<p>我们通常使用<strong>最差的时间复杂度</strong>来衡量一个算法的好坏</p>
+<p><strong>如何达成</strong></p>
+<p>在计算时间复杂度的时候，数据量通常是非常大的，所以我们忽略低阶项和常数项，计算出操作次数为 <code>aN + 1</code>，<code>N</code> 代表数据量。那么该算法的时间复杂度就是 <code>O(N)</code></p>
+<p><strong>条件</strong></p>
+<ul>
+<li>常数时间<code>O(1)</code>代表这个操作和数据量没关系，是一个固定时间的操作，比如说四则运算</li>
+<li>计算出操作次数为 <code>aN + 1</code>，<code>N</code> 代表数据量。那么该算法的时间复杂度就是 <code>O(N)</code></li>
+<li>当出现两个算法都是 <code>O(N)</code> 的时间复杂度，那么对比两个算法的好坏就要通过对比<strong>低阶项</strong>和<strong>常数项</strong>了</li>
+</ul>
+<h1 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h1><hr>
+<p><strong>是什么</strong></p>
+<p>栈是一个<strong>线性结构</strong>，在计算机中是一个相当常见的数据结构</p>
+<p><strong>分类边界</strong></p>
+<p>只能在某一端添加或删除数据，遵循<strong>先进后出</strong>的原则</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdnimg.cn/20190401215924710.png#alt=" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p><strong>如何达成</strong></p>
+<p>每种数据结构都可以用很多种方式来实现，其实可以把栈看成是数组的一个子集，所以这里使用数组来实现</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Stack</span> </span>&#123;</span><br><span class="line">  <span class="comment">// 构造器</span></span><br><span class="line">  <span class="keyword">constructor</span>() &#123;</span><br><span class="line">    <span class="keyword">this</span>.stack = [];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 入栈</span></span><br><span class="line">  push(item) &#123;</span><br><span class="line">    <span class="keyword">this</span>.stack.push(item);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 出栈</span></span><br><span class="line">  pop() &#123;</span><br><span class="line">    <span class="keyword">this</span>.stack.pop();</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 栈内元素个数</span></span><br><span class="line">  getCount() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.stack.length;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 判断栈是否为空</span></span><br><span class="line">  isEmpty() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.getCount() === <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 栈顶元素的值</span></span><br><span class="line">  peek() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.stack[<span class="keyword">this</span>.getCount() - <span class="number">1</span>];</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>条件</strong></p>
+<p>选取了 <a href="https://leetcode.com/problems/valid-parentheses/" target="_blank" rel="noopener">LeetCode 上序号为 20 的题目</a></p>
+<p>题意是<strong>匹配括号</strong>，可以通过栈的特性来完成这道题目</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> isValid = <span class="function"><span class="keyword">function</span> (<span class="params">s</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> map = &#123;</span><br><span class="line">    <span class="string">"("</span>: <span class="number">-1</span>,</span><br><span class="line">    <span class="string">")"</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="string">"["</span>: <span class="number">-2</span>,</span><br><span class="line">    <span class="string">"]"</span>: <span class="number">2</span>,</span><br><span class="line">    <span class="string">"&#123;"</span>: <span class="number">-3</span>,</span><br><span class="line">    <span class="string">"&#125;"</span>: <span class="number">3</span>,</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">let</span> stack = [];</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; s.length; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (map[s[i]] &lt; <span class="number">0</span>) &#123;</span><br><span class="line">      stack.push(s[i]);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">let</span> last = stack.pop();</span><br><span class="line">      <span class="comment">// 注意这里是[]</span></span><br><span class="line">      <span class="keyword">if</span> (map[last] + map[s[i]] != <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (stack.length &gt; <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>在 Vue 中关于模板解析的代码，就有应用到匹配尖括号的内容</p>
+<h1 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h1><hr>
+<p><strong>是什么</strong></p>
+<p>队列是一个线性结构</p>
+<p><strong>分类边界</strong></p>
+<p>在某一端添加数据，在另一端删除数据，遵循<strong>先进先出</strong>的原则</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdnimg.cn/20190401215950128.png#alt=" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p><strong>组合</strong></p>
+<h2 id="单链队列-O-n"><a href="#单链队列-O-n" class="headerlink" title="单链队列 O(n)"></a>单链队列 O(n)</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Queue</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>() &#123;</span><br><span class="line">    <span class="keyword">this</span>.queue = [];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 入队</span></span><br><span class="line">  enQueue(item) &#123;</span><br><span class="line">    <span class="keyword">this</span>.queue.push(item);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 出队</span></span><br><span class="line">  deQueue() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.queue.shift();</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 队首元素</span></span><br><span class="line">  getHeader() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.queue[<span class="number">0</span>];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 队中元素个数</span></span><br><span class="line">  getLength() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.queue.length;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 队列是否为空</span></span><br><span class="line">  isEmpty() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.getLength() === <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>因为单链队列在出队操作的时候需要 <code>O(n)</code> 的时间复杂度，所以引入了循环队列。循环队列的出队操作平均是 <code>O(1)</code> 的时间复杂度</p>
+<h2 id="循环队列-O-1"><a href="#循环队列-O-1" class="headerlink" title="循环队列 O(1)"></a>循环队列 O(1)</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SqQueue</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(length) &#123;</span><br><span class="line">    <span class="keyword">this</span>.queue = <span class="keyword">new</span> <span class="built_in">Array</span>(length + <span class="number">1</span>);</span><br><span class="line">    <span class="comment">// 队头</span></span><br><span class="line">    <span class="keyword">this</span>.first = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">// 队尾</span></span><br><span class="line">    <span class="keyword">this</span>.last = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">// 当前队列大小</span></span><br><span class="line">    <span class="keyword">this</span>.size = <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  enQueue(item) &#123;</span><br><span class="line">    <span class="comment">// 判断队尾 + 1 是否为队头</span></span><br><span class="line">    <span class="comment">// 如果是就代表需要扩容数组</span></span><br><span class="line">    <span class="comment">// % this.queue.length 是为了防止数组越界</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.first === (<span class="keyword">this</span>.last + <span class="number">1</span>) % <span class="keyword">this</span>.queue.length) &#123;</span><br><span class="line">      <span class="keyword">this</span>.resize(<span class="keyword">this</span>.getLength() * <span class="number">2</span> + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">this</span>.queue[<span class="keyword">this</span>.last] = item;</span><br><span class="line">    <span class="keyword">this</span>.size++;</span><br><span class="line">    <span class="keyword">this</span>.last = (<span class="keyword">this</span>.last + <span class="number">1</span>) % <span class="keyword">this</span>.queue.length;</span><br><span class="line">  &#125;</span><br><span class="line">  deQueue() &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.isEmpty()) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="built_in">Error</span>(<span class="string">"Queue is empty"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> r = <span class="keyword">this</span>.queue[<span class="keyword">this</span>.first];</span><br><span class="line">    <span class="keyword">this</span>.queue[<span class="keyword">this</span>.first] = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">this</span>.first = (<span class="keyword">this</span>.first + <span class="number">1</span>) % <span class="keyword">this</span>.queue.length;</span><br><span class="line">    <span class="keyword">this</span>.size--;</span><br><span class="line">    <span class="comment">// 判断当前队列大小是否过小</span></span><br><span class="line">    <span class="comment">// 为了保证不浪费空间，在队列空间等于总长度四分之一时</span></span><br><span class="line">    <span class="comment">// 且不为 2 时缩小总长度为当前的一半</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.size === <span class="keyword">this</span>.getLength() / <span class="number">4</span> &amp;&amp; <span class="keyword">this</span>.getLength() / <span class="number">2</span> !== <span class="number">0</span>) &#123;</span><br><span class="line">      <span class="keyword">this</span>.resize(<span class="keyword">this</span>.getLength() / <span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> r;</span><br><span class="line">  &#125;</span><br><span class="line">  getHeader() &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.isEmpty()) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="built_in">Error</span>(<span class="string">"Queue is empty"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.queue[<span class="keyword">this</span>.first];</span><br><span class="line">  &#125;</span><br><span class="line">  getLength() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.queue.length - <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  isEmpty() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.first === <span class="keyword">this</span>.last;</span><br><span class="line">  &#125;</span><br><span class="line">  resize(length) &#123;</span><br><span class="line">    <span class="keyword">let</span> q = <span class="keyword">new</span> <span class="built_in">Array</span>(length);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; length; i++) &#123;</span><br><span class="line">      q[i] = <span class="keyword">this</span>.queue[(i + <span class="keyword">this</span>.first) % <span class="keyword">this</span>.queue.length];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">this</span>.queue = q;</span><br><span class="line">    <span class="keyword">this</span>.first = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">this</span>.last = <span class="keyword">this</span>.size;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h1><hr>
+<p><strong>是什么</strong></p>
+<ul>
+<li>链表是一个线性结构，同时也是一个天然的递归结构</li>
+<li>链表结构可以充分利用计算机内存空间，实现灵活的内存动态管理</li>
+<li>但是链表失去了数组随机读取的优点，同时链表由于增加了结点的指针域，空间开销比较大</li>
+</ul>
+<p><strong>分类边界</strong></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/20190401220011546.png#alt=" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p><strong>组合</strong></p>
+<p><strong>单向链表</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义节点</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(v, next) &#123;</span><br><span class="line">    <span class="keyword">this</span>.value = v;</span><br><span class="line">    <span class="keyword">this</span>.next = next;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 链表</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LinkList</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>() &#123;</span><br><span class="line">    <span class="comment">// 链表长度</span></span><br><span class="line">    <span class="keyword">this</span>.size = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">// 虚拟头部</span></span><br><span class="line">    <span class="keyword">this</span>.dummyNode = <span class="keyword">new</span> Node(<span class="literal">null</span>, <span class="literal">null</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 查找</span></span><br><span class="line">  find(header, index, currentIndex) &#123;</span><br><span class="line">    <span class="keyword">if</span> (index === currentIndex) <span class="keyword">return</span> header;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.find(header.next, index, currentIndex + <span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// index：要查找元素的索引位置</span></span><br><span class="line">  find(header, index) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; header === <span class="literal">null</span>; i++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (i === index) &#123;</span><br><span class="line">        <span class="keyword">return</span> header;</span><br><span class="line">      &#125;</span><br><span class="line">      header = header.next;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 添加节点</span></span><br><span class="line">  addNode(v, index) &#123;</span><br><span class="line">    <span class="keyword">this</span>.checkIndex(index);</span><br><span class="line">    <span class="comment">// 当往链表末尾插入时，prev.next 为空</span></span><br><span class="line">    <span class="comment">// 其他情况时，因为要插入节点，所以插入的节点的 next 应该是 prev.next</span></span><br><span class="line">    <span class="comment">// 然后设置 prev.next 为插入的节点</span></span><br><span class="line">    <span class="keyword">let</span> prev = <span class="keyword">this</span>.find(<span class="keyword">this</span>.dummyNode, index);</span><br><span class="line">    prev.next = <span class="keyword">new</span> Node(v, prev.next);</span><br><span class="line">    <span class="keyword">this</span>.size++;</span><br><span class="line">    <span class="keyword">return</span> prev.next;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 插入节点</span></span><br><span class="line">  insertNode(v, index) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.addNode(v, index);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 添加到链表开头</span></span><br><span class="line">  addToFirst(v) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.addNode(v, <span class="number">0</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 添加到链表末尾</span></span><br><span class="line">  addToLast(v) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.addNode(v, <span class="keyword">this</span>.size);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 删除节点</span></span><br><span class="line">  removeNode(index, isLast) &#123;</span><br><span class="line">    <span class="keyword">this</span>.checkIndex(index);</span><br><span class="line">    index === isLast ? index - <span class="number">1</span> : index;</span><br><span class="line">    <span class="keyword">let</span> prev = <span class="keyword">this</span>.find(<span class="keyword">this</span>.dummyNode, index);</span><br><span class="line">    <span class="keyword">let</span> node = prev.next;</span><br><span class="line">    prev.next = node.next;</span><br><span class="line">    node.next = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">this</span>.size--;</span><br><span class="line">    <span class="keyword">return</span> node;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 删除第一个节点</span></span><br><span class="line">  removeFirstNode() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.removeNode(<span class="number">0</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 删除最后一个节点</span></span><br><span class="line">  removeLastNode() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.removeNode(<span class="keyword">this</span>.size, <span class="literal">true</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 检查节点</span></span><br><span class="line">  checkIndex(index) &#123;</span><br><span class="line">    <span class="keyword">if</span> (index &lt; <span class="number">0</span> || index &gt; <span class="keyword">this</span>.size) <span class="keyword">throw</span> <span class="built_in">Error</span>(<span class="string">"Index error"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 获取节点</span></span><br><span class="line">  getNode(index) &#123;</span><br><span class="line">    <span class="keyword">this</span>.checkIndex(index);</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.isEmpty()) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.find(<span class="keyword">this</span>.dummyNode, index).next;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 判断链表是否为空</span></span><br><span class="line">  isEmpty() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.size === <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 获取链表大小</span></span><br><span class="line">  getSize() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.size;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="树"><a href="#树" class="headerlink" title="树"></a>树</h1><hr>
+<h2 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h2><p><strong>是什么</strong></p>
+<p>树拥有很多种结构，二叉树是树中最常用的结构，同时也是一个天然的<strong>递归结构</strong></p>
+<p><strong>组合</strong></p>
+<p>二叉树拥有一个<strong>根节点</strong>，每个节点<strong>至多</strong>拥有两个子节点，分别为：左节点和右节点。树的<strong>最底部节点</strong>称之为<strong>叶节点</strong>，当一颗树的<strong>叶节点数量为满</strong>时，该树可以称之为<strong>满二叉树</strong></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/20190401220030554.png#alt=" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="二分搜索树（BST）"><a href="#二分搜索树（BST）" class="headerlink" title="二分搜索树（BST）"></a>二分搜索树（BST）</h2><p><strong>是什么</strong></p>
+<p>二分搜索树也是二叉树，拥有二叉树的特性</p>
+<p><strong>分类边界</strong></p>
+<p>二分搜索树每个节点的<strong>值都比他的左子树的值大，比右子树的值小</strong></p>
+<p><strong>目的</strong></p>
+<p>便于数据搜索。如下图所示，当需要查找 6 的时候，因为需要查找的值比根节点的值大，所以只需要在根节点的右子树上寻找，大大提高了搜索效率。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/20190401220051859.png#alt=" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p><strong>如何达成</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(value) &#123;</span><br><span class="line">    <span class="keyword">this</span>.value = value;</span><br><span class="line">    <span class="keyword">this</span>.left = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">this</span>.right = <span class="literal">null</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BST</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>() &#123;</span><br><span class="line">    <span class="keyword">this</span>.root = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">this</span>.size = <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  getSize() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.size;</span><br><span class="line">  &#125;</span><br><span class="line">  isEmpty() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.size === <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  addNode(v) &#123;</span><br><span class="line">    <span class="keyword">this</span>.root = <span class="keyword">this</span>._addChild(<span class="keyword">this</span>.root, v);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 添加节点时，需要比较添加的节点值和当前节点值的大小</span></span><br><span class="line">  _addChild(node, v) &#123;</span><br><span class="line">    <span class="keyword">if</span> (!node) &#123;</span><br><span class="line">      <span class="keyword">this</span>.size++;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">new</span> Node(v);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (node.value &gt; v) &#123;</span><br><span class="line">      node.left = <span class="keyword">this</span>._addChild(node.left, v);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (node.value &lt; v) &#123;</span><br><span class="line">      node.right = <span class="keyword">this</span>._addChild(node.right, v);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> node;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>组合</strong></p>
+<p>对于树的遍历（深度遍历）来说，有三种遍历方法，分别是</p>
+<ul>
+<li>先序遍历</li>
+<li>中序遍历</li>
+<li>后序遍历</li>
+</ul>
+<p>每次都单独抽离出一颗子树来考虑</p>
+<p>三种遍历的区别在于何时访问节点。在遍历树的过程中，<strong>每个节点都会遍历三次</strong>，分别是遍历到自己，遍历左子树和遍历右子树。如果需要实现先序遍历，那么只需要第一次遍历到节点时进行操作即可。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 先序遍历可用于打印树的结构</span></span><br><span class="line"><span class="comment">// 先序遍历先访问根节点，然后访问左节点，最后访问右节点</span></span><br><span class="line">preTraversal() &#123;</span><br><span class="line">  <span class="keyword">this</span>._pre(<span class="keyword">this</span>.root)</span><br><span class="line">&#125;</span><br><span class="line">_pre(node) &#123;</span><br><span class="line">  <span class="keyword">if</span> (node) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(node.value)</span><br><span class="line">    <span class="keyword">this</span>._pre(node.left)</span><br><span class="line">    <span class="keyword">this</span>._pre(node.right)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 中序遍历可用于排序</span></span><br><span class="line"><span class="comment">// 对于 BST 来说，中序遍历可以实现一次遍历就得到有序的值</span></span><br><span class="line"><span class="comment">// 中序遍历表示先访问左节点，然后访问根节点，最后访问右节点</span></span><br><span class="line">midTraversal() &#123;</span><br><span class="line">  <span class="keyword">this</span>._mid(<span class="keyword">this</span>.root)</span><br><span class="line">&#125;</span><br><span class="line">_mid(node) &#123;</span><br><span class="line">  <span class="keyword">if</span> (node) &#123;</span><br><span class="line">    <span class="keyword">this</span>._mid(node.left)</span><br><span class="line">    <span class="built_in">console</span>.log(node.value)</span><br><span class="line">    <span class="keyword">this</span>._mid(node.right)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 后序遍历可用于先操作子节点</span></span><br><span class="line"><span class="comment">// 再操作父节点的场景</span></span><br><span class="line"><span class="comment">// 后序遍历表示先访问左节点，然后访问右节点，最后访问根节点。</span></span><br><span class="line">backTraversal() &#123;</span><br><span class="line">  <span class="keyword">this</span>._back(<span class="keyword">this</span>.root)</span><br><span class="line">&#125;</span><br><span class="line">_back(node) &#123;</span><br><span class="line">  <span class="keyword">if</span> (node) &#123;</span><br><span class="line">    <span class="keyword">this</span>._back(node.left)</span><br><span class="line">    <span class="keyword">this</span>._back(node.right)</span><br><span class="line">    <span class="built_in">console</span>.log(node.value)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以上的这几种遍历都可以称之为<strong>深度遍历</strong>，对应的还有种遍历叫做<strong>广度遍历</strong>，也就是<strong>一层层地遍历树</strong>。对于广度遍历来说，我们需要利用之前讲过的<strong>队列结构</strong>来完成。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">breadthTraversal() &#123;</span><br><span class="line">  <span class="keyword">if</span> (!<span class="keyword">this</span>.root) <span class="keyword">return</span> <span class="literal">null</span></span><br><span class="line">  <span class="keyword">let</span> q = <span class="keyword">new</span> Queue()</span><br><span class="line">  <span class="comment">// 将根节点入队</span></span><br><span class="line">  q.enQueue(<span class="keyword">this</span>.root)</span><br><span class="line">  <span class="comment">// 循环判断队列是否为空，为空代表树遍历完毕</span></span><br><span class="line">  <span class="keyword">while</span> (!q.isEmpty()) &#123;</span><br><span class="line">    <span class="comment">// 将队首出队，判断是否有左右子树</span></span><br><span class="line">    <span class="comment">// 有的话，就先左后右入队</span></span><br><span class="line">    <span class="keyword">let</span> n = q.deQueue()</span><br><span class="line">    <span class="built_in">console</span>.log(n.value)</span><br><span class="line">    <span class="keyword">if</span> (n.left) q.enQueue(n.left)</span><br><span class="line">    <span class="keyword">if</span> (n.right) q.enQueue(n.right)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>接下来先介绍如何在树中寻找<strong>最小值或最大数</strong>。因为二分搜索树的特性，所以最小值一定在根节点的最左边，最大值相反</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">getMin() &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>._getMin(<span class="keyword">this</span>.root).value</span><br><span class="line">&#125;</span><br><span class="line">_getMin(node) &#123;</span><br><span class="line">  <span class="keyword">if</span> (!node.left) <span class="keyword">return</span> node</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>._getMin(node.left)</span><br><span class="line">&#125;</span><br><span class="line">getMax() &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>._getMax(<span class="keyword">this</span>.root).value</span><br><span class="line">&#125;</span><br><span class="line">_getMax(node) &#123;</span><br><span class="line">  <span class="keyword">if</span> (!node.right) <span class="keyword">return</span> node</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>._getMin(node.right)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>向上取整和向下取整</strong>，这两个操作是相反的，所以代码也是类似的，这里只介绍如何向下取整。既然是向下取整，那么根据二分搜索树的特性，值一定在根节点的左侧。只需要一直遍历左子树直到当前节点的值不再大于等于需要的值，然后判断节点是否还拥有右子树。如果有的话，继续上面的递归判断</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">floor(v) &#123;</span><br><span class="line">  <span class="keyword">let</span> node = <span class="keyword">this</span>._floor(<span class="keyword">this</span>.root, v)</span><br><span class="line">  <span class="keyword">return</span> node ? node.value : <span class="literal">null</span></span><br><span class="line">&#125;</span><br><span class="line">_floor(node, v) &#123;</span><br><span class="line">  <span class="keyword">if</span> (!node) <span class="keyword">return</span> <span class="literal">null</span></span><br><span class="line">  <span class="keyword">if</span> (node.value === v) <span class="keyword">return</span> v</span><br><span class="line">  <span class="comment">// 如果当前节点值还比需要的值大，就继续递归</span></span><br><span class="line">  <span class="keyword">if</span> (node.value &gt; v) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>._floor(node.left, v)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 判断当前节点是否拥有右子树</span></span><br><span class="line">  <span class="keyword">let</span> right = <span class="keyword">this</span>._floor(node.right, v)</span><br><span class="line">  <span class="keyword">if</span> (right) <span class="keyword">return</span> right</span><br><span class="line">  <span class="keyword">return</span> node</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>排名</strong>，这是用于获取给定值的排名或者排名第几的节点的值，这两个操作也是相反的，所以这个只介绍如何获取排名第几的节点的值。对于这个操作而言，我们需要略微的改造点代码，让每个节点拥有一个 <code>size</code> 属性。该属性表示该节点下有多少子节点（包含自身）。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(value) &#123;</span><br><span class="line">    <span class="keyword">this</span>.value = value</span><br><span class="line">    <span class="keyword">this</span>.left = <span class="literal">null</span></span><br><span class="line">    <span class="keyword">this</span>.right = <span class="literal">null</span></span><br><span class="line">    <span class="comment">// 修改代码</span></span><br><span class="line">    <span class="keyword">this</span>.size = <span class="number">1</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 新增代码</span></span><br><span class="line">_getSize(node) &#123;</span><br><span class="line">  <span class="keyword">return</span> node ? node.size : <span class="number">0</span></span><br><span class="line">&#125;</span><br><span class="line">_addChild(node, v) &#123;</span><br><span class="line">  <span class="keyword">if</span> (!node) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Node(v)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (node.value &gt; v) &#123;</span><br><span class="line">    <span class="comment">// 修改代码</span></span><br><span class="line">    node.size++</span><br><span class="line">    node.left = <span class="keyword">this</span>._addChild(node.left, v)</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (node.value &lt; v) &#123;</span><br><span class="line">    <span class="comment">// 修改代码</span></span><br><span class="line">    node.size++</span><br><span class="line">    node.right = <span class="keyword">this</span>._addChild(node.right, v)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> node</span><br><span class="line">&#125;</span><br><span class="line">select(k) &#123;</span><br><span class="line">  <span class="keyword">let</span> node = <span class="keyword">this</span>._select(<span class="keyword">this</span>.root, k)</span><br><span class="line">  <span class="keyword">return</span> node ? node.value : <span class="literal">null</span></span><br><span class="line">&#125;</span><br><span class="line">_select(node, k) &#123;</span><br><span class="line">  <span class="keyword">if</span> (!node) <span class="keyword">return</span> <span class="literal">null</span></span><br><span class="line">  <span class="comment">// 先获取左子树下有几个节点</span></span><br><span class="line">  <span class="keyword">let</span> size = node.left ? node.left.size : <span class="number">0</span></span><br><span class="line">  <span class="comment">// 判断 size 是否大于 k</span></span><br><span class="line">  <span class="comment">// 如果大于 k，代表所需要的节点在左节点</span></span><br><span class="line">  <span class="keyword">if</span> (size &gt; k) <span class="keyword">return</span> <span class="keyword">this</span>._select(node.left, k)</span><br><span class="line">  <span class="comment">// 如果小于 k，代表所需要的节点在右节点</span></span><br><span class="line">  <span class="comment">// 注意这里需要重新计算 k，减去根节点除了右子树的节点数量</span></span><br><span class="line">  <span class="keyword">if</span> (size &lt; k) <span class="keyword">return</span> <span class="keyword">this</span>._select(node.right, k - size - <span class="number">1</span>)</span><br><span class="line">  <span class="keyword">return</span> node</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>接下来讲解的是二分搜索树中最难实现的部分：删除节点。因为对于删除节点来说，会存在以下几种情况</p>
+<ul>
+<li>需要删除的节点没有子树 删除</li>
+<li>需要删除的节点只有一条子树 接上</li>
+<li>需要删除的节点有左右两条树   取出右子树中最小的那个节点来替换父节点</li>
+</ul>
+<p>对于前两种情况很好解决，但是第三种情况就有难度了，所以先来实现相对简单的操作：删除最小节点，对于删除最小节点来说，是不存在第三种情况的，删除最大节点操作是和删除最小节点相反的，所以这里也就不再赘述。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">delectMin() &#123;</span><br><span class="line">  <span class="keyword">this</span>.root = <span class="keyword">this</span>._delectMin(<span class="keyword">this</span>.root)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.root)</span><br><span class="line">&#125;</span><br><span class="line">_delectMin(node) &#123;</span><br><span class="line">  <span class="comment">// 一直递归左子树</span></span><br><span class="line">  <span class="comment">// 如果左子树为空，就判断节点是否拥有右子树</span></span><br><span class="line">  <span class="comment">// 有右子树的话就把需要删除的节点替换为右子树</span></span><br><span class="line">  <span class="keyword">if</span> ((node != <span class="literal">null</span>) &amp; !node.left) <span class="keyword">return</span> node.right</span><br><span class="line">  node.left = <span class="keyword">this</span>._delectMin(node.left)</span><br><span class="line">  <span class="comment">// 最后需要重新维护下节点的 `size`</span></span><br><span class="line">  node.size = <span class="keyword">this</span>._getSize(node.left) + <span class="keyword">this</span>._getSize(node.right) + <span class="number">1</span></span><br><span class="line">  <span class="keyword">return</span> node</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>最后讲解的就是如何删除<strong>任意节点</strong>了。对于这个操作，T.Hibbard 在 1962 年提出了解决这个难题的办法，也就是如何解决第三种情况。</p>
+<p>当遇到这种情况时，需要取出当前节点的后继节点（也就是当前节点右子树的最小节点）来替换需要删除的节点。然后将需要删除节点的左子树赋值给后继结点，右子树删除后继结点后赋值给他。</p>
+<p>你如果对于这个解决办法有疑问的话，可以这样考虑。因为二分搜索树的特性，父节点一定比所有左子节点大，比所有右子节点小。那么当需要删除父节点时，势必需要拿出一个比父节点大的节点来替换父节点。这个节点肯定不存在于左子树，必然存在于右子树。然后又需要保持父节点都是比右子节点小的，那么就可以<strong>取出右子树中最小的那个节点来替换父节点</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">delect(v) &#123;</span><br><span class="line">  <span class="keyword">this</span>.root = <span class="keyword">this</span>._delect(<span class="keyword">this</span>.root, v)</span><br><span class="line">&#125;</span><br><span class="line">_delect(node, v) &#123;</span><br><span class="line">  <span class="keyword">if</span> (!node) <span class="keyword">return</span> <span class="literal">null</span></span><br><span class="line">  <span class="comment">// 寻找的节点比当前节点小，去左子树找</span></span><br><span class="line">  <span class="keyword">if</span> (node.value &lt; v) &#123;</span><br><span class="line">    node.right = <span class="keyword">this</span>._delect(node.right, v)</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (node.value &gt; v) &#123;</span><br><span class="line">    <span class="comment">// 寻找的节点比当前节点大，去右子树找</span></span><br><span class="line">    node.left = <span class="keyword">this</span>._delect(node.left, v)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// 进入这个条件说明已经找到节点</span></span><br><span class="line">    <span class="comment">// 先判断节点是否拥有拥有左右子树中的一个</span></span><br><span class="line">    <span class="comment">// 是的话，将子树返回出去，这里和 `_delectMin` 的操作一样</span></span><br><span class="line">    <span class="keyword">if</span> (!node.left) <span class="keyword">return</span> node.right</span><br><span class="line">    <span class="keyword">if</span> (!node.right) <span class="keyword">return</span> node.left</span><br><span class="line">    <span class="comment">// 进入这里，代表节点拥有左右子树</span></span><br><span class="line">    <span class="comment">// 先取出当前节点的后继结点，也就是取当前节点右子树的最小值</span></span><br><span class="line">    <span class="keyword">let</span> min = <span class="keyword">this</span>._getMin(node.right)</span><br><span class="line">    <span class="comment">// 取出最小值后，删除最小值</span></span><br><span class="line">    <span class="comment">// 然后把删除节点后的子树赋值给最小值节点</span></span><br><span class="line">    min.right = <span class="keyword">this</span>._delectMin(node.right)</span><br><span class="line">    <span class="comment">// 左子树不动</span></span><br><span class="line">    min.left = node.left</span><br><span class="line">    node = min</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 维护 size</span></span><br><span class="line">  node.size = <span class="keyword">this</span>._getSize(node.left) + <span class="keyword">this</span>._getSize(node.right) + <span class="number">1</span></span><br><span class="line">  <span class="keyword">return</span> node</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="AVL-树"><a href="#AVL-树" class="headerlink" title="AVL 树"></a>AVL 树</h1><hr>
+<p><strong>是什么</strong></p>
+<p>AVL 树改进了二分搜索树，在 AVL 树中任意节点的左右子树的<strong>高度差都 ≤ 1</strong>（高度从下往上数层数，包括根节点），这样保证了时间复杂度是严格的 <code>O(logN)</code>。基于此，对 AVL 树增加或删除节点时可能需要旋转树来达到高度的平衡</p>
+<p><strong>目的</strong></p>
+<p>二分搜索树实际在业务中是受到限制的，因为并不是严格的 <code>O(logN)</code>，在极端情况下会退化成链表，比如加入一组升序的数字就会造成这种情况</p>
+<p><strong>组合</strong></p>
+<p>对于 AVL 树来说，添加节点会有四种情况</p>
+<ul>
+<li>右旋即为顺时针</li>
+<li>左旋即为逆时针</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/20190401220115209.png#alt=" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li>对于左左情况（左边多出来加左侧）来说</li>
+</ul>
+<p>新增加的节点位于节点 2 的左侧，这时树已经不平衡，需要旋转。因为搜索树的特性，节点比左节点大，比右节点小，所以旋转以后也要实现这个特性。</p>
+<p>旋转之前：new &lt; 2 &lt; C &lt; 3 &lt; B &lt; 5 &lt; A，右旋之后节点 3 为根节点，这时候需要将节点 3 的右节点加到节点 5 的左边，最后还需要更新节点的高度。</p>
+<p>-</p>
+<p>对于右右情况（右边多出来加右侧）来说，相反于左左情况，所以不再赘述。</p>
+<p>-</p>
+<p>对于左右情况（左边多出来加右侧）来说，新增加的节点位于节点 4 的右侧</p>
+<p>对于这种情况，需要通过两次旋转来达到目的。</p>
+<p>首先对节点的左节点左旋，这时树满足左左的情况，再对节点进行一次右旋就可以达到目的。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(value) &#123;</span><br><span class="line">    <span class="keyword">this</span>.value = value;</span><br><span class="line">    <span class="keyword">this</span>.left = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">this</span>.right = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">this</span>.height = <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AVL</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>() &#123;</span><br><span class="line">    <span class="keyword">this</span>.root = <span class="literal">null</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  addNode(v) &#123;</span><br><span class="line">    <span class="keyword">this</span>.root = <span class="keyword">this</span>._addChild(<span class="keyword">this</span>.root, v);</span><br><span class="line">  &#125;</span><br><span class="line">  _addChild(node, v) &#123;</span><br><span class="line">    <span class="keyword">if</span> (!node) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">new</span> Node(v);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (node.value &gt; v) &#123;</span><br><span class="line">      node.left = <span class="keyword">this</span>._addChild(node.left, v);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (node.value &lt; v) &#123;</span><br><span class="line">      node.right = <span class="keyword">this</span>._addChild(node.right, v);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      node.value = v;</span><br><span class="line">    &#125;</span><br><span class="line">    node.height =</span><br><span class="line">      <span class="number">1</span> + <span class="built_in">Math</span>.max(<span class="keyword">this</span>._getHeight(node.left), <span class="keyword">this</span>._getHeight(node.right));</span><br><span class="line">    <span class="keyword">let</span> factor = <span class="keyword">this</span>._getBalanceFactor(node);</span><br><span class="line">    <span class="comment">// 当需要右旋时，根节点的左树一定比右树高度高</span></span><br><span class="line">    <span class="keyword">if</span> (factor &gt; <span class="number">1</span> &amp;&amp; <span class="keyword">this</span>._getBalanceFactor(node.left) &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">this</span>._rightRotate(node);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 当需要左旋时，根节点的左树一定比右树高度矮</span></span><br><span class="line">    <span class="keyword">if</span> (factor &lt; <span class="number">-1</span> &amp;&amp; <span class="keyword">this</span>._getBalanceFactor(node.right) &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">this</span>._leftRotate(node);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 左右情况</span></span><br><span class="line">    <span class="comment">// 节点的左树比右树高，且节点的左树的右树比节点的左树的左树高</span></span><br><span class="line">    <span class="keyword">if</span> (factor &gt; <span class="number">1</span> &amp;&amp; <span class="keyword">this</span>._getBalanceFactor(node.left) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">      node.left = <span class="keyword">this</span>._leftRotate(node.left);</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">this</span>._rightRotate(node);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 右左情况</span></span><br><span class="line">    <span class="comment">// 节点的左树比右树矮，且节点的右树的右树比节点的右树的左树矮</span></span><br><span class="line">    <span class="keyword">if</span> (factor &lt; <span class="number">-1</span> &amp;&amp; <span class="keyword">this</span>._getBalanceFactor(node.right) &gt; <span class="number">0</span>) &#123;</span><br><span class="line">      node.right = <span class="keyword">this</span>._rightRotate(node.right);</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">this</span>._leftRotate(node);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> node;</span><br><span class="line">  &#125;</span><br><span class="line">  _getHeight(node) &#123;</span><br><span class="line">    <span class="keyword">if</span> (!node) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> node.height;</span><br><span class="line">  &#125;</span><br><span class="line">  _getBalanceFactor(node) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>._getHeight(node.left) - <span class="keyword">this</span>._getHeight(node.right);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 节点右旋</span></span><br><span class="line">  <span class="comment">//           5                    2</span></span><br><span class="line">  <span class="comment">//         /   \                /   \</span></span><br><span class="line">  <span class="comment">//        2     6   ==&gt;       1      5</span></span><br><span class="line">  <span class="comment">//       /  \               /       /  \</span></span><br><span class="line">  <span class="comment">//      1    3             new     3    6</span></span><br><span class="line">  <span class="comment">//     /</span></span><br><span class="line">  <span class="comment">//    new</span></span><br><span class="line">  _rightRotate(node) &#123;</span><br><span class="line">    <span class="comment">// 旋转后新根节点</span></span><br><span class="line">    <span class="keyword">let</span> newRoot = node.left;</span><br><span class="line">    <span class="comment">// 需要移动的节点</span></span><br><span class="line">    <span class="keyword">let</span> moveNode = newRoot.right;</span><br><span class="line">    <span class="comment">// 节点 2 的右节点改为节点 5</span></span><br><span class="line">    newRoot.right = node;</span><br><span class="line">    <span class="comment">// 节点 5 左节点改为节点 3</span></span><br><span class="line">    node.left = moveNode;</span><br><span class="line">    <span class="comment">// 更新树的高度</span></span><br><span class="line">    node.height =</span><br><span class="line">      <span class="number">1</span> + <span class="built_in">Math</span>.max(<span class="keyword">this</span>._getHeight(node.left), <span class="keyword">this</span>._getHeight(node.right));</span><br><span class="line">    newRoot.height =</span><br><span class="line">      <span class="number">1</span> +</span><br><span class="line">      <span class="built_in">Math</span>.max(<span class="keyword">this</span>._getHeight(newRoot.left), <span class="keyword">this</span>._getHeight(newRoot.right));</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> newRoot;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 节点左旋</span></span><br><span class="line">  <span class="comment">//           4                    6</span></span><br><span class="line">  <span class="comment">//         /   \                /   \</span></span><br><span class="line">  <span class="comment">//        2     6   ==&gt;       4      7</span></span><br><span class="line">  <span class="comment">//             /  \         /   \      \</span></span><br><span class="line">  <span class="comment">//            5     7      2     5      new</span></span><br><span class="line">  <span class="comment">//                   \</span></span><br><span class="line">  <span class="comment">//                    new</span></span><br><span class="line">  _leftRotate(node) &#123;</span><br><span class="line">    <span class="comment">// 旋转后新根节点</span></span><br><span class="line">    <span class="keyword">let</span> newRoot = node.right;</span><br><span class="line">    <span class="comment">// 需要移动的节点</span></span><br><span class="line">    <span class="keyword">let</span> moveNode = newRoot.left;</span><br><span class="line">    <span class="comment">// 节点 6 的左节点改为节点 4</span></span><br><span class="line">    newRoot.left = node;</span><br><span class="line">    <span class="comment">// 节点 4 右节点改为节点 5</span></span><br><span class="line">    node.right = moveNode;</span><br><span class="line">    <span class="comment">// 更新树的高度</span></span><br><span class="line">    node.height =</span><br><span class="line">      <span class="number">1</span> + <span class="built_in">Math</span>.max(<span class="keyword">this</span>._getHeight(node.left), <span class="keyword">this</span>._getHeight(node.right));</span><br><span class="line">    newRoot.height =</span><br><span class="line">      <span class="number">1</span> +</span><br><span class="line">      <span class="built_in">Math</span>.max(<span class="keyword">this</span>._getHeight(newRoot.left), <span class="keyword">this</span>._getHeight(newRoot.right));</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> newRoot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="Trie"><a href="#Trie" class="headerlink" title="Trie"></a>Trie</h1><hr>
+<p><strong>是什么</strong></p>
+<p>在计算机科学，<strong>trie</strong>，又称<strong>前缀树</strong>或<strong>字典树</strong>，是一种有序树，用于保存关联数组，其中的键通常是字符串</p>
+<p><strong>分类边界</strong></p>
+<ul>
+<li>根节点代表空字符串，每个节点都有 N（假如搜索英文字符，就有 26 条）条链接，每条链接代表一个字符</li>
+<li>节点不存储字符，只有<strong>路径才存储</strong>，这点和其他的树结构不同</li>
+<li>从根节点开始到任意一个节点，<strong>将沿途经过的字符连接起来就是该节点对应的字符串</strong></li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/20190401220147215.png#alt=" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p><strong>目的</strong></p>
+<p>为了方便<strong>搜索字符串</strong></p>
+<p><strong>如何达成</strong></p>
+<p>总得来说 Trie 的实现相比别的树结构来说简单的很多，实现就以搜索英文字符为例。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TrieNode</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>() &#123;</span><br><span class="line">    <span class="comment">// 代表每个字符经过节点的次数</span></span><br><span class="line">    <span class="keyword">this</span>.path = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">// 代表到该节点的字符串有几个</span></span><br><span class="line">    <span class="keyword">this</span>.end = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">// 链接</span></span><br><span class="line">    <span class="keyword">this</span>.next = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">26</span>).fill(<span class="literal">null</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Trie</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>() &#123;</span><br><span class="line">    <span class="comment">// 根节点，代表空字符</span></span><br><span class="line">    <span class="keyword">this</span>.root = <span class="keyword">new</span> TrieNode();</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 插入字符串</span></span><br><span class="line">  insert(str) &#123;</span><br><span class="line">    <span class="keyword">if</span> (!str) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">let</span> node = <span class="keyword">this</span>.root;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; str.length; i++) &#123;</span><br><span class="line">      <span class="comment">// 获得字符先对应的索引</span></span><br><span class="line">      <span class="keyword">let</span> index = str[i].charCodeAt() - <span class="string">"a"</span>.charCodeAt();</span><br><span class="line">      <span class="comment">// 如果索引对应没有值，就创建</span></span><br><span class="line">      <span class="keyword">if</span> (!node.next[index]) &#123;</span><br><span class="line">        node.next[index] = <span class="keyword">new</span> TrieNode();</span><br><span class="line">      &#125;</span><br><span class="line">      node.path += <span class="number">1</span>;</span><br><span class="line">      node = node.next[index];</span><br><span class="line">    &#125;</span><br><span class="line">    node.end += <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 搜索字符串出现的次数</span></span><br><span class="line">  search(str) &#123;</span><br><span class="line">    <span class="keyword">if</span> (!str) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">let</span> node = <span class="keyword">this</span>.root;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; str.length; i++) &#123;</span><br><span class="line">      <span class="keyword">let</span> index = str[i].charCodeAt() - <span class="string">"a"</span>.charCodeAt();</span><br><span class="line">      <span class="comment">// 如果索引对应没有值，代表没有需要搜素的字符串</span></span><br><span class="line">      <span class="keyword">if</span> (!node.next[index]) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      node = node.next[index];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> node.end;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 删除字符串</span></span><br><span class="line">  <span class="keyword">delete</span>(str) &#123;</span><br><span class="line">    <span class="keyword">if</span> (!<span class="keyword">this</span>.search(str)) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">let</span> node = <span class="keyword">this</span>.root;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; str.length; i++) &#123;</span><br><span class="line">      <span class="keyword">let</span> index = str[i].charCodeAt() - <span class="string">"a"</span>.charCodeAt();</span><br><span class="line">      <span class="comment">// 如果索引对应的节点的 Path 为 0，代表经过该节点的字符串</span></span><br><span class="line">      <span class="comment">// 已经一个，直接删除即可</span></span><br><span class="line">      <span class="keyword">if</span> (--node.next[index].path == <span class="number">0</span>) &#123;</span><br><span class="line">        node.next[index] = <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      node = node.next[index];</span><br><span class="line">    &#125;</span><br><span class="line">    node.end -= <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="并查集"><a href="#并查集" class="headerlink" title="并查集"></a>并查集</h1><hr>
+<p><strong>是什么</strong></p>
+<p>并查集是一种特殊的树结构</p>
+<p><strong>分类边界</strong></p>
+<p>该结构中每个节点都有一个父节点，如果只有当前一个节点，那么该节点的父节点指向自己</p>
+<p>这个结构中有两个重要的操作，分别是：</p>
+<ul>
+<li>Find：确定元素属于哪一个子集。它可以被用来确定两个元素是否属于同一子集。</li>
+<li>Union：将两个子集合并成同一个集合。</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/20190401220208504.png#alt=" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p><strong>目的</strong></p>
+<p>用于处理一些不交集的合并及查询问题</p>
+<p><strong>如何达成</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DisjointSet</span> </span>&#123;</span><br><span class="line">  <span class="comment">// 初始化样本</span></span><br><span class="line">  <span class="keyword">constructor</span>(count) &#123;</span><br><span class="line">    <span class="comment">// 初始化时，每个节点的父节点都是自己</span></span><br><span class="line">    <span class="keyword">this</span>.parent = <span class="keyword">new</span> <span class="built_in">Array</span>(count);</span><br><span class="line">    <span class="comment">// 用于记录树的深度，优化搜索复杂度</span></span><br><span class="line">    <span class="keyword">this</span>.rank = <span class="keyword">new</span> <span class="built_in">Array</span>(count);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; count; i++) &#123;</span><br><span class="line">      <span class="keyword">this</span>.parent[i] = i;</span><br><span class="line">      <span class="keyword">this</span>.rank[i] = <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  find(p) &#123;</span><br><span class="line">    <span class="comment">// 寻找当前节点的父节点是否为自己，不是的话表示还没找到</span></span><br><span class="line">    <span class="comment">// 开始进行路径压缩优化</span></span><br><span class="line">    <span class="comment">// 假设当前节点父节点为 A</span></span><br><span class="line">    <span class="comment">// 将当前节点挂载到 A 节点的父节点上，达到压缩深度的目的</span></span><br><span class="line">    <span class="keyword">while</span> (p != <span class="keyword">this</span>.parent[p]) &#123;</span><br><span class="line">      <span class="keyword">this</span>.parent[p] = <span class="keyword">this</span>.parent[<span class="keyword">this</span>.parent[p]];</span><br><span class="line">      p = <span class="keyword">this</span>.parent[p];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> p;</span><br><span class="line">  &#125;</span><br><span class="line">  isConnected(p, q) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.find(p) === <span class="keyword">this</span>.find(q);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 合并</span></span><br><span class="line">  union(p, q) &#123;</span><br><span class="line">    <span class="comment">// 找到两个数字的父节点</span></span><br><span class="line">    <span class="keyword">let</span> i = <span class="keyword">this</span>.find(p);</span><br><span class="line">    <span class="keyword">let</span> j = <span class="keyword">this</span>.find(q);</span><br><span class="line">    <span class="keyword">if</span> (i === j) <span class="keyword">return</span>;</span><br><span class="line">    <span class="comment">// 判断两棵树的深度，深度小的加到深度大的树下面</span></span><br><span class="line">    <span class="comment">// 如果两棵树深度相等，那就无所谓怎么加</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.rank[i] &lt; <span class="keyword">this</span>.rank[j]) &#123;</span><br><span class="line">      <span class="keyword">this</span>.parent[i] = j;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">this</span>.rank[i] &gt; <span class="keyword">this</span>.rank[j]) &#123;</span><br><span class="line">      <span class="keyword">this</span>.parent[j] = i;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">this</span>.parent[i] = j;</span><br><span class="line">      <span class="keyword">this</span>.rank[j] += <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h1><hr>
+<p><strong>是什么</strong></p>
+<p>堆通常是一个可以被看做一棵树的数组对象</p>
+<p><strong>分类边界</strong></p>
+<p>堆的实现通过构造<strong>二叉堆</strong>，实为二叉树的一种。这种数据结构具有以下性质</p>
+<ul>
+<li>任意节点小于（或大于）它的所有子节点</li>
+<li>堆总是一棵完全树。即除了最底层，其他层的节点都被元素填满，且最底层从左到右填入</li>
+</ul>
+<p>将根节点最大的堆叫做<strong>最大堆</strong>或<strong>大根堆</strong>，根节点最小的堆叫做<strong>最小堆</strong>或<strong>小根堆</strong></p>
+<p>优先队列也完全可以用堆来实现，操作是一模一样的。</p>
+<p><strong>组合</strong></p>
+<p>实现大根堆</p>
+<p>堆的每个节点的左边子节点索引是 <code>i * 2 + 1</code>，右边是 <code>i * 2 + 2</code>，父节点是 <code>(i - 1) /2</code>。</p>
+<p>堆有两个核心的操作，分别是 <code>shiftUp</code> 和 <code>shiftDown</code> 。前者用于添加元素，后者用于删除根节点。</p>
+<p><code>shiftUp</code> 的核心思路是一路将节点与父节点对比大小，如果比父节点大，就和父节点交换位置。</p>
+<p><code>shiftDown</code> 的核心思路是先将根节点和末尾交换位置，然后移除末尾元素。接下来循环判断父节点和两个子节点的大小，如果子节点大，就把最大的子节点和父节点交换。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/2019040122023092.png#alt=" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MaxHeap</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>() &#123;</span><br><span class="line">    <span class="keyword">this</span>.heap = [];</span><br><span class="line">  &#125;</span><br><span class="line">  size() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.heap.length;</span><br><span class="line">  &#125;</span><br><span class="line">  empty() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.size() == <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  add(item) &#123;</span><br><span class="line">    <span class="keyword">this</span>.heap.push(item);</span><br><span class="line">    <span class="keyword">this</span>._shiftUp(<span class="keyword">this</span>.size() - <span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  removeMax() &#123;</span><br><span class="line">    <span class="keyword">this</span>._shiftDown(<span class="number">0</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  getParentIndex(k) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">parseInt</span>((k - <span class="number">1</span>) / <span class="number">2</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  getLeftIndex(k) &#123;</span><br><span class="line">    <span class="keyword">return</span> k * <span class="number">2</span> + <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  _shiftUp(k) &#123;</span><br><span class="line">    <span class="comment">// 如果当前节点比父节点大，就交换</span></span><br><span class="line">    <span class="keyword">while</span> (<span class="keyword">this</span>.heap[k] &gt; <span class="keyword">this</span>.heap[<span class="keyword">this</span>.getParentIndex(k)]) &#123;</span><br><span class="line">      <span class="keyword">this</span>._swap(k, <span class="keyword">this</span>.getParentIndex(k));</span><br><span class="line">      <span class="comment">// 将索引变成父节点</span></span><br><span class="line">      k = <span class="keyword">this</span>.getParentIndex(k);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  _shiftDown(k) &#123;</span><br><span class="line">    <span class="comment">// 交换首位并删除末尾</span></span><br><span class="line">    <span class="keyword">this</span>._swap(k, <span class="keyword">this</span>.size() - <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">this</span>.heap.splice(<span class="keyword">this</span>.size() - <span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line">    <span class="comment">// 判断节点是否有左孩子，因为二叉堆的特性，有右必有左</span></span><br><span class="line">    <span class="keyword">while</span> (<span class="keyword">this</span>.getLeftIndex(k) &lt; <span class="keyword">this</span>.size()) &#123;</span><br><span class="line">      <span class="keyword">let</span> j = <span class="keyword">this</span>.getLeftIndex(k);</span><br><span class="line">      <span class="comment">// 判断是否有右孩子，并且右孩子是否大于左孩子</span></span><br><span class="line">      <span class="keyword">if</span> (j + <span class="number">1</span> &lt; <span class="keyword">this</span>.size() &amp;&amp; <span class="keyword">this</span>.heap[j + <span class="number">1</span>] &gt; <span class="keyword">this</span>.heap[j]) j++;</span><br><span class="line">      <span class="comment">// 判断父节点是否已经比子节点都大</span></span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">this</span>.heap[k] &gt;= <span class="keyword">this</span>.heap[j]) <span class="keyword">break</span>;</span><br><span class="line">      <span class="keyword">this</span>._swap(k, j);</span><br><span class="line">      k = j;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  _swap(left, right) &#123;</span><br><span class="line">    <span class="keyword">let</span> rightValue = <span class="keyword">this</span>.heap[right];</span><br><span class="line">    <span class="keyword">this</span>.heap[right] = <span class="keyword">this</span>.heap[left];</span><br><span class="line">    <span class="keyword">this</span>.heap[left] = rightValue;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-05-03T16:19:09.711Z" itemprop="dateUpdated">2020-05-03 18:19:09</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="http://fengtx.tk">
+            <img src="/img/avatar.jpg" alt="冯天祥">
+            冯天祥
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://fengtx.tk/2020/04/05/yuque/【DataStruct】常见数据结构/&title=《【DataStruct】常见数据结构》 — 冯天祥&pic=http://fengtx.tk/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://fengtx.tk/2020/04/05/yuque/【DataStruct】常见数据结构/&title=《【DataStruct】常见数据结构》 — 冯天祥&source=前端小白冯天祥的技术博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://fengtx.tk/2020/04/05/yuque/【DataStruct】常见数据结构/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【DataStruct】常见数据结构》 — 冯天祥&url=http://fengtx.tk/2020/04/05/yuque/【DataStruct】常见数据结构/&via=http://fengtx.tk" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://fengtx.tk/2020/04/05/yuque/【DataStruct】常见数据结构/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/04/05/yuque/【Framework】React VS Vue/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">【Framework】React VS Vue</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/04/05/yuque/【CSS】Bootstrap学习小记/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">【CSS】Bootstrap学习小记</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢打赏
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>冯天祥 &copy; 2016 - 2020</span>
+            <!-- <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span> -->
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://fengtx.tk/2020/04/05/yuque/【DataStruct】常见数据结构/&title=《【DataStruct】常见数据结构》 — 冯天祥&pic=http://fengtx.tk/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://fengtx.tk/2020/04/05/yuque/【DataStruct】常见数据结构/&title=《【DataStruct】常见数据结构》 — 冯天祥&source=前端小白冯天祥的技术博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://fengtx.tk/2020/04/05/yuque/【DataStruct】常见数据结构/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【DataStruct】常见数据结构》 — 冯天祥&url=http://fengtx.tk/2020/04/05/yuque/【DataStruct】常见数据结构/&via=http://fengtx.tk" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://fengtx.tk/2020/04/05/yuque/【DataStruct】常见数据结构/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACtElEQVR42u3bS27bQBAFQN3/0s7WQTLW688INFBcCZZEsmbBHr1uv17x8fXt+P6Xf1+fPn/61umT+WcWDjw8PLzBrZ9OV/1LDpss6M/3jIeHh3ebd7pA8jonVctP9Wx4eHh4T+bl5WSymU6KBB4eHt5v4W0VjDyAwMPDw3saL3/Eb5WHahm4nrXg4eHhxby8i/Sc11f6e3h4eHjjrnrSDKuGFEmBmZSiv86Dh4eHd4E3b03lyDwOTopT4T7x8PDwVnnVx3G1HZWD87GDwv3g4eHhXebltzjfQPeaYXmrLHsbDw8P72v4H0Z5TJC0snqhw27JwcPDw7vB610mj3TzAKIHG3Xt8PDw8Fq8XhSbxxb54s5jiOPS4OHh4a3yeg/iQgQQPJ+3fhkcsxY8PDy8Vd48SE0e5dVikAcTC0NXeHh4eKu8fMipGgdXN8rVQa5Xb0Xx8PDwinvX3rjVZBudh7yTCAMPDw9vl9drQRXmEQYb64QXTUPg4eHhrfJ6j/L86H13ssl+c0U8PDy8VV41Nu01+3tlaeGKeHh4eBd4yeXzU+eb48nQQG8QAQ8PD2/Ca+67i8HBZGmSd98k03h4eHirvK0f/5PRqGpwnEcYeHh4ePd41RA2LyfVUDjfoDdJeHh4eEu8/Mu9ea5eacmHsd4sNB4eHt5HeHlJ2IqAq+NchZKDh4eH9xFelVqNbntLU10CPDw8vE/yTifNR6CqsUKhoTXJVPDw8PDGvF6Lq8q4sfTR0uDh4eFd4PWesT+faL4Fz7f7r60DDw8Pr8jbGoea4yeF53i3eHh4eNd483i3OqR1YyP+nzPg4eHhPYxXbXdVi01eYI4LhIeHh/cAXjUayJF526w5OoCHh4e3yuttfOcjVtVoo9z6wsPDw7vA6/3IT040H9XKrzgKMvDw8PDSO/wDU8TFOhM3reYAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

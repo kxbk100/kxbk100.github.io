@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    <meta name="referrer" content="no-referrer">
+    
+    
+    
+    
+    <title>【技术之瞳】Web前端开发学习小记及部分答案解析 | 冯天祥 | 前端小白的技术博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content>
+    <meta name="description" content="title: 【技术之瞳】Web 前端开发学习小记及部分答案解析 date: 2019 年 04 月 08 日 00:27:43categories: Careertypora-root-url: ..typora-copy-images-to: ../images 基础技术  HTTP HTML CSS JavaScript  编程能力  数据结构和算法 正则表达式  扩展技术  Node.j">
+<meta name="keywords" content="前端,技术,冯天祥,fengtx">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【技术之瞳】Web前端开发学习小记及部分答案解析">
+<meta property="og:url" content="http://fengtx.tk/2020/04/05/yuque/【技术之瞳】Web前端开发学习小记及部分答案解析/index.html">
+<meta property="og:site_name" content="冯天祥">
+<meta property="og:description" content="title: 【技术之瞳】Web 前端开发学习小记及部分答案解析 date: 2019 年 04 月 08 日 00:27:43categories: Careertypora-root-url: ..typora-copy-images-to: ../images 基础技术  HTTP HTML CSS JavaScript  编程能力  数据结构和算法 正则表达式  扩展技术  Node.j">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://fengtx.tk/images/20190404013737885.png#alt=">
+<meta property="og:image" content="http://fengtx.tk/images/20190404013749598.png#alt=">
+<meta property="og:image" content="http://fengtx.tk/images/20190404013800508.png#alt=">
+<meta property="og:updated_time" content="2020-05-03T16:19:10.845Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【技术之瞳】Web前端开发学习小记及部分答案解析">
+<meta name="twitter:description" content="title: 【技术之瞳】Web 前端开发学习小记及部分答案解析 date: 2019 年 04 月 08 日 00:27:43categories: Careertypora-root-url: ..typora-copy-images-to: ../images 基础技术  HTTP HTML CSS JavaScript  编程能力  数据结构和算法 正则表达式  扩展技术  Node.j">
+<meta name="twitter:image" content="http://fengtx.tk/images/20190404013737885.png#alt=">
+    
+        <link rel="alternate" type="application/atom+xml" title="冯天祥" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">冯天祥</h5>
+          <a href="mailto:im.txfeng@gmail.com" title="im.txfeng@gmail.com" class="mail">im.txfeng@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/kxbk100" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">【技术之瞳】Web前端开发学习小记及部分答案解析</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">【技术之瞳】Web前端开发学习小记及部分答案解析</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-04-05T00:51:51.000Z" itemprop="datePublished" class="page-time">
+  2020-04-05
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#title-【技术之瞳】Web-前端开发学习小记及部分答案解析-date-2019-年-04-月-08-日-00-27-43"><span class="post-toc-number">1.</span> <span class="post-toc-text">title: 【技术之瞳】Web 前端开发学习小记及部分答案解析 date: 2019 年 04 月 08 日 00:27:43</span></a></li></ol><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#HTTP-协议"><span class="post-toc-number"></span> <span class="post-toc-text">HTTP 协议</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#HTML"><span class="post-toc-number"></span> <span class="post-toc-text">HTML</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#CSS"><span class="post-toc-number"></span> <span class="post-toc-text">CSS</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#JavaScript"><span class="post-toc-number"></span> <span class="post-toc-text">JavaScript</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#数据结构与算法"><span class="post-toc-number"></span> <span class="post-toc-text">数据结构与算法</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#正则"><span class="post-toc-number"></span> <span class="post-toc-text">正则</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Node-js"><span class="post-toc-number"></span> <span class="post-toc-text">Node.js</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#前端框架"><span class="post-toc-number"></span> <span class="post-toc-text">前端框架</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#前端工程化"><span class="post-toc-number"></span> <span class="post-toc-text">前端工程化</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#数据可视化"><span class="post-toc-number"></span> <span class="post-toc-text">数据可视化</span></a>
+        </li></nav>
+    </aside>
+
+
+<article id="post-yuque/【技术之瞳】Web前端开发学习小记及部分答案解析" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">【技术之瞳】Web前端开发学习小记及部分答案解析</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-04-05 02:51:51" datetime="2020-04-05T00:51:51.000Z" itemprop="datePublished">2020-04-05</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <hr>
+<h2 id="title-【技术之瞳】Web-前端开发学习小记及部分答案解析-date-2019-年-04-月-08-日-00-27-43"><a href="#title-【技术之瞳】Web-前端开发学习小记及部分答案解析-date-2019-年-04-月-08-日-00-27-43" class="headerlink" title="title: 【技术之瞳】Web 前端开发学习小记及部分答案解析 date: 2019 年 04 月 08 日 00:27:43"></a>title: 【技术之瞳】Web 前端开发学习小记及部分答案解析 date: 2019 年 04 月 08 日 00:27:43</h2><p>categories: Career<br>typora-root-url: ..<br>typora-copy-images-to: ../images</p>
+<p>基础技术</p>
+<ul>
+<li>HTTP</li>
+<li>HTML</li>
+<li>CSS</li>
+<li>JavaScript</li>
+</ul>
+<p>编程能力</p>
+<ul>
+<li>数据结构和算法</li>
+<li>正则表达式</li>
+</ul>
+<p>扩展技术</p>
+<ul>
+<li>Node.js</li>
+<li>前端框架</li>
+<li>前端工程</li>
+<li>数据可视化</li>
+</ul>
+<h1 id="HTTP-协议"><a href="#HTTP-协议" class="headerlink" title="HTTP 协议"></a>HTTP 协议</h1><blockquote>
+<ol>
+<li>与浏览器缓存相关的字段名 P113 习题 4.2</li>
+</ol>
+</blockquote>
+<p>Expires</p>
+<ul>
+<li>当客户端第一次访问一个文件资源的时候，服务端在返回资源内容的同时也返回了：</li>
+</ul>
+<p><code>Expires: Mon, 1 Aug 2016 22:43:02 GMT</code></p>
+<ul>
+<li>也就是服务端告诉浏览器，先把这个文件缓存起来，在这个过期时间之前，该文件都不会变化了</li>
+<li>下一次浏览器又要访问这个资源，并且访问的时间在<code>Mon, 1 Aug 2016 22:43:02 GMT</code>之前，那浏览器就不去服务器那边获取文件了，而是直接从缓存中取文件</li>
+</ul>
+<p>Cache-Control</p>
+<ul>
+<li>由于 Expires 给定的是绝对时间，而客户端的系统时间可以由用户任意修改，比如 Expires 设定的过期时间是<code>Mon, 1 Aug 2016 22:43:02 GMT</code>，现在用户把系统时间改为<code>Tue, 2 Aug 2016 22:43:02 GMT</code>，则缓存会被判为过期（虽然实际上还没到那个时间）</li>
+<li>因此在 HTTP1.1 中引入了 Cache-Control，这就是一个相对时间，比如<code>Cache-Control: max-age=80</code>，那就是说这份缓存的有效期是 80 秒，而没有给定过期的绝对时间</li>
+<li>由于 Cache-Control 是 HTTP1.1 中才有的，因此可能会有 Expires 和 Cache-Control 同时出现的情况，这时以 Cache-Control 为准</li>
+</ul>
+<p>Last-Modified / If-Modified-Since</p>
+<ul>
+<li>现在有另外一个问题，<strong>服务端有个文件可能会更新</strong>，因此希望客户端时不时过来问一下这个文件是否过期</li>
+<li>如果没有过期，服务端不返回数据给浏览器，只返回<strong>304</strong>状态码，告诉浏览器目前的缓存还没有过期，然后浏览器继续使用已有缓存</li>
+<li>这个就叫做条件请求。这里就要用到以下两个头部信息</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Last-Modified (response header)</span><br><span class="line">If-Modified-Since (request header)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>浏览器第一次请求资源的时候，服务端返回资源内容，同时也返回了<code>Last-Modified: Mon, 01 Aug 2016 13:48:44 GMT</code>，也就是服务端在告诉客户端这个文件在服务器上的最后修改时间</li>
+<li>浏览器第二次访问的时候（假设这里没有设置 Expires 或者 Cache-Control）。那么浏览器在访问资源的时候会在请求头上带上<code>If-Modified-Since: Mon, 01 Aug 2016 13:48:44 GMT</code></li>
+<li>服务端收到后对比目前文件的最后修改时间和该请求头的信息，如果没有修改，那就直接返回 304 给浏览器，而不返回实际资源。如果有变化了，就返回 200，并且带上新的资源内容</li>
+</ul>
+<p>Etag / If-None-Match</p>
+<ul>
+<li>条件请求还有另外一种方法——打标签，也就是使用 Etag</li>
+<li>第一次拿到资源的时候，服务器的响应头中包含了 Etag，用来作为时间标签</li>
+<li>下一次浏览器再次请求资源的时候会把原来的 Etag 标签带上（在请求头中变成了 If-None-Match）作为校验标准</li>
+<li>若这个文件如果发生了改变，则 Etag 也会改变</li>
+<li>服务器对比浏览器请求头中的的 If-None-Match</li>
+<li>如果相同就返回 304，而不返回实际资源</li>
+<li>如果不同，就返回 200 和新的资源</li>
+<li>由于 Etag 需要通过服务器计算得出，每次都进行计算需要额外的开销，有时候这也是一种负担</li>
+</ul>
+<blockquote>
+<ol start="2">
+<li>HTTP 协议与 HTTPS 协议，分析两者的相同点与不同点 P114 习题 4.4</li>
+</ol>
+</blockquote>
+<ul>
+<li>https 协议需要到 ca 申请证书，一般免费证书较少，因而需要一定费用</li>
+<li>http 是超文本传输协议，信息是明文传输，https 则是具有安全性的 ssl 加密传输协议</li>
+<li>http 和 https 使用的是完全不同的连接方式，用的端口也不一样，前者是 80，后者是 443</li>
+<li>http 的连接很简单，是无状态的；HTTPS 协议是由 SSL+HTTP 协议构建的可进行加密传输、身份认证的网络协议，比 http 协议安全</li>
+</ul>
+<h1 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h1><blockquote>
+<ol>
+<li>HTML5 新特性 P117 习题 4.8</li>
+</ol>
+</blockquote>
+<p><a href="https://www.cnblogs.com/greatluoluo/p/5714221.html" target="_blank" rel="noopener">https://www.cnblogs.com/greatluoluo/p/5714221.html</a></p>
+<h1 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h1><blockquote>
+<ol>
+<li>请用 CSS 实现：在所有新窗口打开的链接右侧添加一个示意图标 P123 习题 4.11</li>
+</ol>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">a</span><span class="selector-attr">[target="_blank"]</span> &#123;</span><br><span class="line">  <span class="attribute">padding-right</span>: <span class="number">20px</span>;</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">url</span>(123png) no-repeat left top;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/index.html"</span>&gt;</span>Homepage<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://www.alibaba.com"</span> <span class="attr">target</span>=<span class="string">"_blank"</span>&gt;</span>Alibaba.com<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://www.taobao.com"</span> <span class="attr">target</span>=<span class="string">"_blank"</span>&gt;</span>Taobao.com<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<ol start="2">
+<li>CSS 中用<code>display: none</code>可以隐藏页面元素，请另外说出 5 种或以上隐藏一个页面元素的方法 P123 习题 4.14</li>
+</ol>
+</blockquote>
+<p><a href="https://www.zcfy.cc/article/457" target="_blank" rel="noopener">https://www.zcfy.cc/article/457</a></p>
+<ul>
+<li>将 opacity 设为 0</li>
+<li>将 visibility 设为 hidden</li>
+<li>将 display 设为 none</li>
+<li>将 position 设为 absolute，然后将位置设到不可见区域</li>
+<li>使用 clip-path 属性裁剪</li>
+</ul>
+<blockquote>
+<ol start="3">
+<li>请阐述 CSS 实现三角形的原理 P123 习题 4.15</li>
+</ol>
+</blockquote>
+<p><a href="http://alvinwp.com/html-css/462" target="_blank" rel="noopener">http://alvinwp.com/html-css/462</a></p>
+<p><a href="http://www.tashan10.com/zhong-yu-gao-dong-liao-cssshi-xian-san-jiao-xing-tu-biao-de-yuan-li/" target="_blank" rel="noopener">http://www.tashan10.com/zhong-yu-gao-dong-liao-cssshi-xian-san-jiao-xing-tu-biao-de-yuan-li/</a></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.div3</span> &#123;</span><br><span class="line">  <span class="attribute">margin-top</span>: <span class="number">20px</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">border-top</span>: <span class="number">40px</span> solid transparent;</span><br><span class="line">  <span class="attribute">border-left</span>: <span class="number">40px</span> solid <span class="number">#ff0000</span>;</span><br><span class="line">  <span class="attribute">border-bottom</span>: <span class="number">40px</span> solid transparent;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/20190404013737885.png#alt=" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/20190404013749598.png#alt=" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/20190404013800508.png#alt=" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>border-top + border-bottom = 三角形的底</p>
+<p>border-left = 三角形的高</p>
+<h1 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h1><blockquote>
+<ol>
+<li>请填入内容，使得数组从小到大排序。 P130 习题 4.17</li>
+</ol>
+</blockquote>
+<blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">var</span> arr = [<span class="number">6</span>, <span class="number">2</span>, <span class="number">10</span>, <span class="number">5</span>, <span class="number">9</span>, <span class="number">5</span>];</span><br><span class="line">&gt; arr.sort(_______);</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- 数组调用sort方法后，会影响本身（而非生成新数组）</span><br><span class="line">- `sort()`方法默认是按字符来排序的，所以在对数字型数组排序时，不可想当然的以为会按数字大小排序</span><br><span class="line">- 要改变默认的sort行为（即按字符排序），可以自行指定排序规则函数</span><br><span class="line"></span><br><span class="line">```javascript</span><br><span class="line">var arr = [6, 2, 10, 5, 9, 5];</span><br><span class="line">arr.sort(); // 调用sort方法后，数组本身会被改变，即影响原数组</span><br><span class="line">console.log(arr); // 10, 2, 5, 5, 6, 9 默认情况下sort方法是按ASCII字母顺序排序的，而非我们认为是按数字大小排序</span><br><span class="line">arr.sort(function (a, b) &#123; return a &gt; b ? 1 : -1 &#125;); // 从小到大排序</span><br><span class="line">console.log(arr); // 2, 5, 5, 6, 9, 10</span><br><span class="line">arr.sort(function (a, b) &#123; return a &lt; b ? 1 : -1 &#125;);//从大到小排序</span><br><span class="line">console.log(arr); // 10, 9, 6, 5, 5, 2</span><br></pre></td></tr></table></figure>
+<blockquote>
+<ol start="2">
+<li>删除给定数组中的第 2 项和第 3 项，并且在得到的新数组中的第 2 项后面添加一个新的值。</li>
+</ol>
+</blockquote>
+<blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">var</span> arr1 = [<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>, <span class="string">"d"</span>, <span class="string">"e"</span>];</span><br><span class="line">&gt; <span class="keyword">var</span> arr2 = arr1.___(___, ___, <span class="string">"newvalue"</span>);</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">```javascript</span><br><span class="line">var arr1 = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;,&apos;e&apos;];</span><br><span class="line">var arr2 = arr1.splice (1, 2, &apos;newvalue&apos;);</span><br><span class="line">// arr2 = [b, c] 删除的元素</span><br><span class="line">// arr1 = [a, newvalue, d, e]</span><br></pre></td></tr></table></figure>
+<blockquote>
+<ol start="3">
+<li>对比 jsonp 和 document.domain+ iframe 做跨域的异同，分别指出其优缺点。</li>
+</ol>
+</blockquote>
+<p><a href="https://blog.csdn.net/kxbk100/article/details/88356854" target="_blank" rel="noopener">见博文</a></p>
+<h1 id="数据结构与算法"><a href="#数据结构与算法" class="headerlink" title="数据结构与算法"></a>数据结构与算法</h1><h1 id="正则"><a href="#正则" class="headerlink" title="正则"></a>正则</h1><h1 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h1><h1 id="前端框架"><a href="#前端框架" class="headerlink" title="前端框架"></a>前端框架</h1><h1 id="前端工程化"><a href="#前端工程化" class="headerlink" title="前端工程化"></a>前端工程化</h1><h1 id="数据可视化"><a href="#数据可视化" class="headerlink" title="数据可视化"></a>数据可视化</h1>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-05-03T16:19:10.845Z" itemprop="dateUpdated">2020-05-03 18:19:10</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="http://fengtx.tk">
+            <img src="/img/avatar.jpg" alt="冯天祥">
+            冯天祥
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://fengtx.tk/2020/04/05/yuque/【技术之瞳】Web前端开发学习小记及部分答案解析/&title=《【技术之瞳】Web前端开发学习小记及部分答案解析》 — 冯天祥&pic=http://fengtx.tk/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://fengtx.tk/2020/04/05/yuque/【技术之瞳】Web前端开发学习小记及部分答案解析/&title=《【技术之瞳】Web前端开发学习小记及部分答案解析》 — 冯天祥&source=前端小白冯天祥的技术博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://fengtx.tk/2020/04/05/yuque/【技术之瞳】Web前端开发学习小记及部分答案解析/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【技术之瞳】Web前端开发学习小记及部分答案解析》 — 冯天祥&url=http://fengtx.tk/2020/04/05/yuque/【技术之瞳】Web前端开发学习小记及部分答案解析/&via=http://fengtx.tk" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://fengtx.tk/2020/04/05/yuque/【技术之瞳】Web前端开发学习小记及部分答案解析/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/04/05/yuque/【面经】2019腾讯前端实习生一面/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">【面经】2019腾讯前端实习生一面</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/04/05/yuque/【技术之瞳】部分错误答案/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">【技术之瞳】部分错误答案</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢打赏
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>冯天祥 &copy; 2016 - 2020</span>
+            <!-- <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span> -->
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://fengtx.tk/2020/04/05/yuque/【技术之瞳】Web前端开发学习小记及部分答案解析/&title=《【技术之瞳】Web前端开发学习小记及部分答案解析》 — 冯天祥&pic=http://fengtx.tk/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://fengtx.tk/2020/04/05/yuque/【技术之瞳】Web前端开发学习小记及部分答案解析/&title=《【技术之瞳】Web前端开发学习小记及部分答案解析》 — 冯天祥&source=前端小白冯天祥的技术博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://fengtx.tk/2020/04/05/yuque/【技术之瞳】Web前端开发学习小记及部分答案解析/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【技术之瞳】Web前端开发学习小记及部分答案解析》 — 冯天祥&url=http://fengtx.tk/2020/04/05/yuque/【技术之瞳】Web前端开发学习小记及部分答案解析/&via=http://fengtx.tk" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://fengtx.tk/2020/04/05/yuque/【技术之瞳】Web前端开发学习小记及部分答案解析/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADJUlEQVR42u3aS1LDQAwFQO5/6VDFFnCepAkVi/YqBY49LRZCn4+P+Hp8Xd8/f7+nemf1adc/OXxhY2Nj34T9uLyu2ckhkmPlwcpD8yS42NjY2OvYyVGSxJNgrgGn3vLEiI2Njf0v2deFRJ7YkoPmqQsbGxsbu5rAqkmo+oS8F/SneRsbGxv77dmTQ0++FR2x1dg61kvDxsbGfnv2ZND7bp//aL6NjY2N/TbsR/GaLNNUx7T5Uk5ZgY2Njb2IXW3uVJvy1YZRNTn1wo2NjY29mz1vAyVBvE5LSbuqOkL44STY2NjYi9i9o1Rfk98zHzmU0xg2Njb2zdnXj05en7d+emPafGWncCc2Njb2InY1nSQlR+9zb0SRFz/NOTY2Njb227PzYUBvaaYaymhMOx8VY2NjYy9lT0qLvH0/GTDnf5JyrsbGxsa+IbuXAOZFQnV20Vv3+fU82NjY2IvY+QuqhcF87SYfKucNJmxsbOx97F6bZlLS5Ks/vUZSFBRsbGzsRey8xZOPeK+POCkeeomzPO7FxsbGvhU7TzO9+iYvbObjhMJnbGxs7EXsanPn1QVGNVHlgW5e2NjY2LdlV9tDZ4e41bDOUyM2Njb2fdl5ITFpx+fpqtdOygcbP0xFsLGxsVewe/iz6zVJUVFdGHqSwLCxsbFXs3sVzCTl5E2iedLFxsbG3sSeDE3nY9ToWEe/hY2Njb2PnTR05ks2199KfnsqNNjY2Nj72JNWUZ4hT5UZk3UibGxs7K3svJ2Uj1En6zW9xFkulrCxsbFXs/MxcMLrFSGT0EcWbGxs7EXs3j/9edMnP1byhDxAUQrExsbGXsGeLF/mK5X5W/J7eimz/DJsbGzsm7Dnv83bSXnzKG8klc+PjY2NvY6dX/MxbW8YkLS3CuUKNjY29iJ2fuXNo+qKT29IPAk3NjY29j52krSS5JEfKA/T2WZToSDBxsbGviF7krTmyN5YYpQUsbGxsf8lO1/ied3g9jqgebixsbGxsSeJ6sDaTRCaJ8/BxsbGXseuJoNTg9X5QLeaMrGxsbH3sauHe0UKnLeWemtG2NjY2DdnfwJv/IGlkrry0AAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
