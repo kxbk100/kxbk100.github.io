@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    <meta name="referrer" content="no-referrer">
+    
+    
+    
+    
+    <title>一图看懂React diff | 冯天祥 | 前端小白的技术博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content>
+    <meta name="description" content="React 中最值得称道的部分莫过于 Virtual DOM 与 diff 的完美结合，特别是其高效的 diff 算法，让用户可以无需顾忌性能问题而”任性自由”的刷新页面，让开发者也可以">
+<meta name="keywords" content="前端,技术,冯天祥,fengtx">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一图看懂React diff">
+<meta property="og:url" content="http://fengtx.tk/2020/04/05/yuque/一图看懂React diff/index.html">
+<meta property="og:site_name" content="冯天祥">
+<meta property="og:description" content="React 中最值得称道的部分莫过于 Virtual DOM 与 diff 的完美结合，特别是其高效的 diff 算法，让用户可以无需顾忌性能问题而”任性自由”的刷新页面，让开发者也可以">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200404222655631.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2t4YmsxMDA=,size_16,color_FFFFFF,t_70#align=left&display=inline&height=1048&margin=%5Bobject%20Object%5D&originHeight=1048&originWidth=2632&status=done&style=none&width=2632">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200404213819884.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2t4YmsxMDA=,size_16,color_FFFFFF,t_70#align=left&display=inline&height=300&margin=%5Bobject%20Object%5D&originHeight=300&originWidth=582&status=done&style=none&width=582">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200404214110484.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2t4YmsxMDA=,size_16,color_FFFFFF,t_70#align=left&display=inline&height=221&margin=%5Bobject%20Object%5D&originHeight=221&originWidth=542&status=done&style=none&width=542">
+<meta property="og:updated_time" content="2020-05-03T15:25:21.290Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="一图看懂React diff">
+<meta name="twitter:description" content="React 中最值得称道的部分莫过于 Virtual DOM 与 diff 的完美结合，特别是其高效的 diff 算法，让用户可以无需顾忌性能问题而”任性自由”的刷新页面，让开发者也可以">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200404222655631.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2t4YmsxMDA=,size_16,color_FFFFFF,t_70#align=left&display=inline&height=1048&margin=%5Bobject%20Object%5D&originHeight=1048&originWidth=2632&status=done&style=none&width=2632">
+    
+        <link rel="alternate" type="application/atom+xml" title="冯天祥" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">冯天祥</h5>
+          <a href="mailto:im.txfeng@gmail.com" title="im.txfeng@gmail.com" class="mail">im.txfeng@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/kxbk100" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">一图看懂React diff</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">一图看懂React diff</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-04-05T00:56:41.000Z" itemprop="datePublished" class="page-time">
+  2020-04-05
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1-diff-策略"><span class="post-toc-number">1.</span> <span class="post-toc-text">1 diff 策略</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2-tree-diff"><span class="post-toc-number">2.</span> <span class="post-toc-text">2 tree diff</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#3-component-diff"><span class="post-toc-number">3.</span> <span class="post-toc-text">3 component diff</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#4-element-diff"><span class="post-toc-number">4.</span> <span class="post-toc-text">4 element diff</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-yuque/一图看懂React diff" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">一图看懂React diff</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-04-05 02:56:41" datetime="2020-04-05T00:56:41.000Z" itemprop="datePublished">2020-04-05</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdnimg.cn/20200404222655631.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2t4YmsxMDA=,size_16,color_FFFFFF,t_70#align=left&display=inline&height=1048&margin=%5Bobject%20Object%5D&originHeight=1048&originWidth=2632&status=done&style=none&width=2632" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>React 中最值得称道的部分莫过于 Virtual DOM 与 diff 的完美结合，特别是其高效的 diff 算法，让用户可以无需顾忌性能问题而”任性自由”的刷新页面，让开发者也可以无需关心 Virtual DOM 背后的运作原理，因为 React diff 会帮助我们计算出 Virtual DOM 中真正变化的部分，并只针对该部分进行实际 DOM 操作，而非重新渲染整个页面，从而保证了每次操作更新后页面的高效渲染，因此 Virtual DOM 与 diff 是保证 React 性能口碑的幕后推手。</p>
+<h1 id="1-diff-策略"><a href="#1-diff-策略" class="headerlink" title="1 diff 策略"></a>1 diff 策略</h1><ol>
+<li>Web UI 中 DOM 节点跨层级的移动操作特别少，可以忽略不计</li>
+<li>拥有相同类的两个组件将会生成相似的树形结构，拥有不同类的两个组件将会生成不同的树形结构</li>
+<li>对于同一层级的一组子节点，它们可以通过唯一 id 进行区分</li>
+</ol>
+<p>以上三个策略，React 分别对 tree diff、component diff 以及 element diff 进行算法优化，事实也证明这三个前提策略是合理且准确的，它保证了整体界面构建的性能。</p>
+<h1 id="2-tree-diff"><a href="#2-tree-diff" class="headerlink" title="2 tree diff"></a>2 tree diff</h1><p>基于策略一，React 对树的算法进行了简洁明了的优化，即对树进行分层比较，两棵树只会对同一层次的节点进行比较。</p>
+<p>既然 DOM 节点跨层级的移动操作少到可以忽略不计，针对这一现象，React 通过 updateDepth 对 Virtual DOM 树进行层级控制，只会对相同颜色方框内的 DOM 节点进行比较，即同一个父节点下的所有子节点。当发现节点已经不存在，则该节点及其子节点会被完全删除掉，不会用于进一步的比较。这样只需要对树进行一次遍历，便能完成整个 DOM 树的比较。</p>
+<p>如果出现 dom 节点跨层级的移动操作，因为该节点已经不在原来的 dom 树层， 所以会直接删除该节点，在移动后的 dom 层重建该节点， 可见这种操作的性能代价非常大，所以不推荐这样做。 可以通过 css 样式控制节点的隐藏和显示来代替节点跨层级移动的操作。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdnimg.cn/20200404213819884.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2t4YmsxMDA=,size_16,color_FFFFFF,t_70#align=left&display=inline&height=300&margin=%5Bobject%20Object%5D&originHeight=300&originWidth=582&status=done&style=none&width=582" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h1 id="3-component-diff"><a href="#3-component-diff" class="headerlink" title="3 component diff"></a>3 component diff</h1><p>React 是基于组件构建应用的，对于组件间的比较所采取的策略也是简洁高效。</p>
+<p>如果是同一类型的组件，按照原策略继续比较 virtual DOM tree。</p>
+<p>如果不是，则将该组件判断为 dirty component，从而替换整个组件下的所有子节点。</p>
+<p>对于同一类型的组件，有可能其 Virtual DOM 没有任何变化，如果能够确切的知道这点那可以节省大量的 diff 运算时间，因此 React 允许用户通过 shouldComponentUpdate() 来判断该组件是否需要进行 diff。</p>
+<p>如下图，当 component D 改变为 component G 时，即使这两个 component 结构相似，一旦 React 判断 D 和 G 是不同类型的组件，就不会比较二者的结构，而是直接删除 component D，重新创建 component G 以及其子节点。虽然当两个 component 是不同类型但结构相似时，React diff 会影响性能，但正如 React 官方博客所言：不同类型的 component 是很少存在相似 DOM tree 的机会，因此这种极端因素很难在实现开发过程中造成重大影响的。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdnimg.cn/20200404214110484.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2t4YmsxMDA=,size_16,color_FFFFFF,t_70#align=left&display=inline&height=221&margin=%5Bobject%20Object%5D&originHeight=221&originWidth=542&status=done&style=none&width=542" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h1 id="4-element-diff"><a href="#4-element-diff" class="headerlink" title="4 element diff"></a>4 element diff</h1><p>当节点处于同一层级时，React diff 提供了三种节点操作，分别为：INSERT_MARKUP（插入）、MOVE_EXISTING（移动）和 REMOVE_NODE（删除）。</p>
+<p>INSERT_MARKUP，新的 component 类型不在老集合里， 即是全新的节点，需要对新节点执行插入操作。</p>
+<p>MOVE_EXISTING，在老集合有新 component 类型，且 element 是可更新的类型，generateComponentChildren 已调用 receiveComponent，这种情况下 prevChild=nextChild，就需要做移动操作，可以复用以前的 DOM 节点。</p>
+<p>REMOVE_NODE，老 component 类型，在新集合里也有，但对应的 element 不同则不能直接复用和更新，需要执行删除操作，或者老 component 不在新集合里的，也需要执行删除操作。</p>
+<p>开发者对同一层级的子节点，可以添加唯一索引进行区分，这样在 diff 时，涉及到只是位置变化的，可以只移动元素，避免删除创建等重复的操作。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-05-03T15:25:21.290Z" itemprop="dateUpdated">2020-05-03 17:25:21</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="http://fengtx.tk">
+            <img src="/img/avatar.jpg" alt="冯天祥">
+            冯天祥
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://fengtx.tk/2020/04/05/yuque/一图看懂React diff/&title=《一图看懂React diff》 — 冯天祥&pic=http://fengtx.tk/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://fengtx.tk/2020/04/05/yuque/一图看懂React diff/&title=《一图看懂React diff》 — 冯天祥&source=前端小白冯天祥的技术博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://fengtx.tk/2020/04/05/yuque/一图看懂React diff/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《一图看懂React diff》 — 冯天祥&url=http://fengtx.tk/2020/04/05/yuque/一图看懂React diff/&via=http://fengtx.tk" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://fengtx.tk/2020/04/05/yuque/一图看懂React diff/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/04/05/yuque/Android学习小记/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Android学习小记</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/04/05/yuque/我的博客目录/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">我的博客目录</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢打赏
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>冯天祥 &copy; 2016 - 2020</span>
+            <!-- <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span> -->
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://fengtx.tk/2020/04/05/yuque/一图看懂React diff/&title=《一图看懂React diff》 — 冯天祥&pic=http://fengtx.tk/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://fengtx.tk/2020/04/05/yuque/一图看懂React diff/&title=《一图看懂React diff》 — 冯天祥&source=前端小白冯天祥的技术博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://fengtx.tk/2020/04/05/yuque/一图看懂React diff/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《一图看懂React diff》 — 冯天祥&url=http://fengtx.tk/2020/04/05/yuque/一图看懂React diff/&via=http://fengtx.tk" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://fengtx.tk/2020/04/05/yuque/一图看懂React diff/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJklEQVR42u3aS4rDMBAFwNz/0pntwBDzXssZsFReGeLYKi0a9ef1iq93fP1+/u99++vNFwYGxmMZ+bJaTPv+T/fJVzAwME5gfIpgK88k25Ewrr+LgYGBcR0EV0L27OCIgYGBMWPMks9ZAoyBgXEyo00y82euv5Js3825OAYGxgMZeXD8//uv9DcwMDAexfhGuT8Pmm14/fgeDAyMrRl5gGsPZyuJcbseDAyMvRl3Bb6EkRfR6tIeBgbG1ow2cZ2VvWbNzllzAgMDY2/GSrDLWwLtobA+gGJgYGzHSBqNeZJ5ffjLl9tuAQYGxgmM2cBW/nweRtuD5mtlWRgYGA9nzIr47ZhXm+7WARcDA2MLRhs0i3J8cLBbT4kxMDBOYLSNxtknZ+8v0mAMDIytGe34Vw5baVK224eBgbE343oROW9WwkveGW0iBgbGAYx2LqMdj5gNXiwNW2BgYGzEaAtn7Z/rsYmvrQQDA2MPxqxhOQvZS03KazYGBsamjHYYa4bMh8aGZTgMDIwDGG3hPl9c205oNwsDA+McRhJwZ6lmG0aHK8HAwNiU8S6v/ANtY7IOr7PuKAYGxgMZszC3nojm5bn2iImBgbErY2XkNElE213MAy4GBsZpjJunM4Ky2sqwxcdUFgMDA2MhWc2T3rx5MKzwYWBgHMNog/LKQqNDJwYGxgGMfIRipfTfthnyAI2BgbE3o01HE8CsVZA3DJb6GxgYGE9i/ACftPoI7JSZPAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

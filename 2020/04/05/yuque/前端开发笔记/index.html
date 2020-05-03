@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    <meta name="referrer" content="no-referrer">
+    
+    
+    
+    
+    <title>前端开发笔记 | 冯天祥 | 前端小白的技术博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content>
+    <meta name="description" content="title: 前端开发笔记 date: 2019 年 04 月 08 日 00:27:43categories: Careertypora-root-url: ..typora-copy-images-to: ../images aria-expanded=”false” aria-expanded表示展开状态。默认为undefined, 表示当前展开状态未知。其它可选值：true表示元素是展开">
+<meta name="keywords" content="前端,技术,冯天祥,fengtx">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端开发笔记">
+<meta property="og:url" content="http://fengtx.tk/2020/04/05/yuque/前端开发笔记/index.html">
+<meta property="og:site_name" content="冯天祥">
+<meta property="og:description" content="title: 前端开发笔记 date: 2019 年 04 月 08 日 00:27:43categories: Careertypora-root-url: ..typora-copy-images-to: ../images aria-expanded=”false” aria-expanded表示展开状态。默认为undefined, 表示当前展开状态未知。其它可选值：true表示元素是展开">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-05-03T15:25:21.610Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端开发笔记">
+<meta name="twitter:description" content="title: 前端开发笔记 date: 2019 年 04 月 08 日 00:27:43categories: Careertypora-root-url: ..typora-copy-images-to: ../images aria-expanded=”false” aria-expanded表示展开状态。默认为undefined, 表示当前展开状态未知。其它可选值：true表示元素是展开">
+    
+        <link rel="alternate" type="application/atom+xml" title="冯天祥" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">冯天祥</h5>
+          <a href="mailto:im.txfeng@gmail.com" title="im.txfeng@gmail.com" class="mail">im.txfeng@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/kxbk100" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">前端开发笔记</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">前端开发笔记</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-04-05T00:56:16.000Z" itemprop="datePublished" class="page-time">
+  2020-04-05
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#title-前端开发笔记-date-2019-年-04-月-08-日-00-27-43"><span class="post-toc-number">1.</span> <span class="post-toc-text">title: 前端开发笔记 date: 2019 年 04 月 08 日 00:27:43</span></a></li></ol><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#aria-expanded-”false”"><span class="post-toc-number"></span> <span class="post-toc-text">aria-expanded=”false”</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#aria-hidden-字符串"><span class="post-toc-number"></span> <span class="post-toc-text">aria-hidden 字符串</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#快捷键"><span class="post-toc-number"></span> <span class="post-toc-text">快捷键</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#col-xs-n-中放图片不生效"><span class="post-toc-number"></span> <span class="post-toc-text">col-xs-n 中放图片不生效</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#display"><span class="post-toc-number"></span> <span class="post-toc-text">display</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#使用-col-就要在母元素上清除浮动，因为-col-栅格也是浮动的"><span class="post-toc-number"></span> <span class="post-toc-text">使用 col 就要在母元素上清除浮动，因为 col 栅格也是浮动的</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#使用-flag-覆盖叠加新的属性"><span class="post-toc-number"></span> <span class="post-toc-text">使用 flag 覆盖叠加新的属性</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#a-标签链接不带下划线，并列换行写"><span class="post-toc-number"></span> <span class="post-toc-text">a 标签链接不带下划线，并列换行写</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#line-heigh-不要写-px"><span class="post-toc-number"></span> <span class="post-toc-text">line-heigh 不要写 px</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#表格居中"><span class="post-toc-number"></span> <span class="post-toc-text">表格居中</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#bootstrap-响应式表格"><span class="post-toc-number"></span> <span class="post-toc-text">bootstrap 响应式表格</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#表格内容水平垂直居中"><span class="post-toc-number"></span> <span class="post-toc-text">表格内容水平垂直居中</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#图片撑满"><span class="post-toc-number"></span> <span class="post-toc-text">图片撑满</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#input-select-textarea-…-form-control"><span class="post-toc-number"></span> <span class="post-toc-text">input/select/textarea/… + .form-control</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#form-group"><span class="post-toc-number"></span> <span class="post-toc-text">.form-group</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#响应式表格"><span class="post-toc-number"></span> <span class="post-toc-text">响应式表格</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#垂直方向的内容截断"><span class="post-toc-number"></span> <span class="post-toc-text">垂直方向的内容截断</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#form-inline"><span class="post-toc-number"></span> <span class="post-toc-text">.form-inline</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#form-horizontal"><span class="post-toc-number"></span> <span class="post-toc-text">.form-horizontal</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#margin-对-span-无效"><span class="post-toc-number"></span> <span class="post-toc-text">margin 对 span 无效</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#button-后退"><span class="post-toc-number"></span> <span class="post-toc-text">button 后退</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#居中"><span class="post-toc-number"></span> <span class="post-toc-text">居中</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#在-form-标签上加-novalidate-属性，可以禁用-h5-默认的表单验证效果"><span class="post-toc-number"></span> <span class="post-toc-text">在 form 标签上加 novalidate 属性，可以禁用 h5 默认的表单验证效果</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#div置顶的方法"><span class="post-toc-number"></span> <span class="post-toc-text">div置顶的方法</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#margin-auto-实现绝对定位元素的居中"><span class="post-toc-number"></span> <span class="post-toc-text">margin:auto 实现绝对定位元素的居中</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#ajax-中-dataType-为预期服务器返回的数据类型，不写有默认值，开发过程中不要写"><span class="post-toc-number"></span> <span class="post-toc-text">ajax 中 dataType 为预期服务器返回的数据类型，不写有默认值，开发过程中不要写</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#ajax-表单序列化传输"><span class="post-toc-number"></span> <span class="post-toc-text">ajax 表单序列化传输</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#ajax-表单传递键值对"><span class="post-toc-number"></span> <span class="post-toc-text">ajax 表单传递键值对</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#ajax-传递-formData"><span class="post-toc-number"></span> <span class="post-toc-text">ajax 传递 formData</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#ajax-拿到-json-后如何使用"><span class="post-toc-number"></span> <span class="post-toc-text">ajax 拿到 json 后如何使用</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#多行文字限制字数显示…"><span class="post-toc-number"></span> <span class="post-toc-text">多行文字限制字数显示…</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#单行文字限制字数显示…"><span class="post-toc-number"></span> <span class="post-toc-text">单行文字限制字数显示…</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#从-html-代码中获取纯文本函数"><span class="post-toc-number"></span> <span class="post-toc-text">从 html 代码中获取纯文本函数</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#时间戳转化函数"><span class="post-toc-number"></span> <span class="post-toc-text">时间戳转化函数</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#js-变量生命周期"><span class="post-toc-number"></span> <span class="post-toc-text">js 变量生命周期</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#jquery-获取-radio-被选中的值"><span class="post-toc-number"></span> <span class="post-toc-text">jquery 获取 radio 被选中的值</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#jquery-获取-select-被选中的值"><span class="post-toc-number"></span> <span class="post-toc-text">jquery 获取 select 被选中的值</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#jquery-获取-checkbox-被选中的值"><span class="post-toc-number"></span> <span class="post-toc-text">jquery 获取 checkbox 被选中的值</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#jquery-获取-span-和-input-的值"><span class="post-toc-number"></span> <span class="post-toc-text">jquery 获取 span 和 input 的值</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#jquery-数组对象获取-value-值"><span class="post-toc-number"></span> <span class="post-toc-text">jquery 数组对象获取 value 值</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#this-必须用-包装成-JQuery-对象才能使用"><span class="post-toc-number"></span> <span class="post-toc-text">this 必须用\$包装成 JQuery 对象才能使用</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#用-let-和-const-的声明可以产生块级作用域，解决闭包循环事件绑定"><span class="post-toc-number"></span> <span class="post-toc-text">用 let 和 const 的声明可以产生块级作用域，解决闭包循环事件绑定</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#JavaScript-中有-5-种简单数据类型（也称为基本数据类型）：-Undefined、Null、Boolean、Number-和-String-。还有-1-种复杂数据类型——-Object-，Object-本质上是由一组无序的名值对组成的。"><span class="post-toc-number"></span> <span class="post-toc-text">JavaScript 中有 5 种简单数据类型（也称为基本数据类型）： Undefined、Null、Boolean、Number 和 String 。还有 1 种复杂数据类型—— Object ，Object 本质上是由一组无序的名值对组成的。</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#backgroundColor-要加-style-属性设置元素的背景颜色；bgcolor-不用加-style"><span class="post-toc-number"></span> <span class="post-toc-text">backgroundColor 要加.style 属性设置元素的背景颜色；bgcolor 不用加.style</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#json-中-key-也是个字符串，要加引号，key-和-value-之间是用-号来表示的"><span class="post-toc-number"></span> <span class="post-toc-text">json 中 key 也是个字符串，要加引号，key 和 value 之间是用:号来表示的</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#CSS-样式表和选择器"><span class="post-toc-number"></span> <span class="post-toc-text">CSS 样式表和选择器</span></a>
+        </li></nav>
+    </aside>
+
+
+<article id="post-yuque/前端开发笔记" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">前端开发笔记</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-04-05 02:56:16" datetime="2020-04-05T00:56:16.000Z" itemprop="datePublished">2020-04-05</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <hr>
+<h2 id="title-前端开发笔记-date-2019-年-04-月-08-日-00-27-43"><a href="#title-前端开发笔记-date-2019-年-04-月-08-日-00-27-43" class="headerlink" title="title: 前端开发笔记 date: 2019 年 04 月 08 日 00:27:43"></a>title: 前端开发笔记 date: 2019 年 04 月 08 日 00:27:43</h2><p>categories: Career<br>typora-root-url: ..<br>typora-copy-images-to: ../images</p>
+<h1 id="aria-expanded-”false”"><a href="#aria-expanded-”false”" class="headerlink" title="aria-expanded=”false”"></a>aria-expanded=”false”</h1><ul>
+<li><code>aria-expanded</code>表示展开状态。默认为<code>undefined</code>, 表示当前展开状态未知。其它可选值：<code>true</code>表示元素是展开的；<code>false</code>表示元素不是展开的</li>
+</ul>
+<h1 id="aria-hidden-字符串"><a href="#aria-hidden-字符串" class="headerlink" title="aria-hidden 字符串"></a>aria-hidden 字符串</h1><ul>
+<li>可选值为<code>true</code>和<code>false</code>，<code>true</code>表示元素隐藏(不可见)，<code>false</code>表示元素可见</li>
+</ul>
+<h1 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h1><ul>
+<li><code>Ctrl + Enter</code> 光标不在末尾回车</li>
+<li><code>Ctrl + Backspace</code> 删除一个词</li>
+<li><code>Ctrl + -&gt;</code> 以词为单位后移</li>
+</ul>
+<h1 id="col-xs-n-中放图片不生效"><a href="#col-xs-n-中放图片不生效" class="headerlink" title="col-xs-n 中放图片不生效"></a>col-xs-n 中放图片不生效</h1><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">img</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">  <span class="attribute">max-width</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="display"><a href="#display" class="headerlink" title="display"></a>display</h1><ul>
+<li><code>block</code> 默认，此元素将显示为块级元素，此元素前后会带有换行符</li>
+<li><code>inline</code> 此元素会被显示为内联元素，元素前后没有换行符</li>
+<li><code>inline-block</code> 行内块元素</li>
+</ul>
+<h1 id="使用-col-就要在母元素上清除浮动，因为-col-栅格也是浮动的"><a href="#使用-col-就要在母元素上清除浮动，因为-col-栅格也是浮动的" class="headerlink" title="使用 col 就要在母元素上清除浮动，因为 col 栅格也是浮动的"></a>使用 col 就要在母元素上清除浮动，因为 col 栅格也是浮动的</h1><h1 id="使用-flag-覆盖叠加新的属性"><a href="#使用-flag-覆盖叠加新的属性" class="headerlink" title="使用 flag 覆盖叠加新的属性"></a>使用 flag 覆盖叠加新的属性</h1><ul>
+<li><code>css</code>中使用<code>.side-bar-card.flag {}</code>来调用</li>
+<li><code>html</code>中用<code>&lt;div class=&quot;side-bar-card flag clearfix&quot;&gt;</code></li>
+</ul>
+<h1 id="a-标签链接不带下划线，并列换行写"><a href="#a-标签链接不带下划线，并列换行写" class="headerlink" title="a 标签链接不带下划线，并列换行写"></a>a 标签链接不带下划线，并列换行写</h1><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">a</span>,</span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:hover</span>,</span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:visited</span>,</span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:link</span>,</span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:active</span> &#123;</span><br><span class="line">  <span class="attribute">text-decoration</span>: none;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="line-heigh-不要写-px"><a href="#line-heigh-不要写-px" class="headerlink" title="line-heigh 不要写 px"></a>line-heigh 不要写 px</h1><h1 id="表格居中"><a href="#表格居中" class="headerlink" title="表格居中"></a>表格居中</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">align</span>=<span class="string">"center"</span>&gt;</span><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="bootstrap-响应式表格"><a href="#bootstrap-响应式表格" class="headerlink" title="bootstrap 响应式表格"></a>bootstrap 响应式表格</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"table-responsive"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="表格内容水平垂直居中"><a href="#表格内容水平垂直居中" class="headerlink" title="表格内容水平垂直居中"></a>表格内容水平垂直居中</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 水平居中 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">th</span> <span class="attr">style</span>=<span class="string">"text-align: center;"</span>&gt;</span>host<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 垂直居中 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">rowspan</span>=<span class="string">"$row_host1"</span> <span class="attr">style</span>=<span class="string">"vertical-align: middle;"</span>&gt;</span>host1<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 既水平又垂直居中 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">rowspan</span>=<span class="string">"$rowspan"</span> <span class="attr">style</span>=<span class="string">"vertical-align: middle;text-align: center;"</span>&gt;</span></span><br><span class="line">  hello</span><br><span class="line"><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="图片撑满"><a href="#图片撑满" class="headerlink" title="图片撑满"></a>图片撑满</h1><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">background-size</span>: <span class="selector-tag">cover</span>;</span><br></pre></td></tr></table></figure>
+<h1 id="input-select-textarea-…-form-control"><a href="#input-select-textarea-…-form-control" class="headerlink" title="input/select/textarea/… + .form-control"></a>input/select/textarea/… + .form-control</h1><h1 id="form-group"><a href="#form-group" class="headerlink" title=".form-group"></a>.form-group</h1><ul>
+<li>单独的表单控件会被自动赋予一些全局样式。所有设置了<code>.form-control</code>类的<code>&lt;input&gt;、&lt;textarea&gt;和&lt;select&gt;</code>元素都将被默认设置宽度属性为<code>width: 100%;</code>。将<code>label</code>元素和前面提到的控件包裹在<code>.form-group</code>中可以获得最好的排列</li>
+</ul>
+<h1 id="响应式表格"><a href="#响应式表格" class="headerlink" title="响应式表格"></a>响应式表格</h1><ul>
+<li>将任何<code>.table</code>元素包裹在<code>&lt;div class=&quot;table-responsive&quot;&gt;</code>元素内</li>
+</ul>
+<h1 id="垂直方向的内容截断"><a href="#垂直方向的内容截断" class="headerlink" title="垂直方向的内容截断"></a>垂直方向的内容截断</h1><ul>
+<li>响应式表格使用了<code>overflow-y: hidden</code>属性，这样就能将超出表格底部和顶部的内容截断。特别是，也可以截断下拉菜单和其他第三方组件</li>
+</ul>
+<h1 id="form-inline"><a href="#form-inline" class="headerlink" title=".form-inline"></a>.form-inline</h1><ul>
+<li>输入框和单选/多选框控件默认被设置为<code>width: 100%;</code>。在内联表单，我们将这些元素的宽度设置为<code>width: auto;</code>，因此，多个控件可以排列在同一行。根据布局需求，手动设置宽度</li>
+<li>一定要添加<code>label</code>标签，对于内联表单，可以通过为<code>label</code>设置<code>.sr-only</code>类将其隐藏。还有一些辅助技术提供<code>label</code>标签的替代方案，比如<code>aria-label、aria-labelledby</code>或<code>title</code>属性</li>
+</ul>
+<h1 id="form-horizontal"><a href="#form-horizontal" class="headerlink" title=".form-horizontal"></a>.form-horizontal</h1><ul>
+<li>无需再添加<code>.row</code>了</li>
+</ul>
+<h1 id="margin-对-span-无效"><a href="#margin-对-span-无效" class="headerlink" title="margin 对 span 无效"></a>margin 对 span 无效</h1><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">display</span>: <span class="selector-tag">block</span>;</span><br><span class="line"><span class="selector-tag">line-height</span>: 1<span class="selector-class">.5</span>;</span><br></pre></td></tr></table></figure>
+<h1 id="button-后退"><a href="#button-后退" class="headerlink" title="button 后退"></a>button 后退</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"btn btn-danger ycx"</span> <span class="attr">onclick</span>=<span class="string">"javascript :history.back(-1);"</span>&gt;</span></span><br><span class="line">  返回</span><br><span class="line"><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="居中"><a href="#居中" class="headerlink" title="居中"></a>居中</h1><ul>
+<li>文本内容居中：<code>text-center</code></li>
+<li>图片居中：<code>center-block</code></li>
+<li>其他类型元素居中：<code>col-md-offset-X</code></li>
+</ul>
+<h1 id="在-form-标签上加-novalidate-属性，可以禁用-h5-默认的表单验证效果"><a href="#在-form-标签上加-novalidate-属性，可以禁用-h5-默认的表单验证效果" class="headerlink" title="在 form 标签上加 novalidate 属性，可以禁用 h5 默认的表单验证效果"></a>在 form 标签上加 novalidate 属性，可以禁用 h5 默认的表单验证效果</h1><h1 id="div置顶的方法"><a href="#div置顶的方法" class="headerlink" title="div置顶的方法"></a><code>div</code>置顶的方法</h1><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">position</span>: <span class="selector-tag">relative</span>;</span><br><span class="line"><span class="selector-tag">z-index</span>: 99999;</span><br></pre></td></tr></table></figure>
+<h1 id="margin-auto-实现绝对定位元素的居中"><a href="#margin-auto-实现绝对定位元素的居中" class="headerlink" title="margin:auto 实现绝对定位元素的居中"></a>margin:auto 实现绝对定位元素的居中</h1><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.element</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">600px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">400px</span>;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">bottom</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">margin</span>: auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="ajax-中-dataType-为预期服务器返回的数据类型，不写有默认值，开发过程中不要写"><a href="#ajax-中-dataType-为预期服务器返回的数据类型，不写有默认值，开发过程中不要写" class="headerlink" title="ajax 中 dataType 为预期服务器返回的数据类型，不写有默认值，开发过程中不要写"></a>ajax 中 dataType 为预期服务器返回的数据类型，不写有默认值，开发过程中不要写</h1><p>服务器只返回单个<code>String</code>类型数据，则一定要写<code>dataType: &#39;text&#39;</code></p>
+<h1 id="ajax-表单序列化传输"><a href="#ajax-表单序列化传输" class="headerlink" title="ajax 表单序列化传输"></a>ajax 表单序列化传输</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"#submit"</span>).on(<span class="string">"touchstart"</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> form = $(<span class="string">"#handouts"</span>).serialize();</span><br><span class="line">  $.ajax(&#123;</span><br><span class="line">    url: <span class="string">"http://192.168.1.111:8686/EAnnotation/addPassage"</span>,</span><br><span class="line">    type: <span class="string">"post"</span>,</span><br><span class="line">    data: form,</span><br><span class="line">    cache: <span class="literal">false</span>,</span><br><span class="line">    success: <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">      <span class="built_in">window</span>.location.href = <span class="string">"course.html"</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">    error: <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;&#125;,</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h1 id="ajax-表单传递键值对"><a href="#ajax-表单传递键值对" class="headerlink" title="ajax 表单传递键值对"></a>ajax 表单传递键值对</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">  url: ip + <span class="string">"/scm"</span>,</span><br><span class="line">  type: <span class="string">"POST"</span>,</span><br><span class="line">  cache: <span class="literal">false</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    username: username,</span><br><span class="line">    password: password,</span><br><span class="line">  &#125;,</span><br><span class="line">  success: <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">if</span> (data == <span class="number">0</span>) &#123;</span><br><span class="line">      alert(<span class="string">"密码错误"</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (data == <span class="number">-1</span>) &#123;</span><br><span class="line">      alert(<span class="string">"账号不存在"</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(data);</span><br><span class="line">      <span class="comment">// window.location.href = "index.html"</span></span><br><span class="line">      localStorage.name = data;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  error: <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;&#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h1 id="ajax-传递-formData"><a href="#ajax-传递-formData" class="headerlink" title="ajax 传递 formData"></a>ajax 传递 formData</h1><p>formData 既可以传键值对，也可以传文件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"#submit"</span>).on(<span class="string">"touchstart"</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> form = <span class="keyword">new</span> FormData($(<span class="string">"#homework"</span>)[<span class="number">0</span>]);</span><br><span class="line">  $.ajax(&#123;</span><br><span class="line">    url: <span class="string">"https://bitcandy.one/EAnnotation/addPassage"</span>,</span><br><span class="line">    type: <span class="string">"POST"</span>,</span><br><span class="line">    cache: <span class="literal">false</span>,</span><br><span class="line">    data: form,</span><br><span class="line">    processData: <span class="literal">false</span>,</span><br><span class="line">    contentType: <span class="literal">false</span>,</span><br><span class="line">    success: <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">      <span class="built_in">window</span>.location.href = <span class="string">"classteacher.html"</span>;</span><br><span class="line">      <span class="built_in">console</span>.log(form);</span><br><span class="line">    &#125;,</span><br><span class="line">    error: <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;&#125;,</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h1 id="ajax-拿到-json-后如何使用"><a href="#ajax-拿到-json-后如何使用" class="headerlink" title="ajax 拿到 json 后如何使用"></a>ajax 拿到 json 后如何使用</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">  url: <span class="string">"http://192.168.1.111:8686/EAnnotation/getAllPassages"</span>,</span><br><span class="line">  type: <span class="string">"post"</span>,</span><br><span class="line">  cache: <span class="literal">false</span>,</span><br><span class="line">  success: <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data);</span><br><span class="line">    $.each(data, <span class="function"><span class="keyword">function</span> (<span class="params">i, item</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> time = getDateDiff(item.releaseTime);</span><br><span class="line">      <span class="keyword">if</span> (item.photo) &#123;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        $(<span class="string">"ul[class=index]"</span>).append(</span><br><span class="line">          <span class="string">`&lt;div class="card"&gt;</span></span><br><span class="line"><span class="string">            &lt;div class="card-header"&gt;`</span> +</span><br><span class="line">            item.title +</span><br><span class="line">            <span class="string">`&lt;/div&gt;</span></span><br><span class="line"><span class="string">            &lt;div class="card-content card-content-padding"&gt;</span></span><br><span class="line"><span class="string">              &lt;p class="date index"&gt;`</span> +</span><br><span class="line">            item.theme +</span><br><span class="line">            <span class="string">`·`</span> +</span><br><span class="line">            time +</span><br><span class="line">            <span class="string">`&lt;/p&gt;</span></span><br><span class="line"><span class="string">              &lt;a href="www.baidu.com" class="link" style="color: black"&gt;&lt;p style="margin-top: 0; margin-bottom: 0;"&gt;`</span> +</span><br><span class="line">            getcontent(item.content).substring(<span class="number">0</span>, <span class="number">70</span>) +</span><br><span class="line">            <span class="string">` ...&lt;/p&gt;&lt;/a&gt;</span></span><br><span class="line"><span class="string">            &lt;/div&gt;</span></span><br><span class="line"><span class="string">            &lt;div class="card-footer"&gt;</span></span><br><span class="line"><span class="string">              &lt;a href="#" class="link" style="color"&gt;</span></span><br><span class="line"><span class="string">                &lt;i class="f7-icons size-18"&gt;heart_fill&lt;/i&gt;`</span> +</span><br><span class="line">            <span class="number">1</span> +</span><br><span class="line">            <span class="string">`喜欢&lt;/a&gt;</span></span><br><span class="line"><span class="string">              &lt;a href="#" class="link"&gt;</span></span><br><span class="line"><span class="string">                `</span> +</span><br><span class="line">            <span class="number">22</span> +</span><br><span class="line">            <span class="string">`人批注过，共计`</span> +</span><br><span class="line">            <span class="number">44</span> +</span><br><span class="line">            <span class="string">`条批注</span></span><br><span class="line"><span class="string">                  &lt;/a&gt;</span></span><br><span class="line"><span class="string">            &lt;/div&gt;</span></span><br><span class="line"><span class="string">          &lt;/div&gt;`</span></span><br><span class="line">        );</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;,</span><br><span class="line">  error: <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;&#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h1 id="多行文字限制字数显示…"><a href="#多行文字限制字数显示…" class="headerlink" title="多行文字限制字数显示…"></a>多行文字限制字数显示…</h1><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.text_overflow</span> &#123;</span><br><span class="line">  <span class="comment">/* width:27rem; */</span></span><br><span class="line">  <span class="attribute">display</span>: -webkit-box;</span><br><span class="line">  <span class="attribute">-webkit-line-clamp</span>: <span class="number">3</span>;</span><br><span class="line">  <span class="attribute">-webkit-box-orient</span>: vertical;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="单行文字限制字数显示…"><a href="#单行文字限制字数显示…" class="headerlink" title="单行文字限制字数显示…"></a>单行文字限制字数显示…</h1><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.text_overflow</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">27em</span>;</span><br><span class="line">  <span class="attribute">white-space</span>: nowrap;</span><br><span class="line">  <span class="attribute">text-overflow</span>: ellipsis;</span><br><span class="line">  <span class="attribute">-o-text-overflow</span>: ellipsis;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="从-html-代码中获取纯文本函数"><a href="#从-html-代码中获取纯文本函数" class="headerlink" title="从 html 代码中获取纯文本函数"></a>从 html 代码中获取纯文本函数</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getcontent</span>(<span class="params">text</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> html = text;</span><br><span class="line">  <span class="keyword">return</span> html.replace(<span class="regexp">/&lt;[^&gt;]*&gt;|/g</span>, <span class="string">""</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="时间戳转化函数"><a href="#时间戳转化函数" class="headerlink" title="时间戳转化函数"></a>时间戳转化函数</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 2014-05-08 00:22:11</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getDateDiff</span>(<span class="params">dateTimeStamp</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> dateTimeStamp = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="built_in">Date</span>.parse(dateTimeStamp.replace(<span class="regexp">/-/g</span>, <span class="string">"/"</span>)));</span><br><span class="line">  dateTimeStamp = dateTimeStamp.getTime();</span><br><span class="line">  <span class="keyword">var</span> result;</span><br><span class="line">  <span class="keyword">var</span> minute = <span class="number">1000</span> * <span class="number">60</span>;</span><br><span class="line">  <span class="keyword">var</span> hour = minute * <span class="number">60</span>;</span><br><span class="line">  <span class="keyword">var</span> day = hour * <span class="number">24</span>;</span><br><span class="line">  <span class="keyword">var</span> halfamonth = day * <span class="number">15</span>;</span><br><span class="line">  <span class="keyword">var</span> month = day * <span class="number">30</span>;</span><br><span class="line">  <span class="keyword">var</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>().getTime();</span><br><span class="line">  <span class="keyword">var</span> diffValue = now - dateTimeStamp;</span><br><span class="line">  <span class="keyword">if</span> (diffValue &lt; <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">var</span> monthC = diffValue / month;</span><br><span class="line">  <span class="keyword">var</span> weekC = diffValue / (<span class="number">7</span> * day);</span><br><span class="line">  <span class="keyword">var</span> dayC = diffValue / day;</span><br><span class="line">  <span class="keyword">var</span> hourC = diffValue / hour;</span><br><span class="line">  <span class="keyword">var</span> minC = diffValue / minute;</span><br><span class="line">  <span class="keyword">if</span> (monthC &gt;= <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (monthC &lt;= <span class="number">12</span>) result = <span class="string">""</span> + <span class="built_in">parseInt</span>(monthC) + <span class="string">"个月前"</span>;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">      result = <span class="string">""</span> + <span class="built_in">parseInt</span>(monthC / <span class="number">12</span>) + <span class="string">"年前"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (weekC &gt;= <span class="number">1</span>) &#123;</span><br><span class="line">    result = <span class="string">""</span> + <span class="built_in">parseInt</span>(weekC) + <span class="string">"周前"</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (dayC &gt;= <span class="number">1</span>) &#123;</span><br><span class="line">    result = <span class="string">""</span> + <span class="built_in">parseInt</span>(dayC) + <span class="string">"天前"</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (hourC &gt;= <span class="number">1</span>) &#123;</span><br><span class="line">    result = <span class="string">""</span> + <span class="built_in">parseInt</span>(hourC) + <span class="string">"小时前"</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (minC &gt;= <span class="number">1</span>) &#123;</span><br><span class="line">    result = <span class="string">""</span> + <span class="built_in">parseInt</span>(minC) + <span class="string">"分钟前"</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    result = <span class="string">"刚刚"</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="js-变量生命周期"><a href="#js-变量生命周期" class="headerlink" title="js 变量生命周期"></a>js 变量生命周期</h1><ul>
+<li>全局变量</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> n = <span class="number">999</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  alert(n);</span><br><span class="line">&#125;</span><br><span class="line">f1(); <span class="comment">// 输出999,说明全局变量n在函数内部被读取</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>函数中的全局变量：在函数内部声明变量没有使用<code>var</code>，实际上是声明了一个全局变量，前提是需要先调用函数</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> func1 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  a1 = <span class="number">1</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(a1); <span class="comment">//输出:1</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">func2</span>(<span class="params"></span>) </span>&#123;<span class="comment">//func2()是一个闭包</span></span><br><span class="line">    a2 = <span class="number">2</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(a2);</span><br><span class="line">  &#125;</span><br><span class="line">  func2()；<span class="comment">//闭包函数中的变量在调用函数之后，变量也是全局变量</span></span><br><span class="line">  <span class="built_in">console</span>.log(a2);<span class="comment">//输出2</span></span><br><span class="line">&#125;;</span><br><span class="line">func1();<span class="comment">//调用函数，才会使变量生效</span></span><br><span class="line"><span class="built_in">console</span>.log(a1);<span class="comment">//输出1</span></span><br><span class="line"><span class="built_in">console</span>.log(a2);<span class="comment">//输出2，说明闭包中没有用var声明的变量也是全局变量。</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>局部变量：在函数内部声明的变量。函数内部的变量，外部无法读取。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> n = <span class="number">999</span>;</span><br><span class="line">&#125;</span><br><span class="line">alert(n); <span class="comment">// 没有定义，说明函数内部的变量，外部无法读取。</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>JavaScript</code>解释器在执行脚本时，是按块来执行的。通俗地说，就是浏览器在解析<code>HTML</code>文档流时，如果遇到一个<code>&lt;script&gt;</code>标签，则<code>JavaScript</code>解释器会等到这个代码块都加载完后，先对代码块进行预编译，然后再执行。执行完毕后，浏览器会继续解析下面的<code>HTML</code>文档流，同时<code>JavaScript</code>解释器也准备好处理下一个代码块。由于<code>JavaScript</code>是按块执行的，所以如果在一个<code>JavaScript</code>块中调用后面块中声明的变量或函数就会提示语法错误。虽然说，<code>JavaScript</code>是按块执行的，但是不同块都属于同一个全局作用域，也就是说，<strong>块之间的变量和函数是可以共享的</strong>。</li>
+</ul>
+<h1 id="jquery-获取-radio-被选中的值"><a href="#jquery-获取-radio-被选中的值" class="headerlink" title="jquery 获取 radio 被选中的值"></a>jquery 获取 radio 被选中的值</h1><blockquote>
+<p>三种方法都可以</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'input:radio:checked'</span>).val()；</span><br><span class="line">$(<span class="string">"input[type='radio']:checked"</span>).val();</span><br><span class="line">$(<span class="string">"input[name='rd']:checked"</span>).val();</span><br></pre></td></tr></table></figure>
+<h1 id="jquery-获取-select-被选中的值"><a href="#jquery-获取-select-被选中的值" class="headerlink" title="jquery 获取 select 被选中的值"></a>jquery 获取 select 被选中的值</h1><ul>
+<li>获取选中项的<code>value</code>值</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"select#sel option:selected"</span>).val();</span><br><span class="line">或者;</span><br><span class="line">$(<span class="string">"select#sel"</span>).find(<span class="string">"option:selected"</span>).val();</span><br></pre></td></tr></table></figure>
+<ul>
+<li>获取选中项的<code>text</code>值</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"select#seloption:selected"</span>).text();</span><br><span class="line">或者;</span><br><span class="line">$(<span class="string">"select#sel"</span>).find(<span class="string">"option:selected"</span>).text();</span><br></pre></td></tr></table></figure>
+<ul>
+<li>获取当前选中项的索引值</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"select#sel"</span>).get(<span class="number">0</span>).selectedIndex;</span><br></pre></td></tr></table></figure>
+<h1 id="jquery-获取-checkbox-被选中的值"><a href="#jquery-获取-checkbox-被选中的值" class="headerlink" title="jquery 获取 checkbox 被选中的值"></a>jquery 获取 checkbox 被选中的值</h1><ul>
+<li>获取单个<code>checkbox</code>选中项</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"input:checkbox:checked"</span>).val();</span><br><span class="line">或者;</span><br><span class="line">$(<span class="string">"input:[type='checkbox']:checked"</span>).val();</span><br><span class="line">或者;</span><br><span class="line">$(<span class="string">"input:[name='ck']:checked"</span>).val();</span><br></pre></td></tr></table></figure>
+<ul>
+<li>获取多个<code>checkbox</code>选中项</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"input[name='favour']:checked"</span>).each(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  alert($(<span class="keyword">this</span>).val());</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h1 id="jquery-获取-span-和-input-的值"><a href="#jquery-获取-span-和-input-的值" class="headerlink" title="jquery 获取 span 和 input 的值"></a>jquery 获取 span 和 input 的值</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"span"</span>).html();</span><br><span class="line">$(<span class="string">"input"</span>).val();</span><br></pre></td></tr></table></figure>
+<h1 id="jquery-数组对象获取-value-值"><a href="#jquery-数组对象获取-value-值" class="headerlink" title="jquery 数组对象获取 value 值"></a>jquery 数组对象获取 value 值</h1><ul>
+<li>需将数组对象再次封装为<code>jquery</code>对象</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 错误</span></span><br><span class="line">$(<span class="string">"input[name='jQueryArray']"</span>)[<span class="number">0</span>].val();</span><br><span class="line"><span class="comment">// 正确</span></span><br><span class="line">$($(<span class="string">"input[name='jQueryArray']"</span>)[<span class="number">0</span>]).val();</span><br><span class="line"><span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+<h1 id="this-必须用-包装成-JQuery-对象才能使用"><a href="#this-必须用-包装成-JQuery-对象才能使用" class="headerlink" title="this 必须用\$包装成 JQuery 对象才能使用"></a>this 必须用\$包装成 JQuery 对象才能使用</h1><h1 id="用-let-和-const-的声明可以产生块级作用域，解决闭包循环事件绑定"><a href="#用-let-和-const-的声明可以产生块级作用域，解决闭包循环事件绑定" class="headerlink" title="用 let 和 const 的声明可以产生块级作用域，解决闭包循环事件绑定"></a>用 let 和 const 的声明可以产生块级作用域，解决闭包循环事件绑定</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">2</span>; i++) &#123;</span><br><span class="line">  <span class="keyword">let</span> ii = i; <span class="comment">//const也可以，块级作用域</span></span><br><span class="line">  <span class="keyword">var</span> bt = <span class="built_in">document</span>.getElementById(<span class="string">"bt"</span> + ii);</span><br><span class="line">  bt.onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(ii);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="JavaScript-中有-5-种简单数据类型（也称为基本数据类型）：-Undefined、Null、Boolean、Number-和-String-。还有-1-种复杂数据类型——-Object-，Object-本质上是由一组无序的名值对组成的。"><a href="#JavaScript-中有-5-种简单数据类型（也称为基本数据类型）：-Undefined、Null、Boolean、Number-和-String-。还有-1-种复杂数据类型——-Object-，Object-本质上是由一组无序的名值对组成的。" class="headerlink" title="JavaScript 中有 5 种简单数据类型（也称为基本数据类型）： Undefined、Null、Boolean、Number 和 String 。还有 1 种复杂数据类型—— Object ，Object 本质上是由一组无序的名值对组成的。"></a>JavaScript 中有 5 种简单数据类型（也称为基本数据类型）： Undefined、Null、Boolean、Number 和 String 。还有 1 种复杂数据类型—— Object ，Object 本质上是由一组无序的名值对组成的。</h1><h1 id="backgroundColor-要加-style-属性设置元素的背景颜色；bgcolor-不用加-style"><a href="#backgroundColor-要加-style-属性设置元素的背景颜色；bgcolor-不用加-style" class="headerlink" title="backgroundColor 要加.style 属性设置元素的背景颜色；bgcolor 不用加.style"></a>backgroundColor 要加.style 属性设置元素的背景颜色；bgcolor 不用加.style</h1><h1 id="json-中-key-也是个字符串，要加引号，key-和-value-之间是用-号来表示的"><a href="#json-中-key-也是个字符串，要加引号，key-和-value-之间是用-号来表示的" class="headerlink" title="json 中 key 也是个字符串，要加引号，key 和 value 之间是用:号来表示的"></a>json 中 key 也是个字符串，要加引号，key 和 value 之间是用:号来表示的</h1><h1 id="CSS-样式表和选择器"><a href="#CSS-样式表和选择器" class="headerlink" title="CSS 样式表和选择器"></a>CSS 样式表和选择器</h1><ul>
+<li>CSS 和 HTML 结合的三种方式：行内样式表、内嵌样式表、外部样式表</li>
+<li>CSS 四种基本选择器：标签选择器、类选择器、ID 选择器、通用选择器</li>
+<li>CSS 几种扩展选择器：后代选择器、交集选择器、并集选择器、伪类选择器</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-05-03T15:25:21.610Z" itemprop="dateUpdated">2020-05-03 17:25:21</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="http://fengtx.tk">
+            <img src="/img/avatar.jpg" alt="冯天祥">
+            冯天祥
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://fengtx.tk/2020/04/05/yuque/前端开发笔记/&title=《前端开发笔记》 — 冯天祥&pic=http://fengtx.tk/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://fengtx.tk/2020/04/05/yuque/前端开发笔记/&title=《前端开发笔记》 — 冯天祥&source=前端小白冯天祥的技术博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://fengtx.tk/2020/04/05/yuque/前端开发笔记/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《前端开发笔记》 — 冯天祥&url=http://fengtx.tk/2020/04/05/yuque/前端开发笔记/&via=http://fengtx.tk" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://fengtx.tk/2020/04/05/yuque/前端开发笔记/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/04/05/yuque/认识并使用 Promise/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">认识并使用 Promise</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/04/05/yuque/跨域问题/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">跨域问题</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢打赏
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>冯天祥 &copy; 2016 - 2020</span>
+            <!-- <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span> -->
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://fengtx.tk/2020/04/05/yuque/前端开发笔记/&title=《前端开发笔记》 — 冯天祥&pic=http://fengtx.tk/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://fengtx.tk/2020/04/05/yuque/前端开发笔记/&title=《前端开发笔记》 — 冯天祥&source=前端小白冯天祥的技术博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://fengtx.tk/2020/04/05/yuque/前端开发笔记/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《前端开发笔记》 — 冯天祥&url=http://fengtx.tk/2020/04/05/yuque/前端开发笔记/&via=http://fengtx.tk" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://fengtx.tk/2020/04/05/yuque/前端开发笔记/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJUlEQVR42u3a226DQAxFUf7/p9PXSil0H5tEwt48RSoaZlHJ+DLHga/X5fX7nvffZLX3vx6fuGTIkPFYBt8i2frZJmqvgOxNhgwZexhnDz6753orZBOccb03GTJkyEhJPHBfryZDhgwZ/YCbFq48WMuQIUNGp4hN00RSjvJ1bqvFZciQ8UAGD5Hf//2R+YYMGTIexXiFF2nc8+Z+bQ9/rCNDhozRDB7gePus08LjaZ8MGTI2M2obJQzeRCu+JhkyZAxldFpsJLzWQnZ6XEyGDBmzGXyhVtJ27/eBhF0ZMmQMYgRHGcJ0sNaSS/8DMmTI2Mbgjft02FkDB2moDBky1jDSRhjpdKVP4U/857shQ4aMQYz+qSqSLNYKWlLuypAhYwODt73IRgksHZ2S0YIMGTJmM3gT7a6rVsQWz4zIkCFjBIOUoDwgpoH1tsNnMmTIWMDgg8Z0zElCdqcxJ0OGjA0M3ibjRSZfJx2OosGADBkyhjI6Abc2jKyVuCgQy5AhYygjDXlpmRpMU/kY4LrpJkOGjDUMniCmAbT/LBkyZOxkpONMngj27wwGmTJkyBjHqB2V4KGTp32dEYUMGTJmM9IyNU370sK19gGQIUPGBkZaiPanEDyUy5AhQwbfRDpirCWCndAvQ4YMGf0kjw8+i80+GTJkyGi3w2qDzIAkQ4aMBYxOAlcbAPAXh1aTIUPGaEZ60IEMANJ14uZaZ74hQ4aMJzF+AD74iYfhcSwLAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
