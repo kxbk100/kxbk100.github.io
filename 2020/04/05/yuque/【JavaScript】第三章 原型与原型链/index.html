@@ -22,20 +22,20 @@
     
     
     <meta name="keywords" content>
-    <meta name="description" content="title: 【JavaScript】第三章 原型与原型链 date: 2019 年 04 月 08 日 00:27:43categories: JavaScripttypora-root-url: ..typora-copy-images-to: ../images   如何准确判断一个变量是数组类型 写一个原型链继承的例子 描述 new 一个对象的过程 zepto（或其他框架）源码中如何使用">
+    <meta name="description" content="如何准确判断一个变量是数组类型 写一个原型链继承的例子 描述 new 一个对象的过程 zepto（或其他框架）源码中如何使用原型链   构造函数 构造函数首字母大写 构造函数类似于模板  new 一个构造函数，返回一个对象的过程 new 的时候把参数传入也可不传 new 函数执行时，创建一个空对象 this 指向这个新对象this = {} 执行代码，即对 this.name 等开始顺序赋值">
 <meta name="keywords" content="前端,技术,冯天祥,fengtx">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【JavaScript】第三章 原型与原型链">
 <meta property="og:url" content="http://fengtx.tk/2020/04/05/yuque/【JavaScript】第三章 原型与原型链/index.html">
 <meta property="og:site_name" content="冯天祥">
-<meta property="og:description" content="title: 【JavaScript】第三章 原型与原型链 date: 2019 年 04 月 08 日 00:27:43categories: JavaScripttypora-root-url: ..typora-copy-images-to: ../images   如何准确判断一个变量是数组类型 写一个原型链继承的例子 描述 new 一个对象的过程 zepto（或其他框架）源码中如何使用">
+<meta property="og:description" content="如何准确判断一个变量是数组类型 写一个原型链继承的例子 描述 new 一个对象的过程 zepto（或其他框架）源码中如何使用原型链   构造函数 构造函数首字母大写 构造函数类似于模板  new 一个构造函数，返回一个对象的过程 new 的时候把参数传入也可不传 new 函数执行时，创建一个空对象 this 指向这个新对象this = {} 执行代码，即对 this.name 等开始顺序赋值">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://fengtx.tk/images/undefined#alt=">
 <meta property="og:image" content="http://fengtx.tk/images/undefined#alt=">
-<meta property="og:updated_time" content="2020-05-11T09:42:39.560Z">
+<meta property="og:updated_time" content="2020-05-17T13:51:40.849Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【JavaScript】第三章 原型与原型链">
-<meta name="twitter:description" content="title: 【JavaScript】第三章 原型与原型链 date: 2019 年 04 月 08 日 00:27:43categories: JavaScripttypora-root-url: ..typora-copy-images-to: ../images   如何准确判断一个变量是数组类型 写一个原型链继承的例子 描述 new 一个对象的过程 zepto（或其他框架）源码中如何使用">
+<meta name="twitter:description" content="如何准确判断一个变量是数组类型 写一个原型链继承的例子 描述 new 一个对象的过程 zepto（或其他框架）源码中如何使用原型链   构造函数 构造函数首字母大写 构造函数类似于模板  new 一个构造函数，返回一个对象的过程 new 的时候把参数传入也可不传 new 函数执行时，创建一个空对象 this 指向这个新对象this = {} 执行代码，即对 this.name 等开始顺序赋值">
 <meta name="twitter:image" content="http://fengtx.tk/images/undefined#alt=">
     
         <link rel="alternate" type="application/atom+xml" title="冯天祥" href="/atom.xml">
@@ -155,7 +155,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#title-【JavaScript】第三章-原型与原型链-date-2019-年-04-月-08-日-00-27-43"><span class="post-toc-number">1.</span> <span class="post-toc-text">title: 【JavaScript】第三章 原型与原型链 date: 2019 年 04 月 08 日 00:27:43</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#构造函数"><span class="post-toc-number">2.</span> <span class="post-toc-text">构造函数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#new-一个构造函数，返回一个对象的过程"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">new 一个构造函数，返回一个对象的过程</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Tips"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">Tips</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#原型"><span class="post-toc-number">3.</span> <span class="post-toc-text">原型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-条原型规则和示例"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">5 条原型规则和示例</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#原型链"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">原型链</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#instanceof"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">instanceof</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#循环对象自身属性"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">循环对象自身属性</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#题目解答"><span class="post-toc-number">4.</span> <span class="post-toc-text">题目解答</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#构造函数"><span class="post-toc-number">1.</span> <span class="post-toc-text">构造函数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#new-一个构造函数，返回一个对象的过程"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">new 一个构造函数，返回一个对象的过程</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Tips"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">Tips</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#原型"><span class="post-toc-number">2.</span> <span class="post-toc-text">原型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-条原型规则和示例"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">5 条原型规则和示例</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#原型链"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">原型链</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#instanceof"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">instanceof</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#循环对象自身属性"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">循环对象自身属性</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#题目解答"><span class="post-toc-number">3.</span> <span class="post-toc-text">题目解答</span></a></li></ol>
         </nav>
     </aside>
 
@@ -178,9 +178,7 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <hr>
-<h2 id="title-【JavaScript】第三章-原型与原型链-date-2019-年-04-月-08-日-00-27-43"><a href="#title-【JavaScript】第三章-原型与原型链-date-2019-年-04-月-08-日-00-27-43" class="headerlink" title="title: 【JavaScript】第三章 原型与原型链 date: 2019 年 04 月 08 日 00:27:43"></a>title: 【JavaScript】第三章 原型与原型链 date: 2019 年 04 月 08 日 00:27:43</h2><p>categories: JavaScript<br>typora-root-url: ..<br>typora-copy-images-to: ../images</p>
-<blockquote>
+            <blockquote>
 <ol>
 <li>如何准确判断一个变量是数组类型</li>
 <li>写一个原型链继承的例子</li>
@@ -313,7 +311,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-05-11T09:42:39.560Z" itemprop="dateUpdated">2020-05-11 11:42:39</time>
+    最后更新时间：<time datetime="2020-05-17T13:51:40.849Z" itemprop="dateUpdated">2020-05-17 15:51:40</time>
 </span><br>
 
 
