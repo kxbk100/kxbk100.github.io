@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    <meta name="referrer" content="no-referrer">
+    
+    
+    
+    
+    <title>基于Vue 3造轮子 | 冯天祥 | 前端小白的技术博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content>
+    <meta name="description" content="1 技术栈 Vite - 针对 Vue 单页面组件的无打包开发服务器，可以直接在浏览器运行请求的 Vue 文件 Vue 3.0 Typescript Vue Router 4  2 任务 使用 Vite 搭建官网 Switch 组件 Button 组件 Dialog 组件 Tabs 组件 发布到 npm  3 Vue 3 和 Vue 2 的区别90% 的写法完全一致，除了以下几点  Vue 3 的">
+<meta name="keywords" content="前端,技术,冯天祥,fengtx">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于Vue 3造轮子">
+<meta property="og:url" content="http://fengtx.tk/2020/08/10/yuque/基于Vue 3造轮子/index.html">
+<meta property="og:site_name" content="冯天祥">
+<meta property="og:description" content="1 技术栈 Vite - 针对 Vue 单页面组件的无打包开发服务器，可以直接在浏览器运行请求的 Vue 文件 Vue 3.0 Typescript Vue Router 4  2 任务 使用 Vite 搭建官网 Switch 组件 Button 组件 Dialog 组件 Tabs 组件 发布到 npm  3 Vue 3 和 Vue 2 的区别90% 的写法完全一致，除了以下几点  Vue 3 的">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2020/png/366539/1597160651887-0c14280d-a7a9-4bce-97fc-94eca1773d6f.png#align=left&display=inline&height=385&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1406&originWidth=1052&size=620307&status=done&style=none&width=288">
+<meta property="og:updated_time" content="2020-08-16T03:03:55.625Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="基于Vue 3造轮子">
+<meta name="twitter:description" content="1 技术栈 Vite - 针对 Vue 单页面组件的无打包开发服务器，可以直接在浏览器运行请求的 Vue 文件 Vue 3.0 Typescript Vue Router 4  2 任务 使用 Vite 搭建官网 Switch 组件 Button 组件 Dialog 组件 Tabs 组件 发布到 npm  3 Vue 3 和 Vue 2 的区别90% 的写法完全一致，除了以下几点  Vue 3 的">
+<meta name="twitter:image" content="https://cdn.nlark.com/yuque/0/2020/png/366539/1597160651887-0c14280d-a7a9-4bce-97fc-94eca1773d6f.png#align=left&display=inline&height=385&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1406&originWidth=1052&size=620307&status=done&style=none&width=288">
+    
+        <link rel="alternate" type="application/atom+xml" title="冯天祥" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">冯天祥</h5>
+          <a href="mailto:im.txfeng@gmail.com" title="im.txfeng@gmail.com" class="mail">im.txfeng@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/kxbk100" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">基于Vue 3造轮子</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">基于Vue 3造轮子</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-08-10T10:08:19.000Z" itemprop="datePublished" class="page-time">
+  2020-08-10
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1-技术栈"><span class="post-toc-number">1.</span> <span class="post-toc-text">1 技术栈</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2-任务"><span class="post-toc-number">2.</span> <span class="post-toc-text">2 任务</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#3-Vue-3-和-Vue-2-的区别"><span class="post-toc-number">3.</span> <span class="post-toc-text">3 Vue 3 和 Vue 2 的区别</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#4-引入-Vue-Router-4"><span class="post-toc-number">4.</span> <span class="post-toc-text">4 引入 Vue Router 4</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#5-初始化-vue-router"><span class="post-toc-number">5.</span> <span class="post-toc-text">5 初始化 vue-router</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#找不到模块-xxx-vue"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">找不到模块 xxx.vue</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#知识点"><span class="post-toc-number">6.</span> <span class="post-toc-text">知识点</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Vue-3-编程模型"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">Vue 3 编程模型</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Vue-2-和-Vue-3-的区别"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">Vue 2 和 Vue 3 的区别</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Vue-3-属性绑定"><span class="post-toc-number">6.3.</span> <span class="post-toc-text">Vue 3 属性绑定</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#props-V-S-attrs"><span class="post-toc-number">7.</span> <span class="post-toc-text">props V.S. attrs</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#UI-库的-CSS-注意事项"><span class="post-toc-number">8.</span> <span class="post-toc-text">UI 库的 CSS 注意事项</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-yuque/基于Vue 3造轮子" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">基于Vue 3造轮子</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-08-10 18:08:19" datetime="2020-08-10T10:08:19.000Z" itemprop="datePublished">2020-08-10</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="1-技术栈"><a href="#1-技术栈" class="headerlink" title="1 技术栈"></a>1 技术栈</h1><ul>
+<li>Vite - 针对 Vue 单页面组件的无打包开发服务器，可以直接在浏览器运行请求的 Vue 文件</li>
+<li>Vue 3.0</li>
+<li>Typescript</li>
+<li>Vue Router 4</li>
+</ul>
+<h1 id="2-任务"><a href="#2-任务" class="headerlink" title="2 任务"></a>2 任务</h1><ul>
+<li>使用 Vite 搭建官网</li>
+<li>Switch 组件</li>
+<li>Button 组件</li>
+<li>Dialog 组件</li>
+<li>Tabs 组件</li>
+<li>发布到 npm</li>
+</ul>
+<h1 id="3-Vue-3-和-Vue-2-的区别"><a href="#3-Vue-3-和-Vue-2-的区别" class="headerlink" title="3 Vue 3 和 Vue 2 的区别"></a>3 Vue 3 和 Vue 2 的区别</h1><p>90% 的写法完全一致，除了以下几点</p>
+<ul>
+<li>Vue 3 的 Template 支持多个根标签，Vue 2 不支持</li>
+<li>Vue 3 有 createApp()，而 Vue 2 的是 new Vue()</li>
+<li>createApp(组件)，new Vue({template, render})</li>
+</ul>
+<h1 id="4-引入-Vue-Router-4"><a href="#4-引入-Vue-Router-4" class="headerlink" title="4 引入 Vue Router 4"></a>4 引入 Vue Router 4</h1><ul>
+<li>使用命令行查看 vue-router 所有版本号：npm info vue-router versions</li>
+<li>yarn add <a href="mailto:vue-router@4.0.0-beta.3" target="_blank" rel="noopener">vue-router@4.0.0-beta.3</a></li>
+</ul>
+<h1 id="5-初始化-vue-router"><a href="#5-初始化-vue-router" class="headerlink" title="5 初始化 vue-router"></a>5 初始化 vue-router</h1><ul>
+<li>新建 history 对象</li>
+<li>新建 router 对象</li>
+<li>引入 TypeScript</li>
+<li>app.use(router)</li>
+<li>添加 <router-view></router-view></li>
+<li>添加 <router-link></router-link></li>
+</ul>
+<h2 id="找不到模块-xxx-vue"><a href="#找不到模块-xxx-vue" class="headerlink" title="找不到模块 xxx.vue"></a>找不到模块 xxx.vue</h2><p>出现原因</p>
+<ul>
+<li>TypeScript 只能理解 .ts 文件，无法理解 .vue 文件</li>
+</ul>
+<p>解决办法</p>
+<ul>
+<li>创建 xxx.d.ts，告诉 TS 如何理解 .vue 文件</li>
+</ul>
+<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><ul>
+<li>先实现手机，还是先实现 PC？ - 先手机！因为 80% 的用户，只用手机上网</li>
+<li>Scss 写&gt; .logo {}，用&gt;选择器比较好，都写 scoped</li>
+<li>写 ts 比较好</li>
+<li>JS 获取页面宽度来确定值</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const width = document.documentElement.clientWidth;</span><br><span class="line">const menuVisible = ref(width &lt;= 500 ? false : true);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用 Vite 搭建官网：<a href="https://github.com/FrankFang/fIHOZKRf4eu9/commits/master" target="_blank" rel="noopener">https://github.com/FrankFang/fIHOZKRf4eu9/commits/master</a></li>
+<li>Vue 3 Switch 组件：</li>
+</ul>
+<p>初始代码：<a href="https://github.com/FrankFang/fIHOZKRf4eu9" target="_blank" rel="noopener">https://github.com/FrankFang/fIHOZKRf4eu9</a><br>最终代码：<a href="https://github.com/FrankFang/8pPES5Jg7mjh" target="_blank" rel="noopener">https://github.com/FrankFang/8pPES5Jg7mjh</a><br>commit 历史：<a href="https://github.com/FrankFang/8pPES5Jg7mjh/commits/master" target="_blank" rel="noopener">https://github.com/FrankFang/8pPES5Jg7mjh/commits/master</a></p>
+<ul>
+<li>Vue 3 Button 组件：</li>
+</ul>
+<p>初始代码：<a href="https://github.com/FrankFang/8pPES5Jg7mjh" target="_blank" rel="noopener">https://github.com/FrankFang/8pPES5Jg7mjh</a><br>最终代码：<a href="https://github.com/FrankFang/qjVPO7f89org" target="_blank" rel="noopener">https://github.com/FrankFang/qjVPO7f89org</a><br>commit 历史：<a href="https://github.com/FrankFang/qjVPO7f89org/commits/master" target="_blank" rel="noopener">https://github.com/FrankFang/qjVPO7f89org/commits/master</a></p>
+<ul>
+<li>value=”true” 和 :value=”true” 的区别</li>
+<li>使用 CSS transition 添加过渡动画</li>
+<li>使用 ref 创建内部数据</li>
+<li>框架就是把你框起来：不准改 props</li>
+</ul>
+<h2 id="Vue-3-编程模型"><a href="#Vue-3-编程模型" class="headerlink" title="Vue 3 编程模型"></a>Vue 3 编程模型</h2><ol>
+<li>内部数据</li>
+<li>父子数据：一个环</li>
+</ol>
+<ul>
+<li>使用 \$event：使用 :value 和 @input 让父子组件进行交流(组件通信)，</li>
+<li>使用 v-model：也可以使用 Vue 3 新的 v-model 的 update:xxx 代替</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://cdn.nlark.com/yuque/0/2020/png/366539/1597160651887-0c14280d-a7a9-4bce-97fc-94eca1773d6f.png#align=left&display=inline&height=385&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1406&originWidth=1052&size=620307&status=done&style=none&width=288" alt="image.png" title>
+                </div>
+                <div class="image-caption">image.png</div>
+            </figure>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 父组件</span></span><br><span class="line">&lt;!-- :<span class="function"><span class="params">value</span> =&gt;</span> 变量y，value =&gt; 字符串y --&gt;</span><br><span class="line">&lt;Switch :value=<span class="string">"y"</span> <span class="meta">@input</span>=<span class="string">"y = $event"</span> /&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 子组件</span></span><br><span class="line">setup(props, context) &#123;</span><br><span class="line">    <span class="keyword">const</span> toggle = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      context.emit(<span class="string">'input'</span>, !props.value);</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">return</span> &#123; toggle &#125;;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Vue-2-和-Vue-3-的区别"><a href="#Vue-2-和-Vue-3-的区别" class="headerlink" title="Vue 2 和 Vue 3 的区别"></a>Vue 2 和 Vue 3 的区别</h2><ul>
+<li>新 v-model 代替以前的 v-model 和 .sync</li>
+<li>新增 context.emit（写在 setup 里），与 this.\$emit 作用相同）（写在 methods 里），共存</li>
+<li>不写声明周期函数和 methods 等，全部写在 setup 里面，以后 script 里面只会写 props, components, setup</li>
+</ul>
+<h2 id="Vue-3-属性绑定"><a href="#Vue-3-属性绑定" class="headerlink" title="Vue 3 属性绑定"></a>Vue 3 属性绑定</h2><ul>
+<li>Vue 会把事件默认传给子组件的最外层元素</li>
+<li>默认所有属性都绑定到根元素</li>
+<li>使用 inheritAttrs: false 可以取消默认绑定</li>
+<li>使用 v-bind=”\$attrs” 或者 context.attrs 获取所有属性</li>
+<li>使用 v-bind=”\$attrs” 批量绑定属性</li>
+<li>使用 const {size, level, …xxx} = context.attrs 将属性分开</li>
+</ul>
+<h1 id="props-V-S-attrs"><a href="#props-V-S-attrs" class="headerlink" title="props V.S. attrs"></a>props V.S. attrs</h1><ul>
+<li>props 要先声明才能取值，attrs 不用先声明</li>
+<li>props 不包含事件，attrs 包含</li>
+<li>props 没有声明的属性，会跑到 attrs 里</li>
+<li>props 支持 string 以外的类型，attrs 只有 string 类型</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div :size=&quot;size&quot;&gt;</span><br><span class="line">    &lt;button v-bind=&quot;$attrs&quot;&gt;</span><br><span class="line">      &lt;slot /&gt;</span><br><span class="line">    &lt;/button&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script lang=&quot;ts&quot;&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  // 不继承属性</span><br><span class="line">  inheritAttrs: false,</span><br><span class="line">  setup(props, context) &#123;</span><br><span class="line">    const &#123; size, ...rest &#125; = context.attrs;</span><br><span class="line">    return &#123; size, rest &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h1 id="UI-库的-CSS-注意事项"><a href="#UI-库的-CSS-注意事项" class="headerlink" title="UI 库的 CSS 注意事项"></a>UI 库的 CSS 注意事项</h1><ul>
+<li>不能使用 scoped<ul>
+<li>因为 data-v-xxx 中的 xxx 每次运行可能不同</li>
+<li>必须输出稳定不变的 class 选择器，方便使用者覆盖</li>
+</ul>
+</li>
+<li>必须加前缀<ul>
+<li>.button 不行，很容易被使用者覆盖</li>
+<li>.gulu-button 可以，不太容易被覆盖</li>
+<li>.theme-link 不行，很容易被使用者覆盖</li>
+<li>.gulu-theme-link 可以，不太容易被覆盖</li>
+</ul>
+</li>
+<li>你的 CSS 绝对不能影响库使用者</li>
+<li>手绘风尝试： Wired Elements</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-08-16T03:03:55.625Z" itemprop="dateUpdated">2020-08-16 11:03:55</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="http://fengtx.tk">
+            <img src="/img/avatar.jpg" alt="冯天祥">
+            冯天祥
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://fengtx.tk/2020/08/10/yuque/基于Vue 3造轮子/&title=《基于Vue 3造轮子》 — 冯天祥&pic=http://fengtx.tk/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://fengtx.tk/2020/08/10/yuque/基于Vue 3造轮子/&title=《基于Vue 3造轮子》 — 冯天祥&source=前端小白冯天祥的技术博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://fengtx.tk/2020/08/10/yuque/基于Vue 3造轮子/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《基于Vue 3造轮子》 — 冯天祥&url=http://fengtx.tk/2020/08/10/yuque/基于Vue 3造轮子/&via=http://fengtx.tk" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://fengtx.tk/2020/08/10/yuque/基于Vue 3造轮子/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/05/03/yuque/React学习小记/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">React学习小记</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢打赏
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>冯天祥 &copy; 2016 - 2020</span>
+            <!-- <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span> -->
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://fengtx.tk/2020/08/10/yuque/基于Vue 3造轮子/&title=《基于Vue 3造轮子》 — 冯天祥&pic=http://fengtx.tk/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://fengtx.tk/2020/08/10/yuque/基于Vue 3造轮子/&title=《基于Vue 3造轮子》 — 冯天祥&source=前端小白冯天祥的技术博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://fengtx.tk/2020/08/10/yuque/基于Vue 3造轮子/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《基于Vue 3造轮子》 — 冯天祥&url=http://fengtx.tk/2020/08/10/yuque/基于Vue 3造轮子/&via=http://fengtx.tk" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://fengtx.tk/2020/08/10/yuque/基于Vue 3造轮子/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLUlEQVR42u3aSW7kMBAEQP//0z3A3AYDqTNZsuEmQyehF5GhA1Hb11d8vf5eV/dX3ybP+f/3908YXRgYGB/LeN1e99u9WrL9ZfKarvaGgYFxDiPfSvHo+Dnt8Y2BgYFxHw7ef3If8OWHOwYGBsaEsRYy5ikrBgYGxiSJzQ/W7/vXA7k4BgbGBzLmjYHvu//R/gYGBsavZLzKa9JIyBuc9a4wMDC2ZtwHbe3BlwdteYpbrIKBgbE1Y63c3xbUkuUfaA9gYGBsx1grXT01ZpEcpklgioGBsTdjXprPl5k0CYrgFQMDYztG/odkzKJNffO13gSgGBgYWzPWktgcnDcV5nUzDAyMXRlrBfpJODipCF5+goGBsTVjMd+9xeRH53wEDQMD4wRGbl27n7c5o11hYGAcw8jDvrY01rYn25YnBgbGCYx25GKtQFaU9eMAFAMD4xzGZCRrsq02xKyHLTAwMLZjrB2da4MU9ZGaz4xgYGBsx8iHKvIBiElj8oEgFQMDYztG/rd8zGtxVCIu1b3JxTEwMLZm5BtdK+jPmwrFO8bAwNiIkSeHa6MYecpabPR+FQwMjO0Yr/JqC2p5ytqGm/98i4GBsTVj7YBrE9c2QMyTYQwMjHMYbSqbjEG0mOQ1YWBgYLQFrzaka9sGi1k4BgbG8Yz2eG0HNdpwc/HAxcDAOIDRltvmW4/KbRgYGAcw2iR2rUA/L8BhYGCcyZg0BtqktD1eHwNgYGB8KuMPqPE84hJK2VUAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
