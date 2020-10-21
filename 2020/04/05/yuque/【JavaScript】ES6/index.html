@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
     
 
     
@@ -33,7 +33,7 @@
 <meta property="og:image" content="http://fengtx.tk/images/20190411103458912.png#alt=">
 <meta property="og:image" content="http://fengtx.tk/images/20190411110308503.png#alt=">
 <meta property="og:image" content="http://fengtx.tk/images/20190411110855900.png#alt=">
-<meta property="og:updated_time" content="2020-10-15T15:44:29.091Z">
+<meta property="og:updated_time" content="2020-10-21T15:20:02.744Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【JavaScript】ES6">
 <meta name="twitter:description" content="title: 【JavaScript】ES6date: 2019年04月08日 00:27:43categories: JavaScripttypora-root-url: ..typora-copy-images-to: ../images var、let 及 const 区别  涉及面试题：什么是提升？什么是暂时性死区？var、let 及 const 区别？  对于这个问题，我们应该先来了解">
@@ -53,7 +53,7 @@
 <body>
     <div id="loading" class="active"></div>
 
-    <aside id="menu" class="hide">
+    <aside id="menu" class="hide" >
   <div class="inner flex-row-vertical">
     <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
         <i class="icon icon-lg icon-close"></i>
@@ -73,28 +73,28 @@
       <ul class="nav">
         
             <li class="waves-block waves-effect">
-              <a href="/">
+              <a href="/"  >
                 <i class="icon icon-lg icon-home"></i>
                 主页
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/categories">
+              <a href="/categories"  >
                 <i class="icon icon-lg icon-th-list"></i>
                 分类
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/archives">
+              <a href="/archives"  >
                 <i class="icon icon-lg icon-archives"></i>
                 归档
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="https://github.com/kxbk100" target="_blank">
+              <a href="https://github.com/kxbk100" target="_blank" >
                 <i class="icon icon-lg icon-github"></i>
                 Github
               </a>
@@ -156,23 +156,24 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#title-【JavaScript】ES6date-2019年04月08日-00-27-43"><span class="post-toc-number">1.</span> <span class="post-toc-text">title: 【JavaScript】ES6date: 2019年04月08日 00:27:43</span></a></li></ol><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#var、let-及-const-区别"><span class="post-toc-number"></span> <span class="post-toc-text">var、let 及 const 区别</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#原型继承和-Class-继承"><span class="post-toc-number"></span> <span class="post-toc-text">原型继承和 Class 继承</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#组合继承"><span class="post-toc-number">1.</span> <span class="post-toc-text">组合继承</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#寄生组合继承"><span class="post-toc-number">2.</span> <span class="post-toc-text">寄生组合继承</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Class-继承"><span class="post-toc-number">3.</span> <span class="post-toc-text">Class 继承</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Proxy"><span class="post-toc-number"></span> <span class="post-toc-text">Proxy</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#map-filter-reduce"><span class="post-toc-number"></span> <span class="post-toc-text">map, filter, reduce</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#箭头函数"><span class="post-toc-number"></span> <span class="post-toc-text">箭头函数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#this"><span class="post-toc-number">1.</span> <span class="post-toc-text">this</span></a></li></ol>
-        </li></nav>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#title-【JavaScript】ES6date-2019年04月08日-00-27-43"><span class="post-toc-number">1.</span> <span class="post-toc-text">title: 【JavaScript】ES6date: 2019年04月08日 00:27:43</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#var、let-及-const-区别"><span class="post-toc-number"></span> <span class="post-toc-text">var、let 及 const 区别</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#原型继承和-Class-继承"><span class="post-toc-number"></span> <span class="post-toc-text">原型继承和 Class 继承</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#组合继承"><span class="post-toc-number">1.</span> <span class="post-toc-text">组合继承</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#寄生组合继承"><span class="post-toc-number">2.</span> <span class="post-toc-text">寄生组合继承</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Class-继承"><span class="post-toc-number">3.</span> <span class="post-toc-text">Class 继承</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Proxy"><span class="post-toc-number"></span> <span class="post-toc-text">Proxy</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#map-filter-reduce"><span class="post-toc-number"></span> <span class="post-toc-text">map, filter, reduce</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#箭头函数"><span class="post-toc-number"></span> <span class="post-toc-text">箭头函数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#this"><span class="post-toc-number">1.</span> <span class="post-toc-text">this</span></a></li></ol>
+        </nav>
     </aside>
 
 
-<article id="post-yuque/【JavaScript】ES6" class="post-article article-type-post fade" itemprop="blogPost">
+<article id="post-yuque/【JavaScript】ES6"
+  class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
         <h1 class="post-card-title">【JavaScript】ES6</h1>
         <div class="post-meta">
-            <time class="post-time" title="2020-04-05 08:55:31" datetime="2020-04-05T00:55:31.000Z" itemprop="datePublished">2020-04-05</time>
+            <time class="post-time" title="2020-04-05 08:55:31" datetime="2020-04-05T00:55:31.000Z"  itemprop="datePublished">2020-04-05</time>
 
             
 
 
             
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
     <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
 </span>
 
@@ -224,7 +225,7 @@
 </ul>
 <p>参考资料</p>
 <blockquote>
-<p>[1]<a href="https://www.youtube.com/watch?v=XgSjoHgy3Rk" target="_blank" rel="noopener">https://www.youtube.com/watch?v=xgsjohgy3rk</a></p>
+<p>[1] <a href="https://www.youtube.com/watch?v=XgSjoHgy3Rk" target="_blank" rel="noopener">https://www.youtube.com/watch?v=XgSjoHgy3Rk</a></p>
 </blockquote>
 <h1 id="原型继承和-Class-继承"><a href="#原型继承和-Class-继承" class="headerlink" title="原型继承和 Class 继承"></a>原型继承和 Class 继承</h1><hr>
 <blockquote>
@@ -359,7 +360,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-10-15T15:44:29.091Z" itemprop="dateUpdated">2020-10-15 23:44:29</time>
+    最后更新时间：<time datetime="2020-10-21T15:20:02.744Z" itemprop="dateUpdated">2020-10-21 23:20:02</time>
 </span><br>
 
 
@@ -495,7 +496,8 @@
         </div>
         
         <label class="reward-toggle">
-            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
             <div class="reward-toggle-ctrol">
                 <span class="reward-toggle-item wechat">微信</span>
                 <span class="reward-toggle-label"></span>
@@ -514,10 +516,10 @@
     <div class="top">
         
 <p>
-    <span id="busuanzi_container_site_uv" style="display:none">
+    <span id="busuanzi_container_site_uv" style='display:none'>
         站点总访客数：<span id="busuanzi_value_site_uv"></span>
     </span>
-    <span id="busuanzi_container_site_pv" style="display:none">
+    <span id="busuanzi_container_site_pv" style='display:none'>
         站点总访问量：<span id="busuanzi_value_site_pv"></span>
     </span>
 </p>

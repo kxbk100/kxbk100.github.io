@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
     
 
     
@@ -40,7 +40,7 @@
 <meta property="og:image" content="http://fengtx.tk/images/20190503201511297.gif#alt=">
 <meta property="og:image" content="http://fengtx.tk/images/20190503222853314.png#alt=">
 <meta property="og:image" content="http://fengtx.tk/images/20190503222835973.png#alt=">
-<meta property="og:updated_time" content="2020-10-15T15:44:31.503Z">
+<meta property="og:updated_time" content="2020-10-21T15:20:05.109Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【Browser】浏览器渲染原理">
 <meta name="twitter:description" content="title: 【Browser】浏览器渲染原理date: 2019年04月08日 00:27:43categories: Browsertypora-root-url: ..typora-copy-images-to: ../images 执行 JS 有一个 JS 引擎，那么执行渲染也有一个渲染引擎。同样，渲染引擎在不同的浏览器中也不是都相同的。比如在 Firefox 中叫做 Gecko，在 C">
@@ -60,7 +60,7 @@
 <body>
     <div id="loading" class="active"></div>
 
-    <aside id="menu" class="hide">
+    <aside id="menu" class="hide" >
   <div class="inner flex-row-vertical">
     <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
         <i class="icon icon-lg icon-close"></i>
@@ -80,28 +80,28 @@
       <ul class="nav">
         
             <li class="waves-block waves-effect">
-              <a href="/">
+              <a href="/"  >
                 <i class="icon icon-lg icon-home"></i>
                 主页
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/categories">
+              <a href="/categories"  >
                 <i class="icon icon-lg icon-th-list"></i>
                 分类
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/archives">
+              <a href="/archives"  >
                 <i class="icon icon-lg icon-archives"></i>
                 归档
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="https://github.com/kxbk100" target="_blank">
+              <a href="https://github.com/kxbk100" target="_blank" >
                 <i class="icon icon-lg icon-github"></i>
                 Github
               </a>
@@ -163,23 +163,24 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#title-【Browser】浏览器渲染原理date-2019年04月08日-00-27-43"><span class="post-toc-number">1.</span> <span class="post-toc-text">title: 【Browser】浏览器渲染原理date: 2019年04月08日 00:27:43</span></a></li></ol><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#浏览器接收到-HTML-文件并转换为-DOM-树"><span class="post-toc-number"></span> <span class="post-toc-text">浏览器接收到 HTML 文件并转换为 DOM 树</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#将-CSS-文件转换为-CSSOM-树"><span class="post-toc-number"></span> <span class="post-toc-text">将 CSS 文件转换为 CSSOM 树</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#生成渲染树"><span class="post-toc-number"></span> <span class="post-toc-text">生成渲染树</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#为什么操作-DOM-慢"><span class="post-toc-number"></span> <span class="post-toc-text">为什么操作 DOM 慢</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#什么情况阻塞渲染"><span class="post-toc-number">1.</span> <span class="post-toc-text">什么情况阻塞渲染</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#重绘（Repaint）和回流（Reflow）"><span class="post-toc-number">2.</span> <span class="post-toc-text">重绘（Repaint）和回流（Reflow）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#减少重绘和回流"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">减少重绘和回流</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#思考题"><span class="post-toc-number"></span> <span class="post-toc-text">思考题</span></a>
-        </li></nav>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#title-【Browser】浏览器渲染原理date-2019年04月08日-00-27-43"><span class="post-toc-number">1.</span> <span class="post-toc-text">title: 【Browser】浏览器渲染原理date: 2019年04月08日 00:27:43</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#浏览器接收到-HTML-文件并转换为-DOM-树"><span class="post-toc-number"></span> <span class="post-toc-text">浏览器接收到 HTML 文件并转换为 DOM 树</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#将-CSS-文件转换为-CSSOM-树"><span class="post-toc-number"></span> <span class="post-toc-text">将 CSS 文件转换为 CSSOM 树</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#生成渲染树"><span class="post-toc-number"></span> <span class="post-toc-text">生成渲染树</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#为什么操作-DOM-慢"><span class="post-toc-number"></span> <span class="post-toc-text">为什么操作 DOM 慢</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#什么情况阻塞渲染"><span class="post-toc-number">1.</span> <span class="post-toc-text">什么情况阻塞渲染</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#重绘（Repaint）和回流（Reflow）"><span class="post-toc-number">2.</span> <span class="post-toc-text">重绘（Repaint）和回流（Reflow）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#减少重绘和回流"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">减少重绘和回流</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#思考题"><span class="post-toc-number"></span> <span class="post-toc-text">思考题</span></a>
+        </nav>
     </aside>
 
 
-<article id="post-yuque/【Browser】浏览器渲染原理" class="post-article article-type-post fade" itemprop="blogPost">
+<article id="post-yuque/【Browser】浏览器渲染原理"
+  class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
         <h1 class="post-card-title">【Browser】浏览器渲染原理</h1>
         <div class="post-meta">
-            <time class="post-time" title="2020-04-05 08:52:41" datetime="2020-04-05T00:52:41.000Z" itemprop="datePublished">2020-04-05</time>
+            <time class="post-time" title="2020-04-05 08:52:41" datetime="2020-04-05T00:52:41.000Z"  itemprop="datePublished">2020-04-05</time>
 
             
 
 
             
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
     <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
 </span>
 
@@ -242,7 +243,7 @@
             </figure>
 <p>在这一过程中，浏览器会确定下每一个节点的<strong>样式</strong>到底是什么，并且这一过程其实是<strong>很消耗资源</strong>的。因为样式你可以自行设置给某个节点，也可以通过<strong>继承</strong>获得。在这一过程中，浏览器得<strong>递归</strong> CSSOM 树，然后确定具体的元素到底是什么样式。</p>
 <p>如果你有点不理解为什么会消耗资源的话，我这里举个例子</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span>&gt;</span> <span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span> <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">  span &#123;</span></span><br><span class="line"><span class="undefined">    color: red;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined">  div &gt; a &gt; span &#123;</span></span><br><span class="line"><span class="undefined">    color: red;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span>&gt;</span> <span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span> <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line">  span &#123;</span><br><span class="line">    color: red;</span><br><span class="line">  &#125;</span><br><span class="line">  div &gt; a &gt; span &#123;</span><br><span class="line">    color: red;</span><br><span class="line">  &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>对于第一种设置样式的方式来说，浏览器只需要找到页面中所有的 <code>span</code> 标签然后设置颜色，但是对于第二种设置样式的方式来说，浏览器首先需要找到所有的 <code>span</code> 标签，然后找到 <code>span</code> 标签上的 <code>a</code> 标签，最后再去找到 <code>div</code> 标签，然后给符合这种条件的 <code>span</code> 标签设置颜色，这样的递归过程就很复杂。所以我们应该尽可能的避免写<strong>过于具体</strong>的 CSS 选择器，然后对于 HTML 来说也尽量少的添加无意义标签，保证<strong>层级扁平</strong>。</p>
 <h1 id="生成渲染树"><a href="#生成渲染树" class="headerlink" title="生成渲染树"></a>生成渲染树</h1><hr>
 <p>当我们生成 DOM 树和 CSSOM 树以后，就需要将这两棵树组合为渲染树。</p>
@@ -309,20 +310,24 @@
 <h3 id="减少重绘和回流"><a href="#减少重绘和回流" class="headerlink" title="减少重绘和回流"></a>减少重绘和回流</h3><ul>
 <li>使用 <code>transform</code> 替代 <code>top</code></li>
 </ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"test"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">  .test &#123;</span></span><br><span class="line"><span class="undefined">    position: absolute;</span></span><br><span class="line"><span class="undefined">    top: 10px;</span></span><br><span class="line"><span class="undefined">    width: 100px;</span></span><br><span class="line"><span class="undefined">    height: 100px;</span></span><br><span class="line"><span class="undefined">    background: red;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="javascript">    <span class="comment">// 引起回流</span></span></span><br><span class="line"><span class="javascript">    <span class="built_in">document</span>.querySelector(<span class="string">".test"</span>).style.top = <span class="string">"100px"</span>;</span></span><br><span class="line"><span class="undefined">  &#125;, 1000);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>-</p>
-<p>使用 <code>visibility</code> 替换 <code>display: none</code> ，因为前者只会引起重绘，后者会引发回流（改变了布局）</p>
-<p>-</p>
-<p>不要把节点的属性值放在一个循环里当成循环里的变量</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"test"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line">  .test &#123;</span><br><span class="line">    position: absolute;</span><br><span class="line">    top: 10px;</span><br><span class="line">    width: 100px;</span><br><span class="line">    height: 100px;</span><br><span class="line">    background: red;</span><br><span class="line">  &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">  setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="javascript">    <span class="comment">// 引起回流</span></span></span><br><span class="line"><span class="javascript">    <span class="built_in">document</span>.querySelector(<span class="string">".test"</span>).style.top = <span class="string">"100px"</span>;</span></span><br><span class="line">  &#125;, 1000);</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>使用 <code>visibility</code> 替换 <code>display: none</code> ，因为前者只会引起重绘，后者会引发回流（改变了布局）</p>
+</li>
+<li><p>不要把节点的属性值放在一个循环里当成循环里的变量</p>
+</li>
+</ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">1000</span>; i++) &#123;</span><br><span class="line">  <span class="comment">// 获取 offsetTop 会导致回流，因为需要去获取正确的值</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">document</span>.querySelector(<span class="string">".test"</span>).style.offsetTop);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>-</p>
-<p>不要使用 <code>table</code> 布局，可能很小的一个小改动会造成整个 <code>table</code> 的重新布局</p>
-<p>-</p>
-<p>动画实现的速度的选择，动画速度越快，回流次数越多，也可以选择使用 <code>requestAnimationFrame</code></p>
-<p>-</p>
-<p>CSS 选择符<strong>从右往左</strong>匹配查找，避免节点层级过多</p>
-<p>-</p>
-<p>将频繁重绘或者回流的节点设置为图层，图层能够阻止该节点的渲染行为影响别的节点。比如对于 <code>video</code> 标签来说，浏览器会自动将该节点变为图层。</p>
+<ul>
+<li><p>不要使用 <code>table</code> 布局，可能很小的一个小改动会造成整个 <code>table</code> 的重新布局</p>
+</li>
+<li><p>动画实现的速度的选择，动画速度越快，回流次数越多，也可以选择使用 <code>requestAnimationFrame</code></p>
+</li>
+<li><p>CSS 选择符<strong>从右往左</strong>匹配查找，避免节点层级过多</p>
+</li>
+<li><p>将频繁重绘或者回流的节点设置为图层，图层能够阻止该节点的渲染行为影响别的节点。比如对于 <code>video</code> 标签来说，浏览器会自动将该节点变为图层。</p>
+</li>
+</ul>
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
@@ -363,7 +368,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-10-15T15:44:31.503Z" itemprop="dateUpdated">2020-10-15 23:44:31</time>
+    最后更新时间：<time datetime="2020-10-21T15:20:05.109Z" itemprop="dateUpdated">2020-10-21 23:20:05</time>
 </span><br>
 
 
@@ -499,7 +504,8 @@
         </div>
         
         <label class="reward-toggle">
-            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
             <div class="reward-toggle-ctrol">
                 <span class="reward-toggle-item wechat">微信</span>
                 <span class="reward-toggle-label"></span>
@@ -518,10 +524,10 @@
     <div class="top">
         
 <p>
-    <span id="busuanzi_container_site_uv" style="display:none">
+    <span id="busuanzi_container_site_uv" style='display:none'>
         站点总访客数：<span id="busuanzi_value_site_uv"></span>
     </span>
-    <span id="busuanzi_container_site_pv" style="display:none">
+    <span id="busuanzi_container_site_pv" style='display:none'>
         站点总访问量：<span id="busuanzi_value_site_pv"></span>
     </span>
 </p>

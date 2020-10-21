@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
     
 
     
@@ -30,7 +30,7 @@
 <meta property="og:site_name" content="冯天祥">
 <meta property="og:description" content="title: 【JavaScript】第八章 事件 date: 2019 年 04 月 08 日 00:27:43categories: JavaScripttypora-root-url: ..typora-copy-images-to: ../images   编写一个通用的事件监听函数 描述事件冒泡过程 对于一个无限下拉加载图片的页面，如何给每个图片绑定事件   通用事件绑定关于低版本 I">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-10-15T15:44:30.547Z">
+<meta property="og:updated_time" content="2020-10-21T15:20:04.242Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【JavaScript】第八章 事件">
 <meta name="twitter:description" content="title: 【JavaScript】第八章 事件 date: 2019 年 04 月 08 日 00:27:43categories: JavaScripttypora-root-url: ..typora-copy-images-to: ../images   编写一个通用的事件监听函数 描述事件冒泡过程 对于一个无限下拉加载图片的页面，如何给每个图片绑定事件   通用事件绑定关于低版本 I">
@@ -49,7 +49,7 @@
 <body>
     <div id="loading" class="active"></div>
 
-    <aside id="menu" class="hide">
+    <aside id="menu" class="hide" >
   <div class="inner flex-row-vertical">
     <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
         <i class="icon icon-lg icon-close"></i>
@@ -69,28 +69,28 @@
       <ul class="nav">
         
             <li class="waves-block waves-effect">
-              <a href="/">
+              <a href="/"  >
                 <i class="icon icon-lg icon-home"></i>
                 主页
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/categories">
+              <a href="/categories"  >
                 <i class="icon icon-lg icon-th-list"></i>
                 分类
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/archives">
+              <a href="/archives"  >
                 <i class="icon icon-lg icon-archives"></i>
                 归档
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="https://github.com/kxbk100" target="_blank">
+              <a href="https://github.com/kxbk100" target="_blank" >
                 <i class="icon icon-lg icon-github"></i>
                 Github
               </a>
@@ -152,23 +152,24 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#title-【JavaScript】第八章-事件-date-2019-年-04-月-08-日-00-27-43"><span class="post-toc-number">1.</span> <span class="post-toc-text">title: 【JavaScript】第八章 事件 date: 2019 年 04 月 08 日 00:27:43</span></a></li></ol><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#通用事件绑定"><span class="post-toc-number"></span> <span class="post-toc-text">通用事件绑定</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#事件冒泡"><span class="post-toc-number"></span> <span class="post-toc-text">事件冒泡</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#代理"><span class="post-toc-number"></span> <span class="post-toc-text">代理</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#题目解答"><span class="post-toc-number"></span> <span class="post-toc-text">题目解答</span></a>
-        </li></nav>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#title-【JavaScript】第八章-事件-date-2019-年-04-月-08-日-00-27-43"><span class="post-toc-number">1.</span> <span class="post-toc-text">title: 【JavaScript】第八章 事件 date: 2019 年 04 月 08 日 00:27:43</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#通用事件绑定"><span class="post-toc-number"></span> <span class="post-toc-text">通用事件绑定</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#事件冒泡"><span class="post-toc-number"></span> <span class="post-toc-text">事件冒泡</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#代理"><span class="post-toc-number"></span> <span class="post-toc-text">代理</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#题目解答"><span class="post-toc-number"></span> <span class="post-toc-text">题目解答</span></a>
+        </nav>
     </aside>
 
 
-<article id="post-yuque/【JavaScript】第八章 事件" class="post-article article-type-post fade" itemprop="blogPost">
+<article id="post-yuque/【JavaScript】第八章 事件"
+  class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
         <h1 class="post-card-title">【JavaScript】第八章 事件</h1>
         <div class="post-meta">
-            <time class="post-time" title="2020-04-05 08:54:06" datetime="2020-04-05T00:54:06.000Z" itemprop="datePublished">2020-04-05</time>
+            <time class="post-time" title="2020-04-05 08:54:06" datetime="2020-04-05T00:54:06.000Z"  itemprop="datePublished">2020-04-05</time>
 
             
 
 
             
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
     <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
 </span>
 
@@ -194,13 +195,13 @@
 <li>顺着 DOM 的顺序结构，底层叶节点的点击事件会一层一层根据顺序结构往其父元素上触发</li>
 <li>点击 p1 后往上冒泡：触发 p1 的 click 事件 -&gt; 触发 div1 的 click 事件 -&gt; 触发 body 的 click 事件</li>
 </ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"div1"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"p1"</span>&gt;</span>激活<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"p2"</span>&gt;</span>取消<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"p3"</span>&gt;</span>取消<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"p4"</span>&gt;</span>取消<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"div2"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"p5"</span>&gt;</span>取消<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"p6"</span>&gt;</span>取消<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> p1 = <span class="built_in">document</span>.getElementById(<span class="string">"p1"</span>);</span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> body = <span class="built_in">document</span>.body;</span></span><br><span class="line"><span class="javascript">  bindEvent(p1, <span class="string">"click"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">    e.stopPropagation(); <span class="comment">// 阻止冒泡</span></span></span><br><span class="line"><span class="javascript">    alert(<span class="string">"激活"</span>);</span></span><br><span class="line"><span class="undefined">  &#125;);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">  bindEvent(body, <span class="string">"click"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">    alert(<span class="string">"取消"</span>);</span></span><br><span class="line"><span class="undefined">  &#125;);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"div1"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"p1"</span>&gt;</span>激活<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"p2"</span>&gt;</span>取消<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"p3"</span>&gt;</span>取消<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"p4"</span>&gt;</span>取消<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"div2"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"p5"</span>&gt;</span>取消<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"p6"</span>&gt;</span>取消<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> p1 = <span class="built_in">document</span>.getElementById(<span class="string">"p1"</span>);</span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> body = <span class="built_in">document</span>.body;</span></span><br><span class="line"><span class="javascript">  bindEvent(p1, <span class="string">"click"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">    e.stopPropagation(); <span class="comment">// 阻止冒泡</span></span></span><br><span class="line"><span class="javascript">    alert(<span class="string">"激活"</span>);</span></span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line"><span class="javascript">  bindEvent(body, <span class="string">"click"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">    alert(<span class="string">"取消"</span>);</span></span><br><span class="line">  &#125;);</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h1 id="代理"><a href="#代理" class="headerlink" title="代理"></a>代理</h1><ul>
 <li>事件冒泡的应用：通过事件冒泡机制，在元素的上层增加事件绑定机制</li>
 <li>代理到某个元素上：</li>
 <li>好处：代码简洁，减少浏览器内存占用</li>
 </ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"div1"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>a1<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>a2<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>a3<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>a4<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 会随时新增更多a标签 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> div1 = <span class="built_in">document</span>.getElementById(<span class="string">"div1"</span>);</span></span><br><span class="line"><span class="javascript">  div1.addEventListener(<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> target = e.target;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">if</span> (target.nodeName === <span class="string">"A"</span>) &#123;</span></span><br><span class="line"><span class="undefined">      alert(target.innerHTML);</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">  &#125;);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"div1"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>a1<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>a2<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>a3<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>a4<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 会随时新增更多a标签 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> div1 = <span class="built_in">document</span>.getElementById(<span class="string">"div1"</span>);</span></span><br><span class="line"><span class="javascript">  div1.addEventListener(<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> target = e.target;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">if</span> (target.nodeName === <span class="string">"A"</span>) &#123;</span></span><br><span class="line">      alert(target.innerHTML);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>完善版本</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bindEvent</span>(<span class="params">elem, type, selector, fn</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (fn == <span class="literal">null</span>) &#123;</span><br><span class="line">    fn = selector;</span><br><span class="line">    selector = <span class="literal">null</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  elem.addEventListener(type, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> target;</span><br><span class="line">    <span class="keyword">if</span> (selector) &#123;</span><br><span class="line">      target = e.target;</span><br><span class="line">      <span class="keyword">if</span> (target.matches(selector)) &#123;</span><br><span class="line">        fn.call(target, e); <span class="comment">// this = target</span></span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        fn(e);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用代理</span></span><br><span class="line">bindEvent(a, <span class="string">"click"</span>, <span class="string">"a"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.innerHTML);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 不使用代理</span></span><br><span class="line">bindEvent(a, <span class="string">"click"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.innerHTML);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
@@ -229,7 +230,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-10-15T15:44:30.547Z" itemprop="dateUpdated">2020-10-15 23:44:30</time>
+    最后更新时间：<time datetime="2020-10-21T15:20:04.242Z" itemprop="dateUpdated">2020-10-21 23:20:04</time>
 </span><br>
 
 
@@ -365,7 +366,8 @@
         </div>
         
         <label class="reward-toggle">
-            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
             <div class="reward-toggle-ctrol">
                 <span class="reward-toggle-item wechat">微信</span>
                 <span class="reward-toggle-label"></span>
@@ -384,10 +386,10 @@
     <div class="top">
         
 <p>
-    <span id="busuanzi_container_site_uv" style="display:none">
+    <span id="busuanzi_container_site_uv" style='display:none'>
         站点总访客数：<span id="busuanzi_value_site_uv"></span>
     </span>
-    <span id="busuanzi_container_site_pv" style="display:none">
+    <span id="busuanzi_container_site_pv" style='display:none'>
         站点总访问量：<span id="busuanzi_value_site_pv"></span>
     </span>
 </p>

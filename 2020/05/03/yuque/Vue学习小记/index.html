@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
     
 
     
@@ -30,7 +30,7 @@
 <meta property="og:site_name" content="冯天祥">
 <meta property="og:description" content="title: Vue 学习小记 date: 2019 年 04 月 08 日 00:27:43categories: Frameworktypora-root-url: ..typora-copy-images-to: ../images Vue 的安装及语法  解析 页面中的数据与内存中的数据双向绑定 v-mdodel v-show：暂时隐藏 v-if：直接从dom中删除   v-for 指令">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-10-15T15:44:27.709Z">
+<meta property="og:updated_time" content="2020-10-21T15:20:01.447Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue学习小记">
 <meta name="twitter:description" content="title: Vue 学习小记 date: 2019 年 04 月 08 日 00:27:43categories: Frameworktypora-root-url: ..typora-copy-images-to: ../images Vue 的安装及语法  解析 页面中的数据与内存中的数据双向绑定 v-mdodel v-show：暂时隐藏 v-if：直接从dom中删除   v-for 指令">
@@ -49,7 +49,7 @@
 <body>
     <div id="loading" class="active"></div>
 
-    <aside id="menu" class="hide">
+    <aside id="menu" class="hide" >
   <div class="inner flex-row-vertical">
     <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
         <i class="icon icon-lg icon-close"></i>
@@ -69,28 +69,28 @@
       <ul class="nav">
         
             <li class="waves-block waves-effect">
-              <a href="/">
+              <a href="/"  >
                 <i class="icon icon-lg icon-home"></i>
                 主页
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/categories">
+              <a href="/categories"  >
                 <i class="icon icon-lg icon-th-list"></i>
                 分类
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/archives">
+              <a href="/archives"  >
                 <i class="icon icon-lg icon-archives"></i>
                 归档
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="https://github.com/kxbk100" target="_blank">
+              <a href="https://github.com/kxbk100" target="_blank" >
                 <i class="icon icon-lg icon-github"></i>
                 Github
               </a>
@@ -152,23 +152,24 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#title-Vue-学习小记-date-2019-年-04-月-08-日-00-27-43"><span class="post-toc-number">1.</span> <span class="post-toc-text">title: Vue 学习小记 date: 2019 年 04 月 08 日 00:27:43</span></a></li></ol><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Vue-的安装及语法"><span class="post-toc-number"></span> <span class="post-toc-text">Vue 的安装及语法</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#v-for-指令"><span class="post-toc-number"></span> <span class="post-toc-text">v-for 指令</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#v-bind-指令（v-bind-可简写为-）"><span class="post-toc-number"></span> <span class="post-toc-text">v-bind 指令（v-bind:可简写为:）</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#v-on-指令（v-on-可简写为-，v-on-不可简写）"><span class="post-toc-number"></span> <span class="post-toc-text">v-on 指令（v-on:可简写为@，v-on=不可简写）</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#v-model-指令及其修饰符"><span class="post-toc-number"></span> <span class="post-toc-text">v-model 指令及其修饰符</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#v-model-在其他元素及类型上的用法"><span class="post-toc-number"></span> <span class="post-toc-text">v-model 在其他元素及类型上的用法</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#控制流指令"><span class="post-toc-number"></span> <span class="post-toc-text">控制流指令</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#计算属性"><span class="post-toc-number"></span> <span class="post-toc-text">计算属性</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#组件-全局及局部组件"><span class="post-toc-number"></span> <span class="post-toc-text">组件 - 全局及局部组件</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#组件-配置组件"><span class="post-toc-number"></span> <span class="post-toc-text">组件 - 配置组件</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#组件-父子通信"><span class="post-toc-number"></span> <span class="post-toc-text">组件 - 父子通信</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#组件-子父通信"><span class="post-toc-number"></span> <span class="post-toc-text">组件 - 子父通信</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#组件-任意及平行组件间通信"><span class="post-toc-number"></span> <span class="post-toc-text">组件 - 任意及平行组件间通信</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#过滤器"><span class="post-toc-number"></span> <span class="post-toc-text">过滤器</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#自定义指令-基础配置"><span class="post-toc-number"></span> <span class="post-toc-text">自定义指令 - 基础配置</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#自定义指令-配置传参及修饰符"><span class="post-toc-number"></span> <span class="post-toc-text">自定义指令 - 配置传参及修饰符</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#插槽-slots"><span class="post-toc-number"></span> <span class="post-toc-text">插槽 slots</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#vue-router-是什么和怎么用"><span class="post-toc-number"></span> <span class="post-toc-text">vue-router 是什么和怎么用</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#安装和基本配置"><span class="post-toc-number"></span> <span class="post-toc-text">安装和基本配置</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#传参及获取传参"><span class="post-toc-number"></span> <span class="post-toc-text">传参及获取传参</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#子路由"><span class="post-toc-number"></span> <span class="post-toc-text">子路由</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#手动访问和传参"><span class="post-toc-number"></span> <span class="post-toc-text">手动访问和传参</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#命名视图"><span class="post-toc-number"></span> <span class="post-toc-text">命名视图</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#导航钩子"><span class="post-toc-number"></span> <span class="post-toc-text">导航钩子</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#元数据及路由匹配"><span class="post-toc-number"></span> <span class="post-toc-text">元数据及路由匹配</span></a>
-        </li></nav>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#title-Vue-学习小记-date-2019-年-04-月-08-日-00-27-43"><span class="post-toc-number">1.</span> <span class="post-toc-text">title: Vue 学习小记 date: 2019 年 04 月 08 日 00:27:43</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Vue-的安装及语法"><span class="post-toc-number"></span> <span class="post-toc-text">Vue 的安装及语法</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#v-for-指令"><span class="post-toc-number"></span> <span class="post-toc-text">v-for 指令</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#v-bind-指令（v-bind-可简写为-）"><span class="post-toc-number"></span> <span class="post-toc-text">v-bind 指令（v-bind:可简写为:）</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#v-on-指令（v-on-可简写为-，v-on-不可简写）"><span class="post-toc-number"></span> <span class="post-toc-text">v-on 指令（v-on:可简写为@，v-on=不可简写）</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#v-model-指令及其修饰符"><span class="post-toc-number"></span> <span class="post-toc-text">v-model 指令及其修饰符</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#v-model-在其他元素及类型上的用法"><span class="post-toc-number"></span> <span class="post-toc-text">v-model 在其他元素及类型上的用法</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#控制流指令"><span class="post-toc-number"></span> <span class="post-toc-text">控制流指令</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#计算属性"><span class="post-toc-number"></span> <span class="post-toc-text">计算属性</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#组件-全局及局部组件"><span class="post-toc-number"></span> <span class="post-toc-text">组件 - 全局及局部组件</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#组件-配置组件"><span class="post-toc-number"></span> <span class="post-toc-text">组件 - 配置组件</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#组件-父子通信"><span class="post-toc-number"></span> <span class="post-toc-text">组件 - 父子通信</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#组件-子父通信"><span class="post-toc-number"></span> <span class="post-toc-text">组件 - 子父通信</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#组件-任意及平行组件间通信"><span class="post-toc-number"></span> <span class="post-toc-text">组件 - 任意及平行组件间通信</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#过滤器"><span class="post-toc-number"></span> <span class="post-toc-text">过滤器</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#自定义指令-基础配置"><span class="post-toc-number"></span> <span class="post-toc-text">自定义指令 - 基础配置</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#自定义指令-配置传参及修饰符"><span class="post-toc-number"></span> <span class="post-toc-text">自定义指令 - 配置传参及修饰符</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#插槽-slots"><span class="post-toc-number"></span> <span class="post-toc-text">插槽 slots</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#vue-router-是什么和怎么用"><span class="post-toc-number"></span> <span class="post-toc-text">vue-router 是什么和怎么用</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#安装和基本配置"><span class="post-toc-number"></span> <span class="post-toc-text">安装和基本配置</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#传参及获取传参"><span class="post-toc-number"></span> <span class="post-toc-text">传参及获取传参</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#子路由"><span class="post-toc-number"></span> <span class="post-toc-text">子路由</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#手动访问和传参"><span class="post-toc-number"></span> <span class="post-toc-text">手动访问和传参</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#命名视图"><span class="post-toc-number"></span> <span class="post-toc-text">命名视图</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#导航钩子"><span class="post-toc-number"></span> <span class="post-toc-text">导航钩子</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#元数据及路由匹配"><span class="post-toc-number"></span> <span class="post-toc-text">元数据及路由匹配</span></a>
+        </nav>
     </aside>
 
 
-<article id="post-yuque/Vue学习小记" class="post-article article-type-post fade" itemprop="blogPost">
+<article id="post-yuque/Vue学习小记"
+  class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
         <h1 class="post-card-title">Vue学习小记</h1>
         <div class="post-meta">
-            <time class="post-time" title="2020-05-03 18:02:41" datetime="2020-05-03T10:02:41.000Z" itemprop="datePublished">2020-05-03</time>
+            <time class="post-time" title="2020-05-03 18:02:41" datetime="2020-05-03T10:02:41.000Z"  itemprop="datePublished">2020-05-03</time>
 
             
 
 
             
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
     <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
 </span>
 
@@ -191,7 +192,7 @@
 <li>绑定数据和元素属性：src、href</li>
 </ul>
 </blockquote>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css">  <span class="selector-class">.active</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">background</span>: <span class="selector-id">#a10</span>;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">:class</span>=<span class="string">"&#123;active: isActive&#125;"</span> <span class="attr">:href</span>=<span class="string">"url"</span>&gt;</span></span><br><span class="line">  点我</span><br><span class="line"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line">  .active &#123;</span><br><span class="line">    background: #a10;</span><br><span class="line">  &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">:class</span>=<span class="string">"&#123;active: isActive&#125;"</span> <span class="attr">:href</span>=<span class="string">"url"</span>&gt;</span> 点我 <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">"#app"</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    url: <span class="string">"http://baidu.com"</span>,</span><br><span class="line">    img: <span class="string">"https://dummyimage.com/100x100/ffcc00/ffffff"</span>,</span><br><span class="line">    klass: <span class="string">"btn btn-default"</span>,</span><br><span class="line">    isActive: <span class="literal">true</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <h1 id="v-on-指令（v-on-可简写为-，v-on-不可简写）"><a href="#v-on-指令（v-on-可简写为-，v-on-不可简写）" class="headerlink" title="v-on 指令（v-on:可简写为@，v-on=不可简写）"></a>v-on 指令（v-on:可简写为@，v-on=不可简写）</h1><blockquote>
 <ul>
@@ -275,7 +276,7 @@
 <li>相当于<code>component</code>中的变量</li>
 </ul>
 </blockquote>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">panel</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">slot</span>=<span class="string">"title"</span>&gt;</span></span><br><span class="line">      Yo.</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">slot</span>=<span class="string">"content"</span>&gt;</span></span><br><span class="line">      Yo Yo Yo</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">panel</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span> <span class="attr">id</span>=<span class="string">"panel-tpl"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"panel"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"title"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">slot</span> <span class="attr">name</span>=<span class="string">"title"</span>&gt;</span><span class="tag">&lt;/<span class="name">slot</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"content"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">slot</span> <span class="attr">name</span>=<span class="string">"content"</span>&gt;</span><span class="tag">&lt;/<span class="name">slot</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"footer"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">slot</span> <span class="attr">name</span>=<span class="string">"footer"</span>&gt;</span></span><br><span class="line">        更多信息</span><br><span class="line">      <span class="tag">&lt;/<span class="name">slot</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">panel</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">slot</span>=<span class="string">"title"</span>&gt;</span>Yo.<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">slot</span>=<span class="string">"content"</span>&gt;</span>Yo Yo Yo<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">panel</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span> <span class="attr">id</span>=<span class="string">"panel-tpl"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"panel"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"title"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">slot</span> <span class="attr">name</span>=<span class="string">"title"</span>&gt;</span><span class="tag">&lt;/<span class="name">slot</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"content"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">slot</span> <span class="attr">name</span>=<span class="string">"content"</span>&gt;</span><span class="tag">&lt;/<span class="name">slot</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"footer"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">slot</span> <span class="attr">name</span>=<span class="string">"footer"</span>&gt;</span> 更多信息 <span class="tag">&lt;/<span class="name">slot</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h1 id="vue-router-是什么和怎么用"><a href="#vue-router-是什么和怎么用" class="headerlink" title="vue-router 是什么和怎么用"></a>vue-router 是什么和怎么用</h1><blockquote>
 <p>无整页刷新，表单数据点回来仍保留</p>
 </blockquote>
@@ -302,7 +303,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-10-15T15:44:27.709Z" itemprop="dateUpdated">2020-10-15 23:44:27</time>
+    最后更新时间：<time datetime="2020-10-21T15:20:01.447Z" itemprop="dateUpdated">2020-10-21 23:20:01</time>
 </span><br>
 
 
@@ -438,7 +439,8 @@
         </div>
         
         <label class="reward-toggle">
-            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
             <div class="reward-toggle-ctrol">
                 <span class="reward-toggle-item wechat">微信</span>
                 <span class="reward-toggle-label"></span>
@@ -457,10 +459,10 @@
     <div class="top">
         
 <p>
-    <span id="busuanzi_container_site_uv" style="display:none">
+    <span id="busuanzi_container_site_uv" style='display:none'>
         站点总访客数：<span id="busuanzi_value_site_uv"></span>
     </span>
-    <span id="busuanzi_container_site_pv" style="display:none">
+    <span id="busuanzi_container_site_pv" style='display:none'>
         站点总访问量：<span id="busuanzi_value_site_pv"></span>
     </span>
 </p>

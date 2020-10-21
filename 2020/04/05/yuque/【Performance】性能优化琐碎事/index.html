@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
     
 
     
@@ -30,7 +30,7 @@
 <meta property="og:site_name" content="冯天祥">
 <meta property="og:description" content="title: 【Performance】性能优化琐碎事date: 2019年04月08日 00:27:43categories: Performancetypora-root-url: ..typora-copy-images-to: ../images 图片优化 计算图片大小对于一张 100 _ 100 像素的图片来说，图像上有 10000 个像素点，如果每个像素的值是 RGBA 存储的话，那">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-10-15T15:44:28.500Z">
+<meta property="og:updated_time" content="2020-10-21T15:20:02.192Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【Performance】性能优化琐碎事">
 <meta name="twitter:description" content="title: 【Performance】性能优化琐碎事date: 2019年04月08日 00:27:43categories: Performancetypora-root-url: ..typora-copy-images-to: ../images 图片优化 计算图片大小对于一张 100 _ 100 像素的图片来说，图像上有 10000 个像素点，如果每个像素的值是 RGBA 存储的话，那">
@@ -49,7 +49,7 @@
 <body>
     <div id="loading" class="active"></div>
 
-    <aside id="menu" class="hide">
+    <aside id="menu" class="hide" >
   <div class="inner flex-row-vertical">
     <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
         <i class="icon icon-lg icon-close"></i>
@@ -69,28 +69,28 @@
       <ul class="nav">
         
             <li class="waves-block waves-effect">
-              <a href="/">
+              <a href="/"  >
                 <i class="icon icon-lg icon-home"></i>
                 主页
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/categories">
+              <a href="/categories"  >
                 <i class="icon icon-lg icon-th-list"></i>
                 分类
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/archives">
+              <a href="/archives"  >
                 <i class="icon icon-lg icon-archives"></i>
                 归档
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="https://github.com/kxbk100" target="_blank">
+              <a href="https://github.com/kxbk100" target="_blank" >
                 <i class="icon icon-lg icon-github"></i>
                 Github
               </a>
@@ -152,23 +152,24 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#title-【Performance】性能优化琐碎事date-2019年04月08日-00-27-43"><span class="post-toc-number">1.</span> <span class="post-toc-text">title: 【Performance】性能优化琐碎事date: 2019年04月08日 00:27:43</span></a></li></ol><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#图片优化"><span class="post-toc-number"></span> <span class="post-toc-text">图片优化</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#计算图片大小"><span class="post-toc-number">1.</span> <span class="post-toc-text">计算图片大小</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#图片加载优化"><span class="post-toc-number">2.</span> <span class="post-toc-text">图片加载优化</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#DNS-预解析"><span class="post-toc-number"></span> <span class="post-toc-text">DNS 预解析</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#节流"><span class="post-toc-number">1.</span> <span class="post-toc-text">节流</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#防抖"><span class="post-toc-number"></span> <span class="post-toc-text">防抖</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#预加载"><span class="post-toc-number"></span> <span class="post-toc-text">预加载</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#预渲染"><span class="post-toc-number"></span> <span class="post-toc-text">预渲染</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#懒执行"><span class="post-toc-number"></span> <span class="post-toc-text">懒执行</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#懒加载"><span class="post-toc-number"></span> <span class="post-toc-text">懒加载</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#CDN"><span class="post-toc-number"></span> <span class="post-toc-text">CDN</span></a>
-        </li></nav>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#title-【Performance】性能优化琐碎事date-2019年04月08日-00-27-43"><span class="post-toc-number">1.</span> <span class="post-toc-text">title: 【Performance】性能优化琐碎事date: 2019年04月08日 00:27:43</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#图片优化"><span class="post-toc-number"></span> <span class="post-toc-text">图片优化</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#计算图片大小"><span class="post-toc-number">1.</span> <span class="post-toc-text">计算图片大小</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#图片加载优化"><span class="post-toc-number">2.</span> <span class="post-toc-text">图片加载优化</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#DNS-预解析"><span class="post-toc-number"></span> <span class="post-toc-text">DNS 预解析</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#节流"><span class="post-toc-number">1.</span> <span class="post-toc-text">节流</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#防抖"><span class="post-toc-number"></span> <span class="post-toc-text">防抖</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#预加载"><span class="post-toc-number"></span> <span class="post-toc-text">预加载</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#预渲染"><span class="post-toc-number"></span> <span class="post-toc-text">预渲染</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#懒执行"><span class="post-toc-number"></span> <span class="post-toc-text">懒执行</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#懒加载"><span class="post-toc-number"></span> <span class="post-toc-text">懒加载</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#CDN"><span class="post-toc-number"></span> <span class="post-toc-text">CDN</span></a>
+        </nav>
     </aside>
 
 
-<article id="post-yuque/【Performance】性能优化琐碎事" class="post-article article-type-post fade" itemprop="blogPost">
+<article id="post-yuque/【Performance】性能优化琐碎事"
+  class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
         <h1 class="post-card-title">【Performance】性能优化琐碎事</h1>
         <div class="post-meta">
-            <time class="post-time" title="2020-04-05 08:55:51" datetime="2020-04-05T00:55:51.000Z" itemprop="datePublished">2020-04-05</time>
+            <time class="post-time" title="2020-04-05 08:55:51" datetime="2020-04-05T00:55:51.000Z"  itemprop="datePublished">2020-04-05</time>
 
             
 
 
             
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
     <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
 </span>
 
@@ -223,10 +224,12 @@
 <p>懒加载就是将不关键的资源延后加载。</p>
 <p>懒加载的原理就是只加载自定义区域（通常是可视区域，但也可以是即将进入可视区域）内需要加载的东西。对于图片来说，先设置图片标签的 <code>src</code> 属性为一张占位图，将真实的图片资源放入一个自定义属性中，当进入自定义区域时，就将自定义属性替换为 <code>src</code> 属性，这样图片就会去下载资源，实现了图片懒加载。</p>
 <p>懒加载不仅可以用于图片，也可以使用在别的资源上。比如进入可视区域才开始播放视频等等。</p>
-<p>-</p>
-<p>传统的实现方法是，监听到<code>scroll</code>事件后，调用目标元素（绿色方块）的<code>getBoundingClientRect()</code>方法，得到它对应于<strong>视口左上角的坐标</strong>，再判断是否在视口之内。这种方法的缺点是，由于 scroll 事件密集发生，计算量很大，容易造成性能问题。</p>
-<p>-</p>
-<p>目前有一个新的 <code>IntersectionObserver</code> API，可以自动”观察”元素是否可见，Chrome 51+ 已经支持。由于可见<code>visible</code>的本质是，目标元素与视口产生一个交叉区，所以这个 API 叫做”交叉观察器”。</p>
+<ul>
+<li><p>传统的实现方法是，监听到<code>scroll</code>事件后，调用目标元素（绿色方块）的<code>getBoundingClientRect()</code>方法，得到它对应于<strong>视口左上角的坐标</strong>，再判断是否在视口之内。这种方法的缺点是，由于 scroll 事件密集发生，计算量很大，容易造成性能问题。</p>
+</li>
+<li><p>目前有一个新的 <code>IntersectionObserver</code> API，可以自动”观察”元素是否可见，Chrome 51+ 已经支持。由于可见<code>visible</code>的本质是，目标元素与视口产生一个交叉区，所以这个 API 叫做”交叉观察器”。</p>
+</li>
+</ul>
 <h1 id="CDN"><a href="#CDN" class="headerlink" title="CDN"></a>CDN</h1><hr>
 <p>CDN 的原理是尽可能的在各个地方分布机房缓存数据，这样即使我们的根服务器远在国外，在国内的用户也可以通过国内的机房迅速加载资源。</p>
 <p>因此，我们可以将静态资源尽量使用 CDN 加载，由于浏览器对于单个域名有并发请求上限，可以考虑使用多个 CDN 域名。并且对于 CDN 加载静态资源需要注意 CDN 域名要与主站不同，否则每次请求都会带上主站的 Cookie，平白消耗流量。</p>
@@ -238,7 +241,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-10-15T15:44:28.500Z" itemprop="dateUpdated">2020-10-15 23:44:28</time>
+    最后更新时间：<time datetime="2020-10-21T15:20:02.192Z" itemprop="dateUpdated">2020-10-21 23:20:02</time>
 </span><br>
 
 
@@ -374,7 +377,8 @@
         </div>
         
         <label class="reward-toggle">
-            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
             <div class="reward-toggle-ctrol">
                 <span class="reward-toggle-item wechat">微信</span>
                 <span class="reward-toggle-label"></span>
@@ -393,10 +397,10 @@
     <div class="top">
         
 <p>
-    <span id="busuanzi_container_site_uv" style="display:none">
+    <span id="busuanzi_container_site_uv" style='display:none'>
         站点总访客数：<span id="busuanzi_value_site_uv"></span>
     </span>
-    <span id="busuanzi_container_site_pv" style="display:none">
+    <span id="busuanzi_container_site_pv" style='display:none'>
         站点总访问量：<span id="busuanzi_value_site_pv"></span>
     </span>
 </p>
