@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    <meta name="referrer" content="no-referrer">
+    
+    
+    
+    
+    <title>Image Compression | 冯天祥 | 前端小白的技术博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content>
+    <meta name="description" content="大家都知道图片在现在的网页中占据了很大一部分的内容，在每个页面中大概占到了一半的比例，平均来看的话，任何给定流量的页面，其传输的字节中有 50％是图像，特别是我们 A 站，很多页面完全就是由图片组成的。 最近在研究这个问题的时候，我会下载一些 A 站线上的图片来实验，对它们进行重新压缩。通常情况下，我可以将图片的大小减半，且不会损失任何的精度。 我们可以不光局限于开发场景，我们平时一定遇到过上传证">
+<meta name="keywords" content="前端,技术,冯天祥,fengtx">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Image Compression">
+<meta property="og:url" content="http://fengtx.tk/2020/11/12/yuque/Image Compression/index.html">
+<meta property="og:site_name" content="冯天祥">
+<meta property="og:description" content="大家都知道图片在现在的网页中占据了很大一部分的内容，在每个页面中大概占到了一半的比例，平均来看的话，任何给定流量的页面，其传输的字节中有 50％是图像，特别是我们 A 站，很多页面完全就是由图片组成的。 最近在研究这个问题的时候，我会下载一些 A 站线上的图片来实验，对它们进行重新压缩。通常情况下，我可以将图片的大小减半，且不会损失任何的精度。 我们可以不光局限于开发场景，我们平时一定遇到过上传证">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-12-06T14:36:48.799Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Image Compression">
+<meta name="twitter:description" content="大家都知道图片在现在的网页中占据了很大一部分的内容，在每个页面中大概占到了一半的比例，平均来看的话，任何给定流量的页面，其传输的字节中有 50％是图像，特别是我们 A 站，很多页面完全就是由图片组成的。 最近在研究这个问题的时候，我会下载一些 A 站线上的图片来实验，对它们进行重新压缩。通常情况下，我可以将图片的大小减半，且不会损失任何的精度。 我们可以不光局限于开发场景，我们平时一定遇到过上传证">
+    
+        <link rel="alternate" type="application/atom+xml" title="冯天祥" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">冯天祥</h5>
+          <a href="mailto:im.txfeng@gmail.com" title="im.txfeng@gmail.com" class="mail">im.txfeng@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/kxbk100" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Image Compression</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Image Compression</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-11-12T07:51:32.000Z" itemprop="datePublished" class="page-time">
+  2020-11-12
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Lossy"><span class="post-toc-number">1.</span> <span class="post-toc-text">Lossy</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-yuque/Image Compression"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Image Compression</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-11-12 15:51:32" datetime="2020-11-12T07:51:32.000Z"  itemprop="datePublished">2020-11-12</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>大家都知道图片在现在的网页中占据了很大一部分的内容，在每个页面中大概占到了一半的比例，平均来看的话，任何给定流量的页面，其传输的字节中有 50％是图像，特别是我们 A 站，很多页面完全就是由图片组成的。</p>
+<p>最近在研究这个问题的时候，我会下载一些 A 站线上的图片来实验，对它们进行重新压缩。通常情况下，我可以将图片的大小减半，且不会损失任何的精度。</p>
+<p>我们可以不光局限于开发场景，我们平时一定遇到过上传证件照限制大小的情况，一般情况下我们会求助 Photoshop 或者是美图秀秀之类的第三方图片处理平台，大小虽然减小了，但是精度却常常不尽如人意。</p>
+<p>所以我想说的是我们过去错失了太多保留图片精度的机会，很多图片可以更好地进行压缩，包括：</p>
+<ul>
+<li>使用其他格式</li>
+<li>使用更好的编码器</li>
+<li>优化编码器的设置</li>
+<li>…</li>
+</ul>
+<p>所以这次我主要想探讨下：</p>
+<ul>
+<li>不同图像格式实际占用的字节是怎样分配的</li>
+<li><del>不同图像格式的适用场景</del></li>
+<li>图像编解码器及其原理</li>
+<li>一些流行图像格式鲜为人知的功能</li>
+<li>AVIF</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Lossy</th>
+<th>Lossless</th>
+<th>Vector</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>JPEG</td>
+<td>PNG</td>
+<td>SVG</td>
+</tr>
+<tr>
+<td>WebP</td>
+<td>GIF</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Also WebP</td>
+</tr>
+</tbody>
+</table>
+<p>如果我们要在计算机上绘制一张图片，我们肯定最先想到的是 SVG，因为如果在条件都满足的情况下，SVG 可以满足在任何分辨率下的显示，作为无损图像，SVG 的尺寸很小，压缩很快，所以它是绘图的理想选择。</p>
+<p>但是有时图像会很复杂，可能会有很多渐变和阴影，对用户来说，在视觉效果不会太糟的情况下，以有损格式存储，文件可能会更小。</p>
+<table>
+<thead>
+<tr>
+<th>Lossy</th>
+<th>Lossless</th>
+<th>Vector</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>| Increases size with:<br>Sharp edges | Increases size with:<br>Frequent, unpredictable, large changes in color | Increases size with:<br>Number of shapes |<br>| Samll details in otherwise undetailed areas | Large number of colors | Shape complexity |</p>
+<p>对于有损压缩图像：</p>
+<ul>
+<li>很难避免锯齿边缘，对于边缘的处理加大了图像文件的大小</li>
+<li>还有在不用太详尽的地方的一些小细节</li>
+</ul>
+<p>大家可能很难理解，所以过会儿我们会看到几个例子</p>
+<p>对于无损压缩图像：</p>
+<ul>
+<li>问题则是颜色变化，特别是不可预测的那种</li>
+<li>颜色总数也会影响档案大小</li>
+</ul>
+<p>这部分我们也会有些例子</p>
+<p>对于矢量图像：</p>
+<ul>
+<li>文件大小会因形状数和形状复杂性加大</li>
+<li>矢量有一点特别之处，就是形状的复杂性会导致 CPU 使用成本增加，这点与其他格式不同</li>
+</ul>
+<p>所以之后请留意这部分的内容</p>
+<h1 id="Lossy"><a href="#Lossy" class="headerlink" title="Lossy"></a>Lossy</h1><p>这是我在德国租房附近的一处秋日街景，大家通过这个大屏幕看可能比较难辨别，大家有注意到照片的特殊之处吗？</p>
+<ul>
+<li>这张照片的亮度数据是 full HD 1920 x 1080</li>
+<li>但图像中的颜色数据为 96 x 54 只占数据的 0.3％</li>
+</ul>
+<p>大家几乎没留意到，拉近些，我们可以看到，一些围栏周围有些变色，其中一个好像没了</p>
+<ul>
+<li>即使亮度数据仍能给出轮廓</li>
+<li>如果颜色的分辨率很小，颜色会在边界处消失</li>
+</ul>
+<p>这不是因为大家的眼神不好，是因为人眼本来就对颜色的变化非常不敏感，但是非常擅长于观察亮度的变化</p>
+<p>接下来我要把这张照片变一下</p>
+<ul>
+<li>把亮度变成低分辨率</li>
+<li>但颜色变成高分辨率</li>
+</ul>
+<p>大家注意到的第一件事就是这看不清，但数据量是相同的，只是调转了一下</p>
+<p>刚才的图中没有表现的很极端，这张我在图书馆拍的图色彩数据比较复杂</p>
+<p>大家可以看到这本 PHP5 的书，红色和绿色的分界线肉眼可见的模糊了，但是随着我们增加颜色的数据量，图片的再次清晰了起来</p>
+<p>这就是有损编解码器所做的，我们被称之为色度二次采样</p>
+<p>这意味着我们可以省去一些颜色数据从而节省文件的大小，虽然会出现一些褪色，但这几乎不被觉察</p>
+<p><strong>有损编解码器压缩图片除了利用色度二次采样，还有另一种方式</strong></p>
+<p>大家看一下这张图，我对这张图像进行了一些处理，大家能看到我做了什么吗？</p>
+<ul>
+<li>在树之间，有一个非常奇怪的圆圈，这是我画上去的</li>
+<li>我另外还做了一处改动不知道大家发现了没有，在这里，我用噪声替换了亮度数据，但大家起初并没有注意到这个</li>
+</ul>
+<p>让我们看下这个图与原图的差异</p>
+<ul>
+<li>现在，天空中的圆圈很微弱，几乎看不出</li>
+<li>但是底部的亮度噪音，形成了一个巨大的差异</li>
+</ul>
+<p>但是，人的眼睛很糟糕</p>
+<ul>
+<li>只善于看到我们所说的，低频区域的细微变化，像天空，那里没有太多的东西，你就会发现细微的差异</li>
+<li>而很难看到高频区域的变化</li>
+</ul>
+<p>大家知道那里有个圆，但是它的形状融入整个环境，看起来就像是一个灌木丛，所以我们视觉是有盲点的，大脑有自动校正的功能，大脑为我们填补了那里的空白</p>
+<p><strong>这也是有损图像编解码器的一部分</strong></p>
+<ul>
+<li>有损图像编码器就是利用了这些特性，把图像划分成 8x8 的小块</li>
+<li>图像并不是逐个用像素描述，而是用这 64 种 8x8 的小块相乘</li>
+<li>而我们可以使用这些形状自由组合，重建任何 8x8 的图像</li>
+</ul>
+<blockquote>
+<p>8x8 的小块不一定是同一种强度的，每个方块的强度可能不同，甚至可以是负片，但通过自由组合相乘都可以重建任何 8x8 的图像</p>
+</blockquote>
+<blockquote>
+<p><a href="https://jakearchibald.github.io/image-experiments/quant/" target="_blank" rel="noopener">https://jakearchibald.github.io/image-experiments/quant/</a></p>
+<ul>
+<li>woods</li>
+</ul>
+</blockquote>
+<p>这是以前树林的照片，我选一片草地，大家可以看到的，在下方的是所有不同强度的小图形，用于重建该图像，一共 64 种</p>
+<ul>
+<li>如果用低频的，图像就比较模糊</li>
+<li>而当它们变成高频时，图像就变得清晰了</li>
+</ul>
+<p>当我降低画面质量，有损编解码器要做的是</p>
+<ul>
+<li>尝试放弃一些数据，这里也就是 JPEG 质量</li>
+<li>这就是为什么有这些 0，没有使用所有这些形状</li>
+<li>压缩后的图像并不是 100％准确的，这两张并排的图很难看出哪些像素有问题</li>
+<li>但是节省了大量的数据</li>
+</ul>
+<p>让我们再看另一个例子，这是一个弯曲图</p>
+<ul>
+<li>在这种情况下，即使稍微降低一点儿质量，曲线也会很明显的模糊</li>
+<li>特别是在该曲线的两边，都是纯色的情况下，白噪音就很明显</li>
+</ul>
+<p>就像那个天空中的圆圈一样这个弯曲图也算作是低频数据，很容易分辨出来，这就是为什么有损压缩<br>处理纯色旁边的硬线条不是很好</p>
+<p>所以最后我们来看通过两种途径压缩后的图片，</p>
+<p>有损压缩的图片种类只有两种：JPEG、WebP<br>有损压缩的方式只有两种：色度二次采样、减少 8x8 方块</p>
+<table>
+<thead>
+<tr>
+<th><strong>人眼的缺陷</strong></th>
+<th><strong>途径</strong></th>
+<th><strong>结果</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>色度二次采样</td>
+<td>褪色</td>
+</tr>
+<tr>
+<td></td>
+<td>减少 8x8 方块</td>
+<td>低频：严重模糊</td>
+</tr>
+<tr>
+<td>高频：轻微模糊</td>
+</tr>
+</tbody>
+</table>
+<p>**</p>
+<p>我有个问题<br>我在想 WebP<br>也是这种基于频率的转换<br>所谓的离散余弦转换<br>转换为该频率模式<br>然后将它们加合<br>是的，那就是我们刚刚看到的<br>如果是低噪音<br>WebP 也会用更大的方块<br>但是我不确定<br>是的，WebP 更好些<br>这是有几点要注意<br>就像你所说的<br>它可以使用不同大小的正块<br>当您开始一个方块时<br>可以从附近的方块<br>开始作为起点<br>而且，JPEG 必须对给定通道中<br>每个 8x8 方块使用<br>相同的数学转换方法<br>是吗<br>而 WebP 可以用四种<br>因此，对于多细节区域<br>和少细节区域<br>它可能有不同的策略<br>而且它还有更好的无损压缩功能<br>使用算术压缩而不是 Huffman<br>而且它的后解码过滤器更好<br>所以它更好<br>它还支持 Alpha 透明度<br>而 JPEG 不支持<br>那我为什么浪费时间<br>谈论 JPEG？<br>因为…<br>Safari 不支持 WebP<br>这是唯一不支持它的浏览器<br>因此，这是 JPEG 的唯一好处<br>真的<br>我们仍然可以使用 WebP<br>只要浏览器支持它<br>这是图片元素<br>我们支持<br>支持 WebP 的浏览器<br>也支持使用 JPEG 的<br>Safari 和旧版浏览器<br>在服务器端也有客户提示<br>我不打算讨论它<br>如果您感兴趣<br>我会放一些链接<br>因此，让我们压缩一些图像<br>现在的压缩工具<br>诸如 Photoshop 之类的东西<br>不是特别好<br>这是我们构建<br>Squoosh 的原因之一-<br>不只是我们两个<br>我们是个团队<br>好了，Squoosh.app<br>它具有最新的 WebP 版本<br>也有 MozJPEG<br>来自 Mozilla 的一个<br>非常好的 JPEG 编码器<br>所以我用之前的 F1 图片<br>因为压缩它有点难度<br>我要做的第一件事是将其缩小<br>这样它的大小<br>与网站上显示的大小相同<br>如果您的图片为 1000 CSS 像素<br>但您希望它在 HD 屏幕上看起来不错<br>您想要一个 2000 像素宽的图像<br>然后，您想将其缩小<br>正好是在屏幕上显示的尺寸<br>为了压缩<br>我开始使用 WebP<br>我要做的就是<br>我想之前提到过<br>只是降低质量<br>直到看不清<br>尤其是像这种高密度图像<br>您会惊讶<br>它的质量能低到什么程度<br>您仍然无法看出<br>有件事很诱人<br>但是请不要<br>不要把鼻子贴到屏幕上<br>不要放大<br>因为如果您这样做了<br>它会看起来很糟糕<br>看起来不会很好<br>放大得越多<br>看起来越糟<br>呃，看那个，真恶心<br>老实说，考虑到<br>我们已经减少了 98％的数据<br>即使放大后，仍然看起来不错<br>不是很酷吗<br>是的，不可思议<br>所以，如果有人对你说<br>我从您的网站上下载了一张图片<br>我将其放大了 1000％<br>看起来很糟<br>就说“有病”，然后别理他们<br>因为那不是真正的用户会做的<br>您应该优化一切<br>为的是实际用户<br>因此，请使其大小<br>保持在网站上的大小<br>我研究了一下 WebP 中的<br>一些高级设置<br>因为当我们第一次构建 Squoosh 时<br>我并不知道它们的功能<br>我拿了编解码器所做的<br>制作了 UI</p>
+<ul>
+<li>很多功能</li>
+<li>我不知道它们是干什么的<br>我还做了一些研究<br>有些很有趣的东西：<br>自动调整过滤器<br>这个不错<br>这确实减慢了编码时间<br>但却大大改善了视觉效果<br>该过滤器实际上是<br>一个解码过滤器<br>这可以消除那些模糊的小块块<br>但这会增加编码时间<br>因为它通过查看图像<br>来找出最佳的过滤方式<br>是的，它只是个一位标记<br>或者不是一位，而是两位<br>我想如果是八级的滤镜清晰度<br>应该是三位标记<br>对，是这样的<br>我认为实际上可能还更多<br>实际上可能从 0 到 100<br>可能是一个字节<br>另一个，我一直都知道：<br>它对图像做了很大的改变<br>但是我不知道它在做什么<br>这就是空间噪声整形<br>针对 WebP 可以有<br>四种不同的策略<br>我们是不是拼错了“空间的”<br>哦，也许吧<br>[Surma 笑]<br>哦，这太经典了<br>你知道逗的地方<br>我在笔记中就拼错了<br>好吧，那是一个错误报告<br>无论如何，下一个<br>是空间噪声整形<br>因此，WebP 可以针对图像的不同部分<br>采用这些不同的策略<br>SNS 所做的是改变了<br>这些不同策略之间的极端性<br>因此，较高的 SNS 会将<br>字节从最不需要它的内容中删除<br>并将其提供给最需要的地方<br>这就像 Robin Hood 用于图像压缩<br>在某些图像中<br>将其设置为 100 可产生积极的效果<br>这里没有，对于该图像<br>实际上 50 就相当不错了<br>会不会太高<br>就像设的太高<br>图像反而变差了<br>会的<br>对于这个图像<br>的确会变得更糟<br>有趣<br>如果我在这里极端些<br>就会为道路提供更多数据<br>因为那是小块块所在之处<br>但这会使汽车的轮胎<br>看起来很糟糕<br>我懂了<br>您会开始注意到那些块效应<br>因为它正在将数据从高频区域移走<br>而补充低频区域<br>刚才看到的树林那张<br>实际上，SNS 设为 100 非常有效<br>因为从叶子那里拿走了<br>很多您看不到的白噪音<br>并将其传递到天空区域<br>所以它显得很好<br>我们也有 JPEG<br>只是为了好玩<br>我使 JPEG 与 WebP 的大小相同<br>只是为了显示<br>此处压缩质量的差异<br>所以我必须再次用这个<br>质量下降到大约 40 KB<br>我要去做<br>我说不要做的事<br>就我来说<br>我觉得真的很糟糕<br>但是通过视频压缩<br>可能不那么明显<br>所以我将其放大<br>JPEG 造成了马路上的块状效应<br>这种后果很可怕<br>就像我说的<br>这是低频数据<br>这就像天空中那个圆圈<br>非常明显<br>在黄线周围<br>从黄线到马路的过渡<br>使得丢失数据的地方非常明显<br>您会在那里看到块状效应<br>这就是 WebP 过滤要好得多的地方<br>我只需要增加 JPEG 的大小<br>直到这种可怕的小块块消失<br>在这个时候<br>好像是 WebP 的两倍<br>超过了两倍<br>如果您愿意花时间<br>可以做进一步的改善<br>更高级的设置<br>这里最有趣的高级设置<br>我认为是色度二次采样<br>我们之前讨论过<br>就是减少颜色数据<br>特别是在高密度屏幕上时<br>看不太出来<br>实际上，大多数时候<br>您可以将其设到 4<br>但这张有些特殊<br>对减色比较敏感<br>所以 3 比较好<br>但这敲掉了 10K<br>但值得<br>我也经常将其与<br>单独的色度质量合用<br>这样您就可以只将颜色引入小块块<br>而亮度不变<br>这样数据就少很多<br>那很有意思<br>但我从来没有成功过<br>我尝试过<br>但对结果始终不满意<br>但是的，可以数据可以不同<br>是另一种可能<br>人们可以试一试<br>绝对的<br>在这种情况下，我认为对于<br>WebP 和 JPEG 值得一试<br>因为它的大小<br>只有支持它的浏览器的一半<br>这就是<br>我要谈的有损压缩<br>您说您对这些选项<br>进行了大量的研究<br>那无意义的规范合规性<br>到底是什么？<br>无意义的规范合规是指<br>根据 JPEG 规范的严格规定<br>删除了逐行编码和其他一些内容<br>而这是不应该做的<br>但每个人都支持它<br>而且对文件大小很有用<br>我以为我会让你冷场<br>但你知道答案<br>做得好<br>我没研究过 JPEG<br>但从编码器中了解到的信息<br>我知道了答案<br>无损压缩是一个完全不同的世界<br>无损压缩一个个的描述像素<br>从上到下，从左到右<br>但是与其从头开始描述每种颜色<br>它会使用周围的<br>一些像素进行预测<br>然后只是编码差异<br>可以使用多种策略<br>可以对照左侧的像素<br>上面的像素<br>也可使用其中一些像素的平均值<br>但这里有个小陷阱<br>它无法对每个像素都更改策略<br>因为那样会增加太多数据<br>相反，它必须坚持某一特定的策略<br>直到决定改变策略为止<br>PNG 只能在一开头更改策略<br>WebP 可以对 2D 块定义不同的策略<br>这就是为什么无损压缩器很慢的原因<br>因为它一直在通过<br>这些不同的策略<br>来找出哪种才是最好<br>就像尝试所有组合一样<br>如果其旁边的或上方的<br>像素完全相同<br>这意味着这种压缩效果会很好<br>因为其间没有区别<br>所以很容易压缩<br>这也是为什么无损格式<br>难以处理照片的原因<br>因为有很多自然的颜色变化<br>哦，无损压缩还有另一招<br>如果少于 256 种颜色<br>用颜色表格就行<br>在表格中，它们有各自的编号<br>因此，不用每次<br>说红色，绿色，蓝色和透明<br>只是说：伙计，5 号色<br>好了，把它放在那里<br>压缩效果非常好<br>那么格式之间的差异<br>WebP-没有多少人知道<br>无损的 WebP 格式<br>这像一个完全不同的编解码器<br>实际上，它是一个完全<br>不同的编解码器<br>两者之间的唯一关系是<br>当使用 Alpha 通道进行有损 WebP 时<br>它对 Alpha 通道使用无损格式<br>对大多数人来说毫无意义<br>哦，很高兴知道这个<br>是的，只是更好<br>它有更多的策略<br>可以对 2D 进行处理<br>压缩效果更好<br>但是 Safari 确实需要 PNG<br>我们提到过<br>但永远不要使用 GIF<br>就是请别用<br>永远不要使用它<br>什么都不好<br>真不好<br>因此，请停止使用 GIF<br>让我们将这些内容实践一下<br>现在回到 Squoosh<br>我将使用很多纯色的东西<br>我要感谢 Stephen Waller<br>把他的作品捐给我<br>在这里使用<br>他是个艺术家<br>我以前的同事<br>他制作了这些精美的图画<br>其实，这些是他当时<br>一起工作的队友<br>我没有问他那值熊的轶事<br>那没什么<br>要做的第一件事<br>和以前一样，将其缩小<br>保持在网站上相同的大小<br>在高密度设备中<br>需要使用的缩放比例<br>现在我去使用 WebP<br>因为那是最好的<br>我选择无损<br>是的，完全不同的编解码器<br>很少有人知道<br>但这真的很好<br>我们直接降至 43K<br>有这个“损失一点”的选择<br>我觉得很有趣<br>特棒，是吧<br>它将改变像素<br>使它们更可预测<br>我实际上不喜欢它的视觉效果<br>所以我不太用它<br>但是您的习惯可能有所不同<br>尝试一下会很有趣<br>但记得我之前说过<br>这些格式，如果不超过 256 色<br>会表现不错<br>我们要这样做<br>减少调色板的颜色<br>这张图像看起来没有太多的颜色<br>由于曲线周边的反走样效果<br>从一种颜色过度到另一种颜色<br>有很多细微的变化<br>我也将编解码器变成浏览器 PNG<br>那只是因为压缩特别快<br>当我更改颜色号码时<br>我将得到快速响应<br>我还要关掉抖色<br>如果减少颜色的数量<br>您可以在此处看到<br>这种条纹效果<br>抖色通过点画法<br>消除条纹<br>或用这些点来重新创建阴影<br>超级有效<br>但无损压缩<br>处理单色效果很好<br>因此会增加文件大小<br>因此，除非确实需要<br>否则我会避免使用它<br>这让我印象深刻<br>我通过抖色<br>将几张照片压缩为 PNG<br>如果把它们缩小，足够小<br>实际上看起来<br>和原版几乎一样<br>通常让人不可察觉<br>是的，有时候<br>您需要这样做<br>所以现在和以前一样<br>我将尽可能降低色调<br>直到看起来不好为止<br>这就是我们构建<br>Squoosh 的原因之一<br>因为通过视觉响应做到这一点<br>比让计算机尝试解决这个问题好得多<br>因为它不会做得很好<br>重要的建议<br>和以前一样，不要放大<br>因为它看起来会很糟<br>你可以看到<br>这些生硬的边<br>但是缩小，您几乎注意不到<br>那样就好<br>这就是用户能看到的<br>就可以了<br>我们已经能够将颜色减少到 68 种<br>现在我们要切换回 WebP<br>把效果调高<br>让它使用所有迭代来进行压缩<br>就这样<br>降至 13K<br>棒极了<br>对吧，节省得令人难以置信<br>对于 Safari，我们需要 PNG<br>PNG 压缩器多种多样<br>我们使用 OxiPNG<br>这是一个非常不错的选择<br>它将降至 17K<br>那接近第二，很不错<br>很接近<br>我要推荐 OxiPNG<br>随附的 ImageOptim<br>还有很多其他的 PNG 压缩器<br>我们都想随后添加到 Squoosh 中<br>但还没有<br>能使文件大小进一步减少<br>实际上，仅 3K<br>所以在这个例子中，我忽略它<br>除非页面上有大量图片<br>这种差异加起来会突显<br>否则就关注于 PNG<br>3K 不值得搞得那么复杂<br>因此，与其为特定类型的图像<br>考虑压缩格式<br>我的理解是<br>考虑压缩的实际工作原理<br>并以此作为您的第一个猜测<br>但是正如您之前所说<br>总是值得尝试其他方法<br>因此，我将看一些边的情况<br>来结束此讲座<br>看这个<br>太漂亮了<br>这是 SVG<br>我正要说<br>这看起来像<br>CSS 美术师仅需十亿个 div<br>以及渐变和阴影<br>然后像照片一样逼真的东西<br>就是 CSS<br>差不多就是这么回事<br>但使用了 SVG<br>我认为这是人工创建的<br>是的，非常相似<br>如果我在 SVG OMG 中将其缩小<br>这是我制作的 GUI<br>但是基于 SVGO<br>是一个节点应用<br>我可以将其降到 37K<br>但这太复杂了<br>并使用了很多过滤器<br>调整后就会有问题<br>这还是在高端的 MacBook 上<br>占用了大量 CPU<br>来渲染该图像<br>而在 Squoosh 中<br>有损 WebP 真的很棒，大约 53K<br>它实际上比 SVG 大<br>但是节省 CPU 其实是个更好的决定<br>这很有趣<br>因为那是 Squoosh<br>不允许您量化的东西，对吧？<br>节省 CPU<br>是的<br>如果我们能找到某种方式<br>做到这一点就太好了<br>是的，是比较棘手<br>就这张图片<br>您会注意到加载多慢<br>并且在 SVG OMG 中<br>调整大小的速度多慢<br>所以这是一个好的提示<br>相当于 PNG<br>因为我们不能使用 JPEG<br>因为它具有 alpha 透明性<br>PNG 为 86K<br>而且我不得不减少颜色<br>因为带来很多条纹<br>所以我必须使用抖色<br>这实际上很明显<br>您可以看到这些点<br>那不好，但是不<br>减少色调，将为 300K<br>在这种情况下，您可能会说<br>对不起，Safari 用户<br>您不会获得很好的图像<br>是的<br>但控制文件大小值得<br>我想您也可以使用 SVG<br>因为在图片元素中<br>您可以按优先级顺序指定来源<br>您可以将 WebP 放在首位<br>而将 SVG 放在第二<br>是的，您可以说<br>Safari 用户很可能使用的是高端设备<br>因此 SVG 可能不会太糟<br>但这仍然会使页面上的其他内容变糟<br>就像在高端 MacBook 上，会很糟<br>但是，是的<br>您可以做出那样的判断<br>你可以说那些糟糕的地方<br>比 30K，条纹等好<br>我再举一个例子<br>这是 Steve 的另一幅画<br>有很多纯色<br>因此我的直觉是<br>采用无损格式<br>但是也有很多阴影<br>还有很多渐变<br>同样，有损 WebP 能做到这点<br>降低到 28K<br>如果您选择无损格式<br>即使减少了色调<br>也要 118K，还会有许多条纹<br>所以，这只是工具<br>而不是规则<br>这就是我的主要收获<br>考虑一下编解码器的特长<br>想想它们是如何工作的<br>这样就可以缩小图像<br>请缩小您的图像<br>我真的很喜欢这样交流<br>这就像-<br>对于 203，我们是不是也这样？<br>多些远程教学？<br>因为我不知道什么时候<br>才能回到办公室<br>我本来打算的<br>绝对可以<br>我们设备齐全<br>所以让我们做吧！<br>保持快乐，下次见<br>保持快乐<br>再会<br>[音乐]<br>web.dev LIVE<br>还有更多相关视频</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-12-06T14:36:48.799Z" itemprop="dateUpdated">2020-12-06 22:36:48</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="http://fengtx.tk">
+            <img src="/img/avatar.jpg" alt="冯天祥">
+            冯天祥
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://fengtx.tk/2020/11/12/yuque/Image Compression/&title=《Image Compression》 — 冯天祥&pic=http://fengtx.tk/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://fengtx.tk/2020/11/12/yuque/Image Compression/&title=《Image Compression》 — 冯天祥&source=前端小白冯天祥的技术博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://fengtx.tk/2020/11/12/yuque/Image Compression/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Image Compression》 — 冯天祥&url=http://fengtx.tk/2020/11/12/yuque/Image Compression/&via=http://fengtx.tk" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://fengtx.tk/2020/11/12/yuque/Image Compression/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/12/03/yuque/区块链及比特币/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">区块链及比特币</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/11/04/yuque/Vite分享/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Vite分享</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢打赏
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>冯天祥 &copy; 2016 - 2020</span>
+            <!-- <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span> -->
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://fengtx.tk/2020/11/12/yuque/Image Compression/&title=《Image Compression》 — 冯天祥&pic=http://fengtx.tk/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://fengtx.tk/2020/11/12/yuque/Image Compression/&title=《Image Compression》 — 冯天祥&source=前端小白冯天祥的技术博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://fengtx.tk/2020/11/12/yuque/Image Compression/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Image Compression》 — 冯天祥&url=http://fengtx.tk/2020/11/12/yuque/Image Compression/&via=http://fengtx.tk" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://fengtx.tk/2020/11/12/yuque/Image Compression/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACK0lEQVR42u3aQU7DMBAF0N7/0kViBYuk/9spopPnVUWN4xekweOZxyMez+/x8/P5aNc5mnPxwMDA+FhGsqHzjSaYo80dPSvfGwYGxn0YbZBNNpEj89UOf46BgYFxGkATXhvcMTAwMHYYSZKZJLT568DAwMDYCYLnIXUnfL8xF8fAwPhAxlph4G8+v72+gYGB8e8Zz3K0QfbaKuThrjAwMEYzkkv/Nvi2V/9rSW90wsXAwBjESIqIbePF2mu6oDyAgYExjpEH2fzbNhyvzT884WJgYIxj5MlkcizbmdkmtNHFHAYGxghG/rA8sF6bmkbpLgYGxm0YbfLZIq9KYqP6BgYGxiBGe7mfg3cu3do1MTAw7sBoGyCSxHWn/SIPtRgYGHdjJGXLIrEsZ+48FwMDYzYjLzrmRc18tbWSJwYGxt0Y7bFsv1Es31zbnIGBgTGbsdPusFYYaF9KdFWHgYExlNFeuLeBde2IWSfMGBgYoxntJVfbSLHWqJG/vhd/EwwMjBGMtUy3DbXJy2qPmBgYGPdktBf3dWNWvN3kUPjrtzAwMEYz2mC3/4A27OYpNAYGxlTGsxx5y8VOO0VevHzxfwMDA2MEoz3Atc0TbSEzD+6LB1MMDIyPZeRtDRcklm9oMsPAwLgPY78B4irY4kwMDAyMIOC2obk9MkaXbhgYGBhxK0bbftGujIGBcU/GWhLbJrRtSM13iIGBMZuxljomj19rtmhLmxgYGKMZX2dFzFIKc6g3AAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

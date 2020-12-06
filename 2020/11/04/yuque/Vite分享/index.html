@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    <meta name="referrer" content="no-referrer">
+    
+    
+    
+    
+    <title>Vite分享 | 冯天祥 | 前端小白的技术博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content>
+    <meta name="description" content="1 什么是 Vite 在当今主流的 web 项目里，我们大多数情况下会使用现有的脚手架，如 Vue-cli 或者一些公司内部的脚手架 往下刨刨会发现它们大多基于 webpack 进行开发 webpack 主要借助胶水代码来组装各模块内容，这样打包出的代码量十分庞大，随着项目的不断迭代更新，随意更改一行代码需要等待的热更新时间会长达数秒甚至十几秒，很大程度上拖累了开发的效率 Vite 主要解决的是开">
+<meta name="keywords" content="前端,技术,冯天祥,fengtx">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vite分享">
+<meta property="og:url" content="http://fengtx.tk/2020/11/04/yuque/Vite分享/index.html">
+<meta property="og:site_name" content="冯天祥">
+<meta property="og:description" content="1 什么是 Vite 在当今主流的 web 项目里，我们大多数情况下会使用现有的脚手架，如 Vue-cli 或者一些公司内部的脚手架 往下刨刨会发现它们大多基于 webpack 进行开发 webpack 主要借助胶水代码来组装各模块内容，这样打包出的代码量十分庞大，随着项目的不断迭代更新，随意更改一行代码需要等待的热更新时间会长达数秒甚至十几秒，很大程度上拖累了开发的效率 Vite 主要解决的是开">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://i.loli.net/2020/09/17/MSIFKQbRPtATG8c.png#align=left&display=inline&height=697&margin=%5Bobject%20Object%5D&originHeight=697&originWidth=1214&status=done&style=none&width=1214">
+<meta property="og:image" content="https://i.loli.net/2020/09/17/BpRcWDFPmG9ukbA.png#align=left&display=inline&height=394&margin=%5Bobject%20Object%5D&originHeight=394&originWidth=1087&status=done&style=none&width=1087">
+<meta property="og:image" content="https://i.loli.net/2020/09/17/ChmSQnZE7qjocOy.png#align=left&display=inline&height=456&margin=%5Bobject%20Object%5D&originHeight=456&originWidth=948&status=done&style=none&width=948">
+<meta property="og:image" content="https://i.loli.net/2020/09/17/45DLCvZ1QkpTogN.png#align=left&display=inline&height=243&margin=%5Bobject%20Object%5D&originHeight=243&originWidth=1425&status=done&style=none&width=1425">
+<meta property="og:image" content="https://i.loli.net/2020/09/17/z7XDgMjLdWR4kQf.png#align=left&display=inline&height=270&margin=%5Bobject%20Object%5D&originHeight=270&originWidth=1156&status=done&style=none&width=1156">
+<meta property="og:image" content="https://i.loli.net/2020/09/17/HMj3nr1KLxSazq9.png#align=left&display=inline&height=1048&margin=%5Bobject%20Object%5D&originHeight=1048&originWidth=1182&status=done&style=none&width=1182">
+<meta property="og:image" content="https://i.loli.net/2020/09/17/NO4vXgJ5jbFHlwY.png#align=left&display=inline&height=1314&margin=%5Bobject%20Object%5D&originHeight=1314&originWidth=1028&status=done&style=none&width=1028">
+<meta property="og:image" content="https://i.loli.net/2020/09/17/neBIiypGXkEgzrH.png#align=left&display=inline&height=742&margin=%5Bobject%20Object%5D&originHeight=742&originWidth=1660&status=done&style=none&width=1660">
+<meta property="og:image" content="https://i.loli.net/2020/09/17/LHIpva5hVABjmzF.png#align=left&display=inline&height=1271&margin=%5Bobject%20Object%5D&originHeight=1271&originWidth=1403&status=done&style=none&width=1403">
+<meta property="og:image" content="https://i.loli.net/2020/09/17/GTrPR3cABXh4nLw.png#align=left&display=inline&height=1216&margin=%5Bobject%20Object%5D&originHeight=1216&originWidth=984&status=done&style=none&width=984">
+<meta property="og:updated_time" content="2020-12-06T14:36:48.921Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vite分享">
+<meta name="twitter:description" content="1 什么是 Vite 在当今主流的 web 项目里，我们大多数情况下会使用现有的脚手架，如 Vue-cli 或者一些公司内部的脚手架 往下刨刨会发现它们大多基于 webpack 进行开发 webpack 主要借助胶水代码来组装各模块内容，这样打包出的代码量十分庞大，随着项目的不断迭代更新，随意更改一行代码需要等待的热更新时间会长达数秒甚至十几秒，很大程度上拖累了开发的效率 Vite 主要解决的是开">
+<meta name="twitter:image" content="https://i.loli.net/2020/09/17/MSIFKQbRPtATG8c.png#align=left&display=inline&height=697&margin=%5Bobject%20Object%5D&originHeight=697&originWidth=1214&status=done&style=none&width=1214">
+    
+        <link rel="alternate" type="application/atom+xml" title="冯天祥" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">冯天祥</h5>
+          <a href="mailto:im.txfeng@gmail.com" title="im.txfeng@gmail.com" class="mail">im.txfeng@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/kxbk100" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Vite分享</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Vite分享</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-11-04T06:14:17.000Z" itemprop="datePublished" class="page-time">
+  2020-11-04
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-什么是-Vite"><span class="post-toc-number">1.</span> <span class="post-toc-text">1 什么是 Vite</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-Hello-World"><span class="post-toc-number">2.</span> <span class="post-toc-text">2 Hello World</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-1-setup"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">2.1 setup</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-index-html"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">2.2 index.html</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-3-Network"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">2.3 Network</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-Vite-VS-Webpack"><span class="post-toc-number">3.</span> <span class="post-toc-text">3 Vite VS Webpack</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-1-聊聊模块"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">3.1 聊聊模块</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-2-对比"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">3.2 对比</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-看看源码"><span class="post-toc-number">4.</span> <span class="post-toc-text">4 看看源码</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#编译-Vue"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">编译 Vue</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#热更新"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">热更新</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-结语"><span class="post-toc-number">5.</span> <span class="post-toc-text">5 结语</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-yuque/Vite分享"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Vite分享</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-11-04 14:14:17" datetime="2020-11-04T06:14:17.000Z"  itemprop="datePublished">2020-11-04</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="1-什么是-Vite"><a href="#1-什么是-Vite" class="headerlink" title="1 什么是 Vite"></a>1 什么是 Vite</h2><ul>
+<li>在当今主流的 web 项目里，我们大多数情况下会使用现有的脚手架，如 Vue-cli 或者一些公司内部的脚手架</li>
+<li>往下刨刨会发现它们大多基于 webpack 进行开发</li>
+<li>webpack 主要借助胶水代码来组装各模块内容，这样打包出的代码量十分庞大，随着项目的不断迭代更新，随意更改一行代码需要等待的热更新时间会长达数秒甚至十几秒，很大程度上拖累了开发的效率</li>
+<li>Vite 主要解决的是开发环境下的痛点。和其他 CLI 相比，Vite 的冷启动和热更新简直是光速级别的</li>
+</ul>
+<p>Vite 很快</p>
+<p>youyuxi Twitter</p>
+<ul>
+<li>Vite 是一个由原生 ESM 驱动的 Web 开发构建工具</li>
+<li>在开发环境下基于浏览器原生 ES imports 开发，在生产环境下基于 Rollup 打包</li>
+</ul>
+<h2 id="2-Hello-World"><a href="#2-Hello-World" class="headerlink" title="2 Hello World"></a>2 Hello World</h2><h3 id="2-1-setup"><a href="#2-1-setup" class="headerlink" title="2.1 setup"></a>2.1 setup</h3><p>先写个 demo 看看项目的具体实现</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> yarn create vite-app HelloWorld</span><br><span class="line"><span class="meta">$</span> cd HelloWorld</span><br><span class="line"><span class="meta">$</span> yarn</span><br><span class="line"><span class="meta">$</span> yarn dev</span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2020/09/17/MSIFKQbRPtATG8c.png#align=left&display=inline&height=697&margin=%5Bobject%20Object%5D&originHeight=697&originWidth=1214&status=done&style=none&width=1214" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li>初次启动 vite 项目可能会慢一点，会存在一个搜集依赖的过程，但之后的启动基本都是毫秒级别的，随起随用，没有 webpack 那种沉甸甸的感觉</li>
+</ul>
+<h3 id="2-2-index-html"><a href="#2-2-index-html" class="headerlink" title="2.2 index.html"></a>2.2 index.html</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2020/09/17/BpRcWDFPmG9ukbA.png#align=left&display=inline&height=394&margin=%5Bobject%20Object%5D&originHeight=394&originWidth=1087&status=done&style=none&width=1087" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li>如上图，项目已经成功跑起来了，让我们瞅一眼它的项目代码</li>
+<li>可以看到 demo 内部是一个基本的 vue 项目的结构</li>
+<li>根目录的 index.html 里的 script 标签</li>
+<li>目前主流的浏览器都已经支持使用 <code>export</code>、<code>import</code> 的方式导入和导出模块</li>
+<li>浏览器会识别添加 <code>type=&quot;module&quot;</code> 的 <code>&lt;script&gt;</code> 元素，浏览器会把这段内联 script 认为是 <code>ECMAScript</code> 模块，浏览器将对其内部的 <code>import</code> 引用发起 http 请求获取模块内容</li>
+<li>从而实现真正的按需编译，从而在开发阶段抛弃了打包这件事，想用什么直接引即可</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"module"</span> <span class="attr">src</span>=<span class="string">"/src/main.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-3-Network"><a href="#2-3-Network" class="headerlink" title="2.3 Network"></a>2.3 Network</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2020/09/17/ChmSQnZE7qjocOy.png#align=left&display=inline&height=456&margin=%5Bobject%20Object%5D&originHeight=456&originWidth=948&status=done&style=none&width=948" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li>发现这些请求好像确实有点不太一样</li>
+<li>没有了 <code>webpack</code> 那种长长的 <code>bundle</code>，变成这种模式</li>
+<li>仔细看会发现每个 Vue 文件被拆成多块部分进行请求，主要通过 type 的类型进行区分，而这里的每一个文件完全是根据项目文件的依赖按需引入的</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2020/09/17/45DLCvZ1QkpTogN.png#align=left&display=inline&height=243&margin=%5Bobject%20Object%5D&originHeight=243&originWidth=1425&status=done&style=none&width=1425" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li>点开 <code>main.js</code>，右侧显示的内容和项目中的代码几乎没有区别，唯一变更的地方是模块的导入路径被 vite 拦截修改了</li>
+</ul>
+<p>和启动图上写的那样，让我们修改 <code>HelloWorld.vue</code> 文件来测试下热更新</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2020/09/17/z7XDgMjLdWR4kQf.png#align=left&display=inline&height=270&margin=%5Bobject%20Object%5D&originHeight=270&originWidth=1156&status=done&style=none&width=1156" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li>很不错，在还没反应过来的时候，<code>vite</code> 就完成了热更新，这种开发体验确实很丝滑</li>
+<li>可以看到浏览器新请求了一个文件，后面参数包含了当前的时间戳</li>
+<li>从 type 的参数可以看出 vite 成功识别到了我只更改了 <code>HelloWorld.vue</code> 的 <code>template</code> 部分代码，并也确实只更新了该部分</li>
+<li>这要换做是 <code>webpack</code>，那估计得等好长的编译和打包然后再更新</li>
+<li>Vite 这种拆分文件成多块进行请求的方式也在最大程度上利用了浏览器的缓存功能，也许这就是作者为什么会说 vite 热更新的速度不会随着模块增多而变慢。</li>
+</ul>
+<p>所以 Vite 在此处至少干了两件事：</p>
+<ul>
+<li>一件是拆分了 Vue 的文件内容进行分别请求</li>
+<li>第二是拦截并重写了部分模块的请求路径</li>
+</ul>
+<h2 id="3-Vite-VS-Webpack"><a href="#3-Vite-VS-Webpack" class="headerlink" title="3 Vite VS Webpack"></a>3 Vite VS Webpack</h2><ul>
+<li>我们在说 Vite 的时候一直在挂 Webpack，所以我们很有必要好好的对比下他俩的区别</li>
+<li>但是在聊区别之前，我们先来聊聊模块</li>
+</ul>
+<h3 id="3-1-聊聊模块"><a href="#3-1-聊聊模块" class="headerlink" title="3.1 聊聊模块"></a>3.1 聊聊模块</h3><p>假设有三个 js 文件 a、b、c：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// a.js</span></span><br><span class="line"><span class="keyword">const</span> a = <span class="function"><span class="params">()</span> =&gt;</span> &#123; ... &#125;</span><br><span class="line"><span class="keyword">export</span> &#123; a &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// b.js</span></span><br><span class="line"><span class="keyword">const</span> b = <span class="function"><span class="params">()</span> =&gt;</span> &#123; ... &#125;</span><br><span class="line"><span class="keyword">export</span> &#123; b &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// c.js</span></span><br><span class="line"><span class="keyword">import</span> &#123; a &#125; <span class="keyword">from</span> <span class="string">'./a'</span></span><br><span class="line"><span class="keyword">import</span> &#123; b &#125; <span class="keyword">from</span> <span class="string">'./b'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> c = <span class="function"><span class="params">()</span> =&gt;</span> a() + b()</span><br><span class="line"><span class="keyword">export</span> &#123; c &#125;</span><br></pre></td></tr></table></figure>
+<p>如果以 c 文件为入口，那么打包就会变成如下结果（简化代码）：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bundle.js</span></span><br><span class="line"><span class="keyword">const</span> a = <span class="function"><span class="params">()</span> =&gt;</span> &#123; ... &#125;</span><br><span class="line"><span class="keyword">const</span> b = <span class="function"><span class="params">()</span> =&gt;</span> &#123; ... &#125;</span><br><span class="line"><span class="keyword">const</span> c = <span class="function"><span class="params">()</span> =&gt;</span> a() + b()</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> &#123; c &#125;</span><br></pre></td></tr></table></figure>
+<p>如果按照 <code>webpack</code> 的热更新编译原理来说的话</p>
+<ul>
+<li>一旦某个依赖模块发生了改变，例如 a 文件内的代码进行了调整，系统会整体重新编译打包此处的 <code>bundle</code> 文件，并重新发送给浏览器</li>
+<li>当文件中的依赖变得非常多的时候，就算只修改一个文件中的一行代码，整个系统的热更新速度也会变得越来越慢</li>
+</ul>
+<p>那 <code>Vite</code> 的话是直接不用打包，只做编译这一层</p>
+<ul>
+<li>打包的本质无非就是将各个模块集合在一起形成新的 <code>bundle</code>，然后以一定规则读取模块的代码</li>
+<li>当浏览器解析到 <code>ESM</code> 中的 <code>import</code> 时，会自动发起请求读取对应的文件</li>
+<li>在热更新时，a 文件发生了改变，只需要更新 a 文件然后让浏览器重新请求这部分代码，b 文件完全不需要重新编译，可以直接从缓存中读 b 文件的内容</li>
+<li>也不用 <code>webpack</code> 用胶水代码去进行一些 <code>&quot;require&quot;</code>，节省了很多时间</li>
+</ul>
+<h3 id="3-2-对比"><a href="#3-2-对比" class="headerlink" title="3.2 对比"></a>3.2 对比</h3><table>
+<thead>
+<tr>
+<th></th>
+<th>Vite</th>
+<th>Webpack</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>开发环境需打包</td>
+<td>❎</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>生产环境需打包</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>冷启动速度</td>
+<td>🚀</td>
+<td>🐢</td>
+</tr>
+<tr>
+<td>热更新速度</td>
+<td>🚀🚀</td>
+<td>🐢🐢</td>
+</tr>
+<tr>
+<td>开发环境模块化</td>
+<td>ESM</td>
+<td>胶水代码</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>当然我们也得承认 <code>webpack</code> 有在使用一些 <code>tree shaking</code> 等方式去尽力减少包的体积</li>
+<li>但 <code>Vite</code> 的做法完全高了一个维度，根本比不了。不过目前 <code>Vite</code> 这种高效的模块化方式只能用在开发环境，上生产环境还是老老实实打包吧</li>
+</ul>
+<h2 id="4-看看源码"><a href="#4-看看源码" class="headerlink" title="4 看看源码"></a>4 看看源码</h2><p>那么问题来了，vite 内部是咋实现的，是怎么在浏览器里使用 ESM 的呢。</p>
+<p>实际上 vite 在后台起了一个 koa 的服务拦截了浏览器对于模块的请求并且返回它处理后的数据结果。</p>
+<p>结合前文的截图，如下图两块代码所示，可以发现 <code>main.js</code> 文件的内容从被 vite 编译后在 npm 模块引入的路径等方面做了转换。</p>
+<p><code>main.js</code> 编译前 👇</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createApp &#125; <span class="keyword">from</span> <span class="string">"vue"</span>;</span><br><span class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">"./App.vue"</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">"./index.css"</span>;</span><br><span class="line"></span><br><span class="line">createApp(App).mount(<span class="string">"#app"</span>);</span><br></pre></td></tr></table></figure>
+<p><code>main.js</code> 编译后 👇</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createApp &#125; <span class="keyword">from</span> <span class="string">"/@modules/vue.js"</span>;</span><br><span class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">"/src/App.vue"</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">"/src/index.css?import"</span>;</span><br><span class="line"></span><br><span class="line">createApp(App).mount(<span class="string">"#app"</span>);</span><br></pre></td></tr></table></figure>
+<p>createApp 是 Vue3 新提供的 api 不难理解。重点是路径被拦截重写了，特别是 <code>&#39;vue&#39;</code> 加了一个 <code>/@modules/</code> 的前缀。对于引用 node_modules 模块的路径，vite 都进行替换，增加了 <code>/@modules/</code> 这个前缀，之后浏览器再重新发起 <code>/@modules/xxx</code> 的请求，然后 vite 再拦截，再去访问真正的模块路径，听着似乎有点绕。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2020/09/17/HMj3nr1KLxSazq9.png#align=left&display=inline&height=1048&margin=%5Bobject%20Object%5D&originHeight=1048&originWidth=1182&status=done&style=none&width=1182" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>上图是在 <code>vite/dist/node/server/serverPluginModuleRewrite.js</code> 源码中截取的一段代码，从函数名就可以看到获取了请求 body 之后，有一个判断是否为 npm 模块，然后返回重写后的路径。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// vite/dist/node/server/serverPluginModuleRewrite.js</span></span><br><span class="line">exports.resolveImport = <span class="function">(<span class="params">root, importer, id, resolver, timestamp</span>) =&gt;</span> &#123;</span><br><span class="line">    id = resolver.alias(id) || id;</span><br><span class="line">    <span class="keyword">if</span> (utils_1.bareImportRE.test(id)) &#123;</span><br><span class="line">        id = <span class="string">`/@modules/<span class="subst">$&#123;resolver_1.resolveBareModuleRequest(root, id, importer, resolver)&#125;</span>`</span>;</span><br><span class="line">    &#125;</span><br><span class="line">      ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以看到这里的 id 增加了 <code>/@modules/</code> 的前缀。</p>
+<p>重写完路径之后，vite 也不会直接不管。在新的路径前面加上 <code>/@modules/</code> 前缀后，浏览器发送这个请求，它会再解析并重新响应，去 <code>node_modules</code> 里找到这个库，再基于库的 package.json 里的 modules 返回内容。</p>
+<p>这部分代码我们可以在 <code>vite/dist/node/server/serverPluginModuleResolve.js</code> 里看到</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2020/09/17/NO4vXgJ5jbFHlwY.png#align=left&display=inline&height=1314&margin=%5Bobject%20Object%5D&originHeight=1314&originWidth=1028&status=done&style=none&width=1028" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="编译-Vue"><a href="#编译-Vue" class="headerlink" title="编译 Vue"></a>编译 Vue</h3><p>在前文中我们已经发现 vite 会把 Vue 的单文件拆成多个部分分别进行请求访问，比如 template。</p>
+<p>项目文件中的 <code>HelloWorld.vue</code> 👇</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;h1&gt;&#123;&#123; msg &#125;&#125;&lt;/h1&gt;</span><br><span class="line">  &lt;button @click=&quot;count++&quot;&gt;count is: &#123;&#123; count &#125;&#125;&lt;/button&gt;</span><br><span class="line">  &lt;p&gt;</span><br><span class="line">    Edit &lt;code&gt;components/HelloWorld.vue&lt;/code&gt; to test hot module replacement.</span><br><span class="line">  &lt;/p&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &quot;HelloWorld&quot;,</span><br><span class="line">  props: &#123;</span><br><span class="line">    msg: String,</span><br><span class="line">  &#125;,</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      count: 0,</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line">button &#123;</span><br><span class="line">  background-color: lightgreen;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<p>Vite 编译之后的 <code>HelloWorld.vue</code> 👇</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// http://localhost:3000/src/components/HelloWorld.vue</span></span><br><span class="line"><span class="comment">// script部分</span></span><br><span class="line"><span class="keyword">const</span> __script = &#123;</span><br><span class="line">  name: <span class="string">"HelloWorld"</span>,</span><br><span class="line">  props: &#123;</span><br><span class="line">    msg: <span class="built_in">String</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  data() &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      count: <span class="number">0</span>,</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// style部分</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">"/src/components/HelloWorld.vue?type=style&amp;index=0"</span>;</span><br><span class="line">__script.__scopeId = <span class="string">"data-v-62a9ebed"</span>;</span><br><span class="line"><span class="comment">// template部分</span></span><br><span class="line"><span class="keyword">import</span> &#123; render <span class="keyword">as</span> __render &#125; <span class="keyword">from</span> <span class="string">"/src/components/HelloWorld.vue?type=template"</span>;</span><br><span class="line">__script.render = __render;</span><br><span class="line">__script.__hmrId = <span class="string">"/src/components/HelloWorld.vue"</span>;</span><br><span class="line">__script.__file = <span class="string">"/.../src/components/HelloWorld.vue"</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> __script;</span><br></pre></td></tr></table></figure>
+<p>如上图的两块代码所示，<code>HelloWorld.vue</code> 真正进行请求时 <code>Vite</code> 会对它做一个编译。一个项目文件中的 Vue 单文件就这样大致被编译成了 script、style、template 三部分，浏览器会先收到含有 script 逻辑的 <code>HelloWorld.vue</code>，然后当解析到样式 style 和 template 部分时，浏览器会再次发起 http 请求来获取相对应的资源，这时候的 vite 会再次拦截并处理这部分。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2020/09/17/neBIiypGXkEgzrH.png#align=left&display=inline&height=742&margin=%5Bobject%20Object%5D&originHeight=742&originWidth=1660&status=done&style=none&width=1660" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>那这里是怎么把一个请求拆分成多个的呢，源码在 <code>vite/dist/node/server/serverPluginVue.js</code> 里可以看到。</p>
+<p>注意这个 vuePlugin 函数，在一开始它解析了当前的单文件，然后进到了第一个 <code>if(!query.type)</code> 的里面，通过这个 <code>compileSFCMain</code> 函数进行了一顿操作，这个操作先按下不表。这个操作执行完后，之后再次请求进来的 import 就会携带 type 类型的值，此处就会根据这个 Query 进行分类，根据 Query 的参数不同来做不同的处理。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2020/09/17/LHIpva5hVABjmzF.png#align=left&display=inline&height=1271&margin=%5Bobject%20Object%5D&originHeight=1271&originWidth=1403&status=done&style=none&width=1403" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>那这一顿操作的函数是干了什么事呢。其实就是根据当前 .vue 文件的情况生成并注入了这段代码类似的一些信息：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">"/src/components/HelloWorld.vue?type=style&amp;index=0"</span>;</span><br><span class="line">__script.__scopeId = <span class="string">"data-v-62a9ebed"</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; render <span class="keyword">as</span> __render &#125; <span class="keyword">from</span> <span class="string">"/src/components/HelloWorld.vue?type=template"</span>;</span><br><span class="line">__script.render = __render;</span><br><span class="line">__script.__hmrId = <span class="string">"/src/components/HelloWorld.vue"</span>;</span><br><span class="line">__script.__file = <span class="string">"/.../src/components/HelloWorld.vue"</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> __script;</span><br></pre></td></tr></table></figure>
+<p>这样下来整个链路就通了，从一开始访问 .vue 文件，解析后再注入代码进行返回。浏览器解析到此处的两个 <code>import</code> 就会自动发起 http 请求。然后请求又被重新捕获到，又经过这里的代码，再次对请求进行相应返回。这就完美解释了为什么之前开发者工具里可以看到一个 vue 文件请求了三次的事情了。</p>
+<h3 id="热更新"><a href="#热更新" class="headerlink" title="热更新"></a>热更新</h3><p>Vite 主要是通过 WebSocket 来实现热更新的。</p>
+<p>客户端和服务端的代码分别在 <code>vite/dist/client/client.js</code> 和 <code>vite/dist/node/server/serverPluginHmr.js</code> 中。`</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2020/09/17/GTrPR3cABXh4nLw.png#align=left&display=inline&height=1216&margin=%5Bobject%20Object%5D&originHeight=1216&originWidth=984&status=done&style=none&width=984" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>客户端通过 websocket 监听了更新的文件类型，之后再分别进行处理。这部分在源码中写得也比较清晰，其中对于 vue 组件使用的是 vue3 提供的 HMRRuntime 进行处理的。针对 Vue 组件本身的一些更新，都可以使用 HMRRuntime 提供的方法，也是比较方便的。其他大部分的文件热更新是把 timestamp 塞进 query 里的方式来达到的。</p>
+<p>在服务端，通过 watch 项目文件的变更，然后根据文件的类型：vue 或 js 文件，分别进行热更新通知处理。</p>
+<h2 id="5-结语"><a href="#5-结语" class="headerlink" title="5 结语"></a>5 结语</h2><p>总的来说，vite 还是有点像 webpack-dev-server 这个东西干的事。而且到了生产环境还是也得用 rollup 进行打包，逃不了这一步。但是相比 webapck，它在开发过程中提供的体验真的非常好。而且这也算是一个新鲜的事物，说不准随着 vue3 正式版的推出，vite 会乘一波东风，被越来越多人所关注发现呢。虽然从目前来说，它替代 webpack 不太可能，但从另一个方面来说，它会让开发者去思考 webpack 本身的存在，没准之后会迅速出现个新工具，干掉了 webpack，再解放了一大波生产力呢，在技术迭代偏快的前端届，似乎也不是不可能。但在当下，还是用一种拓展技术视野的角度去看待它吧。<br><a href="https://jelly.jd.com/article/5f6c5650cd232101562cb51e" target="_blank" rel="noopener">https://jelly.jd.com/article/5f6c5650cd232101562cb51e</a></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-12-06T14:36:48.921Z" itemprop="dateUpdated">2020-12-06 22:36:48</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="http://fengtx.tk">
+            <img src="/img/avatar.jpg" alt="冯天祥">
+            冯天祥
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://fengtx.tk/2020/11/04/yuque/Vite分享/&title=《Vite分享》 — 冯天祥&pic=http://fengtx.tk/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://fengtx.tk/2020/11/04/yuque/Vite分享/&title=《Vite分享》 — 冯天祥&source=前端小白冯天祥的技术博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://fengtx.tk/2020/11/04/yuque/Vite分享/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Vite分享》 — 冯天祥&url=http://fengtx.tk/2020/11/04/yuque/Vite分享/&via=http://fengtx.tk" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://fengtx.tk/2020/11/04/yuque/Vite分享/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/11/12/yuque/Image Compression/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Image Compression</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/08/10/yuque/基于Vue 3造轮子/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">基于Vue 3造轮子</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢打赏
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>冯天祥 &copy; 2016 - 2020</span>
+            <!-- <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span> -->
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://fengtx.tk/2020/11/04/yuque/Vite分享/&title=《Vite分享》 — 冯天祥&pic=http://fengtx.tk/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://fengtx.tk/2020/11/04/yuque/Vite分享/&title=《Vite分享》 — 冯天祥&source=前端小白冯天祥的技术博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://fengtx.tk/2020/11/04/yuque/Vite分享/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Vite分享》 — 冯天祥&url=http://fengtx.tk/2020/11/04/yuque/Vite分享/&via=http://fengtx.tk" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://fengtx.tk/2020/11/04/yuque/Vite分享/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLElEQVR42u3ay04DMQwFUP7/p4vEqlIhurYDosnJqupjJmcWrh374yNej6/1/Pr5nddv/vSd1+usX29eGBgYb8t4LFeV0dtWcq/1A8LAwLiBUd1KHharDyV5BBgYGBhJ4EsSwV4KiIGBgTEPuNWU8REvDAwMjDUjuXRyxNZLDdff3FyLY2BgvCGj1xj4m9e/3t/AwMD494xHa1U3kV+ztysMDIyzGXlLshd8k2GLXsMg6j9gYGAcyqgGx3nCV20z/PiYMDAwDmUkB1vRofzy0yS5zK/2zfsYGBhHM3r51d4EMQ/chdE0DAyMCxjVUrYaXucpYxRwMTAwjmAkoxX55arlaG9sIupvYGBgHMSotgrWBWpvo3nRi4GBcScjL1aTcYrqcf82PAYGxgWMapjrFbR50pkPeUQtTAwMjIMY+Y/zT6NNzA/pMDAwjmZUBxry2/dW9Q8AAwPjBkZy6N8Lf71RiWYDFQMD4wJGrw1QDdPzBkO5E4uBgXEEo1q4VgvRahCvltYYGBj3MPIQVk0Nk6tN7rv5chgYGP+esb5BPv41oU5GOjAwMM5mVIck1tR8qKLXSCgXsRgYGG/OmJSdu47+J4MXGBgYNzB2jUEkRWZvkAIDAwNjMmZRbWTOc9hCPouBgXEoY97I7B3JbavCMTAwMMbUJDOtHthhYGBg9A76J78ajYthYGBcwKhuKDkyqx6rlQtXDAyMaxjzxkA1oayG1G3jGhgYGO/H+ARhOdsZs8sHuQAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
